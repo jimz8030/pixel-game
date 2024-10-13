@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cjfhlbxs1b48m"]
+
+[ext_resource type="Texture2D" uid="uid://bsfvi26gjbpjf" path="res://character_creator_background.png" id="1_r1fje"]
+[ext_resource type="Texture2D" uid="uid://cmxyvwrr1r6jw" path="res://Character_Sprites/F2.S3.png" id="2_ero1l"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(687, 386)
+texture = ExtResource("1_r1fje")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(1154, 364)
+scale = Vector2(11, 11)
+texture = ExtResource("2_ero1l")
+
+[node name="Male" type="CheckButton" parent="."]
+offset_right = 44.0
+offset_bottom = 24.0
+
+[node name="Female" type="CheckButton" parent="."]
+offset_right = 44.0
+offset_bottom = 24.0
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(687, 386)
