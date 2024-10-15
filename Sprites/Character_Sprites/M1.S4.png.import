@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cp3avpcpp4ah4"
-path="res://.godot/imported/Character_Selection_Supply.png-d9bfc00b7d11e2b4073df0ed2d7e9a92.ctex"
+uid="uid://dissudcrcethl"
+path="res://.godot/imported/M1.S4.png-cff01fdf89943b59094d66269f108e1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Character_Selection_Supply.png"
-dest_files=["res://.godot/imported/Character_Selection_Supply.png-d9bfc00b7d11e2b4073df0ed2d7e9a92.ctex"]
+source_file="res://Sprites/Character_Sprites/M1.S4.png"
+dest_files=["res://.godot/imported/M1.S4.png-cff01fdf89943b59094d66269f108e1a.ctex"]
 
 [params]
 
