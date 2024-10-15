@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://cjfhlbxs1b48m"]
 
 [ext_resource type="Texture2D" uid="uid://bsfvi26gjbpjf" path="res://Sprites/Other Sprites/character_creator_background.png" id="1_r1fje"]
-[ext_resource type="Texture2D" uid="uid://cmxyvwrr1r6jw" path="res://Sprites/Character_Sprites/F2.S3.png" id="2_ero1l"]
+[ext_resource type="Texture2D" uid="uid://cmxyvwrr1r6jw" path="res://Sprites/Character_Sprites/Oops_All_Naked/F2.S3.png" id="2_ero1l"]
 [ext_resource type="Texture2D" uid="uid://b2by3fiuwdwrr" path="res://Sprites/Other Sprites/Button_1.png" id="3_00iir"]
 [ext_resource type="ButtonGroup" uid="uid://ncicfe48eeg8" path="res://Groups/MaleFemaleButtons.tres" id="3_7sn6q"]
 [ext_resource type="ButtonGroup" uid="uid://sbeyuro534v6" path="res://Groups/BodyShape.tres" id="5_m8wqx"]
@@ -91,13 +91,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Sliders" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Hair_Slide" type="HSlider" parent="CanvasLayer/Sliders"]
+[node name="Hair_Slide" type="HSlider" parent="CanvasLayer"]
 offset_left = 99.0
 offset_top = 474.0
 offset_right = 644.0
@@ -109,7 +103,7 @@ max_value = 12.0
 rounded = true
 scrollable = false
 
-[node name="Top_Slide" type="HSlider" parent="CanvasLayer/Sliders"]
+[node name="Top_Slide" type="HSlider" parent="CanvasLayer"]
 offset_left = 256.0
 offset_top = 585.0
 offset_right = 801.0
@@ -121,7 +115,7 @@ max_value = 12.0
 rounded = true
 scrollable = false
 
-[node name="Bottom_Slide" type="HSlider" parent="CanvasLayer/Sliders"]
+[node name="Bottom_Slide" type="HSlider" parent="CanvasLayer"]
 offset_left = 102.0
 offset_top = 695.0
 offset_right = 647.0

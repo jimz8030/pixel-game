@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c4gispdvxwevo"
-path="res://.godot/imported/F1.S1.png-9cf5574e71e5bf6486cf6e0cf8bd4a44.ctex"
+uid="uid://wiy45nv7bido"
+path="res://.godot/imported/Scarf_Guy.png-df1c572c21e6db35d495ff5a24de3adc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character_Sprites/F1.S1.png"
-dest_files=["res://.godot/imported/F1.S1.png-9cf5574e71e5bf6486cf6e0cf8bd4a44.ctex"]
+source_file="res://Sprites/Character_Sprites/Scarf Guy/Scarf_Guy.png"
+dest_files=["res://.godot/imported/Scarf_Guy.png-df1c572c21e6db35d495ff5a24de3adc.ctex"]
 
 [params]
 
