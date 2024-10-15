@@ -19,6 +19,10 @@ config/features=PackedStringArray("4.3", "Forward Plus")
 window/size/viewport_width=1380
 window/size/viewport_height=770
 
+[dotnet]
+
+project/assembly_name="Pixel Game"
+
 [editor]
 
 version_control/plugin_name="sprite cutter"
