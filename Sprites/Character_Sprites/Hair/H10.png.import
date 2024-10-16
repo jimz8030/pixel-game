@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b2by3fiuwdwrr"
-path="res://.godot/imported/Button_1.png-eaab7f7abbcfdd1706c1beaffc53731e.ctex"
+uid="uid://cpt1j6sliqo6t"
+path="res://.godot/imported/H10.png-acc9e302bc33f5746c7ba3110303677f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Button_1.png"
-dest_files=["res://.godot/imported/Button_1.png-eaab7f7abbcfdd1706c1beaffc53731e.ctex"]
+source_file="res://Sprites/Character_Sprites/Hair/H10.png"
+dest_files=["res://.godot/imported/H10.png-acc9e302bc33f5746c7ba3110303677f.ctex"]
 
 [params]
 

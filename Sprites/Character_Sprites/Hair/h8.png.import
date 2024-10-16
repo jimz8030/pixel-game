@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsfvi26gjbpjf"
-path="res://.godot/imported/character_creator_background.png-b52cf91b19dec745454a625508e60397.ctex"
+uid="uid://65t1jdxbxgke"
+path="res://.godot/imported/h8.png-a440c66f8d913040aff91c079a4f24a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/character_creator_background.png"
-dest_files=["res://.godot/imported/character_creator_background.png-b52cf91b19dec745454a625508e60397.ctex"]
+source_file="res://Sprites/Character_Sprites/Hair/h8.png"
+dest_files=["res://.godot/imported/h8.png-a440c66f8d913040aff91c079a4f24a5.ctex"]
 
 [params]
 
