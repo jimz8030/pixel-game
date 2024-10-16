@@ -58,4 +58,4 @@ texture = SubResource("PlaceholderTexture2D_t3gpi")
 collision_layer = 2
 collision_mask = 5
 
-[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="_on_area_entered"]
+[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="GetNearbyArea2D"]

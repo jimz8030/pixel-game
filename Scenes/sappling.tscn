@@ -19,3 +19,4 @@ visibility_layer = 2
 texture = ExtResource("1_glkax")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEnter"]
+[connection signal="body_exited" from="." to="." method="OnBodyExit"]
