@@ -1,17 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://qbh07pe6ea4k"]
+[gd_scene load_steps=6 format=3 uid="uid://qbh07pe6ea4k"]
 
-[ext_resource type="Script" path="res://Scenes/CharacterBody2d.cs" id="1_xgtpr"]
-[ext_resource type="Texture2D" uid="uid://wiy45nv7bido" path="res://Sprites/Character_Sprites/Scarf Guy/Scarf_Guy.png" id="2_38r7j"]
-[ext_resource type="Script" path="res://Scenes/Player_reach.cs" id="3_pfl2m"]
+[ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Player.tscn" id="1_40fnc"]
 [ext_resource type="PackedScene" uid="uid://mbniv3oq0u3n" path="res://Scenes/sappling.tscn" id="4_63ux1"]
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iafr2"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3p27"]
-radius = 7.5
-height = 40.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pcyv0"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_is1rm"]
 
@@ -23,26 +13,7 @@ size = Vector2(800, 30)
 
 [node name="Tutorial" type="Node2D"]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-script = ExtResource("1_xgtpr")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-modulate = Color(1, 0, 1, 1)
-material = SubResource("CanvasItemMaterial_iafr2")
-shape = SubResource("CapsuleShape2D_h3p27")
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("2_38r7j")
-
-[node name="Area2D" type="Area2D" parent="CharacterBody2D"]
-collision_mask = 6
-script = ExtResource("3_pfl2m")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
-position = Vector2(-16, 0)
-shape = SubResource("RectangleShape2D_pcyv0")
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_40fnc")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -57,5 +28,3 @@ texture = SubResource("PlaceholderTexture2D_t3gpi")
 [node name="Sappling" parent="." instance=ExtResource("4_63ux1")]
 collision_layer = 2
 collision_mask = 5
-
-[connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D/Area2D" method="GetNearbyArea2D"]

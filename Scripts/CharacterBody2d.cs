@@ -6,10 +6,20 @@ public partial class CharacterBody2d : CharacterBody2D
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 
+//working on getting variable from another node
+	public override void _Ready()
+	{
+		Godot.Node2D Player_reach = this.GetNode<Area2D>("PlayerReachArea");
+		var PlayerReachScript = Player_reach.GetScript();
+		GD.Print(Player_reach);
+		GD.Print(PlayerReachScript);
+		
+	}
+
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
-
+		
 		// Add the gravity.
 		if (!IsOnFloor())
 		{

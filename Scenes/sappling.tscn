@@ -1,14 +1,14 @@
 [gd_scene load_steps=4 format=3 uid="uid://mbniv3oq0u3n"]
 
-[ext_resource type="Script" path="res://Scenes/Sappling.cs" id="1_bvf10"]
 [ext_resource type="Texture2D" uid="uid://cayxxbl0dg4yr" path="res://Sprites/Environment/Simple_sapling.png" id="1_glkax"]
+[ext_resource type="Script" path="res://Scripts/Sappling.cs" id="1_r0fxd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4bomg"]
 size = Vector2(20, 30)
 
 [node name="Sappling" type="Area2D"]
 position = Vector2(-180, 36)
-script = ExtResource("1_bvf10")
+script = ExtResource("1_r0fxd")
 
 [node name="SapplingCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)

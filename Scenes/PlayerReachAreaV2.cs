@@ -1,12 +1,15 @@
 using Godot;
 using System;
 
-public partial class Player_reach : Area2D
+public partial class PlayerReachAreaV2 : Area2D
 {
-	
+
+	//string nothing = "nothing";
 	public void GetNearbyArea2D(Node2D Area2D){
 		if (Area2D.Name == "Sappling"){
 			GD.Print("Sapling confirmed");
+			Area2D.QueueFree();
+			//GD.Print(nothing);
 		}
 		else{
 			GD.Print("something else is afoot. also area2d name is: "+Area2D.Name);
