@@ -3,6 +3,7 @@ using System;
 
 public partial class Player_reach_area : Area2D
 {
+	
 	public string nothing = "nothing";
 	public void GetNearbyArea2D(Node2D Area2D){
 		if (Area2D.Name == "Sappling"){
@@ -20,6 +21,7 @@ public partial class Player_reach_area : Area2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
+		SetMeta("key", "value");
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.

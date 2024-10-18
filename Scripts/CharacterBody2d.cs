@@ -1,18 +1,16 @@
 using Godot;
 using System;
+using System.Security.Cryptography.X509Certificates;
 
 public partial class CharacterBody2d : CharacterBody2D
 {
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
-
+	
 //working on getting variable from another node
 	public override void _Ready()
 	{
-		Godot.Node2D Player_reach = this.GetNode<Area2D>("PlayerReachArea");
-		var PlayerReachScript = Player_reach.GetScript();
-		GD.Print(Player_reach);
-		GD.Print(PlayerReachScript);
+		
 		
 	}
 
@@ -30,6 +28,10 @@ public partial class CharacterBody2d : CharacterBody2D
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
+			Godot.Node2D Player_reach = this.GetNode<Area2D>("PlayerReachArea");
+			var PlayerReachScript = Player_reach.GetScript();
+			GD.Print(Player_reach.GetMeta("key"));
+			GD.Print(PlayerReachScript);
 		}
 
 		// Get the input direction and handle the movement/deceleration.

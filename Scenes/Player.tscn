@@ -33,4 +33,6 @@ script = ExtResource("3_gnaet")
 position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_pcyv0")
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="area_entered" from="PlayerReachArea" to="PlayerReachArea" method="GetNearbyArea2D"]
