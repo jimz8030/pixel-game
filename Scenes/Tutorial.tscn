@@ -28,3 +28,5 @@ texture = SubResource("PlaceholderTexture2D_t3gpi")
 [node name="Sappling" parent="." instance=ExtResource("4_63ux1")]
 collision_layer = 2
 collision_mask = 5
+
+[connection signal="area_entered" from="Sappling" to="Sappling" method="ReadyToMine"]

@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 
 public partial class CharacterBody2d : CharacterBody2D
@@ -11,12 +12,13 @@ public partial class CharacterBody2d : CharacterBody2D
 	public override void _Ready()
 	{
 		
-		
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
+		//float gravity = 10.0f;
+		//float speed = 3.0f;
 		
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -29,14 +31,12 @@ public partial class CharacterBody2d : CharacterBody2D
 		{
 			velocity.Y = JumpVelocity;
 			Godot.Node2D Player_reach = this.GetNode<Area2D>("PlayerReachArea");
-			var PlayerReachScript = Player_reach.GetScript();
-			GD.Print(Player_reach.GetMeta("key"));
-			GD.Print(PlayerReachScript);
 		}
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+
 		if (direction != Vector2.Zero)
 		{
 			velocity.X = direction.X * Speed;
@@ -45,8 +45,33 @@ public partial class CharacterBody2d : CharacterBody2D
 		{
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
-
+		
 		Velocity = velocity;
-		MoveAndSlide();
+		MoveAndSlide();/*
+		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+
+		if (Input.IsActionJustPressed("ui_right"))
+		{
+			Scale = new Vector2(-1, 1);
+		}
+
+		else if (Input.IsActionJustPressed("ui_left"))
+		{
+			Scale = new Vector2(1, 1);
+		}
+
+		if (direction != Vector2.Zero)
+		{
+			velocity.X = direction.X * Speed;
+		}
+		else
+		{
+			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+		}
+		
+
+		velocity.Y = gravity * (float)delta;
+		Velocity = velocity;
+		//MoveAndSlide();*/
 	}
 }
