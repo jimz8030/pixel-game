@@ -46,6 +46,15 @@ public partial class CharacterBody2d : CharacterBody2D
 			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 		}
 		
+		if (Input.IsActionJustPressed("ui_right")){
+			GetNode<Sprite2D>("Sprite2D").FlipH = true;
+			GetNode<Area2D>("PlayerReachArea").Position = new Vector2(16,0);
+		}
+		if (Input.IsActionJustPressed("ui_left")){
+			GetNode<Sprite2D>("Sprite2D").FlipH = false;
+			GetNode<Area2D>("PlayerReachArea").Position = new Vector2(-16,0);
+
+		}
 		Velocity = velocity;
 		MoveAndSlide();/*
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
