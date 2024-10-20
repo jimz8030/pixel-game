@@ -2,6 +2,7 @@ using Godot;
 using System;
 using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
+using System.Runtime.InteropServices;
 
 public partial class CharacterBody2d : CharacterBody2D
 {
@@ -14,7 +15,26 @@ public partial class CharacterBody2d : CharacterBody2D
 		
 	}
 
-	public override void _PhysicsProcess(double delta)
+    public override void _Input(InputEvent @event)
+    {
+        base._Input(@event);
+		if (@event is InputEventKey keyEvent && keyEvent.Pressed)
+    {
+        if (keyEvent.Keycode == Key.T)
+        {
+            GD.Print("T was pressed");
+        }
+    }
+    }
+
+    public override void _Process(double delta)
+    {
+        base._Process(delta);
+		 if (Input.IsPhysicalKeyPressed(Key.E)){
+			GD.Print("E key pressed");
+		 }
+    }
+    public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 		//float gravity = 10.0f;
@@ -82,5 +102,6 @@ public partial class CharacterBody2d : CharacterBody2D
 		velocity.Y = gravity * (float)delta;
 		Velocity = velocity;
 		//MoveAndSlide();*/
+		
 	}
 }
