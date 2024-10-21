@@ -2,38 +2,37 @@ using Godot;
 using System;
 using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
-using System.Runtime.InteropServices;
+
 
 public partial class CharacterBody2d : CharacterBody2D
 {
+	
+	InputEventKey interact_key = new InputEventKey();
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 	
-//working on getting variable from another node
 	public override void _Ready()
 	{
+		//sets the key E to the interact inputmap (without using inputmap)
+		interact_key.Keycode = Key.E;
+		InputMap.AddAction("interact");
+		InputMap.ActionAddEvent("interact", interact_key);
 		
+		//this gets the node player reach so they can interact with eachoter
+		Godot.Node2D Player_reach = this.GetNode<Area2D>("PlayerReachArea");
+
 	}
+
 
     public override void _Input(InputEvent @event)
     {
         base._Input(@event);
-		if (@event is InputEventKey keyEvent && keyEvent.Pressed)
-    {
-        if (keyEvent.Keycode == Key.T)
-        {
-            GD.Print("T was pressed");
-        }
-    }
+		if (Input.IsActionJustPressed("interact")) {
+			GD.Print("interacted and ready to go");
+		}
     }
 
-    public override void _Process(double delta)
-    {
-        base._Process(delta);
-		 if (Input.IsPhysicalKeyPressed(Key.E)){
-			GD.Print("E key pressed");
-		 }
-    }
+
     public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
@@ -50,7 +49,6 @@ public partial class CharacterBody2d : CharacterBody2D
 		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
 		{
 			velocity.Y = JumpVelocity;
-			Godot.Node2D Player_reach = this.GetNode<Area2D>("PlayerReachArea");
 		}
 
 		// Get the input direction and handle the movement/deceleration.
