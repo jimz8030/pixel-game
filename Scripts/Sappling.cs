@@ -11,7 +11,8 @@ public partial class Sappling : Area2D
     
     public override void _Ready()
 	{
-		SetMeta("resource", GetResource(resource_array));
+		GD.PrintErr("Jason should probably get rid of ReadyToMineFunction, as well as the SetMeta functions in the Sappling.cs (unless we use the setmeta functions)");
+        SetMeta("resource", GetResource(resource_array));
 	}
 
     protected string GetResource(string[] input_array){

@@ -36,3 +36,4 @@ shape = SubResource("RectangleShape2D_pcyv0")
 [node name="Node2D" type="Node2D" parent="."]
 
 [connection signal="area_entered" from="PlayerReachArea" to="PlayerReachArea" method="GetNearbyArea2D"]
+[connection signal="area_exited" from="PlayerReachArea" to="PlayerReachArea" method="RemoveFarArea2D"]

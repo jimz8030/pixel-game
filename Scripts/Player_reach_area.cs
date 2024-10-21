@@ -4,14 +4,12 @@ using System.Linq;
 
 public partial class Player_reach_area : Area2D
 {
-	public Area2D[] items_in_reach = new Area2D[1];
+	public Area2D[] items_in_reach = new Area2D[2];
 	public void GetNearbyArea2D(Area2D ReachableItem){
 		if (ReachableItem.Name == "Sappling"){
-			GD.Print("Resource the player is gathering = " + ReachableItem.GetMeta("resource"));
+			//WARNING items_in_reach is an array because there might be mulitple objects within reach, however the currently written code only affects the Area2D that entered last
 			items_in_reach[0] = ReachableItem;
-			GD.Print(items_in_reach);
-			GD.PrintErr("Jason needs to work on destroying the plant when player pushes interact button (E)");
-			//Area2D.QueueFree();
+			GD.Print(items_in_reach[0].Name+" is within reach");
 		}
 		else{
 			GD.Print("something else is afoot. also area2d name is: "+ReachableItem.Name);
@@ -19,7 +17,25 @@ public partial class Player_reach_area : Area2D
 
 
 	}
-	
+
+	public void RemoveFarArea2D(Area2D ItemLeaving){
+		items_in_reach[0] = null;
+		GD.Print(ItemLeaving.Name+" is leaving the player's reach");
+	}
+
+	public override void _Input(InputEvent @event)
+    {
+        base._Input(@event);
+		if (Input.IsActionJustPressed("interact")) {
+			if (items_in_reach[0] != null){
+				GD.Print(items_in_reach[0].Name+" is being deleted");
+				items_in_reach[0].QueueFree();
+			}
+			else{
+				GD.Print("there is no item in items_in_reach[0] array");
+			}
+		}
+	}
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{

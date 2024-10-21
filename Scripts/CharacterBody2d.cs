@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 
 public partial class CharacterBody2d : CharacterBody2D
 {
-	
+	Godot.Node2D PlayerReach;
 	InputEventKey interact_key = new InputEventKey();
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
@@ -19,7 +19,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		InputMap.ActionAddEvent("interact", interact_key);
 		
 		//this gets the node player reach so they can interact with eachoter
-		Godot.Node2D Player_reach = this.GetNode<Area2D>("PlayerReachArea");
+		PlayerReach = this.GetNode<Area2D>("PlayerReachArea");
 
 	}
 
@@ -27,9 +27,7 @@ public partial class CharacterBody2d : CharacterBody2D
     public override void _Input(InputEvent @event)
     {
         base._Input(@event);
-		if (Input.IsActionJustPressed("interact")) {
-			GD.Print("interacted and ready to go");
-		}
+		//not important because Player_reach_area is handling the inputs (I would do things here, but the variables don't transfer well)
     }
 
 
@@ -65,12 +63,13 @@ public partial class CharacterBody2d : CharacterBody2D
 		}
 		
 		if (Input.IsActionJustPressed("ui_right")){
+			//these two if statements flip the area2d called player reach. the reason Vector2 is 32 and 0 is because it changes based on it's starting position. basically it's changing the position by 32 pixels to the right and it goes back to starting position if you're facing the left
 			GetNode<Sprite2D>("Sprite2D").FlipH = true;
-			GetNode<Area2D>("PlayerReachArea").Position = new Vector2(16,0);
+			GetNode<Area2D>("PlayerReachArea").Position = new Vector2(32,0);
 		}
-		if (Input.IsActionJustPressed("ui_left")){
+		else if (Input.IsActionJustPressed("ui_left")){
 			GetNode<Sprite2D>("Sprite2D").FlipH = false;
-			GetNode<Area2D>("PlayerReachArea").Position = new Vector2(-16,0);
+			GetNode<Area2D>("PlayerReachArea").Position = new Vector2(0,0);
 
 		}
 		Velocity = velocity;

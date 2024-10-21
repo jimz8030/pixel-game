@@ -18,5 +18,4 @@ shape = SubResource("RectangleShape2D_4bomg")
 visibility_layer = 2
 texture = ExtResource("1_glkax")
 
-[connection signal="body_entered" from="." to="." method="OnBodyEnter"]
-[connection signal="body_exited" from="." to="." method="OnBodyExit"]
+[connection signal="area_entered" from="." to="." method="GetNearbyArea2D"]
