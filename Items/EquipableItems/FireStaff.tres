@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EquipableItemScript" load_steps=3 format=3 uid="uid://b1siigaumpsls"]
+
+[ext_resource type="Script" path="res://Items/EquipableItems/EquipableItemScript.cs" id="1_ei17m"]
+[ext_resource type="Texture2D" uid="uid://bgbciacpm54ny" path="res://Sprites/Environment/Fire.png" id="1_tko77"]
+
+[resource]
+script = ExtResource("1_ei17m")
+ResourceImage = ExtResource("1_tko77")
+MergeFrom = "Wood"
+MergeType = "Flame"
+DamageType = "Fire"
+Damage = 2.0
+AttackSpeed = 1.0

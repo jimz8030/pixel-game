@@ -17,13 +17,15 @@ public partial class Sappling : Area2D
     //float Damage;
     //float AttackSpeed;
     
-    //public void Initialize(EquipableItemScript equipableItem) {
-    //    MergeFrom = equipableItem.MergeFrom;
-    //    MergeType = equipableItem.MergeType;
-    //    DamageType = equipableItem.DamageType;
-    //    Damage = equipableItem.Damage;
-    //    AttackSpeed = equipableItem.AttackSpeed;
-    //}
+    public void Initialize(EquipableItemScript equipableItem) {
+        //MergeFrom = equipableItem.MergeFrom;
+        //MergeType = equipableItem.MergeType;
+        //DamageType = equipableItem.DamageType;
+        //Damage = equipableItem.Damage;
+        //AttackSpeed = equipableItem.AttackSpeed;
+        Sprite2D ResourceImage = GetNode<Sprite2D>("SapplingSprite");
+        ResourceImage.Texture = equipableItem.ResourceImage;
+    }
 
     public override void _Ready()
 	{
@@ -31,6 +33,8 @@ public partial class Sappling : Area2D
         //Initialize(GD.Load<EquipableItemScript>("res://Items/EquipableItems/"+Name+"Staff.tres"));
         string ResourcePath = "res://Items/EquipableItems/"+Name+"Staff.tres";
         SetMeta("merge_path", ResourcePath);
+        
+        Initialize(GD.Load<EquipableItemScript>(ResourcePath));
 	}
 
     protected string GetResource(string[] input_array){

@@ -34,11 +34,12 @@ public partial class Player_reach_area : Area2D
 
 
 	public void GetNearbyArea2D(Area2D ReachableItem){
-		if (ReachableItem.Name == "Sappling"){
+		if (ReachableItem.Name == "Sappling" || ReachableItem.Name == "Boulder" || ReachableItem.Name == "Fire"){
 			//WARNING items_in_reach is an array because there might be mulitple objects within reach, however the currently written code only affects the Area2D that entered last
 			items_in_reach[0] = ReachableItem;
 			GD.Print(items_in_reach[0].Name+" is within reach");
 		}
+		
 		else{
 			GD.Print("something else is afoot. also area2d name is: "+ReachableItem.Name);
 		}
@@ -56,14 +57,18 @@ public partial class Player_reach_area : Area2D
         base._Input(@event);
 		if (Input.IsActionJustPressed("interact")) {
 			if (items_in_reach[0] != null){
-				GD.Print(items_in_reach[0].Name+" is being deleted");
+				GD.Print(items_in_reach[0].Name+" is being interacted with");
 				Variant MergePotential = items_in_reach[0].GetMeta("merge_path");
 				if (CheckIfMergable(items_in_reach[0].GetMeta("merge_path")))
 				{
 					EquipNewItem(GD.Load<EquipableItemScript>(Convert.ToString(items_in_reach[0].GetMeta("merge_path"))));
-					GD.Print(AttackSpeed);
+					GD.Print(Damage + " " + DamageType);
+					items_in_reach[0].QueueFree();
 				}
-				items_in_reach[0].QueueFree();
+				else{
+					GD.Print("You canot gather this resource yet");
+				}
+				
 			}
 			else{
 				GD.Print("there is no item in items_in_reach[0] array");
@@ -75,7 +80,7 @@ public partial class Player_reach_area : Area2D
 	{
 		//this gets the equipped item resource that this node has, WARNING I need to update this code when we have a save file so that the equipped item isn't the player's hands
 		EquipNewItem(GD.Load<EquipableItemScript>("res://Items/EquipableItems/Hands.tres"));
-		GD.Print(AttackSpeed);
+		GD.Print(Damage + " " + DamageType);
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
