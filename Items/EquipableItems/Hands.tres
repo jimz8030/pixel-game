@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EquipableItemScript" load_steps=2 format=3 uid="uid://cegwepfwj5kdd"]
+
+[ext_resource type="Script" path="res://Items/EquipableItems/EquipableItemScript.cs" id="1_jdfh7"]
+
+[resource]
+script = ExtResource("1_jdfh7")
+MergeFrom = "Nothing"
+MergeType = "Nothing"
+DamageType = "Bludgeoning"
+Damage = 0.25
+AttackSpeed = 4.0

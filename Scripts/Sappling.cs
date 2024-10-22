@@ -7,12 +7,30 @@ using static Godot.GD;
 
 public partial class Sappling : Area2D
 {
+    [Export]
+    public Resource ResourceType;
     string[] resource_array = {"leaf","stick"};
     
+    //string MergeFrom;
+    //string MergeType;
+    //string DamageType;
+    //float Damage;
+    //float AttackSpeed;
+    
+    //public void Initialize(EquipableItemScript equipableItem) {
+    //    MergeFrom = equipableItem.MergeFrom;
+    //    MergeType = equipableItem.MergeType;
+    //    DamageType = equipableItem.DamageType;
+    //    Damage = equipableItem.Damage;
+    //    AttackSpeed = equipableItem.AttackSpeed;
+    //}
+
     public override void _Ready()
 	{
 		GD.PrintErr("Jason should probably get rid of ReadyToMineFunction, as well as the SetMeta functions in the Sappling.cs (unless we use the setmeta functions)");
-        SetMeta("resource", GetResource(resource_array));
+        //Initialize(GD.Load<EquipableItemScript>("res://Items/EquipableItems/"+Name+"Staff.tres"));
+        string ResourcePath = "res://Items/EquipableItems/"+Name+"Staff.tres";
+        SetMeta("merge_path", ResourcePath);
 	}
 
     protected string GetResource(string[] input_array){

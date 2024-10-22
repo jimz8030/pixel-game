@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EquipableItemScript" load_steps=2 format=3 uid="uid://c3fqvtpgmbtse"]
+
+[ext_resource type="Script" path="res://Items/EquipableItems/EquipableItemScript.cs" id="1_28vqw"]
+
+[resource]
+script = ExtResource("1_28vqw")
+MergeFrom = "Nothing"
+MergeType = "Wood"
+DamageType = "Piercing"
+Damage = 1.0
+AttackSpeed = 1.0
