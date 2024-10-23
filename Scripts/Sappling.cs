@@ -11,12 +11,16 @@ public partial class Sappling : Area2D
     public Resource ResourceType;
     string[] resource_array = {"leaf","stick"};
     
+    string MergeType;
+    string MergeFrom;
 
     
     //Initialize funciton gets the sprite2d node and sets it to the image held by the resource attached to this node
     public void Initialize(EquipableItemScript equipableItem) {
         Sprite2D ResourceImage = GetNode<Sprite2D>("SapplingSprite");
         ResourceImage.Texture = equipableItem.ResourceImage;
+        //MergeType = equipableItem.MergeType;
+        MergeFrom = equipableItem.MergeFrom;
     }
 
 
@@ -41,7 +45,18 @@ public partial class Sappling : Area2D
     //this function isn't nessisary since we don't have anything to do with resources or gather resources, but could be used at some point
     protected void ReadyToMine(Area2D miner){
         SetMeta("resource", GenerateResources(resource_array));
+        if (miner.Name == "PlayerReachArea"){
+            String[] EquipedMergeType = new string[1];
+            if ((string)miner.GetMeta("MergeFrom") == MergeFrom){
+                GetNode<GpuParticles2D>("MergeableParticles").Emitting = true;
+            }
+            else{
+                GD.Print("failed to produce particles becase... "+ miner.GetMeta("MergeFrom")+" doesn't equal "+MergeFrom);
+            }
+            
+        }
     }
+
 
     //bool player_nearby = false;
     //detects when player or another phisicsbody2d enters the area

@@ -24,6 +24,7 @@ public partial class Player_reach_area : Area2D
         DamageType = equipableItem.DamageType;
         Damage = equipableItem.Damage;
         AttackSpeed = equipableItem.AttackSpeed;
+		SetMeta("MergeFrom", MergeType);
     }
 
 
@@ -98,6 +99,7 @@ public partial class Player_reach_area : Area2D
 		//this gets the equipped item resource that this node has, WARNING I need to update this code when we have a save file so that the equipped item isn't the player's hands
 		EquipNewItem(GD.Load<EquipableItemScript>("res://Items/EquipableItems/Hands.tres"));
 		GD.Print(Damage + " " + DamageType);
+		SetMeta("MergeFrom", MergeType);
 	}
 
 
