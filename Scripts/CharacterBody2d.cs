@@ -19,6 +19,7 @@ public partial class CharacterBody2d : CharacterBody2D
 
 	public override void _Ready()
 	{
+		GD.PrintErr("problem when moving after jump dashing");
 		//sets the key E to the interact inputmap (without using inputmap)
 		InteractKey.Keycode = Key.E;
 		InputMap.AddAction("interact");
@@ -56,7 +57,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor())
+		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor() && DashCharging <= 9.5f)
 		{
 			velocity.Y = JumpVelocity;
 		}
@@ -64,23 +65,29 @@ public partial class CharacterBody2d : CharacterBody2D
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
-		if (direction != Vector2.Zero)
+		if (direction != Vector2.Zero && DashCharging <= 9f)
 		{
 			velocity.X = direction.X * Speed;
 		}
 		else
 		{
-			velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			if (IsOnFloor()){
+				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			}
 		}
 		
 		DashCharging -= 0.1f;
 		if (Input.IsActionJustPressed("dash") && DashCharging <= 0f){
 			DashCharging = 10f;
+			float SpeedModifier = 3f;
+			if (IsOnFloor()){
+				SpeedModifier = 10f;
+			}
 			if (GetNode<Sprite2D>("Sprite2D").FlipH){
-				velocity.X = Speed * 10;
+				velocity.X += Speed * SpeedModifier;
 			}
 			else{
-				velocity.X = -Speed * 10;
+				velocity.X -= Speed * SpeedModifier;
 			}
 			GD.Print("velocity of player is... "+velocity.X);
 			GD.Print("dash activating... because ");
