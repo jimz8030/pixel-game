@@ -67,7 +67,15 @@ public partial class CharacterBody2d : CharacterBody2D
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		if (direction != Vector2.Zero && DashCharging <= 9f)
 		{
+			if (Math.Abs(velocity.X) > Math.Abs(direction.X * Speed) && IsOnFloor() == false){
+				if (Math.Sign(direction.X) != Math.Sign(velocity.X)){
+					velocity.X = direction.X * Speed;
+				}
+			}
+			else{
 			velocity.X = direction.X * Speed;
+
+			}
 		}
 		else
 		{
@@ -80,7 +88,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		if (Input.IsActionJustPressed("dash") && DashCharging <= 0f){
 			DashCharging = 10f;
 			float SpeedModifier = 3f;
-			if (IsOnFloor()){
+			if (IsOnFloor() && Input.IsActionPressed("ui_accept") == false){
 				SpeedModifier = 10f;
 			}
 			if (GetNode<Sprite2D>("Sprite2D").FlipH){
