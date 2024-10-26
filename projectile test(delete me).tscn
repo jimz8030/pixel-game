@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://yk5517wwyi36"]
 
 [ext_resource type="PackedScene" uid="uid://slfa3k5cs5go" path="res://projectile.tscn" id="1_ynrnj"]
-[ext_resource type="Resource" uid="uid://ctkuxqjhseqqk" path="res://Items/Projectiles/BoulderProjectile.tres" id="2_06e2o"]
+[ext_resource type="Resource" uid="uid://d4aciif11t0ru" path="res://Items/Projectiles/SaplingProjectile.tres" id="2_fmbqp"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b6xyo"]
 
@@ -27,7 +27,7 @@ texture = SubResource("PlaceholderTexture2D_nbqer")
 [node name="Camera2D" type="Camera2D" parent="StaticBody2D"]
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(65, 106)
+position = Vector2(57, 119)
 rotation = -2.10138
 scale = Vector2(1, 3)
 physics_material_override = SubResource("PhysicsMaterial_b6xyo")
@@ -43,4 +43,4 @@ texture = SubResource("PlaceholderTexture2D_nbqer")
 
 [node name="Projectile" parent="." instance=ExtResource("1_ynrnj")]
 scale = Vector2(0.8, 0.8)
-ProjectileType = ExtResource("2_06e2o")
+ProjectileType = ExtResource("2_fmbqp")

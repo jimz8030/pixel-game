@@ -8,25 +8,28 @@ public partial class ProjectileNode : CharacterBody2D
 	[Export]
 	ProjectileScript ProjectileType;
 
-	int Radius = 10;
+	float WallBounceMod;
+	float Radius = 10f;
 	//used to calculate how long the projectile should be alive
 	float Lifetime = 10f;
 	//makes gravity heavier for specific objects, 1 seems like normal gravity, 0 is no gravity
 	float GravityMultiplier = 1f;
 	//changes how fast the projectile is going on spawn, should be changed depending on mouse location and maybe how fast the player is moving too
-	float SpeedY = 10f;
+	float SpeedY = 100f;
 	float SpeedX = 0;
 
 	///gives the projectile different physics depending on its property
-	string WallTouchProperty = "bouncy";
+	string WallTouchProperty = "bounce";
 
 
 
 	public void Initialize(ProjectileScript projectileType){
-		Radius = projectileType.RadiusPixels;
+		WallBounceMod = projectileType.WallBounceMod;
+		Radius = projectileType.Radius;
 		Lifetime = projectileType.Lifetime;
 		GravityMultiplier = projectileType.Gravity;
-
+		WallTouchProperty = projectileType.WallTouchProperty;
+		GD.Print("initalizing");
 		GetNode<Sprite2D>("ProjectileImage").Texture = projectileType.ProjectileImage;
 	}
     public override void _EnterTree()
@@ -40,7 +43,7 @@ public partial class ProjectileNode : CharacterBody2D
 		ShapeProperty.Radius = Radius;
 		GetNode<CollisionShape2D>("ProjectileShape").Shape = ShapeProperty;
 		//change the size of the picture if possible, this might be bad since the picture might not have the same sizing as the circle (like a fire sprite might be taller and not so cirlcuar)
-		GetNode<Sprite2D>("ProjectileImage").Scale = new Godot.Vector2(Radius/2,Radius/2);
+		GetNode<Sprite2D>("ProjectileImage").Scale = new Godot.Vector2(Radius/4,Radius/4);
 		GD.Print("radius ", Radius);
 	}
 
@@ -54,15 +57,15 @@ public partial class ProjectileNode : CharacterBody2D
 		}
 		
 		//checks the property of the projectile, whether it bounces, get's destroyed on wall, or something else (so far it can only bounce)
-		if (WallTouchProperty == "bouncy"){
+		if (WallTouchProperty == "bounce"){
 			//if it is on the ground it tries to bounce by changing velocity to the other direction of it's fastest point (also gets halved so it doesn't bounce forever)
 			var collision = MoveAndCollide(Velocity * (float)delta);
         	if (collision != null)
 			{
 				//this actually bounces the projectile
 				Velocity = Velocity.Bounce(collision.GetNormal());
-				//this changes the velocity so it is less bouncy (by half)
-				Velocity = new Godot.Vector2(Velocity.X/2, Velocity.Y/2);
+				//this changes the velocity so it is less bouncy (by wall bounce mod which should be less than 1)
+				Velocity = new Godot.Vector2(Velocity.X * WallBounceMod, Velocity.Y * WallBounceMod);
 				
 				//used for dealing damage I think. Honestly I coppied bullet code to get bounce to work, but we can definately use this to deal damage and status affects
 				if (collision.GetCollider().HasMethod("Hit"))
@@ -71,7 +74,13 @@ public partial class ProjectileNode : CharacterBody2D
 				}
 			}
 		}
-		
+		else if (WallTouchProperty == "destroy"){
+			var collision = MoveAndCollide(Velocity * (float)delta);
+        	if (collision != null){
+				QueueFree();
+			}
+		}
+
 		//counts down the lifetime until it's destroyed by QueueFree() function
 		Lifetime -= .1f;
 		//checks if the object should be destroyed after a certain ammount of time (or is delta frames?)

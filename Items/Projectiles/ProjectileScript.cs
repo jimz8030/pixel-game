@@ -9,18 +9,21 @@ public partial class ProjectileScript : Resource
 	[Export]
 	public string WallTouchProperty {set; get;}
 	[Export]
-	public int RadiusPixels {set; get;}
+	public float WallBounceMod {set; get;}
+	[Export]
+	public float Radius {set; get;}
 	[Export]
 	public float Gravity {set; get;}
 	[Export]
 	public float Lifetime {set; get;}
 
-	public void Projectile(Texture2D projectileImage, string wallTouchProperty, int radiusPixels, float gravity, float lifetime)
+	public void Projectile(Texture2D projectileImage, string wallTouchProperty, float wallBounceMod, float radius, float gravity, float lifetime)
 	{
 		ProjectileImage = projectileImage;
+		WallBounceMod = wallBounceMod;
 		WallTouchProperty = wallTouchProperty;
 		Gravity = gravity;
 		Lifetime = lifetime;
-		RadiusPixels = radiusPixels;
+		Radius = radius;
 	}
 }

@@ -1,10 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://slfa3k5cs5go"]
 
 [ext_resource type="Script" path="res://ProjectileNode.cs" id="1_6r4yv"]
+[ext_resource type="Texture2D" uid="uid://n3xupgs8l661" path="res://Sprites/Environment/BoulderProjectile.png" id="2_n84tb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yd75o"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2wfio"]
 
 [node name="Projectile" type="CharacterBody2D"]
 script = ExtResource("1_6r4yv")
@@ -13,6 +12,5 @@ script = ExtResource("1_6r4yv")
 shape = SubResource("CircleShape2D_yd75o")
 
 [node name="ProjectileImage" type="Sprite2D" parent="."]
-position = Vector2(-2.98023e-08, -4.76837e-07)
-scale = Vector2(13, 13)
-texture = SubResource("PlaceholderTexture2D_2wfio")
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_n84tb")

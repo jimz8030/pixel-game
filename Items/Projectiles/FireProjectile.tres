@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ProjectileScript" load_steps=3 format=3 uid="uid://bluujvbhcqi0m"]
+
+[ext_resource type="Script" path="res://Items/Projectiles/ProjectileScript.cs" id="1_hvvo6"]
+[ext_resource type="Texture2D" uid="uid://c6vfx5ki1nh6x" path="res://Sprites/Environment/FireProjectile.png" id="1_svxoh"]
+
+[resource]
+script = ExtResource("1_hvvo6")
+ProjectileImage = ExtResource("1_svxoh")
+WallTouchProperty = "bounce"
+WallBounceMod = 1.0
+Radius = 4.0
+Gravity = 0.0
+Lifetime = 10.0

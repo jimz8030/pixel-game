@@ -8,7 +8,7 @@ public partial class CharacterBody2d : CharacterBody2D
 {
 	Godot.Node2D PlayerReach;
 	InputEventKey InteractKey = new InputEventKey();
-	InputEventKey AttackKey = new InputEventKey();
+	InputEventMouseButton AttackKey = new InputEventMouseButton();
 	InputEventKey DashKey = new InputEventKey();
 	
 	public const float Speed = 300.0f;
@@ -24,7 +24,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		InteractKey.Keycode = Key.E;
 		InputMap.AddAction("interact");
 		InputMap.ActionAddEvent("interact", InteractKey);
-		AttackKey.Keycode = Key.R;
+		AttackKey.ButtonIndex = MouseButton.Right;
 		InputMap.AddAction("attack");
 		InputMap.ActionAddEvent("attack", AttackKey);
 		DashKey.Keycode = Key.Shift;
@@ -41,7 +41,23 @@ public partial class CharacterBody2d : CharacterBody2D
     {
         base._Input(@event);
 		//not important because Player_reach_area is handling the inputs (I would do things here, but the variables don't transfer well)
-		
+		if (Input.IsActionJustPressed("attack")){
+			Vector2 ScreenSize = GetViewport().GetVisibleRect().Size;
+			Vector2 AttackPosition = GetViewport().GetMousePosition();
+			if (AttackPosition.X > ScreenSize.X/2){
+				GD.Print("attacking right");
+			}
+			else if (AttackPosition.X < ScreenSize.X/2){
+				GD.Print("attacking left");
+			}
+			if (AttackPosition.Y > ScreenSize.Y/2){
+				GD.Print("attacking down");
+			}
+			else if (AttackPosition.Y < ScreenSize.Y/2){
+				GD.Print("attaking up");
+			}
+			GD.Print("attacking at ", AttackPosition);
+		}
 	}
 
 
