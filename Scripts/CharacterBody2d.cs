@@ -6,8 +6,8 @@ using System.Security.Cryptography.X509Certificates;
 
 public partial class CharacterBody2d : CharacterBody2D
 {
-	Godot.Node2D MainNode;
-	Godot.Node2D PlayerReach;
+	public Godot.Node2D MainNode;
+	Godot.Area2D PlayerReach;
 	InputEventKey InteractKey = new InputEventKey();
 	InputEventMouseButton AttackKey = new InputEventMouseButton();
 	InputEventKey DashKey = new InputEventKey();
@@ -15,6 +15,7 @@ public partial class CharacterBody2d : CharacterBody2D
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 	public float DashCharging = 0f;
+	float AttackCharging;
 	
 
 
@@ -34,7 +35,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		InputMap.ActionAddEvent("dash", DashKey);
 
 		//this gets the node player reach so they can interact with eachoter
-		PlayerReach = this.GetNode<Area2D>("PlayerReachArea");
+		PlayerReach = GetNode<Area2D>("PlayerReachArea");
 
 	}
 
@@ -43,33 +44,6 @@ public partial class CharacterBody2d : CharacterBody2D
     {
         base._Input(@event);
 		//not important because Player_reach_area is handling the inputs (I would do things here, but the variables don't transfer well)
-		if (Input.IsActionJustPressed("attack")){
-			Vector2 ScreenSize = GetViewport().GetVisibleRect().Size;
-			Vector2 AttackPosition = GetViewport().GetMousePosition();
-			//spawn projectile in center of player_reach_area, then make it move toward where person clicked
-			Godot.PackedScene ProjectileScene = GD.Load<PackedScene>("res://Scenes/projectile.tscn");
-			ProjectileNode Projectile = (ProjectileNode)ProjectileScene.Instantiate();
-			//subracts half of the screen from where the mouse is (gets direction of mouse relative to center of screen) WARNING this will cause minor problems if player isn't centered (like if we add camera movement stuff)
-			Projectile.SpeedX = AttackPosition.X-ScreenSize.X/2;
-			Projectile.SpeedY = AttackPosition.Y-ScreenSize.Y/2;
-			//the above code loads a scene tree, in order to get a 
-			MainNode.AddChild(Projectile);
-			
-			
-			if (AttackPosition.X > ScreenSize.X/2){
-				GD.Print("attacking right");
-			}
-			else if (AttackPosition.X < ScreenSize.X/2){
-				GD.Print("attacking left");
-			}
-			if (AttackPosition.Y > ScreenSize.Y/2){
-				GD.Print("attacking down");
-			}
-			else if (AttackPosition.Y < ScreenSize.Y/2){
-				GD.Print("attaking up");
-			}
-			GD.Print("attacking at ", AttackPosition);
-		}
 	}
 
 
@@ -132,11 +106,11 @@ public partial class CharacterBody2d : CharacterBody2D
 		if (Input.IsActionJustPressed("ui_right")){
 			//these two if statements flip the area2d called player reach. the reason Vector2 is 32 and 0 is because it changes based on it's starting position. basically it's changing the position by 32 pixels to the right and it goes back to starting position if you're facing the left
 			GetNode<Sprite2D>("Sprite2D").FlipH = true;
-			GetNode<Area2D>("PlayerReachArea").Position = new Vector2(32,0);
+			PlayerReach.Position = new Vector2(32,0);
 		}
 		else if (Input.IsActionJustPressed("ui_left")){
 			GetNode<Sprite2D>("Sprite2D").FlipH = false;
-			GetNode<Area2D>("PlayerReachArea").Position = new Vector2(0,0);
+			PlayerReach.Position = new Vector2(0,0);
 
 		}
 		Velocity = velocity;

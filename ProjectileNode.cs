@@ -6,7 +6,7 @@ using System.Numerics;
 public partial class ProjectileNode : CharacterBody2D
 {
 	[Export]
-	ProjectileScript ProjectileType; //= GD.Load<ProjectileScript>("res://Items/Projectiles/BoulderProjectile.tres");
+	public ProjectileScript ProjectileType; //= GD.Load<ProjectileScript>("res://Items/Projectiles/BoulderProjectile.tres");
 
 	float WallBounceMod;
 	float Radius = 10f;
@@ -29,12 +29,12 @@ public partial class ProjectileNode : CharacterBody2D
 		Lifetime = projectileType.Lifetime;
 		GravityMultiplier = projectileType.Gravity;
 		WallTouchProperty = projectileType.WallTouchProperty;
-		GD.Print("initalizing");
+		//GD.Print("initalizing");
 		GetNode<Sprite2D>("ProjectileImage").Texture = projectileType.ProjectileImage;
 	}
-    public override void _EnterTree()
+    public override void _Ready()
     {
-        base._EnterTree();
+        // base._EnterTree();
 		Initialize(ProjectileType);
 		//replace this below with new Godot,Vector2(mouse position) this way it goes towards where we want.
 		Velocity = new Godot.Vector2(SpeedX,SpeedY);
@@ -44,7 +44,7 @@ public partial class ProjectileNode : CharacterBody2D
 		GetNode<CollisionShape2D>("ProjectileShape").Shape = ShapeProperty;
 		//change the size of the picture if possible, this might be bad since the picture might not have the same sizing as the circle (like a fire sprite might be taller and not so cirlcuar)
 		GetNode<Sprite2D>("ProjectileImage").Scale = new Godot.Vector2(Radius/4,Radius/4);
-		GD.Print("radius ", Radius);
+		//GD.Print("radius ", Radius);
 	}
 
 

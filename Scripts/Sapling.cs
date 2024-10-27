@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using static Godot.GD;
 //Jason McGraw 10/16/24
 
-public partial class Sappling : Area2D
+public partial class Sapling : Area2D
 {
     [Export]
     public Resource ResourceType;
@@ -17,7 +17,7 @@ public partial class Sappling : Area2D
     
     //Initialize funciton gets the sprite2d node and sets it to the image held by the resource attached to this node
     public void Initialize(EquipableItemScript equipableItem) {
-        Sprite2D ResourceImage = GetNode<Sprite2D>("SapplingSprite");
+        Sprite2D ResourceImage = GetNode<Sprite2D>("SaplingSprite");
         ResourceImage.Texture = equipableItem.ResourceImage;
         //MergeType = equipableItem.MergeType;
         MergeFrom = equipableItem.MergeFrom;
@@ -47,11 +47,11 @@ public partial class Sappling : Area2D
         SetMeta("resource", GenerateResources(resource_array));
         if (miner.Name == "PlayerReachArea"){
             String[] EquipedMergeType = new string[1];
-            if ((string)miner.GetMeta("MergeFrom") == MergeFrom){
+            if ((string)miner.GetMeta("MergeType") == MergeFrom){
                 GetNode<GpuParticles2D>("MergeableParticles").Emitting = true;
             }
             else{
-                GD.Print("failed to produce particles becase... "+ miner.GetMeta("MergeFrom")+" doesn't equal "+MergeFrom);
+                GD.Print("failed to produce particles becase... "+ miner.GetMeta("MergeType")+" doesn't equal "+MergeFrom);
             }
             
         }

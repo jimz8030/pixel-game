@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://qbh07pe6ea4k"]
+[gd_scene load_steps=6 format=3 uid="uid://qbh07pe6ea4k"]
 
 [ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Player.tscn" id="1_40fnc"]
-[ext_resource type="Resource" uid="uid://8k2walypqn84" path="res://Items/EquipableItems/BoulderStaff.tres" id="3_db1yj"]
 [ext_resource type="PackedScene" uid="uid://mbniv3oq0u3n" path="res://Scenes/sappling.tscn" id="4_63ux1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_is1rm"]
@@ -29,7 +28,7 @@ position = Vector2(0.5, 0)
 scale = Vector2(1.725, 1)
 texture = SubResource("PlaceholderTexture2D_t3gpi")
 
-[node name="Sappling" parent="." instance=ExtResource("4_63ux1")]
+[node name="Sapling" parent="." instance=ExtResource("4_63ux1")]
 collision_layer = 2
 collision_mask = 5
 
@@ -37,14 +36,12 @@ collision_mask = 5
 position = Vector2(151, 36)
 collision_layer = 2
 collision_mask = 5
-ResourceType = ExtResource("3_db1yj")
 
 [node name="Fire" parent="." instance=ExtResource("4_63ux1")]
 position = Vector2(265, 35)
 collision_layer = 2
 collision_mask = 5
-ResourceType = ExtResource("3_db1yj")
 
-[connection signal="area_entered" from="Sappling" to="Sappling" method="ReadyToMine"]
+[connection signal="area_entered" from="Sapling" to="Sapling" method="ReadyToMine"]
 [connection signal="area_entered" from="Boulder" to="Boulder" method="ReadyToMine"]
 [connection signal="area_entered" from="Fire" to="Fire" method="ReadyToMine"]

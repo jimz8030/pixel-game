@@ -10,21 +10,24 @@ public partial class Player_reach_area : Area2D
 	public Resource EquippedItem;
 	public Area2D[] ReachableItems = new Area2D[2];
 	string MergeFrom;
-    string MergeType;
+    string CurrentMergeType;
     string DamageType;
     float Damage;
     float AttackSpeed;
+	private float AttackCharging;
 
 
 
 	//this code changes the stats of this node (which is basically the player's hands) to the new stats of a merged or newly equipped item
 	public void EquipNewItem(EquipableItemScript equipableItem) {
         MergeFrom = equipableItem.MergeFrom;
-        MergeType = equipableItem.MergeType;
+        CurrentMergeType = equipableItem.MergeType;
         DamageType = equipableItem.DamageType;
         Damage = equipableItem.Damage;
         AttackSpeed = equipableItem.AttackSpeed;
-		SetMeta("MergeFrom", MergeType);
+		SetMeta("MergeType", CurrentMergeType);
+		SetMeta("AttackSpeed", AttackSpeed);
+		AttackCharging = 0;
     }
 
 
@@ -33,7 +36,7 @@ public partial class Player_reach_area : Area2D
 		bool IsItemMergable = false;
 		EquipableItemScript NewItem = GD.Load<EquipableItemScript>(Convert.ToString(path));
 		//this checks if the held item can be merged with the resource to make a new item
-		if (MergeType == NewItem.MergeFrom){
+		if (CurrentMergeType == NewItem.MergeFrom){
 			IsItemMergable = true;
 		}
 		return IsItemMergable;
@@ -42,7 +45,7 @@ public partial class Player_reach_area : Area2D
 
 	//this function detects if the area2d is a resource or not. WARNING this code can be improved greatly if there are other kinds of Area2Ds (like an enemy)
 	public void GetNearbyArea2D(Area2D ReachableItem){
-		if (ReachableItem.Name == "Sappling" || ReachableItem.Name == "Boulder" || ReachableItem.Name == "Fire"){
+		if (ReachableItem.Name == "Sapling" || ReachableItem.Name == "Boulder" || ReachableItem.Name == "Fire"){
 			//WARNING ReachableItems is an array because there might be mulitple objects within reach, however the currently written code only affects the Area2D that entered last
 			ReachableItems[0] = ReachableItem;
 			GD.Print(ReachableItems[0].Name+" is within reach");
@@ -90,6 +93,24 @@ public partial class Player_reach_area : Area2D
 				GD.Print("there is no item in ReachableItems[0] array");
 			}
 		}
+		if (Input.IsActionJustPressed("attack") && AttackCharging <= 0){
+			//reset cooldown on attack
+			AttackCharging = AttackSpeed;
+			//gets the size of the screen and where the cursor is to calculate projectile velocity
+			Vector2 ScreenSize = GetViewport().GetVisibleRect().Size;
+			Vector2 AttackPosition = GetViewport().GetMousePosition();
+			//spawn projectile in center of player_reach_area, then make it move toward where person clicked
+			Godot.PackedScene ProjectileScene = GD.Load<PackedScene>("res://Scenes/projectile.tscn");
+			ProjectileNode Projectile = (ProjectileNode)ProjectileScene.Instantiate();
+			//subracts half of the screen from where the mouse is (gets direction of mouse relative to center of screen) WARNING this will cause minor problems if player isn't centered (like if we add camera movement stuff)
+			Projectile.SpeedX = AttackPosition.X-ScreenSize.X/2;
+			Projectile.SpeedY = AttackPosition.Y-ScreenSize.Y/2;
+			//sets the right resource to attack. It does this by getting the file path of the resource and using its specific name to find it. WARNING might want to set the resource to attack in the player reach area script
+			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Items/Projectiles/" + CurrentMergeType + "Projectile.tres");
+			//the above code loads a scene tree, in order to get a 
+			GetParent<CharacterBody2d>().MainNode.AddChild(Projectile);
+			GD.Print("just attacked");
+		}
 	}
 
 
@@ -99,12 +120,13 @@ public partial class Player_reach_area : Area2D
 		//this gets the equipped item resource that this node has, WARNING I need to update this code when we have a save file so that the equipped item isn't the player's hands
 		EquipNewItem(GD.Load<EquipableItemScript>("res://Items/EquipableItems/Hands.tres"));
 		GD.Print(Damage + " " + DamageType);
-		SetMeta("MergeFrom", MergeType);
+		SetMeta("MergeType", CurrentMergeType);
 	}
 
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		AttackCharging -= 0.1f;
 	}
 }

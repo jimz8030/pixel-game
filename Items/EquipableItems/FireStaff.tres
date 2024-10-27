@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_ei17m")
 ResourceImage = ExtResource("1_tko77")
-MergeFrom = "Wood"
-MergeType = "Flame"
+MergeFrom = "Sapling"
+MergeType = "Fire"
 DamageType = "Fire"
 Damage = 2.0
 AttackSpeed = 1.0

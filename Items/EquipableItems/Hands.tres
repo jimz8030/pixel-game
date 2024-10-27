@@ -8,4 +8,4 @@ MergeFrom = "Nothing"
 MergeType = "Nothing"
 DamageType = "Bludgeoning"
 Damage = 0.25
-AttackSpeed = 4.0
+AttackSpeed = 0.25
