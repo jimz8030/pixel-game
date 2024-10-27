@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://cjfhlbxs1b48m"]
 
 [ext_resource type="Texture2D" uid="uid://b1fgqnwnmjil0" path="res://Sprites/UI/Character_Creator_Background_1.2.png" id="1_6wgd4"]
-[ext_resource type="Texture2D" uid="uid://txiy4swrb68e" path="res://Sprites/Character_Sprites/Oops_All_Naked/M2.S3.png" id="2_q187b"]
+[ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Character.tscn" id="2_tw5rk"]
 [ext_resource type="ButtonGroup" uid="uid://ncicfe48eeg8" path="res://Groups/MaleFemaleButtons.tres" id="3_7sn6q"]
 [ext_resource type="Texture2D" uid="uid://bnan138yfebqp" path="res://Sprites/UI/Selection_2.png" id="4_3rt35"]
 [ext_resource type="ButtonGroup" uid="uid://sbeyuro534v6" path="res://Groups/BodyShape.tres" id="5_m8wqx"]
@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhkm4aksuughj" path="res://Sprites/UI/Creator_Icon_1.png" id="8_fqpcx"]
 [ext_resource type="Texture2D" uid="uid://b4knnw6njkii2" path="res://Sprites/UI/Creator_Icon_2.png" id="9_a6vo6"]
 [ext_resource type="Texture2D" uid="uid://chcriu5obolu8" path="res://Sprites/UI/Selection_3.png" id="10_6ya2m"]
-[ext_resource type="Texture2D" uid="uid://b380vpoa54pwq" path="res://Sprites/Character_Sprites/Hair/H5.png" id="11_0m8pc"]
+[ext_resource type="Script" path="res://Scripts/cosmetic_manager.gd" id="12_0xaam"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0rypf"]
 
@@ -24,20 +24,15 @@
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(687, 386)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(688, 385)
 scale = Vector2(5.504, 5.504)
 texture = ExtResource("1_6wgd4")
-
-[node name="Character" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1163, 272)
-scale = Vector2(11, 11)
-texture = ExtResource("2_q187b")
-
-[node name="Camera" type="Camera2D" parent="CanvasLayer"]
-position = Vector2(687, 386)
 
 [node name="Female" type="Button" parent="CanvasLayer"]
 offset_left = 304.0
@@ -47,6 +42,7 @@ offset_bottom = 180.0
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0rypf")
 toggle_mode = true
+button_pressed = true
 action_mode = 0
 button_group = ExtResource("3_7sn6q")
 icon = ExtResource("4_3rt35")
@@ -62,7 +58,6 @@ offset_bottom = 180.0
 theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0rypf")
 toggle_mode = true
-button_pressed = true
 action_mode = 0
 button_group = ExtResource("3_7sn6q")
 icon = ExtResource("4_3rt35")
@@ -190,12 +185,8 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Hair_Character" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(1163, 173)
-scale = Vector2(11, 11)
-texture = ExtResource("11_0m8pc")
+[node name="Character" parent="CanvasLayer" instance=ExtResource("2_tw5rk")]
+position = Vector2(1170, 272)
 
-[node name="Hair_Icon" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(118, 513)
-scale = Vector2(5.83331, 5.83331)
-texture = ExtResource("11_0m8pc")
+[node name="Cosmetic_Manager" type="Node2D" parent="."]
+script = ExtResource("12_0xaam")
