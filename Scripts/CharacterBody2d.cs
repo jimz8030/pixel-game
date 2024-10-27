@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Security.Cryptography.X509Certificates;
 
-
+//this node is meant to get everything set up for its children and handle movement for the player. This means setting up controls and processing movement (also sometimes transfering data between nodes)
 public partial class CharacterBody2d : CharacterBody2D
 {
 	public Godot.Node2D MainNode;
@@ -11,6 +11,10 @@ public partial class CharacterBody2d : CharacterBody2D
 	InputEventKey InteractKey = new InputEventKey();
 	InputEventMouseButton AttackKey = new InputEventMouseButton();
 	InputEventKey DashKey = new InputEventKey();
+	InputEventKey RightKey = new InputEventKey();
+	InputEventKey LeftKey = new InputEventKey();
+	InputEventKey JumpKey = new InputEventKey();
+	InputEventKey DownKey = new InputEventKey();
 	
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
@@ -33,6 +37,17 @@ public partial class CharacterBody2d : CharacterBody2D
 		DashKey.Keycode = Key.Shift;
 		InputMap.AddAction("dash");
 		InputMap.ActionAddEvent("dash", DashKey);
+
+		//WARNING using "ui_right" instead of "move_right" or another word is poor coding
+		RightKey.Keycode = Key.D;
+		//InputMap.AddAction("")
+		InputMap.ActionAddEvent("ui_right", RightKey);
+		LeftKey.Keycode = Key.A;
+		InputMap.ActionAddEvent("ui_left", LeftKey);
+		JumpKey.Keycode = Key.W;
+		InputMap.ActionAddEvent("ui_accept", JumpKey);
+		DownKey.Keycode = Key.S;
+		InputMap.ActionAddEvent("ui_down", DownKey);
 
 		//this gets the node player reach so they can interact with eachoter
 		PlayerReach = GetNode<Area2D>("PlayerReachArea");
@@ -83,6 +98,9 @@ public partial class CharacterBody2d : CharacterBody2D
 		{
 			if (IsOnFloor()){
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			}
+			else{
+				velocity.X = Mathf.MoveToward(velocity.X, 0, 10);
 			}
 		}
 		
