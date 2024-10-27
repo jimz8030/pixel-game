@@ -124,11 +124,11 @@ public partial class CharacterBody2d : CharacterBody2D
 		if (Input.IsActionJustPressed("ui_right")){
 			//these two if statements flip the area2d called player reach. the reason Vector2 is 32 and 0 is because it changes based on it's starting position. basically it's changing the position by 32 pixels to the right and it goes back to starting position if you're facing the left
 			GetNode<Sprite2D>("Sprite2D").FlipH = true;
-			PlayerReach.Position = new Vector2(32,0);
+			PlayerReach.Position = new Vector2(16,0);
 		}
 		else if (Input.IsActionJustPressed("ui_left")){
 			GetNode<Sprite2D>("Sprite2D").FlipH = false;
-			PlayerReach.Position = new Vector2(0,0);
+			PlayerReach.Position = new Vector2(-16,0);
 
 		}
 		Velocity = velocity;

@@ -107,7 +107,11 @@ public partial class Player_reach_area : Area2D
 			Projectile.SpeedY = AttackPosition.Y-ScreenSize.Y/2;
 			//sets the right resource to attack. It does this by getting the file path of the resource and using its specific name to find it. WARNING might want to set the resource to attack in the player reach area script
 			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Items/Projectiles/" + CurrentMergeType + "Projectile.tres");
-			//the above code loads a scene tree, in order to get a 
+			//this sets the projectile position to the player
+			Projectile.Position = GetParent<CharacterBody2D>().Position;
+			//this adds the player reach position to the spawn location
+			Projectile.Position = new Vector2 (Projectile.Position.X + Position.X, Projectile.Position.Y);
+			//this puts the projectile into the scene
 			GetParent<CharacterBody2d>().MainNode.AddChild(Projectile);
 			GD.Print("just attacked");
 		}

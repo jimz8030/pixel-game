@@ -7,6 +7,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yd75o"]
 
 [node name="Projectile" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 22
 script = ExtResource("1_6r4yv")
 ProjectileType = ExtResource("2_egrym")
 

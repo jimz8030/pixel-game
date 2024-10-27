@@ -32,7 +32,6 @@ script = ExtResource("3_gnaet")
 EquippedItem = ExtResource("4_o6r6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerReachArea"]
-position = Vector2(-16, 0)
 shape = SubResource("RectangleShape2D_pcyv0")
 
 [node name="Node2D" type="Node2D" parent="."]
