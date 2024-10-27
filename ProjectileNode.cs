@@ -6,7 +6,7 @@ using System.Numerics;
 public partial class ProjectileNode : CharacterBody2D
 {
 	[Export]
-	ProjectileScript ProjectileType;
+	ProjectileScript ProjectileType; //= GD.Load<ProjectileScript>("res://Items/Projectiles/BoulderProjectile.tres");
 
 	float WallBounceMod;
 	float Radius = 10f;
@@ -15,8 +15,8 @@ public partial class ProjectileNode : CharacterBody2D
 	//makes gravity heavier for specific objects, 1 seems like normal gravity, 0 is no gravity
 	float GravityMultiplier = 1f;
 	//changes how fast the projectile is going on spawn, should be changed depending on mouse location and maybe how fast the player is moving too
-	float SpeedY = 100f;
-	float SpeedX = 0;
+	public float SpeedY = 100f;
+	public float SpeedX = 0;
 
 	///gives the projectile different physics depending on its property
 	string WallTouchProperty = "bounce";

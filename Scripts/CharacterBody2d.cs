@@ -6,6 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 
 public partial class CharacterBody2d : CharacterBody2D
 {
+	Godot.Node2D MainNode;
 	Godot.Node2D PlayerReach;
 	InputEventKey InteractKey = new InputEventKey();
 	InputEventMouseButton AttackKey = new InputEventMouseButton();
@@ -19,6 +20,7 @@ public partial class CharacterBody2d : CharacterBody2D
 
 	public override void _Ready()
 	{
+		MainNode = GetParent<Node2D>();
 		GD.PrintErr("problem when moving after jump dashing");
 		//sets the key E to the interact inputmap (without using inputmap)
 		InteractKey.Keycode = Key.E;
@@ -44,6 +46,16 @@ public partial class CharacterBody2d : CharacterBody2D
 		if (Input.IsActionJustPressed("attack")){
 			Vector2 ScreenSize = GetViewport().GetVisibleRect().Size;
 			Vector2 AttackPosition = GetViewport().GetMousePosition();
+			//spawn projectile in center of player_reach_area, then make it move toward where person clicked
+			Godot.PackedScene ProjectileScene = GD.Load<PackedScene>("res://Scenes/projectile.tscn");
+			ProjectileNode Projectile = (ProjectileNode)ProjectileScene.Instantiate();
+			//subracts half of the screen from where the mouse is (gets direction of mouse relative to center of screen) WARNING this will cause minor problems if player isn't centered (like if we add camera movement stuff)
+			Projectile.SpeedX = AttackPosition.X-ScreenSize.X/2;
+			Projectile.SpeedY = AttackPosition.Y-ScreenSize.Y/2;
+			//the above code loads a scene tree, in order to get a 
+			MainNode.AddChild(Projectile);
+			
+			
 			if (AttackPosition.X > ScreenSize.X/2){
 				GD.Print("attacking right");
 			}
