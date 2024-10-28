@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://daw2q6af0o6j"]
+[gd_scene load_steps=8 format=3 uid="uid://c1tg3kiftb6pl"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_frcos"]
-[ext_resource type="Texture2D" uid="uid://wiy45nv7bido" path="res://Sprites/Character_Sprites/Scarf Guy/Scarf_Guy.png" id="2_gktge"]
+[ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Character.tscn" id="2_86n8s"]
 [ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_gnaet"]
 [ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Items/EquipableItems/Hands.tres" id="4_o6r6c"]
 
@@ -23,8 +23,7 @@ shape = SubResource("CapsuleShape2D_h3p27")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_gktge")
+[node name="Character" parent="." instance=ExtResource("2_86n8s")]
 
 [node name="PlayerReachArea" type="Area2D" parent="."]
 collision_mask = 6

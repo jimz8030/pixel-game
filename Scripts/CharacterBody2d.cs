@@ -55,14 +55,14 @@ public partial class CharacterBody2d : CharacterBody2D
 	}
 
 
-    public override void _Input(InputEvent @event)
-    {
-        base._Input(@event);
+	public override void _Input(InputEvent @event)
+	{
+		base._Input(@event);
 		//not important because Player_reach_area is handling the inputs (I would do things here, but the variables don't transfer well)
 	} 
 
 
-    public override void _PhysicsProcess(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
 		Vector2 velocity = Velocity;
 		//float gravity = 10.0f;
@@ -111,7 +111,7 @@ public partial class CharacterBody2d : CharacterBody2D
 			if (IsOnFloor() && Input.IsActionPressed("ui_accept") == false){
 				SpeedModifier = 10f;
 			}
-			if (GetNode<Sprite2D>("Sprite2D").FlipH){
+			if (GetNode<Node2D>("Character").Scale.X < 0){
 				velocity.X += Speed * SpeedModifier;
 			}
 			else{
@@ -123,11 +123,11 @@ public partial class CharacterBody2d : CharacterBody2D
 
 		if (Input.IsActionJustPressed("ui_right")){
 			//these two if statements flip the area2d called player reach. the reason Vector2 is 32 and 0 is because it changes based on it's starting position. basically it's changing the position by 32 pixels to the right and it goes back to starting position if you're facing the left
-			GetNode<Sprite2D>("Sprite2D").FlipH = true;
+			GetNode<Node2D>("Character").Scale = new Vector2(-1, 1);
 			PlayerReach.Position = new Vector2(16,0);
 		}
 		else if (Input.IsActionJustPressed("ui_left")){
-			GetNode<Sprite2D>("Sprite2D").FlipH = false;
+			GetNode<Node2D>("Character").Scale = new Vector2(1, 1);
 			PlayerReach.Position = new Vector2(-16,0);
 
 		}

@@ -1,7 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://qbh07pe6ea4k"]
+[gd_scene load_steps=6 format=3 uid="uid://ds8j34objk1ko"]
 
-[ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Player.tscn" id="1_40fnc"]
-[ext_resource type="PackedScene" uid="uid://mbniv3oq0u3n" path="res://Scenes/sappling.tscn" id="4_63ux1"]
+[ext_resource type="PackedScene" uid="uid://c1tg3kiftb6pl" path="res://Scenes/Player.tscn" id="1_40fnc"]
+[ext_resource type="PackedScene" path="res://Scenes/sappling.tscn" id="4_63ux1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_is1rm"]
 

@@ -31,16 +31,6 @@ version_control/plugin_name="sprite cutter"
 
 enabled=PackedStringArray()
 
-[layer_names]
-
-2d_render/layer_1="Player"
-2d_render/layer_2="Environment"
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Environment"
-2d_physics/layer_3="Ground"
-2d_physics/layer_4="PlayerProjectile"
-2d_physics/layer_5="Enemy"
-
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
