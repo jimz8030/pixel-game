@@ -70,7 +70,9 @@ public partial class CharacterBody2d : CharacterBody2D
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
-			velocity += GetGravity() * (float)delta;
+			if (velocity.Y <= 1000){
+				velocity += GetGravity() * (float)delta;
+			}
 		}
 
 		// Handle Jump.

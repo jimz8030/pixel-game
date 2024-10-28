@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://daw2q6af0o6j"]
+[gd_scene load_steps=9 format=3 uid="uid://daw2q6af0o6j"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_frcos"]
 [ext_resource type="Texture2D" uid="uid://wiy45nv7bido" path="res://Sprites/Character_Sprites/Scarf Guy/Scarf_Guy.png" id="2_gktge"]
+[ext_resource type="Script" path="res://Scenes/PlayerCamera.cs" id="2_lc8qg"]
 [ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_gnaet"]
 [ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Items/EquipableItems/Hands.tres" id="4_o6r6c"]
 
@@ -22,6 +23,8 @@ material = SubResource("CanvasItemMaterial_iafr2")
 shape = SubResource("CapsuleShape2D_h3p27")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_enabled = true
+script = ExtResource("2_lc8qg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_gktge")
