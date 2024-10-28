@@ -11,34 +11,29 @@
 [node name="Body" type="Node2D" parent="."]
 
 [node name="Body_Sprite" type="Sprite2D" parent="Body"]
-scale = Vector2(11, 11)
 texture = ExtResource("1_g41tf")
 
 [node name="Bottom_Clothing" type="Node2D" parent="."]
 
 [node name="Bottom_Clothing_Sprite" type="Sprite2D" parent="Bottom_Clothing"]
-position = Vector2(-5.5, 88)
-scale = Vector2(11, 11)
+position = Vector2(-0.5, 8)
 texture = ExtResource("2_bk518")
 
 [node name="Hair" type="Node2D" parent="."]
 
 [node name="Hair_Sprite" type="Sprite2D" parent="Hair"]
-position = Vector2(-4.76837e-07, -99)
-scale = Vector2(11, 11)
+position = Vector2(0, -9)
 texture = ExtResource("4_isle1")
 
 [node name="Top_Clothing" type="Node2D" parent="."]
 
 [node name="Top_Clothing_Sprite" type="Sprite2D" parent="Top_Clothing"]
-position = Vector2(-5.5, 44)
-scale = Vector2(11, 11)
+position = Vector2(-0.5, 4)
 texture = ExtResource("4_vqdkv")
 
 [node name="Hair_Beard" type="Sprite2D" parent="Top_Clothing"]
 visible = false
-position = Vector2(-4.76837e-07, -99)
-scale = Vector2(11, 11)
+position = Vector2(0, -9)
 texture = ExtResource("5_qgko1")
 
 [node name="Arm" type="Sprite2D" parent="Top_Clothing"]

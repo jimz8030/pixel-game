@@ -188,6 +188,7 @@ expand_icon = true
 
 [node name="Character" parent="CanvasLayer" instance=ExtResource("2_tw5rk")]
 position = Vector2(1170, 272)
+scale = Vector2(11, 11)
 
 [connection signal="button_down" from="CanvasLayer/Female" to="CanvasLayer" method="_on_female_button_down"]
 [connection signal="button_down" from="CanvasLayer/Male" to="CanvasLayer" method="_on_male_button_down"]
