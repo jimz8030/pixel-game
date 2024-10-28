@@ -1,31 +1,35 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvc827vln58n5"]
+[gd_scene load_steps=7 format=3 uid="uid://cvc827vln58n5"]
 
-[ext_resource type="Texture2D" uid="uid://c4gispdvxwevo" path="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/F1.S1.png" id="1_g41tf"]
-[ext_resource type="Texture2D" uid="uid://cba2n4yao04ol" path="res://Sprites/Character_Sprites/Cosmetics/Bottom_Clothing/Bott.1.png" id="2_bk518"]
+[ext_resource type="Texture2D" uid="uid://bf0aia5ptqsgm" path="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/F2.S2.png" id="1_ft642"]
+[ext_resource type="Texture2D" uid="uid://uf1r84kmmjrd" path="res://Sprites/Character_Sprites/Cosmetics/Bottom_Clothing/Bott.1.png" id="2_bk518"]
 [ext_resource type="Texture2D" uid="uid://biu1uyt18vnwe" path="res://Sprites/Character_Sprites/Cosmetics/Hair/H1.png" id="4_isle1"]
 [ext_resource type="Texture2D" uid="uid://cvm3oab07qfd4" path="res://Sprites/Character_Sprites/Cosmetics/Top_Clothing/T1.png" id="4_vqdkv"]
 [ext_resource type="Texture2D" uid="uid://drlciusgofm75" path="res://Sprites/Character_Sprites/Cosmetics/Hair/H4.png" id="5_qgko1"]
+[ext_resource type="Texture2D" uid="uid://b2o6vnw14rxo" path="res://Sprites/Character_Sprites/Cosmetics/Hair/H13.png" id="6_k067u"]
 
 [node name="Character" type="Node2D"]
 
 [node name="Body" type="Node2D" parent="."]
 
 [node name="Body_Sprite" type="Sprite2D" parent="Body"]
-texture = ExtResource("1_g41tf")
+texture = ExtResource("1_ft642")
 
 [node name="Bottom_Clothing" type="Node2D" parent="."]
+visible = false
 
 [node name="Bottom_Clothing_Sprite" type="Sprite2D" parent="Bottom_Clothing"]
 position = Vector2(-0.5, 8)
 texture = ExtResource("2_bk518")
 
 [node name="Hair" type="Node2D" parent="."]
+visible = false
 
 [node name="Hair_Sprite" type="Sprite2D" parent="Hair"]
 position = Vector2(0, -9)
 texture = ExtResource("4_isle1")
 
 [node name="Top_Clothing" type="Node2D" parent="."]
+visible = false
 
 [node name="Top_Clothing_Sprite" type="Sprite2D" parent="Top_Clothing"]
 position = Vector2(-0.5, 4)
@@ -35,6 +39,11 @@ texture = ExtResource("4_vqdkv")
 visible = false
 position = Vector2(0, -9)
 texture = ExtResource("5_qgko1")
+
+[node name="Hair_Beard_2" type="Sprite2D" parent="Top_Clothing"]
+visible = false
+position = Vector2(0, -9)
+texture = ExtResource("6_k067u")
 
 [node name="Arm" type="Sprite2D" parent="Top_Clothing"]
 

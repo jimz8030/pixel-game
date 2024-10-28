@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjfhlbxs1b48m"]
+[gd_scene load_steps=18 format=3 uid="uid://cjfhlbxs1b48m"]
 
 [ext_resource type="Texture2D" uid="uid://b1fgqnwnmjil0" path="res://Sprites/UI/Character_Creator_Background_1.2.png" id="1_6wgd4"]
 [ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Character.tscn" id="2_tw5rk"]
 [ext_resource type="ButtonGroup" uid="uid://ncicfe48eeg8" path="res://Groups/MaleFemaleButtons.tres" id="3_7sn6q"]
 [ext_resource type="Texture2D" uid="uid://bnan138yfebqp" path="res://Sprites/UI/Selection_2.png" id="4_3rt35"]
+[ext_resource type="Texture2D" uid="uid://cclovwmi261d4" path="res://Sprites/UI/Next_Button.png" id="5_cpd5k"]
 [ext_resource type="ButtonGroup" uid="uid://sbeyuro534v6" path="res://Groups/BodyShape.tres" id="5_m8wqx"]
 [ext_resource type="Texture2D" uid="uid://ce7n62mufeimk" path="res://Sprites/UI/Selection_1.png" id="6_tp164"]
 [ext_resource type="Texture2D" uid="uid://iej07yxgh0rm" path="res://Sprites/UI/Grabber_1.png" id="7_wn4j3"]
@@ -190,6 +191,21 @@ expand_icon = true
 position = Vector2(1170, 272)
 scale = Vector2(11, 11)
 
+[node name="Next_Scene" type="Button" parent="CanvasLayer"]
+offset_left = 1204.0
+offset_top = 647.0
+offset_right = 1338.0
+offset_bottom = 704.0
+scale = Vector2(1.2, 1.2)
+theme_override_colors/icon_hover_color = Color(0.301961, 0.803922, 0.823529, 1)
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0rypf")
+action_mode = 0
+button_group = ExtResource("3_7sn6q")
+icon = ExtResource("5_cpd5k")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
 [connection signal="button_down" from="CanvasLayer/Female" to="CanvasLayer" method="_on_female_button_down"]
 [connection signal="button_down" from="CanvasLayer/Male" to="CanvasLayer" method="_on_male_button_down"]
 [connection signal="button_down" from="CanvasLayer/Body_1" to="CanvasLayer" method="_on_body_1_button_down"]
@@ -198,3 +214,4 @@ scale = Vector2(11, 11)
 [connection signal="value_changed" from="CanvasLayer/Hair_Slide" to="CanvasLayer" method="_on_hair_slide_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Top_Slide" to="CanvasLayer" method="_on_top_slide_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Bottom_Slide" to="CanvasLayer" method="_on_bottom_slide_value_changed"]
+[connection signal="button_down" from="CanvasLayer/Next_Scene" to="CanvasLayer" method="_on_next_scene_button_down"]

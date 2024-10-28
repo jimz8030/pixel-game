@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dissudcrcethl"
-path="res://.godot/imported/M1.S4.png-27dda48c622153a073ec6dafb3b08483.ctex"
+uid="uid://cvhp2eequ6kbx"
+path="res://.godot/imported/tile006.png-af82a746f164cbf58ec168cd26e7a617.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/M1.S4.png"
-dest_files=["res://.godot/imported/M1.S4.png-27dda48c622153a073ec6dafb3b08483.ctex"]
+source_file="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/tile006.png"
+dest_files=["res://.godot/imported/tile006.png-af82a746f164cbf58ec168cd26e7a617.ctex"]
 
 [params]
 

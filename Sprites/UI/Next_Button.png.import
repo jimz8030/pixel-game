@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sfku73cjp3aq"
-path="res://.godot/imported/F1.S2.png-d88b3de27cdf399ff83896303beba40f.ctex"
+uid="uid://cclovwmi261d4"
+path="res://.godot/imported/Next_Button.png-def989e9312c0d7ffe98ccc2ab97151b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/F1.S2.png"
-dest_files=["res://.godot/imported/F1.S2.png-d88b3de27cdf399ff83896303beba40f.ctex"]
+source_file="res://Sprites/UI/Next_Button.png"
+dest_files=["res://.godot/imported/Next_Button.png-def989e9312c0d7ffe98ccc2ab97151b.ctex"]
 
 [params]
 
