@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://slfa3k5cs5go"]
+
+[ext_resource type="Script" path="res://ProjectileNode.cs" id="1_6r4yv"]
+[ext_resource type="Resource" uid="uid://ctkuxqjhseqqk" path="res://Items/Projectiles/BoulderProjectile.tres" id="2_egrym"]
+[ext_resource type="Texture2D" uid="uid://n3xupgs8l661" path="res://Sprites/Environment/BoulderProjectile.png" id="2_n84tb"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yd75o"]
+
+[node name="Projectile" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 22
+script = ExtResource("1_6r4yv")
+ProjectileType = ExtResource("2_egrym")
+
+[node name="ProjectileShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yd75o")
+
+[node name="ProjectileImage" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_n84tb")

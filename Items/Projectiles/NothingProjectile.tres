@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ProjectileScript" load_steps=3 format=3 uid="uid://bfh3po6jvosfg"]
+
+[ext_resource type="Script" path="res://Items/Projectiles/ProjectileScript.cs" id="1_eyw8v"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_an811"]
+
+[resource]
+script = ExtResource("1_eyw8v")
+ProjectileImage = SubResource("PlaceholderTexture2D_an811")
+WallTouchProperty = ""
+WallBounceMod = 0.0
+Radius = 0.0
+Gravity = 0.0
+Lifetime = 0.0

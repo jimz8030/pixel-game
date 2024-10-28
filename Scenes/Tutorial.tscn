@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://qbh07pe6ea4k"]
+
+[ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Player.tscn" id="1_40fnc"]
+[ext_resource type="PackedScene" uid="uid://mbniv3oq0u3n" path="res://Scenes/sappling.tscn" id="4_63ux1"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_is1rm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ms40y"]
+size = Vector2(1387, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3gpi"]
+size = Vector2(800, 30)
+
+[node name="Tutorial" type="Node2D"]
+position = Vector2(-1, 0)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_40fnc")]
+collision_mask = 7
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+material = SubResource("CanvasItemMaterial_is1rm")
+position = Vector2(27.5, 71)
+shape = SubResource("RectangleShape2D_ms40y")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D/CollisionShape2D"]
+position = Vector2(0.5, 0)
+scale = Vector2(1.725, 1)
+texture = SubResource("PlaceholderTexture2D_t3gpi")
+
+[node name="Sapling" parent="." instance=ExtResource("4_63ux1")]
+collision_layer = 2
+collision_mask = 5
+
+[node name="Boulder" parent="." instance=ExtResource("4_63ux1")]
+position = Vector2(151, 36)
+collision_layer = 2
+collision_mask = 5
+
+[node name="Fire" parent="." instance=ExtResource("4_63ux1")]
+position = Vector2(265, 35)
+collision_layer = 2
+collision_mask = 5
+
+[connection signal="area_entered" from="Sapling" to="Sapling" method="ReadyToMine"]
+[connection signal="area_entered" from="Boulder" to="Boulder" method="ReadyToMine"]
+[connection signal="area_entered" from="Fire" to="Fire" method="ReadyToMine"]

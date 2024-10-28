@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EquipableItemScript" load_steps=3 format=3 uid="uid://8k2walypqn84"]
+
+[ext_resource type="Texture2D" uid="uid://b7gea3ty6pl57" path="res://Sprites/Environment/Boulder.png" id="1_sv6o2"]
+[ext_resource type="Script" path="res://Items/EquipableItems/EquipableItemScript.cs" id="1_vpc0u"]
+
+[resource]
+script = ExtResource("1_vpc0u")
+ResourceImage = ExtResource("1_sv6o2")
+MergeFrom = "Sapling"
+MergeType = "Boulder"
+DamageType = "Bludgeoning"
+Damage = 4.0
+AttackSpeed = 4.0
