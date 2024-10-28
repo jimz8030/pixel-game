@@ -59,7 +59,7 @@ public partial class CharacterBody2d : CharacterBody2D
     {
         base._Input(@event);
 		//not important because Player_reach_area is handling the inputs (I would do things here, but the variables don't transfer well)
-	}
+	} 
 
 
     public override void _PhysicsProcess(double delta)
