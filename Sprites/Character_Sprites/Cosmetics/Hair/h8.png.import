@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://65t1jdxbxgke"
-path="res://.godot/imported/h8.png-fe88e36d682e2e31513381463d5cdfbf.ctex"
+uid="uid://dpfb16pg4houq"
+path="res://.godot/imported/H8.png-61b7d39277d0b0a4a970c7faa9d06944.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character_Sprites/Cosmetics/Hair/h8.png"
-dest_files=["res://.godot/imported/h8.png-fe88e36d682e2e31513381463d5cdfbf.ctex"]
+source_file="res://Sprites/Character_Sprites/Cosmetics/Hair/H8.png"
+dest_files=["res://.godot/imported/H8.png-61b7d39277d0b0a4a970c7faa9d06944.ctex"]
 
 [params]
 

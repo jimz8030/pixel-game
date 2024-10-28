@@ -28,6 +28,7 @@
 position = Vector2(687, 386)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("12_0xaam")
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(688, 385)
@@ -65,7 +66,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Body_2" type="Button" parent="CanvasLayer"]
+[node name="Body_1" type="Button" parent="CanvasLayer"]
 offset_left = 205.0
 offset_top = 166.0
 offset_right = 378.0
@@ -81,7 +82,7 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
-[node name="Body_1" type="Button" parent="CanvasLayer"]
+[node name="Body_2" type="Button" parent="CanvasLayer"]
 offset_left = 503.0
 offset_top = 170.0
 offset_right = 675.0
@@ -114,9 +115,9 @@ scrollable = false
 
 [node name="Hair_Slide" type="HSlider" parent="CanvasLayer"]
 offset_left = 160.0
-offset_top = 443.0
+offset_top = 442.0
 offset_right = 402.0
-offset_bottom = 475.0
+offset_bottom = 474.0
 scale = Vector2(2.5, 2.5)
 theme_override_icons/grabber = ExtResource("7_wn4j3")
 theme_override_icons/grabber_highlight = ExtResource("7_wn4j3")
@@ -124,23 +125,7 @@ theme_override_icons/grabber_disabled = ExtResource("7_wn4j3")
 theme_override_styles/slider = SubResource("StyleBoxEmpty_4dewb")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_a0x7u")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_wip2f")
-max_value = 12.0
-rounded = true
-scrollable = false
-
-[node name="Bottom_Slide" type="HSlider" parent="CanvasLayer"]
-offset_left = 166.0
-offset_top = 630.0
-offset_right = 408.0
-offset_bottom = 662.0
-scale = Vector2(2.5, 2.5)
-theme_override_icons/grabber = ExtResource("7_wn4j3")
-theme_override_icons/grabber_highlight = ExtResource("7_wn4j3")
-theme_override_icons/grabber_disabled = ExtResource("7_wn4j3")
-theme_override_styles/slider = SubResource("StyleBoxEmpty_4dewb")
-theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_a0x7u")
-theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_wip2f")
-max_value = 12.0
+max_value = 13.0
 rounded = true
 scrollable = false
 
@@ -149,6 +134,22 @@ offset_left = 166.0
 offset_top = 542.0
 offset_right = 408.0
 offset_bottom = 574.0
+scale = Vector2(2.5, 2.5)
+theme_override_icons/grabber = ExtResource("7_wn4j3")
+theme_override_icons/grabber_highlight = ExtResource("7_wn4j3")
+theme_override_icons/grabber_disabled = ExtResource("7_wn4j3")
+theme_override_styles/slider = SubResource("StyleBoxEmpty_4dewb")
+theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_a0x7u")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxEmpty_wip2f")
+max_value = 14.0
+rounded = true
+scrollable = false
+
+[node name="Bottom_Slide" type="HSlider" parent="CanvasLayer"]
+offset_left = 166.0
+offset_top = 630.0
+offset_right = 408.0
+offset_bottom = 662.0
 scale = Vector2(2.5, 2.5)
 theme_override_icons/grabber = ExtResource("7_wn4j3")
 theme_override_icons/grabber_highlight = ExtResource("7_wn4j3")
@@ -188,5 +189,11 @@ expand_icon = true
 [node name="Character" parent="CanvasLayer" instance=ExtResource("2_tw5rk")]
 position = Vector2(1170, 272)
 
-[node name="Cosmetic_Manager" type="Node2D" parent="."]
-script = ExtResource("12_0xaam")
+[connection signal="button_down" from="CanvasLayer/Female" to="CanvasLayer" method="_on_female_button_down"]
+[connection signal="button_down" from="CanvasLayer/Male" to="CanvasLayer" method="_on_male_button_down"]
+[connection signal="button_down" from="CanvasLayer/Body_1" to="CanvasLayer" method="_on_body_1_button_down"]
+[connection signal="button_down" from="CanvasLayer/Body_2" to="CanvasLayer" method="_on_body_2_button_down"]
+[connection signal="value_changed" from="CanvasLayer/Skin_Slide" to="CanvasLayer" method="_on_skin_slide_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Hair_Slide" to="CanvasLayer" method="_on_hair_slide_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Top_Slide" to="CanvasLayer" method="_on_top_slide_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Bottom_Slide" to="CanvasLayer" method="_on_bottom_slide_value_changed"]

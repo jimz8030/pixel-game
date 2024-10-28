@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvc827vln58n5"]
+[gd_scene load_steps=6 format=3 uid="uid://cvc827vln58n5"]
 
-[ext_resource type="Texture2D" uid="uid://u27pq70xppo" path="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/M1.S2.png" id="1_kuk02"]
-[ext_resource type="Texture2D" uid="uid://dno2bu630fhbm" path="res://Sprites/Character_Sprites/Cosmetics/Hair/h7.png" id="2_cvhy6"]
-[ext_resource type="Texture2D" uid="uid://cdltlhbb3wwov" path="res://Sprites/Character_Sprites/Cosmetics/Bottom_Clothing/tile007.png" id="3_7c46s"]
-[ext_resource type="Texture2D" uid="uid://c00511o5b4rpr" path="res://Sprites/Character_Sprites/Cosmetics/Top_Clothing/tile004.png" id="4_0tfsk"]
+[ext_resource type="Texture2D" uid="uid://c4gispdvxwevo" path="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/F1.S1.png" id="1_g41tf"]
+[ext_resource type="Texture2D" uid="uid://cba2n4yao04ol" path="res://Sprites/Character_Sprites/Cosmetics/Bottom_Clothing/Bott.1.png" id="2_bk518"]
+[ext_resource type="Texture2D" uid="uid://biu1uyt18vnwe" path="res://Sprites/Character_Sprites/Cosmetics/Hair/H1.png" id="4_isle1"]
+[ext_resource type="Texture2D" uid="uid://cvm3oab07qfd4" path="res://Sprites/Character_Sprites/Cosmetics/Top_Clothing/T1.png" id="4_vqdkv"]
+[ext_resource type="Texture2D" uid="uid://drlciusgofm75" path="res://Sprites/Character_Sprites/Cosmetics/Hair/H4.png" id="5_qgko1"]
 
 [node name="Character" type="Node2D"]
 
@@ -11,28 +12,34 @@
 
 [node name="Body_Sprite" type="Sprite2D" parent="Body"]
 scale = Vector2(11, 11)
-texture = ExtResource("1_kuk02")
-
-[node name="Hair" type="Node2D" parent="."]
-
-[node name="Hair_Sprite" type="Sprite2D" parent="Hair"]
-position = Vector2(-4.76837e-07, -99)
-scale = Vector2(11, 11)
-texture = ExtResource("2_cvhy6")
+texture = ExtResource("1_g41tf")
 
 [node name="Bottom_Clothing" type="Node2D" parent="."]
 
 [node name="Bottom_Clothing_Sprite" type="Sprite2D" parent="Bottom_Clothing"]
 position = Vector2(-5.5, 88)
 scale = Vector2(11, 11)
-texture = ExtResource("3_7c46s")
+texture = ExtResource("2_bk518")
+
+[node name="Hair" type="Node2D" parent="."]
+
+[node name="Hair_Sprite" type="Sprite2D" parent="Hair"]
+position = Vector2(-4.76837e-07, -99)
+scale = Vector2(11, 11)
+texture = ExtResource("4_isle1")
 
 [node name="Top_Clothing" type="Node2D" parent="."]
 
 [node name="Top_Clothing_Sprite" type="Sprite2D" parent="Top_Clothing"]
 position = Vector2(-5.5, 44)
 scale = Vector2(11, 11)
-texture = ExtResource("4_0tfsk")
+texture = ExtResource("4_vqdkv")
+
+[node name="Hair_Beard" type="Sprite2D" parent="Top_Clothing"]
+visible = false
+position = Vector2(-4.76837e-07, -99)
+scale = Vector2(11, 11)
+texture = ExtResource("5_qgko1")
 
 [node name="Arm" type="Sprite2D" parent="Top_Clothing"]
 

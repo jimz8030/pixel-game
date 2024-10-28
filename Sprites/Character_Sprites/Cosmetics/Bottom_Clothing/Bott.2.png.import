@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdhunej1refwk"
-path="res://.godot/imported/H10.png-cd5c25c9a0fdd246c7f553a41c9d9cf1.ctex"
+uid="uid://3bft5ypbpkdx"
+path="res://.godot/imported/Bott.2.png-94dad5f526d3d429721f3d20c29a35e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character_Sprites/Cosmetics/Hair/H10.png"
-dest_files=["res://.godot/imported/H10.png-cd5c25c9a0fdd246c7f553a41c9d9cf1.ctex"]
+source_file="res://Sprites/Character_Sprites/Cosmetics/Bottom_Clothing/Bott.2.png"
+dest_files=["res://.godot/imported/Bott.2.png-94dad5f526d3d429721f3d20c29a35e4.ctex"]
 
 [params]
 
