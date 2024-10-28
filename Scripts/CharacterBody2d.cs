@@ -11,7 +11,7 @@ public partial class CharacterBody2d : CharacterBody2D
 	InputEventKey InteractKey = new InputEventKey();
 	InputEventMouseButton AttackKey = new InputEventMouseButton();
 	InputEventKey DashKey = new InputEventKey();
-	InputEventKey RightKey = new InputEventKey();
+	InputEventKey RightKey = new InputEventKey(); 
 	InputEventKey LeftKey = new InputEventKey();
 	InputEventKey JumpKey = new InputEventKey();
 	InputEventKey DownKey = new InputEventKey();
