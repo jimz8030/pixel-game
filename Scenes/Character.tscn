@@ -47,8 +47,9 @@ texture = ExtResource("6_k067u")
 [node name="Arm" type="Node2D" parent="."]
 
 [node name="Skin_Arm" type="Sprite2D" parent="Arm"]
-position = Vector2(4.5, -0.5)
+position = Vector2(3, -6)
 texture = ExtResource("7_gsytt")
+offset = Vector2(1.5, 5.5)
 
 [node name="Clothing_Sprite" type="Sprite2D" parent="Arm"]
 position = Vector2(4.5, -0.5)
