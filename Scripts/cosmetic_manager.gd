@@ -7,16 +7,24 @@ var Hair_type : String = "H2.png"
 var Top_Clothing : String = "T1.png"
 var Bottom_Clothing : String = "Bott.1.png"
 
-#
+var Clothing_Arm : String = "A1.png"
+var Flesh_Arm : String = "F1.png"
+
+#These strings will be assigned parts of the player later
 var Character_Body : Sprite2D
 var Character_Hair : Sprite2D
 var Character_Top : Sprite2D
-var Character_Top_Arm : Sprite2D
 var Character_Bottom : Sprite2D
 
+var Character_Cloth_Arm : Sprite2D
+var Character_Flesh_Arm : Sprite2D
+
 #These are hair types that need to be in front of clothes (usually beards)
-var Hair_Exception_1 : Sprite2D
-var Hair_Exception_2 : Sprite2D
+@export var Hair_Exception_1 : String
+@export var Hair_Exception_2 : String
+
+var Hair_Excp_1 : Sprite2D
+var Hair_Excp_2 : Sprite2D
 
 #Gets the next scene after character creator
 @export var Next_Scene = preload("res://Scenes/Tutorial.tscn")
@@ -27,11 +35,15 @@ func _ready() -> void:
 	Character_Body = $Character/Body/Body_Sprite
 	Character_Hair = $Character/Hair/Hair_Sprite
 	Character_Top = $Character/Top_Clothing/Top_Clothing_Sprite
-	Character_Top_Arm = $Character/Top_Clothing/Arm
 	Character_Bottom = $Character/Bottom_Clothing/Bottom_Clothing_Sprite
-	Hair_Exception_1 = $Character/Top_Clothing/Hair_Beard
-	Hair_Exception_1 = $Character/Top_Clothing/Hair_Beard_2
+	
+	Hair_Excp_1 = $Character/Top_Clothing/Hair_Beard
+	Hair_Excp_2 = $Character/Top_Clothing/Hair_Beard_2
 
+	Character_Cloth_Arm = $Character/Arm/Clothing_Sprite
+	Character_Flesh_Arm = $Character/Arm/Skin_Arm
+
+#determines what sprite to get when button is pressed
 func _on_female_button_down() -> void:
 	#change to female
 	Body_Skin_Name[0] = "F"
@@ -55,6 +67,7 @@ func _on_body_2_button_down() -> void:
 #determines what sprite to get when slider is interacted with
 func _on_skin_slide_value_changed(value: float) -> void:
 	Body_Skin_Name[4] = str(value + 1)
+	Flesh_Arm[1] = str(value + 1) + ".png"
 	Change_Body()
 
 #determines what sprite to get when slider is interacted with
@@ -65,6 +78,7 @@ func _on_hair_slide_value_changed(value: float) -> void:
 #determines what sprite to get when slider is interacted with
 func _on_top_slide_value_changed(value: float) -> void:
 	Top_Clothing = "T" + str(value + 1) + ".png"
+	Clothing_Arm = "A" + str(value + 1) + ".png"
 	Change_Body()
 
 #determines what sprite to get when slider is interacted with
@@ -78,14 +92,23 @@ func Change_Body() -> void:
 	Character_Hair.texture = load("res://Sprites/Character_Sprites/Cosmetics/Hair/" + Hair_type)
 	Character_Top.texture = load("res://Sprites/Character_Sprites/Cosmetics/Top_Clothing/" + Top_Clothing)
 	Character_Bottom.texture = load("res://Sprites/Character_Sprites/Cosmetics/Bottom_Clothing/" + Bottom_Clothing)
-	if Hair_type == "H4.png":
+	
+	Character_Cloth_Arm.texture = load("res://Sprites/Character_Sprites/Cosmetics/Top_Clothing/Clothing_Arms/" + Clothing_Arm)
+	Character_Flesh_Arm.texture = load("res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/Flesh_Arms/" + Flesh_Arm)
+
+	#Changes sprites that are displayed when they are exceptions
+	if Hair_type == Hair_Exception_1:
 		Character_Hair.visible = false
-		Hair_Exception_1.visible = true
-		print("beard activated")
+		Hair_Excp_2.visible = false
+		Hair_Excp_1.visible = true
+	elif Hair_type == Hair_Exception_2:
+		Character_Hair.visible = false
+		Hair_Excp_1.visible = false
+		Hair_Excp_2.visible = true
 	else:
 		Character_Hair.visible = true
-		Hair_Exception_1.visible = false
-		print("No Beard")
+		Hair_Excp_1.visible = false
+		Hair_Excp_2.visible = false
 
 #Plays next scene after character creator when button is pressed
 func _on_next_scene_button_down() -> void:

@@ -30,6 +30,8 @@ position = Vector2(687, 386)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 script = ExtResource("12_0xaam")
+Hair_Exception_1 = "H13.png"
+Hair_Exception_2 = "H4.png"
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer"]
 position = Vector2(688, 385)
@@ -200,7 +202,6 @@ scale = Vector2(1.2, 1.2)
 theme_override_colors/icon_hover_color = Color(0.301961, 0.803922, 0.823529, 1)
 theme_override_styles/focus = SubResource("StyleBoxEmpty_0rypf")
 action_mode = 0
-button_group = ExtResource("3_7sn6q")
 icon = ExtResource("5_cpd5k")
 flat = true
 icon_alignment = 1

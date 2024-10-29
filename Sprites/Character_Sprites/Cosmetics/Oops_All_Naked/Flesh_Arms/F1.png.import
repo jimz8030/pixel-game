@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjx1ew5kx8swv"
-path="res://.godot/imported/F2.S2.png-332f7f79d2489ab34684be0d30e04012.ctex"
+uid="uid://oslnp1h4eaq7"
+path="res://.godot/imported/F1.png-39dd28a37709ebd63c91d25158794c1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/F2.S2.png"
-dest_files=["res://.godot/imported/F2.S2.png-332f7f79d2489ab34684be0d30e04012.ctex"]
+source_file="res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/Flesh_Arms/F1.png"
+dest_files=["res://.godot/imported/F1.png-39dd28a37709ebd63c91d25158794c1a.ctex"]
 
 [params]
 
