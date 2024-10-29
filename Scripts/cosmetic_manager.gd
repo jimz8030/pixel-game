@@ -88,13 +88,13 @@ func _on_bottom_slide_value_changed(value: float) -> void:
 
 #Applies changes to character
 func Change_Body() -> void:
-	Character_Body.texture = load("res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/" + Body_Skin_Name)
-	Character_Hair.texture = load("res://Sprites/Character_Sprites/Cosmetics/Hair/" + Hair_type)
-	Character_Top.texture = load("res://Sprites/Character_Sprites/Cosmetics/Top_Clothing/" + Top_Clothing)
-	Character_Bottom.texture = load("res://Sprites/Character_Sprites/Cosmetics/Bottom_Clothing/" + Bottom_Clothing)
+	Character_Body.texture = load("res://Sprites/Character_Sprites/Oops_All_Naked/" + Body_Skin_Name)
+	Character_Hair.texture = load("res://Sprites/Character_Sprites/Hair/" + Hair_type)
+	Character_Top.texture = load("res://Sprites/Character_Sprites/Top_Clothing/" + Top_Clothing)
+	Character_Bottom.texture = load("res://Sprites/Character_Sprites/Bottom_Clothing/" + Bottom_Clothing)
 	
-	Character_Cloth_Arm.texture = load("res://Sprites/Character_Sprites/Cosmetics/Top_Clothing/Clothing_Arms/" + Clothing_Arm)
-	Character_Flesh_Arm.texture = load("res://Sprites/Character_Sprites/Cosmetics/Oops_All_Naked/Flesh_Arms/" + Flesh_Arm)
+	Character_Cloth_Arm.texture = load("res://Sprites/Character_Sprites/Top_Clothing/Clothing_Arms/" + Clothing_Arm)
+	Character_Flesh_Arm.texture = load("res://Sprites/Character_Sprites/Oops_All_Naked/Flesh_Arms/" + Flesh_Arm)
 
 	#Changes sprites that are displayed when they are exceptions
 	if Hair_type == Hair_Exception_1:
