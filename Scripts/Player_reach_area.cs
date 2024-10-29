@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Runtime.Intrinsics.X86;
 
 public partial class Player_reach_area : Area2D
 {
@@ -99,12 +100,18 @@ public partial class Player_reach_area : Area2D
 			//gets the size of the screen and where the cursor is to calculate projectile velocity
 			Vector2 ScreenSize = GetViewport().GetVisibleRect().Size;
 			Vector2 AttackPosition = GetViewport().GetMousePosition();
+			
 			//spawn projectile in center of player_reach_area, then make it move toward where person clicked
 			Godot.PackedScene ProjectileScene = GD.Load<PackedScene>("res://Scenes/projectile.tscn");
 			ProjectileNode Projectile = (ProjectileNode)ProjectileScene.Instantiate();
 			//subracts half of the screen from where the mouse is (gets direction of mouse relative to center of screen) WARNING this will cause minor problems if player isn't centered (like if we add camera movement stuff)
-			Projectile.SpeedX = AttackPosition.X-ScreenSize.X/2;
-			Projectile.SpeedY = AttackPosition.Y-ScreenSize.Y/2;
+			float MousePosX = AttackPosition.X-ScreenSize.X/2;
+			float MousePosY = AttackPosition.Y-ScreenSize.Y/2;
+			float AngleOfMouse = (float)Math.Atan2(MousePosY, MousePosX);
+			Projectile.Speed = new Vector2 (0,200);
+			Projectile.RotationRadians = AngleOfMouse + -(float)Math.PI/2;
+			GD.Print(AngleOfMouse);
+			//GD.Print("Projectile speed is "+Projectile.SpeedX +", "+Projectile.SpeedY);
 			//sets the right resource to attack. It does this by getting the file path of the resource and using its specific name to find it. WARNING might want to set the resource to attack in the player reach area script
 			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Items/Projectiles/" + CurrentMergeType + "Projectile.tres");
 			//this sets the projectile position to the player

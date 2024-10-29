@@ -80,6 +80,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		{
 			velocity.Y = JumpVelocity;
 		}
+		
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
