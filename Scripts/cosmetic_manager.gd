@@ -2,10 +2,14 @@ class_name cosmetic
 extends CanvasLayer
 
 #makes strings that will be used later to make script find specific sprite files
-var Body_Skin_Name : String = "M1.S1.png"
+var Body_Skin_Name : String = "F1.S1.png"
 var Hair_type : String = "H2.png"
-var Top_Clothing : String = "T1.png"
 var Bottom_Clothing : String = "Bott.1.png"
+var Top_Clothing : String = "T1_F1.png"
+
+var T_C_3 : String = "F"
+var T_C_4 : String = "1"
+var T_Count : String = "1"
 
 var Clothing_Arm : String = "A1.png"
 var Flesh_Arm : String = "F1.png"
@@ -13,8 +17,8 @@ var Flesh_Arm : String = "F1.png"
 #These strings will be assigned parts of the player later
 var Character_Body : Sprite2D
 var Character_Hair : Sprite2D
-var Character_Top : Sprite2D
 var Character_Bottom : Sprite2D
+var Character_Top : Sprite2D
 
 var Character_Cloth_Arm : Sprite2D
 var Character_Flesh_Arm : Sprite2D
@@ -48,17 +52,17 @@ func _on_female_button_down() -> void:
 	#change to female
 	Body_Skin_Name[0] = "F"
 	Change_Body()
-	
+
 #determines what sprite to get when button is pressed
 func _on_male_button_down() -> void:
 	Body_Skin_Name[0] = "M"
 	Change_Body()
-	
+
 #determines what sprite to get when button is pressed
 func _on_body_1_button_down() -> void:
 	Body_Skin_Name[1] = "1"
 	Change_Body()
-	
+
 #determines what sprite to get when button is pressed
 func _on_body_2_button_down() -> void:
 	Body_Skin_Name[1] = "2"
@@ -77,7 +81,8 @@ func _on_hair_slide_value_changed(value: float) -> void:
 
 #determines what sprite to get when slider is interacted with
 func _on_top_slide_value_changed(value: float) -> void:
-	Top_Clothing = "T" + str(value + 1) + ".png"
+	#Top clothing needs to be defined in the change body function.
+	T_Count = str(value + 1)
 	Clothing_Arm = "A" + str(value + 1) + ".png"
 	Change_Body()
 
@@ -88,10 +93,14 @@ func _on_bottom_slide_value_changed(value: float) -> void:
 
 #Applies changes to character
 func Change_Body() -> void:
+	#Change the characters of the top clothing file name to match the last two digits of the body shape
+	#This way the clothing can match the body shape.
+	Top_Clothing = "T" + T_Count + "_" + Body_Skin_Name[0] + Body_Skin_Name[1] + ".png"
+	
 	Character_Body.texture = load("res://Sprites/Character_Sprites/Oops_All_Naked/" + Body_Skin_Name)
 	Character_Hair.texture = load("res://Sprites/Character_Sprites/Hair/" + Hair_type)
-	Character_Top.texture = load("res://Sprites/Character_Sprites/Top_Clothing/" + Top_Clothing)
 	Character_Bottom.texture = load("res://Sprites/Character_Sprites/Bottom_Clothing/" + Bottom_Clothing)
+	Character_Top.texture = load("res://Sprites/Character_Sprites/Top_Clothing/" + Top_Clothing)
 	
 	Character_Cloth_Arm.texture = load("res://Sprites/Character_Sprites/Top_Clothing/Clothing_Arms/" + Clothing_Arm)
 	Character_Flesh_Arm.texture = load("res://Sprites/Character_Sprites/Oops_All_Naked/Flesh_Arms/" + Flesh_Arm)

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://xmlx3drjs4q7" path="res://Sprites/Character_Sprites/Oops_All_Naked/F1.S1.png" id="1_28ogn"]
 [ext_resource type="Texture2D" uid="uid://uf1r84kmmjrd" path="res://Sprites/Character_Sprites/Bottom_Clothing/Bott.1.png" id="2_bk518"]
 [ext_resource type="Texture2D" uid="uid://8u8dccet2fn7" path="res://Sprites/Character_Sprites/Hair/H2.png" id="3_rjwdf"]
-[ext_resource type="Texture2D" uid="uid://cvm3oab07qfd4" path="res://Sprites/Character_Sprites/Top_Clothing/T1.png" id="4_vqdkv"]
+[ext_resource type="Texture2D" uid="uid://b0go2c2mlsswh" path="res://Sprites/Character_Sprites/Top_Clothing/T1_F1.png" id="4_s76gv"]
 [ext_resource type="Texture2D" uid="uid://drlciusgofm75" path="res://Sprites/Character_Sprites/Hair/H4.png" id="5_qgko1"]
 [ext_resource type="Texture2D" uid="uid://b2o6vnw14rxo" path="res://Sprites/Character_Sprites/Hair/H13.png" id="6_k067u"]
 [ext_resource type="Texture2D" uid="uid://oslnp1h4eaq7" path="res://Sprites/Character_Sprites/Oops_All_Naked/Flesh_Arms/F1.png" id="7_gsytt"]
@@ -31,8 +31,8 @@ texture = ExtResource("3_rjwdf")
 [node name="Top_Clothing" type="Node2D" parent="."]
 
 [node name="Top_Clothing_Sprite" type="Sprite2D" parent="Top_Clothing"]
-position = Vector2(-0.5, 4)
-texture = ExtResource("4_vqdkv")
+position = Vector2(-0.5, -1)
+texture = ExtResource("4_s76gv")
 
 [node name="Hair_Beard" type="Sprite2D" parent="Top_Clothing"]
 visible = false
