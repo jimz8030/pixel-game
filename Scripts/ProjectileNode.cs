@@ -15,8 +15,8 @@ public partial class ProjectileNode : CharacterBody2D
 	//makes gravity heavier for specific objects, 1 seems like normal gravity, 0 is no gravity
 	float GravityMultiplier = 1f;
 	//changes how fast the projectile is going on spawn, should be changed depending on mouse location and maybe how fast the player is moving too
-	public float SpeedY = 100f;
-	public float SpeedX = 0;
+	public Godot.Vector2 Speed = new Godot.Vector2(0,100f);
+	public float RotationRadians = 0;
 
 	///gives the projectile different physics depending on its property
 	string WallTouchProperty = "bounce";
@@ -37,7 +37,7 @@ public partial class ProjectileNode : CharacterBody2D
         // base._EnterTree();
 		Initialize(ProjectileType);
 		//replace this below with new Godot,Vector2(mouse position) this way it goes towards where we want.
-		Velocity = new Godot.Vector2(SpeedX,SpeedY);
+		Velocity = Speed.Rotated(RotationRadians);
 		//makes a circle colision, sets its radius, then sets the shape property of the projectil's collision to the circle
 		CircleShape2D ShapeProperty = new CircleShape2D();
 		ShapeProperty.Radius = Radius;

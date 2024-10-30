@@ -10,7 +10,7 @@ public partial class PlayerCamera : Camera2D
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		PlayerBody = GetParent<CharacterBody2D>();
+		PlayerBody = GetParent<Node2D>().GetParent<CharacterBody2D>();
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,7 +59,7 @@ public partial class PlayerCamera : Camera2D
 				SpeedUpCamera += .1f;
 			}
 		}
-		GD.Print(SpeedUpCamera);
+		//GD.Print(SpeedUpCamera);
 		Offset = new Vector2(TimeRunningRight,0);
 		PositionSmoothingSpeed = SpeedUpCamera;
 	}
