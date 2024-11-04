@@ -21,8 +21,6 @@ modulate = Color(1, 0, 1, 1)
 material = SubResource("CanvasItemMaterial_iafr2")
 shape = SubResource("CapsuleShape2D_h3p27")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Character" parent="." instance=ExtResource("2_86n8s")]
 
 [node name="PlayerReachArea" type="Area2D" parent="."]

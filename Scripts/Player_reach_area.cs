@@ -11,25 +11,25 @@ public partial class Player_reach_area : Area2D
 	public Resource EquippedItem;
 	public Area2D[] ReachableItems = new Area2D[2];
 	string MergeFrom;
-    string CurrentMergeType;
-    string DamageType;
-    float Damage;
-    float AttackSpeed;
+	string CurrentMergeType;
+	string DamageType;
+	float Damage;
+	float AttackSpeed;
 	private float AttackCharging;
 
 
 
 	//this code changes the stats of this node (which is basically the player's hands) to the new stats of a merged or newly equipped item
 	public void EquipNewItem(EquipableItemScript equipableItem) {
-        MergeFrom = equipableItem.MergeFrom;
-        CurrentMergeType = equipableItem.MergeType;
-        DamageType = equipableItem.DamageType;
-        Damage = equipableItem.Damage;
-        AttackSpeed = equipableItem.AttackSpeed;
+		MergeFrom = equipableItem.MergeFrom;
+		CurrentMergeType = equipableItem.MergeType;
+		DamageType = equipableItem.DamageType;
+		Damage = equipableItem.Damage;
+		AttackSpeed = equipableItem.AttackSpeed;
 		SetMeta("MergeType", CurrentMergeType);
 		SetMeta("AttackSpeed", AttackSpeed);
 		AttackCharging = 0;
-    }
+	}
 
 
 	//this checks if the resource that the player is trying to gather is mergable, used in the _Input funciton with interact button press
@@ -68,9 +68,9 @@ public partial class Player_reach_area : Area2D
 
 	//this detects an input (a key or mouse press)
 	public override void _Input(InputEvent @event)
-    {
+	{
 		//not sure what base._Input(@event) does but it was auto generated when I made this funciton and I get the feeling it calls the function on button press
-        base._Input(@event);
+		base._Input(@event);
 
 		//this detects if the player presses the "interact key" which is set to E on ready in the CharacterBody2d.cs script
 		if (Input.IsActionJustPressed("interact")) {
