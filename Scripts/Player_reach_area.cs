@@ -15,6 +15,7 @@ public partial class Player_reach_area : Area2D
 	string DamageType;
 	float Damage;
 	float AttackSpeed;
+	float ProjectileVelocity;
 	private float AttackCharging;
 
 
@@ -26,8 +27,10 @@ public partial class Player_reach_area : Area2D
 		DamageType = equipableItem.DamageType;
 		Damage = equipableItem.Damage;
 		AttackSpeed = equipableItem.AttackSpeed;
+		ProjectileVelocity = equipableItem.ProjectileVelocity;
 		SetMeta("MergeType", CurrentMergeType);
 		SetMeta("AttackSpeed", AttackSpeed);
+
 		AttackCharging = 0;
 	}
 
@@ -98,17 +101,16 @@ public partial class Player_reach_area : Area2D
 			//reset cooldown on attack
 			AttackCharging = AttackSpeed;
 			//gets the size of the screen and where the cursor is to calculate projectile velocity
-			Vector2 ScreenSize = GetViewport().GetVisibleRect().Size;
-			Vector2 AttackPosition = GetViewport().GetMousePosition();
+			Vector2 AttackPosition = GetGlobalMousePosition();
 			
 			//spawn projectile in center of player_reach_area, then make it move toward where person clicked
 			Godot.PackedScene ProjectileScene = GD.Load<PackedScene>("res://Scenes/projectile.tscn");
 			ProjectileNode Projectile = (ProjectileNode)ProjectileScene.Instantiate();
 			//subracts half of the screen from where the mouse is (gets direction of mouse relative to center of screen) WARNING this will cause minor problems if player isn't centered (like if we add camera movement stuff)
-			float MousePosX = AttackPosition.X-ScreenSize.X/2;
-			float MousePosY = AttackPosition.Y-ScreenSize.Y/2;
+			float MousePosX = AttackPosition.X-GlobalPosition.X;
+			float MousePosY = AttackPosition.Y-GlobalPosition.Y;
 			float AngleOfMouse = (float)Math.Atan2(MousePosY, MousePosX);
-			Projectile.Speed = new Vector2 (0,200);
+			Projectile.Speed = new Vector2 (0,100*ProjectileVelocity);
 			Projectile.RotationRadians = AngleOfMouse + -(float)Math.PI/2;
 			GD.Print(AngleOfMouse);
 			//GD.Print("Projectile speed is "+Projectile.SpeedX +", "+Projectile.SpeedY);
@@ -121,6 +123,7 @@ public partial class Player_reach_area : Area2D
 			//this puts the projectile into the scene
 			GetParent<CharacterBody2d>().MainNode.AddChild(Projectile);
 			GD.Print("just attacked");
+			GD.Print("ProjectileVelocity is ...", ProjectileVelocity);
 		}
 	}
 

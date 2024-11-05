@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c3ok68knffdi8"]
 
-[ext_resource type="PackedScene" uid="uid://slfa3k5cs5go" path="res://Scenes/projectile.tscn" id="1_ynrnj"]
+[ext_resource type="PackedScene" uid="uid://dkc2rjloibj4a" path="res://Scenes/projectile.tscn" id="1_ynrnj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b6xyo"]
 

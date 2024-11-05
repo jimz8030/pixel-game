@@ -11,3 +11,4 @@ MergeType = "Boulder"
 DamageType = "Bludgeoning"
 Damage = 4.0
 AttackSpeed = 4.0
+ProjectileVelocity = 4.0

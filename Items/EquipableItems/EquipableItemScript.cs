@@ -20,11 +20,13 @@ public partial class EquipableItemScript : Resource
 	public float Damage {get; set;}
 	[Export]
 	public float AttackSpeed {get; set;}
+	[Export]
+	public float ProjectileVelocity {get; set;}
 
 
 	//public void EquipableItem() : this(null,null, 0f, 0f) {}
 
-	public void EquipableItem(Texture2D resourceImage, Texture2D staffImage, string mergeFrom, string damageType, string mergeType, float damage, float attackSpeed)
+	public void EquipableItem(Texture2D resourceImage, Texture2D staffImage, string mergeFrom, string damageType, string mergeType, float damage, float attackSpeed, float projectileVelocity)
 	{
 		ResourceImage = resourceImage;
 		StaffImage = staffImage;
@@ -33,5 +35,6 @@ public partial class EquipableItemScript : Resource
 		DamageType = damageType;
 		Damage = damage;
 		AttackSpeed = attackSpeed;
+		ProjectileVelocity = projectileVelocity;
 	}
 }
