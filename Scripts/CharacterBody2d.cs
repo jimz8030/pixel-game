@@ -19,7 +19,11 @@ public partial class CharacterBody2d : CharacterBody2D
 	public const float Speed = 300.0f;
 	public const float JumpVelocity = -400.0f;
 	public float DashCharging = 0f;
+	public float MaxCoyoteJumpTime = 1f;
+	public float CurrentCoyoteJumpTime;
+	float FramePerfectJump;
 	float AttackCharging;
+	float JumpCharging = 0;
 	
 	public Node2D PlayerSprite;
 	
@@ -28,7 +32,6 @@ public partial class CharacterBody2d : CharacterBody2D
 	public override void _Ready()
 	{
 		MainNode = GetParent<Node2D>();
-		GD.PrintErr("problem when moving after jump dashing");
 		//sets the key E to the interact inputmap (without using inputmap)
 		InteractKey.Keycode = Key.E;
 		InputMap.AddAction("interact");
@@ -74,17 +77,36 @@ public partial class CharacterBody2d : CharacterBody2D
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
+			CurrentCoyoteJumpTime -= .1f;
 			if (velocity.Y <= 1000){
 				velocity += GetGravity() * (float)delta;
 			}
 		}
+		else{
+			CurrentCoyoteJumpTime = MaxCoyoteJumpTime;
+			if (JumpCharging > 0){
+				JumpCharging -= .1f;
+			}
+		}
 
 		// Handle Jump.
-		if (Input.IsActionJustPressed("ui_accept") && IsOnFloor() && DashCharging <= 9.5f)
-		{
-			velocity.Y = JumpVelocity;
+		if (FramePerfectJump > 0){
+			FramePerfectJump -= .1f;
 		}
-		
+		if (Input.IsActionJustPressed("ui_accept"))
+		{
+			if (CurrentCoyoteJumpTime > 0 && DashCharging <= 9.5f && JumpCharging <= 0){
+				velocity.Y = JumpVelocity;
+				JumpCharging = 1f;
+				}
+			else if (!IsOnFloor()){
+				FramePerfectJump = 1f;
+			}
+		}
+		if (FramePerfectJump > 0 && IsOnFloor()){
+				velocity.Y = JumpVelocity;
+				JumpCharging = 1f;
+			}
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.

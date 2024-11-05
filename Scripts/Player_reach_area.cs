@@ -17,6 +17,8 @@ public partial class Player_reach_area : Area2D
 	float AttackSpeed;
 	float ProjectileVelocity;
 	private float AttackCharging;
+	private float MaxCoyoteAttackTime = 1f;
+	private float CurrentCoyoteAttackTime;
 
 
 
@@ -97,7 +99,34 @@ public partial class Player_reach_area : Area2D
 				GD.Print("there is no item in ReachableItems[0] array");
 			}
 		}
-		if (Input.IsActionJustPressed("attack") && AttackCharging <= 0){
+		if (Input.IsActionJustPressed("attack")){
+			CurrentCoyoteAttackTime = MaxCoyoteAttackTime;
+		}
+
+		
+	}
+
+
+	// Called when the node enters the scene tree for the first time.
+	public override void _Ready()
+	{
+		//this gets the equipped item resource that this node has, WARNING I need to update this code when we have a save file so that the equipped item isn't the player's hands
+		EquipNewItem(GD.Load<EquipableItemScript>("res://Items/EquipableItems/Hands.tres"));
+		GD.Print(Damage + " " + DamageType);
+		SetMeta("MergeType", CurrentMergeType);
+	}
+
+
+	// Called every frame. 'delta' is the elapsed time since the previous frame.
+	public override void _Process(double delta)
+	{
+		AttackCharging -= 0.1f;
+		if (CurrentCoyoteAttackTime > 0){
+			CurrentCoyoteAttackTime -= .1f;
+			GD.Print(CurrentCoyoteAttackTime);
+		}
+		
+		if (CurrentCoyoteAttackTime > 0 && AttackCharging <= 0){
 			//reset cooldown on attack
 			AttackCharging = AttackSpeed;
 			//gets the size of the screen and where the cursor is to calculate projectile velocity
@@ -125,22 +154,5 @@ public partial class Player_reach_area : Area2D
 			GD.Print("just attacked");
 			GD.Print("ProjectileVelocity is ...", ProjectileVelocity);
 		}
-	}
-
-
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
-	{
-		//this gets the equipped item resource that this node has, WARNING I need to update this code when we have a save file so that the equipped item isn't the player's hands
-		EquipNewItem(GD.Load<EquipableItemScript>("res://Items/EquipableItems/Hands.tres"));
-		GD.Print(Damage + " " + DamageType);
-		SetMeta("MergeType", CurrentMergeType);
-	}
-
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
-	{
-		AttackCharging -= 0.1f;
 	}
 }
