@@ -192,6 +192,7 @@ expand_icon = true
 [node name="Character" parent="CanvasLayer" instance=ExtResource("2_tw5rk")]
 position = Vector2(1170, 272)
 scale = Vector2(11, 11)
+script = null
 
 [node name="Next_Scene" type="Button" parent="CanvasLayer"]
 offset_left = 1204.0

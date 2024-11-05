@@ -96,7 +96,7 @@ func Change_Body() -> void:
 	#Change the characters of the top clothing file name to match the last two digits of the body shape
 	#This way the clothing can match the body shape.
 	Top_Clothing = "T" + T_Count + "_" + Body_Skin_Name[0] + Body_Skin_Name[1] + ".png"
-	
+	print(Character_Body.texture)
 	Character_Body.texture = load("res://Sprites/Character_Sprites/Oops_All_Naked/" + Body_Skin_Name)
 	Character_Hair.texture = load("res://Sprites/Character_Sprites/Hair/" + Hair_type)
 	Character_Bottom.texture = load("res://Sprites/Character_Sprites/Bottom_Clothing/" + Bottom_Clothing)
