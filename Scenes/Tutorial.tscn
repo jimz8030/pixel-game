@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://qbh07pe6ea4k"]
+[gd_scene load_steps=7 format=3 uid="uid://ds8j34objk1ko"]
 
-[ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Player.tscn" id="1_40fnc"]
+[ext_resource type="PackedScene" uid="uid://c1tg3kiftb6pl" path="res://Scenes/Player.tscn" id="1_40fnc"]
+[ext_resource type="PackedScene" uid="uid://bg55ebhvv5u5c" path="res://Scenes/Camera.tscn" id="3_y1ron"]
 [ext_resource type="PackedScene" uid="uid://mbniv3oq0u3n" path="res://Scenes/sappling.tscn" id="4_63ux1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_is1rm"]
@@ -44,6 +45,10 @@ collision_mask = 5
 position = Vector2(265, 35)
 collision_layer = 2
 collision_mask = 5
+
+[node name="Camera" parent="." instance=ExtResource("3_y1ron")]
+position = Vector2(-135, 0)
+DampeningAmount = 40.0
 
 [connection signal="area_entered" from="Sapling" to="Sapling" method="ReadyToMine"]
 [connection signal="area_entered" from="Boulder" to="Boulder" method="ReadyToMine"]

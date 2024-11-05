@@ -18,6 +18,8 @@ config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 
 window/size/viewport_width=1380
 window/size/viewport_height=770
+window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
@@ -30,16 +32,6 @@ version_control/plugin_name="sprite cutter"
 [editor_plugins]
 
 enabled=PackedStringArray()
-
-[layer_names]
-
-2d_render/layer_1="Player"
-2d_render/layer_2="Environment"
-2d_physics/layer_1="Player"
-2d_physics/layer_2="Environment"
-2d_physics/layer_3="Ground"
-2d_physics/layer_4="PlayerProjectile"
-2d_physics/layer_5="Enemy"
 
 [rendering]
 
