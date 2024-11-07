@@ -79,7 +79,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		{
 			CurrentCoyoteJumpTime -= .1f;
 			if (velocity.Y <= 1000){
-				velocity += GetGravity() * (float)delta;
+				velocity += GetGravity() * (float)delta; // change this equation to use math, so we can change the max jump height and time in the air easier
 			}
 		}
 		else{
