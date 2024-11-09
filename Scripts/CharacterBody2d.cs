@@ -17,7 +17,8 @@ public partial class CharacterBody2d : CharacterBody2D
 	InputEventKey DownKey = new InputEventKey();
 	
 	public const float Speed = 300.0f;
-	public const float JumpVelocity = -400.0f;
+	public float JumpVelocity;
+	public float Gravity;
 	public float DashCharging = 0f;
 	public float MaxCoyoteJumpTime = 1f;
 	public float CurrentCoyoteJumpTime;
@@ -25,12 +26,24 @@ public partial class CharacterBody2d : CharacterBody2D
 	float AttackCharging;
 	float JumpCharging = 0;
 	
+	//jumpheight is the hight you want the player to jump at
+	const int JumpHeight = 60;
+	//Time in air doubled is the ammount of time the jump takes before touching ground
+	const float TimeInAir = 0.5f;
+
 	public Node2D PlayerSprite;
 	
 
 
+	private void SetVariables()
+	{
+		Gravity = JumpHeight/(float)Math.Pow(TimeInAir/2, 2);
+		GD.Print(Gravity);
+		JumpVelocity = -TimeInAir * Gravity;
+	}
 	public override void _Ready()
 	{
+		SetVariables();
 		MainNode = GetParent<Node2D>();
 		//sets the key E to the interact inputmap (without using inputmap)
 		InteractKey.Keycode = Key.E;
@@ -79,7 +92,8 @@ public partial class CharacterBody2d : CharacterBody2D
 		{
 			CurrentCoyoteJumpTime -= .1f;
 			if (velocity.Y <= 1000){
-				velocity += GetGravity() * (float)delta; // change this equation to use math, so we can change the max jump height and time in the air easier
+				velocity.Y += Gravity * (float)delta;
+				// velocity += GetGravity() * (float)delta; // change this equation to use math, so we can change the max jump height and time in the air easier
 			}
 		}
 		else{
@@ -97,6 +111,9 @@ public partial class CharacterBody2d : CharacterBody2D
 		{
 			if (CurrentCoyoteJumpTime > 0 && DashCharging <= 9.5f && JumpCharging <= 0){
 				velocity.Y = JumpVelocity;
+				GD.Print(velocity.Y);
+				GD.Print(JumpVelocity);
+				GD.Print(velocity.Y);
 				JumpCharging = 1f;
 				}
 			else if (!IsOnFloor()){
@@ -113,14 +130,18 @@ public partial class CharacterBody2d : CharacterBody2D
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
 		if (direction != Vector2.Zero && DashCharging <= 9f)
 		{
+			//checks if velocity is greater than how fast the player would walk
 			if (Math.Abs(velocity.X) > Math.Abs(direction.X * Speed) && IsOnFloor() == false){
+				//this checks if the player wants to move in the other direction
 				if (Math.Sign(direction.X) != Math.Sign(velocity.X)){
 					velocity.X = direction.X * Speed;
+				}
+				else{
+					velocity.X = Mathf.MoveToward(velocity.X, 0, 10);
 				}
 			}
 			else{
 			velocity.X = direction.X * Speed;
-
 			}
 		}
 		else
@@ -137,6 +158,8 @@ public partial class CharacterBody2d : CharacterBody2D
 		if (Input.IsActionJustPressed("dash") && DashCharging <= 0f){
 			DashCharging = 10f;
 			float SpeedModifier = 3f;
+			//sets velocity to 0 so dash doesnt add to walk speed
+			velocity.X = 0;
 			if (IsOnFloor() && Input.IsActionPressed("ui_accept") == false){
 				SpeedModifier = 10f;
 			}
@@ -146,8 +169,6 @@ public partial class CharacterBody2d : CharacterBody2D
 			else{
 				velocity.X -= Speed * SpeedModifier;
 			}
-			GD.Print("velocity of player is... "+velocity.X);
-			GD.Print("dash activating... because ");
 		}
 
 		if (Input.IsActionJustPressed("ui_right")){
