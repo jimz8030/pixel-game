@@ -84,13 +84,14 @@ public partial class CharacterBody2d : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		
 		Vector2 velocity = Velocity;
 		//float gravity = 10.0f;
 		//float speed = 3.0f;
 		// Add the gravity.
 		if (!IsOnFloor())
 		{
-			CurrentCoyoteJumpTime -= .1f;
+			CurrentCoyoteJumpTime -= .125f;
 			if (velocity.Y <= 1000){
 				velocity.Y += Gravity * (float)delta;
 				// velocity += GetGravity() * (float)delta; // change this equation to use math, so we can change the max jump height and time in the air easier
@@ -99,13 +100,13 @@ public partial class CharacterBody2d : CharacterBody2D
 		else{
 			CurrentCoyoteJumpTime = MaxCoyoteJumpTime;
 			if (JumpCharging > 0){
-				JumpCharging -= .1f;
+				JumpCharging -= .125f;
 			}
 		}
 
 		// Handle Jump.
 		if (FramePerfectJump > 0){
-			FramePerfectJump -= .1f;
+			FramePerfectJump -= .125f;
 		}
 		if (Input.IsActionJustPressed("ui_accept"))
 		{
@@ -154,7 +155,7 @@ public partial class CharacterBody2d : CharacterBody2D
 			}
 		}
 		
-		DashCharging -= 0.1f;
+		DashCharging -= 0.125f;
 		if (Input.IsActionJustPressed("dash") && DashCharging <= 0f){
 			DashCharging = 10f;
 			float SpeedModifier = 3f;

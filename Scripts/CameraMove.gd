@@ -27,14 +27,28 @@ func _physics_process(delta: float) -> void:
 		mouse_bounds = false
 	
 
+#detects if mouse is to the right of player
 	if mouse_bounds: #Player.PlayerSprite.scale.x == -1:
-		if PlayerCamDifference > 180:
+		#detects if player is going far past the bounds in which case the camera speeds up
+		if PlayerCamDifference > 200:
+			self.global_position.x -= abs(PlayerCamDifference - 200) / (DampeningAmount / 2)
+			print("going far to the left")
+		#detects if the player is going a little bit to the left while mouse is to the right
+		elif PlayerCamDifference > 180:
 			self.global_position.x -= abs(PlayerCamDifference - 180) / DampeningAmount
+		#detects if the player is moving to the left while mouse is to the left of the player
 		elif PlayerCamDifference < 130:
 			self.global_position.x += abs(PlayerCamDifference - 130) / DampeningAmount
 
+# detects if mous is to the left of player
 	elif mouse_bounds == false: #Player.PlayerSprite.scale.x == 1:
+		#detects if the player is going left when mouse is to the left of player.
 		if PlayerCamDifference > -130:
 			self.global_position.x -= abs(PlayerCamDifference + 130) / DampeningAmount
+		# detects if the player is going far to the right, in this case the camera speeds up so the player doesn't go off screen 
+		#(this needs to be first otherwise the below code would activate and the camera wouldn't speed up)
+		elif PlayerCamDifference < -200:
+			self.global_position.x += abs(PlayerCamDifference + 200) / (DampeningAmount / 2)
+		# detects if the player is going right when mouse is to the left of player. Then adjusts camera speed
 		elif PlayerCamDifference < -180:
 			self.global_position.x += abs(PlayerCamDifference + 180) / DampeningAmount
