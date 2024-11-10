@@ -8,8 +8,10 @@ public partial class CharacterBody2d : CharacterBody2D
 {
 	public Godot.Node2D MainNode;
 	Godot.Area2D PlayerReach;
-	InputEventKey InteractKey = new InputEventKey();
+
 	InputEventMouseButton AttackKey = new InputEventMouseButton();
+	InputEventMouseButton SecondaryKey = new InputEventMouseButton();
+	InputEventKey InteractKey = new InputEventKey();
 	InputEventKey DashKey = new InputEventKey();
 	InputEventKey RightKey = new InputEventKey(); 
 	InputEventKey LeftKey = new InputEventKey();
@@ -45,13 +47,17 @@ public partial class CharacterBody2d : CharacterBody2D
 	{
 		SetVariables();
 		MainNode = GetParent<Node2D>();
+		AttackKey.ButtonIndex = MouseButton.Left;
+		InputMap.AddAction("attack");
+		InputMap.ActionAddEvent("attack", AttackKey);
+		SecondaryKey.ButtonIndex = MouseButton.Right;
+		InputMap.AddAction("special");
+		InputMap.ActionAddEvent("special", SecondaryKey);
+
 		//sets the key E to the interact inputmap (without using inputmap)
 		InteractKey.Keycode = Key.E;
 		InputMap.AddAction("interact");
 		InputMap.ActionAddEvent("interact", InteractKey);
-		AttackKey.ButtonIndex = MouseButton.Right;
-		InputMap.AddAction("attack");
-		InputMap.ActionAddEvent("attack", AttackKey);
 		DashKey.Keycode = Key.Shift;
 		InputMap.AddAction("dash");
 		InputMap.ActionAddEvent("dash", DashKey);

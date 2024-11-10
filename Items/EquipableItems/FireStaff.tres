@@ -12,3 +12,4 @@ DamageType = "Fire"
 Damage = 2.0
 AttackSpeed = 1.0
 ProjectileVelocity = 1.0
+PotentialSecondary = Array[String](["Cluster"])

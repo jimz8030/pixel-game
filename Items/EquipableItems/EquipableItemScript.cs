@@ -1,9 +1,12 @@
 using Godot;
+using Godot.NativeInterop;
 using System;
 
 [GlobalClass]
 public partial class EquipableItemScript : Resource
 {
+	
+
 	[Export]
 	public Texture2D ResourceImage {get; set;}
 	[Export]
@@ -23,11 +26,15 @@ public partial class EquipableItemScript : Resource
 	[Export]
 	public float ProjectileVelocity {get; set;}
 
+	[Export]
+	public Godot.Collections.Array<String> PotentialSecondary {get; set;}
+
 
 	//public void EquipableItem() : this(null,null, 0f, 0f) {}
 
-	public void EquipableItem(Texture2D resourceImage, Texture2D staffImage, string mergeFrom, string damageType, string mergeType, float damage, float attackSpeed, float projectileVelocity)
+	public void EquipableItem(Texture2D resourceImage, Texture2D staffImage, string mergeFrom, string damageType, string mergeType, float damage, float attackSpeed, float projectileVelocity, Godot.Collections.Array<string> potentialSecondary)
 	{
+		
 		ResourceImage = resourceImage;
 		StaffImage = staffImage;
 		MergeFrom = mergeFrom;
@@ -36,5 +43,6 @@ public partial class EquipableItemScript : Resource
 		Damage = damage;
 		AttackSpeed = attackSpeed;
 		ProjectileVelocity = projectileVelocity;
+		PotentialSecondary = potentialSecondary;
 	}
 }

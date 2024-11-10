@@ -9,3 +9,5 @@ MergeType = "Nothing"
 DamageType = "Bludgeoning"
 Damage = 0.25
 AttackSpeed = 0.25
+ProjectileVelocity = 0.0
+PotentialSecondary = Array[String](["Nothing"])

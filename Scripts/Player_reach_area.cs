@@ -11,7 +11,7 @@ public partial class Player_reach_area : Area2D
 	public Resource EquippedItem;
 	public Area2D[] ReachableItems = new Area2D[2];
 	string MergeFrom;
-	string CurrentMergeType;
+	string ElementName;
 	string DamageType;
 	float Damage;
 	float AttackSpeed;
@@ -25,15 +25,27 @@ public partial class Player_reach_area : Area2D
 	//this code changes the stats of this node (which is basically the player's hands) to the new stats of a merged or newly equipped item
 	public void EquipNewItem(EquipableItemScript equipableItem) {
 		MergeFrom = equipableItem.MergeFrom;
-		CurrentMergeType = equipableItem.MergeType;
+		ElementName = equipableItem.MergeType;
 		DamageType = equipableItem.DamageType;
 		Damage = equipableItem.Damage;
 		AttackSpeed = equipableItem.AttackSpeed;
 		ProjectileVelocity = equipableItem.ProjectileVelocity;
-		SetMeta("MergeType", CurrentMergeType);
+		SetMeta("MergeType", ElementName);
 		SetMeta("AttackSpeed", AttackSpeed);
 
 		AttackCharging = 0;
+
+		int SecondaryNum = GetRandomArrayNum(equipableItem.PotentialSecondary);
+		string Secondary = equipableItem.PotentialSecondary[SecondaryNum];
+		GD.Print(Secondary);
+	}
+
+	private int GetRandomArrayNum(Godot.Collections.Array<string> GDArray){
+		// CONTINUE get the length of the array then return a random number in the array
+		Random rnd = new Random();
+		int ArrayNum = rnd.Next(GDArray.Count());
+		GD.Print(ArrayNum);
+		return ArrayNum;
 	}
 
 
@@ -42,7 +54,7 @@ public partial class Player_reach_area : Area2D
 		bool IsItemMergable = false;
 		EquipableItemScript NewItem = GD.Load<EquipableItemScript>(Convert.ToString(path));
 		//this checks if the held item can be merged with the resource to make a new item
-		if (CurrentMergeType == NewItem.MergeFrom){
+		if (ElementName == NewItem.MergeFrom){
 			IsItemMergable = true;
 		}
 		return IsItemMergable;
@@ -103,6 +115,9 @@ public partial class Player_reach_area : Area2D
 			CurrentCoyoteAttackTime = MaxCoyoteAttackTime;
 		}
 
+		if (Input.IsActionJustPressed("special")){
+			GD.Print("special pressed");
+		}
 		
 	}
 
@@ -113,7 +128,7 @@ public partial class Player_reach_area : Area2D
 		//this gets the equipped item resource that this node has, WARNING I need to update this code when we have a save file so that the equipped item isn't the player's hands
 		EquipNewItem(GD.Load<EquipableItemScript>("res://Items/EquipableItems/Hands.tres"));
 		GD.Print(Damage + " " + DamageType);
-		SetMeta("MergeType", CurrentMergeType);
+		SetMeta("MergeType", ElementName);
 	}
 
 
@@ -144,7 +159,7 @@ public partial class Player_reach_area : Area2D
 			GD.Print(AngleOfMouse);
 			//GD.Print("Projectile speed is "+Projectile.SpeedX +", "+Projectile.SpeedY);
 			//sets the right resource to attack. It does this by getting the file path of the resource and using its specific name to find it. WARNING might want to set the resource to attack in the player reach area script
-			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Items/Projectiles/" + CurrentMergeType + "Projectile.tres");
+			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Items/Projectiles/" + ElementName + "Projectile.tres");
 			//this sets the projectile position to the player
 			Projectile.Position = GetParent<CharacterBody2D>().Position;
 			//this adds the player reach position to the spawn location

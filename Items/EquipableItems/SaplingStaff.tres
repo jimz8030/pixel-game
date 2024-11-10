@@ -12,3 +12,4 @@ DamageType = "Piercing"
 Damage = 1.0
 AttackSpeed = 1.0
 ProjectileVelocity = 2.0
+PotentialSecondary = Array[String](["Platform"])
