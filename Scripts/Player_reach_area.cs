@@ -17,7 +17,7 @@ public partial class Player_reach_area : Area2D
 	float AttackSpeed;
 	float ProjectileVelocity;
 	private float AttackCharging;
-	private float MaxCoyoteAttackTime = 1f;
+	private const float MaxCoyoteAttackTime = 1f;
 	private float CurrentCoyoteAttackTime;
 
 
