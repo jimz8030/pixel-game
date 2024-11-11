@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProjectileScript" load_steps=3 format=3 uid="uid://d4aciif11t0ru"]
 
-[ext_resource type="Script" path="res://Items/Projectiles/ProjectileScript.cs" id="1_o3iol"]
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileScript.cs" id="1_o3iol"]
 [ext_resource type="Texture2D" uid="uid://bcutqab307r4m" path="res://Sprites/Environment/SaplingProjectile.png" id="1_wk6f1"]
 
 [resource]

@@ -126,7 +126,7 @@ public partial class Player_reach_area : Area2D
 	public override void _Ready()
 	{
 		//this gets the equipped item resource that this node has, WARNING I need to update this code when we have a save file so that the equipped item isn't the player's hands
-		EquipNewItem(GD.Load<EquipableItemScript>("res://Items/EquipableItems/Hands.tres"));
+		EquipNewItem(GD.Load<EquipableItemScript>("res://Resources/EquipableItems/Hands.tres"));
 		GD.Print(Damage + " " + DamageType);
 		SetMeta("MergeType", ElementName);
 	}
@@ -159,7 +159,7 @@ public partial class Player_reach_area : Area2D
 			GD.Print(AngleOfMouse);
 			//GD.Print("Projectile speed is "+Projectile.SpeedX +", "+Projectile.SpeedY);
 			//sets the right resource to attack. It does this by getting the file path of the resource and using its specific name to find it. WARNING might want to set the resource to attack in the player reach area script
-			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Items/Projectiles/" + ElementName + "Projectile.tres");
+			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Resources/Projectiles/" + ElementName + "Projectile.tres");
 			//this sets the projectile position to the player
 			Projectile.Position = GetParent<CharacterBody2D>().Position;
 			//this adds the player reach position to the spawn location

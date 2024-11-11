@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_frcos"]
 [ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Character.tscn" id="2_86n8s"]
 [ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_gnaet"]
-[ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Items/EquipableItems/Hands.tres" id="4_o6r6c"]
+[ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Resources/EquipableItems/Hands.tres" id="4_o6r6c"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iafr2"]
 

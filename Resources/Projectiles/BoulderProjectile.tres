@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="ProjectileScript" load_steps=3 format=3 uid="uid://ctkuxqjhseqqk"]
 
 [ext_resource type="Texture2D" uid="uid://n3xupgs8l661" path="res://Sprites/Environment/BoulderProjectile.png" id="1_rrjb4"]
-[ext_resource type="Script" path="res://Items/Projectiles/ProjectileScript.cs" id="2_1w2sf"]
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileScript.cs" id="2_1w2sf"]
 
 [resource]
 script = ExtResource("2_1w2sf")

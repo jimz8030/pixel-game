@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProjectileScript" load_steps=3 format=3 uid="uid://bluujvbhcqi0m"]
 
-[ext_resource type="Script" path="res://Items/Projectiles/ProjectileScript.cs" id="1_hvvo6"]
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileScript.cs" id="1_hvvo6"]
 [ext_resource type="Texture2D" uid="uid://c6vfx5ki1nh6x" path="res://Sprites/Environment/FireProjectile.png" id="1_svxoh"]
 
 [resource]

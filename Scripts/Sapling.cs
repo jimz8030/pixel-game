@@ -28,7 +28,7 @@ public partial class Sapling : Area2D
     public override void _Ready()
 	{
         //these lines of code get the resource that is attached to this node, save the filepath so other nodes can access it (like how the EquipNewItem function uses the stats to equip a new item)
-        string ResourcePath = "res://Items/EquipableItems/"+Name+"Staff.tres";
+        string ResourcePath = "res://Resources/EquipableItems/"+Name+"Staff.tres";
         SetMeta("merge_path", ResourcePath);
         //Initalize is used to take any data from the attached resource and apply it to this node
         Initialize(GD.Load<EquipableItemScript>(ResourcePath));

@@ -26,7 +26,7 @@ public partial class CharacterBody2d : CharacterBody2D
 	public float CurrentCoyoteJumpTime;
 	float FramePerfectJump;
 	float AttackCharging;
-	float JumpCharging = 0;
+	float JumpCharging = .25f;
 	
 	//jumpheight is the hight you want the player to jump at
 	const int JumpHeight = 60;
@@ -105,91 +105,123 @@ public partial class CharacterBody2d : CharacterBody2D
 		}
 		else{
 			CurrentCoyoteJumpTime = MaxCoyoteJumpTime;
-			if (JumpCharging > 0){
-				JumpCharging -= .125f;
-			}
 		}
 
 		// Handle Jump.
+		// decreases Jump charging so the player can't jump twice or more before leaving the ground
+		if (JumpCharging > 0){
+			JumpCharging -= .125f;
+		}
+		// if frame perfect jump isn't 0 it slowly decreses (so it doesn't stay on)
 		if (FramePerfectJump > 0){
 			FramePerfectJump -= .125f;
 		}
+		// checks if someone pushes the space bar or enter
 		if (Input.IsActionJustPressed("ui_accept"))
 		{
+			// If Youre on ground or just recently left the ground (as shown with coyote time) and you didn't just dash. (jump charging is just so the player doesn't press space too fast)
 			if (CurrentCoyoteJumpTime > 0 && DashCharging <= 9.5f && JumpCharging <= 0){
+				// makes you go up by setting upward velocity
 				velocity.Y = JumpVelocity;
-				GD.Print(velocity.Y);
-				GD.Print(JumpVelocity);
-				GD.Print(velocity.Y);
-				JumpCharging = 1f;
+				// makes sure you can't jump again for 2 frames
+				JumpCharging = .25f;
 				}
+			// if you're not on the ground and you tell the program to jump it will understand and let you jump when you touch the ground (8 frame window I think)
 			else if (!IsOnFloor()){
+				// sets the ammount of frames the frame perfect jump will last (also how forgiving) WARNING If this is set too high player might jump twice before stopping (also if theres something above the player the player will jump multiple times)
 				FramePerfectJump = 1f;
 			}
 		}
+
+		// this makes you jump with the frame perfect jump variable (incase they pressed jump button slightly too soon)
 		if (FramePerfectJump > 0 && IsOnFloor()){
 				velocity.Y = JumpVelocity;
-				JumpCharging = 1f;
+				JumpCharging = .25f;
 			}
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		// if thier movement is not 0 (they're moving), also checks if they recently dashed, in this case they shouldn't be able to move while dashing probably
 		if (direction != Vector2.Zero && DashCharging <= 9f)
 		{
 			//checks if velocity is greater than how fast the player would walk
 			if (Math.Abs(velocity.X) > Math.Abs(direction.X * Speed) && IsOnFloor() == false){
 				//this checks if the player wants to move in the other direction
 				if (Math.Sign(direction.X) != Math.Sign(velocity.X)){
+					// if they want to move in other direction then it changes thier speed to walking speed
 					velocity.X = direction.X * Speed;
 				}
+				// if they don't want to change directions then they will still slowly decelerate
 				else{
 					velocity.X = Mathf.MoveToward(velocity.X, 0, 10);
 				}
 			}
+			// if the velocity theyre moving at is less than walking speed then walking speed gets updated
 			else{
 			velocity.X = direction.X * Speed;
 			}
 		}
+		// activates if they aren't moving or just recently dashed
 		else
 		{
+			// reduces their movement by a lot (can stop fast on ground)
 			if (IsOnFloor()){
 				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
 			}
+			// reduces their movement by a little if in the air
 			else{
 				velocity.X = Mathf.MoveToward(velocity.X, 0, 10);
 			}
 		}
 		
-		DashCharging -= 0.125f;
+		// checks if the dash can be reduced, than reduces it if true
+		if (DashCharging > 0){
+			DashCharging -= 0.125f;
+		}
+		// checks if the dash is pressed and if the dash is charged (so player can't infinately dash)
 		if (Input.IsActionJustPressed("dash") && DashCharging <= 0f){
+			// updates the charge counter so they can't dash for a while
 			DashCharging = 10f;
+			// if they're in the air this is used, when on the ground this variable gets updated so the player can dash a reasonable distance in air or on ground (because of the way deceleration works)
 			float SpeedModifier = 3f;
 			//sets velocity to 0 so dash doesnt add to walk speed
 			velocity.X = 0;
+			// checks if theyre on the ground (and didn't jump) WARNING I doubt that checking if they recently pressed the jump button is helping 
 			if (IsOnFloor() && Input.IsActionPressed("ui_accept") == false){
+				// changes speed mod if on ground
 				SpeedModifier = 10f;
 			}
+
+			// if theyre facing right
 			if (PlayerSprite.Scale.X < 0){
+				// make them go right fast
 				velocity.X += Speed * SpeedModifier;
 			}
+			// if facing left
 			else{
+				// make them go left fast
 				velocity.X -= Speed * SpeedModifier;
 			}
 		}
-
+		// if you're pressing go right button
 		if (Input.IsActionJustPressed("ui_right")){
-			//these two if statements flip the area2d called player reach. the reason Vector2 is 32 and 0 is because it changes based on it's starting position. basically it's changing the position by 32 pixels to the right and it goes back to starting position if you're facing the left
+			// makes you face right
 			PlayerSprite.Scale = new Vector2(-1, 1);
+			// changes the player's reach square to match
 			PlayerReach.Position = new Vector2(16,0);
 		}
+		// if pressing go left button
 		else if (Input.IsActionJustPressed("ui_left")){
+			// makes you face left
 			PlayerSprite.Scale = new Vector2(1, 1);
+			// changes reach area to match
 			PlayerReach.Position = new Vector2(-16,0);
 
 		}
+		// sets the changed velocity to the new velocity
 		Velocity = velocity;
+		// tells the node to move based on current velocity
 		MoveAndSlide();
-		
 	}
 }

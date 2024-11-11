@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProjectileScript" load_steps=3 format=3 uid="uid://bfh3po6jvosfg"]
 
-[ext_resource type="Script" path="res://Items/Projectiles/ProjectileScript.cs" id="1_eyw8v"]
+[ext_resource type="Script" path="res://Resources/Projectiles/ProjectileScript.cs" id="1_eyw8v"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_an811"]
 
