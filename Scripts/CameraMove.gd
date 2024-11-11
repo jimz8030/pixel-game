@@ -32,7 +32,6 @@ func _physics_process(delta: float) -> void:
 		#detects if player is going far past the bounds in which case the camera speeds up
 		if PlayerCamDifference > 200:
 			self.global_position.x -= abs(PlayerCamDifference - 200) / (DampeningAmount / 2)
-			print("going far to the left")
 		#detects if the player is going a little bit to the left while mouse is to the right
 		elif PlayerCamDifference > 180:
 			self.global_position.x -= abs(PlayerCamDifference - 180) / DampeningAmount

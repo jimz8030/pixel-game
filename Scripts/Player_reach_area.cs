@@ -36,8 +36,9 @@ public partial class Player_reach_area : Area2D
 		AttackCharging = 0;
 
 		int SecondaryNum = GetRandomArrayNum(equipableItem.PotentialSecondary);
-		string Secondary = equipableItem.PotentialSecondary[SecondaryNum];
-		GD.Print(Secondary);
+		string SecondaryName = equipableItem.PotentialSecondary[SecondaryNum];
+		
+		GD.Print(SecondaryName);
 	}
 
 	private int GetRandomArrayNum(Godot.Collections.Array<string> GDArray){
@@ -72,8 +73,6 @@ public partial class Player_reach_area : Area2D
 		else{
 			GD.Print("something else is afoot. also area2d name is: "+ReachableItem.Name);
 		}
-
-
 	}
 
 
@@ -118,6 +117,17 @@ public partial class Player_reach_area : Area2D
 
 		if (Input.IsActionJustPressed("special")){
 			GD.Print("special pressed");
+			
+			//WARNING this will change when different secondaries are avalable for use
+			Vector2 SpecialPos = GetGlobalMousePosition();
+			Godot.PackedScene SpecialScene = GD.Load<PackedScene>("res://Scenes/platform.tscn");
+			PlatformNode Platform = (PlatformNode)SpecialScene.Instantiate();
+			Platform.GlobalPosition = SpecialPos;
+			Platform.SecondaryData = GD.Load<SecondaryScript>("res://Resources/Secondaries/SapplingPlatform.tres");
+			GetParent<CharacterBody2d>().MainNode.AddChild(Platform);
+
+
+			// CONTINUE
 		}
 		
 	}
