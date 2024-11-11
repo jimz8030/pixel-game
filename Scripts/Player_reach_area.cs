@@ -63,11 +63,12 @@ public partial class Player_reach_area : Area2D
 
 	//this function detects if the area2d is a resource or not. WARNING this code can be improved greatly if there are other kinds of Area2Ds (like an enemy)
 	public void GetNearbyArea2D(Area2D ReachableItem){
+		// checks if the thing in reach is a resource WARNING (manually updating this for each type of resource will be a pain, find a better solution before you get too far)
 		if (ReachableItem.Name == "Sapling" || ReachableItem.Name == "Boulder" || ReachableItem.Name == "Fire"){
 			//WARNING ReachableItems is an array because there might be mulitple objects within reach, however the currently written code only affects the Area2D that entered last
 			ReachableItems[0] = ReachableItem;
-			GD.Print(ReachableItems[0].Name+" is within reach");
 		}
+		// if the item isn't a resource or isn't found
 		else{
 			GD.Print("something else is afoot. also area2d name is: "+ReachableItem.Name);
 		}
@@ -78,8 +79,8 @@ public partial class Player_reach_area : Area2D
 
 	//this function removes the Area2D from this node, so the player can't harvest the item if they go out of reach
 	public void RemoveFarArea2D(Area2D ItemLeaving){
+		// sets the rechable item to null WARNING when this code can fit multiple resources update this to match
 		ReachableItems[0] = null;
-		GD.Print(ItemLeaving.Name+" is leaving the player's reach");
 	}
 
 
@@ -135,12 +136,17 @@ public partial class Player_reach_area : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		AttackCharging -= 0.1f;
+		// reduces attack charging if it's positive (can't attack while charging)
+		if (AttackCharging > 0) {
+			AttackCharging -= 0.125f;
+		}
+
+		// reduces coyote attack time
 		if (CurrentCoyoteAttackTime > 0){
-			CurrentCoyoteAttackTime -= .1f;
-			GD.Print(CurrentCoyoteAttackTime);
+			CurrentCoyoteAttackTime -= .125f;
 		}
 		
+		// checks if player pushed the attack button and if they can attack
 		if (CurrentCoyoteAttackTime > 0 && AttackCharging <= 0){
 			//reset cooldown on attack
 			AttackCharging = AttackSpeed;
@@ -156,7 +162,6 @@ public partial class Player_reach_area : Area2D
 			float AngleOfMouse = (float)Math.Atan2(MousePosY, MousePosX);
 			Projectile.Speed = new Vector2 (0,100*ProjectileVelocity);
 			Projectile.RotationRadians = AngleOfMouse + -(float)Math.PI/2;
-			GD.Print(AngleOfMouse);
 			//GD.Print("Projectile speed is "+Projectile.SpeedX +", "+Projectile.SpeedY);
 			//sets the right resource to attack. It does this by getting the file path of the resource and using its specific name to find it. WARNING might want to set the resource to attack in the player reach area script
 			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Resources/Projectiles/" + ElementName + "Projectile.tres");
@@ -166,8 +171,6 @@ public partial class Player_reach_area : Area2D
 			Projectile.Position = new Vector2 (Projectile.Position.X + Position.X, Projectile.Position.Y);
 			//this puts the projectile into the scene
 			GetParent<CharacterBody2d>().MainNode.AddChild(Projectile);
-			GD.Print("just attacked");
-			GD.Print("ProjectileVelocity is ...", ProjectileVelocity);
 		}
 	}
 }
