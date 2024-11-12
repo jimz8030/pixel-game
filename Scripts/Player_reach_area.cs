@@ -138,8 +138,16 @@ public partial class Player_reach_area : Area2D
 					// breaks the case statement
 					break;
 				// checks if 
-				case string s when s == "Cluster":
+				case string s when s == "Cluster":// maybe this should be called catapult
 					GD.Print("Cluster secondary still unmade");
+					// launch a big ball that does high damage
+					break;
+				
+				case string s when s == "Stream":
+					// continuously blast a creature with an element. Like a flame thrower
+					break;
+				case string s when s == "Cattletrops":// maybe rename this
+					// place element behind you as you move
 					break;
 				// if none of the above match, then this runs
 				default:
