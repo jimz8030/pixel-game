@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -13,6 +14,7 @@ public partial class Player_reach_area : Area2D
 	string MergeFrom;
 	string ElementName;
 	string DamageType;
+	string SecondaryName = "";
 	float Damage;
 	float AttackSpeed;
 	float ProjectileVelocity;
@@ -36,7 +38,7 @@ public partial class Player_reach_area : Area2D
 		AttackCharging = 0;
 
 		int SecondaryNum = GetRandomArrayNum(equipableItem.PotentialSecondary);
-		string SecondaryName = equipableItem.PotentialSecondary[SecondaryNum];
+		SecondaryName = equipableItem.PotentialSecondary[SecondaryNum];
 		
 		GD.Print(SecondaryName);
 	}
@@ -116,15 +118,36 @@ public partial class Player_reach_area : Area2D
 		}
 
 		if (Input.IsActionJustPressed("special")){
-			GD.Print("special pressed");
 			
+			// basically an if statement saying if secondary name is a string that ends with ___ (and we can repete that instead of writing new if or else if statements)
+			switch(SecondaryName){
+				// checks if the staff has the Platform at the end of their name, so the specials "Boulder Platform" and "Sapling Platform" are both under the platform category
+				case string s when s == "Platform":
+					// gets the position of the mouse to use
+					Vector2 SpecialPos = GetGlobalMousePosition();
+					// loads the platform scene
+					Godot.PackedScene SpecialScene = GD.Load<PackedScene>("res://Scenes/platform.tscn");
+					// gets the platform node to work with
+					PlatformNode Platform = (PlatformNode)SpecialScene.Instantiate();
+					// sets the position of the node to the position of the mouse
+					Platform.GlobalPosition = SpecialPos;
+					// gives the platform the specific data on the special it's using so when it enters the tree it can change it's size and how it looks.
+					Platform.SecondaryData = GD.Load<SecondaryScript>("res://Resources/Secondaries/"+ElementName+SecondaryName+".tres");
+					// puts the platform into the game
+					GetParent<CharacterBody2d>().MainNode.AddChild(Platform);
+					// breaks the case statement
+					break;
+				// checks if 
+				case string s when s == "Cluster":
+					GD.Print("Cluster secondary still unmade");
+					break;
+				// if none of the above match, then this runs
+				default:
+					GD.Print(SecondaryName + " is unknown or we haven't made mechanics for it.");
+					break;
+			}
 			//WARNING this will change when different secondaries are avalable for use
-			Vector2 SpecialPos = GetGlobalMousePosition();
-			Godot.PackedScene SpecialScene = GD.Load<PackedScene>("res://Scenes/platform.tscn");
-			PlatformNode Platform = (PlatformNode)SpecialScene.Instantiate();
-			Platform.GlobalPosition = SpecialPos;
-			Platform.SecondaryData = GD.Load<SecondaryScript>("res://Resources/Secondaries/SapplingPlatform.tres");
-			GetParent<CharacterBody2d>().MainNode.AddChild(Platform);
+			
 
 
 			// CONTINUE

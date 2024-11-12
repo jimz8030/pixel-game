@@ -170,14 +170,18 @@ public partial class CharacterBody2d : CharacterBody2D
 		// activates if they aren't moving or just recently dashed
 		else
 		{
-			// reduces their movement by a lot (can stop fast on ground)
-			if (IsOnFloor()){
-				velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+			// they don't decelerate until dash is over
+			if (DashCharging < 9.5){
+				// reduces their movement by a lot (can stop fast on ground)
+				if (IsOnFloor()){
+					velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+				}
+				// reduces their movement by a little if in the air
+				else{
+					velocity.X = Mathf.MoveToward(velocity.X, 0, Speed/4);
+				}
 			}
-			// reduces their movement by a little if in the air
-			else{
-				velocity.X = Mathf.MoveToward(velocity.X, 0, Speed/4);
-			}
+			
 		}
 		
 		// checks if the dash can be reduced, than reduces it if true
@@ -193,10 +197,10 @@ public partial class CharacterBody2d : CharacterBody2D
 			//sets velocity to 0 so dash doesnt add to walk speed
 			velocity.X = 0;
 			// checks if theyre on the ground (and didn't jump) WARNING I doubt that checking if they recently pressed the jump button is helping 
-			if (IsOnFloor() && Input.IsActionPressed("ui_accept") == false){
-				// changes speed mod if on ground
-				SpeedModifier = 8f;
-			}
+//			if (IsOnFloor() && Input.IsActionPressed("ui_accept") == false){
+//				// changes speed mod if on ground
+//				SpeedModifier = 8f;
+//			}
 
 			// if theyre facing right
 			if (PlayerSprite.Scale.X < 0){
