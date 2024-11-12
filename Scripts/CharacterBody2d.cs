@@ -29,9 +29,9 @@ public partial class CharacterBody2d : CharacterBody2D
 	float JumpCharging = .25f;
 	
 	//jumpheight is the hight you want the player to jump at
-	const int JumpHeight = 60;
+	const int JumpHeight = 30;
 	//Time in air doubled is the ammount of time the jump takes before touching ground
-	const float TimeInAir = 0.5f;
+	const float TimeInAir = 0.75f;
 
 	public Node2D PlayerSprite;
 	
@@ -154,12 +154,17 @@ public partial class CharacterBody2d : CharacterBody2D
 				}
 				// if they don't want to change directions then they will still slowly decelerate
 				else{
-					velocity.X = Mathf.MoveToward(velocity.X, 0, 10);
+					velocity.X = Mathf.MoveToward(velocity.X, 0, Speed/4);
 				}
 			}
 			// if the velocity theyre moving at is less than walking speed then walking speed gets updated
 			else{
-			velocity.X = direction.X * Speed;
+			if (velocity.X < direction.X * Speed){
+				velocity.X += direction.X * Speed/8;
+			}
+			else if (velocity.X > direction.X * Speed && Math.Sign(direction.X) < 0){
+				velocity.X += direction.X * Speed/8;
+			}
 			}
 		}
 		// activates if they aren't moving or just recently dashed
@@ -171,7 +176,7 @@ public partial class CharacterBody2d : CharacterBody2D
 			}
 			// reduces their movement by a little if in the air
 			else{
-				velocity.X = Mathf.MoveToward(velocity.X, 0, 10);
+				velocity.X = Mathf.MoveToward(velocity.X, 0, Speed/4);
 			}
 		}
 		
