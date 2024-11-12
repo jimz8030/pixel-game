@@ -31,7 +31,7 @@ public partial class CharacterBody2d : CharacterBody2D
 	//jumpheight is the hight you want the player to jump at
 	const int JumpHeight = 30;
 	//Time in air doubled is the ammount of time the jump takes before touching ground
-	const float TimeInAir = 0.75f;
+	const float TimeInAir = 0.5f;
 
 	public Node2D PlayerSprite;
 	
@@ -189,13 +189,13 @@ public partial class CharacterBody2d : CharacterBody2D
 			// updates the charge counter so they can't dash for a while
 			DashCharging = 10f;
 			// if they're in the air this is used, when on the ground this variable gets updated so the player can dash a reasonable distance in air or on ground (because of the way deceleration works)
-			float SpeedModifier = 3f;
+			float SpeedModifier = 4f;
 			//sets velocity to 0 so dash doesnt add to walk speed
 			velocity.X = 0;
 			// checks if theyre on the ground (and didn't jump) WARNING I doubt that checking if they recently pressed the jump button is helping 
 			if (IsOnFloor() && Input.IsActionPressed("ui_accept") == false){
 				// changes speed mod if on ground
-				SpeedModifier = 10f;
+				SpeedModifier = 8f;
 			}
 
 			// if theyre facing right

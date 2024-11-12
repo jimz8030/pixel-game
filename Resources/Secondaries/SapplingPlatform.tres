@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://Resources/Secondaries/SecondaryScript.cs" id="1_jnius"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_rbbro"]
-size = Vector2(20, 20)
+size = Vector2(50, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgm65"]
+size = Vector2(50, 20)
 
 [resource]
 script = ExtResource("1_jnius")
