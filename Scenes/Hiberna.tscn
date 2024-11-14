@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/cam_move.gd" id="1_anv8y"]
 [ext_resource type="TileSet" uid="uid://c5dooprmwbwfv" path="res://Resources/Tile Map Data/Snow_Tiles.tres" id="2_bfj2t"]
-[ext_resource type="PackedScene" path="res://Resources/snow.tscn" id="2_cpu0w"]
+[ext_resource type="PackedScene" uid="uid://c768hnn1tlm0v" path="res://Scenes/Hiberna.tscn" id="2_cpu0w"]
 
 [node name="Hiberna" type="Node2D"]
 

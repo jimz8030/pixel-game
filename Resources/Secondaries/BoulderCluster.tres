@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SecondaryScript" load_steps=4 format=3 uid="uid://cpk5r87etcbhy"]
+
+[ext_resource type="Script" path="res://Resources/Secondaries/SecondaryScript.cs" id="1_fky0r"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_sk81c"]
+size = Vector2(8, 8)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t18nf"]
+radius = 8.0
+
+[resource]
+script = ExtResource("1_fky0r")
+SecondaryImage = SubResource("PlaceholderTexture2D_sk81c")
+Shape = SubResource("CircleShape2D_t18nf")
+ChargeTime = 2.0

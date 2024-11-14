@@ -29,7 +29,7 @@ public partial class CharacterBody2d : CharacterBody2D
 	float JumpCharging = .25f;
 	
 	//jumpheight is the hight you want the player to jump at
-	const int JumpHeight = 60;
+	const int JumpHeight = 30;
 	//Time in air doubled is the ammount of time the jump takes before touching ground
 	const float TimeInAir = 0.5f;
 

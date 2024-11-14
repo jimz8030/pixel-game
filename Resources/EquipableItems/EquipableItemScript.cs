@@ -44,5 +44,6 @@ public partial class EquipableItemScript : Resource
 		AttackSpeed = attackSpeed;
 		ProjectileVelocity = projectileVelocity;
 		PotentialSecondary = potentialSecondary;
+		// remove all special charge time variables
 	}
 }

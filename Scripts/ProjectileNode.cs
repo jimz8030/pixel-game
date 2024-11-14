@@ -10,6 +10,7 @@ public partial class ProjectileNode : CharacterBody2D
 
 	float WallBounceMod;
 	float Radius = 10f;
+	public float SizeMod;
 	//used to calculate how long the projectile should be alive
 	float Lifetime = 10f;
 	//makes gravity heavier for specific objects, 1 seems like normal gravity, 0 is no gravity
@@ -40,7 +41,7 @@ public partial class ProjectileNode : CharacterBody2D
 		Velocity = Speed.Rotated(RotationRadians);
 		//makes a circle colision, sets its radius, then sets the shape property of the projectil's collision to the circle
 		CircleShape2D ShapeProperty = new CircleShape2D();
-		ShapeProperty.Radius = Radius;
+		ShapeProperty.Radius = Radius * SizeMod;
 		GetNode<CollisionShape2D>("ProjectileShape").Shape = ShapeProperty;
 		//change the size of the picture if possible, this might be bad since the picture might not have the same sizing as the circle (like a fire sprite might be taller and not so cirlcuar)
 		GetNode<Sprite2D>("ProjectileImage").Scale = new Godot.Vector2(Radius/4,Radius/4);

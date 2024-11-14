@@ -12,3 +12,4 @@ size = Vector2(20, 50)
 script = ExtResource("1_5v4u1")
 SecondaryImage = SubResource("PlaceholderTexture2D_uc8qs")
 Shape = SubResource("RectangleShape2D_2ntcy")
+ChargeTime = 0.0

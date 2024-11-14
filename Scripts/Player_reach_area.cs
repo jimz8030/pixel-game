@@ -19,6 +19,8 @@ public partial class Player_reach_area : Area2D
 	float AttackSpeed;
 	float ProjectileVelocity;
 	private float AttackCharging;
+	private float MaxSpecialCharge;
+	private float SpecialCharging;
 	private const float MaxCoyoteAttackTime = 1f;
 	private float CurrentCoyoteAttackTime;
 
@@ -26,6 +28,7 @@ public partial class Player_reach_area : Area2D
 
 	//this code changes the stats of this node (which is basically the player's hands) to the new stats of a merged or newly equipped item
 	public void EquipNewItem(EquipableItemScript equipableItem) {
+
 		MergeFrom = equipableItem.MergeFrom;
 		ElementName = equipableItem.MergeType;
 		DamageType = equipableItem.DamageType;
@@ -36,9 +39,15 @@ public partial class Player_reach_area : Area2D
 		SetMeta("AttackSpeed", AttackSpeed);
 
 		AttackCharging = 0;
+		// sets the charge of special. WARNING would be best to change depending on the type of special
 
 		int SecondaryNum = GetRandomArrayNum(equipableItem.PotentialSecondary);
 		SecondaryName = equipableItem.PotentialSecondary[SecondaryNum];
+		if (ElementName != "Nothing"){
+			SecondaryScript SpecialInfo = GD.Load<SecondaryScript>("res://Resources/Secondaries/" +ElementName + SecondaryName+".tres");
+			MaxSpecialCharge = AttackSpeed * SpecialInfo.ChargeTime;
+		}
+		
 		
 		GD.Print(SecondaryName);
 	}
@@ -119,40 +128,44 @@ public partial class Player_reach_area : Area2D
 
 		if (Input.IsActionJustPressed("special")){
 			
-			// basically an if statement saying if secondary name is a string that ends with ___ (and we can repete that instead of writing new if or else if statements)
-			switch(SecondaryName){
-				// checks if the staff has the Platform at the end of their name, so the specials "Boulder Platform" and "Sapling Platform" are both under the platform category
-				case string s when s == "Platform":
-					// gets the position of the mouse to use
-					Vector2 SpecialPos = GetGlobalMousePosition();
-					// loads the platform scene
-					Godot.PackedScene SpecialScene = GD.Load<PackedScene>("res://Scenes/platform.tscn");
-					// gets the platform node to work with
-					PlatformNode Platform = (PlatformNode)SpecialScene.Instantiate();
-					// sets the position of the node to the position of the mouse
-					Platform.GlobalPosition = SpecialPos;
-					// gives the platform the specific data on the special it's using so when it enters the tree it can change it's size and how it looks.
-					Platform.SecondaryData = GD.Load<SecondaryScript>("res://Resources/Secondaries/"+ElementName+SecondaryName+".tres");
-					// puts the platform into the game
-					GetParent<CharacterBody2d>().MainNode.AddChild(Platform);
-					// breaks the case statement
-					break;
-				// checks if 
-				case string s when s == "Cluster":// maybe this should be called catapult
-					GD.Print("Cluster secondary still unmade");
-					// launch a big ball that does high damage
-					break;
-				
-				case string s when s == "Stream":
-					// continuously blast a creature with an element. Like a flame thrower
-					break;
-				case string s when s == "Cattletrops":// maybe rename this
-					// place element behind you as you move
-					break;
-				// if none of the above match, then this runs
-				default:
-					GD.Print(SecondaryName + " is unknown or we haven't made mechanics for it.");
-					break;
+			if (SpecialCharging <= 0){
+				SpecialCharging = MaxSpecialCharge;
+				// basically an if statement saying if secondary name is a string that ends with ___ (and we can repete that instead of writing new if or else if statements)
+				switch(SecondaryName){
+					// checks if the staff has the Platform at the end of their name, so the specials "Boulder Platform" and "Sapling Platform" are both under the platform category
+					case string s when s == "Platform":
+						// gets the position of the mouse to use
+						Vector2 SpecialPos = GetGlobalMousePosition();
+						// loads the platform scene
+						Godot.PackedScene SpecialScene = GD.Load<PackedScene>("res://Scenes/platform.tscn");
+						// gets the platform node to work with
+						PlatformNode Platform = (PlatformNode)SpecialScene.Instantiate();
+						// sets the position of the node to the position of the mouse
+						Platform.GlobalPosition = SpecialPos;
+						// gives the platform the specific data on the special it's using so when it enters the tree it can change it's size and how it looks.
+						Platform.SecondaryData = GD.Load<SecondaryScript>("res://Resources/Secondaries/"+ElementName+SecondaryName+".tres");
+						// puts the platform into the game
+						GetParent<CharacterBody2d>().MainNode.AddChild(Platform);
+						// breaks the case statement
+						break;
+					// checks if 
+					case string s when s == "Cluster":// maybe this should be called catapult
+						GD.Print("Cluster secondary still unmade");
+						SpawnProjectile(100, 4);
+						// launch a big ball that does high damage
+						break;
+					
+					case string s when s == "Stream":
+						// continuously blast a creature with an element. Like a flame thrower
+						break;
+					case string s when s == "Cattletrops":// maybe rename this
+						// place element behind you as you move
+						break;
+					// if none of the above match, then this runs
+					default:
+						GD.Print(SecondaryName + " is unknown or we haven't made mechanics for it.");
+						break;
+				}
 			}
 			//WARNING this will change when different secondaries are avalable for use
 			
@@ -177,6 +190,11 @@ public partial class Player_reach_area : Area2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
+		// reduces special charging time if its greater than 0
+		if (SpecialCharging > 0){
+			SpecialCharging -= 0.125f;
+		}
+
 		// reduces attack charging if it's positive (can't attack while charging)
 		if (AttackCharging > 0) {
 			AttackCharging -= 0.125f;
@@ -191,27 +209,40 @@ public partial class Player_reach_area : Area2D
 		if (CurrentCoyoteAttackTime > 0 && AttackCharging <= 0){
 			//reset cooldown on attack
 			AttackCharging = AttackSpeed;
-			//gets the size of the screen and where the cursor is to calculate projectile velocity
-			Vector2 AttackPosition = GetGlobalMousePosition();
 			
-			//spawn projectile in center of player_reach_area, then make it move toward where person clicked
-			Godot.PackedScene ProjectileScene = GD.Load<PackedScene>("res://Scenes/projectile.tscn");
-			ProjectileNode Projectile = (ProjectileNode)ProjectileScene.Instantiate();
-			//subracts half of the screen from where the mouse is (gets direction of mouse relative to center of screen) WARNING this will cause minor problems if player isn't centered (like if we add camera movement stuff)
-			float MousePosX = AttackPosition.X-GlobalPosition.X;
-			float MousePosY = AttackPosition.Y-GlobalPosition.Y;
-			float AngleOfMouse = (float)Math.Atan2(MousePosY, MousePosX);
-			Projectile.Speed = new Vector2 (0,100*ProjectileVelocity);
-			Projectile.RotationRadians = AngleOfMouse + -(float)Math.PI/2;
-			//GD.Print("Projectile speed is "+Projectile.SpeedX +", "+Projectile.SpeedY);
-			//sets the right resource to attack. It does this by getting the file path of the resource and using its specific name to find it. WARNING might want to set the resource to attack in the player reach area script
-			Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Resources/Projectiles/" + ElementName + "Projectile.tres");
-			//this sets the projectile position to the player
-			Projectile.Position = GetParent<CharacterBody2D>().Position;
-			//this adds the player reach position to the spawn location
-			Projectile.Position = new Vector2 (Projectile.Position.X + Position.X, Projectile.Position.Y);
-			//this puts the projectile into the scene
-			GetParent<CharacterBody2d>().MainNode.AddChild(Projectile);
+			SpawnProjectile(100, 1);
+			
 		}
+	}
+
+
+	private void SpawnProjectile(float speedMod,float sizeMod = 1){
+		//spawn projectile in center of player_reach_area, then make it move toward where person clicked
+		Godot.PackedScene ProjectileScene = GD.Load<PackedScene>("res://Scenes/projectile.tscn");
+		ProjectileNode Projectile = (ProjectileNode)ProjectileScene.Instantiate();
+		// sets the speed of the projectile
+		Projectile.Speed = new Vector2 (0,speedMod*ProjectileVelocity);
+		Projectile.RotationRadians = GetMouseAngle();
+		//sets the right resource to attack. It does this by getting the file path of the resource and using its specific name to find it. WARNING might want to set the resource to attack in the player reach area script
+		Projectile.ProjectileType = GD.Load<ProjectileScript>("res://Resources/Projectiles/" + ElementName + "Projectile.tres");
+		// this makes the projectile different sizes for different attacks
+		Projectile.SizeMod = sizeMod;
+		//this sets the projectile position to the player
+		Projectile.Position = GetParent<CharacterBody2D>().Position;
+		//this adds the player reach position to the spawn location
+		Projectile.Position = new Vector2 (Projectile.Position.X + Position.X, Projectile.Position.Y);
+		//this puts the projectile into the scene
+		GetParent<CharacterBody2d>().MainNode.AddChild(Projectile);
+	}
+
+
+	private float GetMouseAngle(){
+		//gets the size of the screen and where the cursor is to calculate projectile velocity
+		Vector2 AttackPosition = GetGlobalMousePosition();
+		//subracts half of the screen from where the mouse is (gets direction of mouse relative to player reach area)
+		float MousePosX = AttackPosition.X-GlobalPosition.X;
+		float MousePosY = AttackPosition.Y-GlobalPosition.Y;
+		float AngleOfMouse = (float)Math.Atan2(MousePosY, MousePosX);
+		return AngleOfMouse + -(float)Math.PI/2;
 	}
 }
