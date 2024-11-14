@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c768hnn1tlm0v"]
+
+[ext_resource type="Script" path="res://Scripts/cam_move.gd" id="1_anv8y"]
+[ext_resource type="TileSet" uid="uid://c5dooprmwbwfv" path="res://Resources/Tile Map Data/Snow_Tiles.tres" id="2_bfj2t"]
+[ext_resource type="PackedScene" path="res://Resources/snow.tscn" id="2_cpu0w"]
+
+[node name="Hiberna" type="Node2D"]
+
+[node name="Cam" type="Node2D" parent="."]
+script = ExtResource("1_anv8y")
+
+[node name="Camera2D" type="Camera2D" parent="Cam"]
+
+[node name="Snow" parent="Cam" instance=ExtResource("2_cpu0w")]
+texture = null
+script = null
+
+[node name="Map_Gen" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Map_Gen"]
+tile_set = ExtResource("2_bfj2t")
