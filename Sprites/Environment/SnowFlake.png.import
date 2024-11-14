@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c7vw2oqmu4s32"
-path="res://.godot/imported/pixil-frame-0.png-81158a3bca1c81a9d1ee0c289ebcef01.ctex"
+path="res://.godot/imported/SnowFlake.png-069d36476e2128550caa025a234f1006.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Environment/pixil-frame-0.png"
-dest_files=["res://.godot/imported/pixil-frame-0.png-81158a3bca1c81a9d1ee0c289ebcef01.ctex"]
+source_file="res://Sprites/Environment/SnowFlake.png"
+dest_files=["res://.godot/imported/SnowFlake.png-069d36476e2128550caa025a234f1006.ctex"]
 
 [params]
 
