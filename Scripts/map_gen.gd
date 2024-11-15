@@ -17,7 +17,7 @@ var sky_height : int = 60
 @export var go_time : bool = false
 
 #information for terrain sets
-var source_id = 4
+var source_id = 0
 var snow_tiles_arr = []
 var snow_terrain_int = 0
 var stone_tiles_arr = []
@@ -51,40 +51,33 @@ func create_snow():
 	noise.noise_type = FastNoiseLite.TYPE_PERLIN
 	
 	#finds depth of snow based on total map height
-	var snow_depth : int = total_map_height / 1.25
+	var snow_depth : int = total_map_height
 	#bottom loop draws top layer, top loop fills in area
 	for f in snow_depth:
 		for s in map_length:
 			var snow_place_x = s
 			var snow_noise = noise.get_noise_2d(1, s)
 			var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
-			var snow_pos = Vector2i(snow_place_x, snow_place_y)
 			
-			#place phase 1
+			#Phase 1: fills bottom layers
 			if f >= 1:
-				self.set_cell(Vector2i(snow_place_x, snow_place_y), 4, Vector2i(9,2))
+				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
 			
 			
-			#place phase 2
+			#Phase 2: draws the top layer with specific tiles
 	for f in range(1):
 		for s in map_length:
 			var snow_place_x = s
 			var snow_noise = noise.get_noise_2d(1, s)
 			var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
-			var snow_pos = Vector2i(snow_place_x, snow_place_y)
 			
 			if s < 90 and s > 20:
 				snow_tiles_arr.append(Vector2i(snow_place_x, snow_place_y))
 				self.set_cells_terrain_connect(snow_tiles_arr, snow_terrain_int, 0)
+				print ("Specific Cell Placed")
 			else:
-				self.set_cell(Vector2i(snow_place_x, snow_place_y), 4, Vector2i(9,2))
-
-			#applies the cells according to the numbers
-			#if go_time == true:
-				#snow_tiles_arr.append(Vector2i(snow_place_x, snow_place_y))
-				#self.set_cells_terrain_connect(snow_tiles_arr, snow_terrain_int, 0)
-			#else:
-				#self.set_cell(Vector2i(snow_place_x, snow_place_y), 4, Vector2i(9,2))
+				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
+				print ("General Cell Placed")
 
 func create_stone():
 	
@@ -97,14 +90,14 @@ func create_stone():
 			
 			var stone_place_x = stone_line
 			var stone_noise = noise.get_noise_2d(1, stone_line)
-			var stone_place_y = stone_noise * hill_heights + sky_height + 20 + stone_fill
+			var stone_place_y = stone_noise * hill_heights + sky_height + 10 + stone_fill
 		
 			#applies the cells according to the numbers
 			if go_time == true:
 				stone_tiles_arr.append(Vector2i(stone_place_x, stone_place_y))
 				self.set_cells_terrain_connect(stone_tiles_arr, stone_terrain_int, 0)
 			else:
-				self.set_cell(Vector2i(stone_place_x, stone_place_y), 4, Vector2i(21,2))
+				self.set_cell(Vector2i(stone_place_x, stone_place_y), 0, Vector2i(21,2))
 
 func create_caves():
 	

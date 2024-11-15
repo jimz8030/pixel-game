@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://daw2q6af0o6j"]
 
-[ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_frcos"]
-[ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Character.tscn" id="2_86n8s"]
-[ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_gnaet"]
-[ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Resources/EquipableItems/Hands.tres" id="4_o6r6c"]
+[ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_hch2p"]
+[ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Resources/Character.tscn" id="2_8c4um"]
+[ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_6bd3a"]
+[ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Resources/EquipableItems/Hands.tres" id="4_6alpd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iafr2"]
 
@@ -14,19 +14,19 @@ height = 40.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcyv0"]
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
-script = ExtResource("1_frcos")
+script = ExtResource("1_hch2p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color(1, 0, 1, 1)
 material = SubResource("CanvasItemMaterial_iafr2")
 shape = SubResource("CapsuleShape2D_h3p27")
 
-[node name="Character" parent="." instance=ExtResource("2_86n8s")]
+[node name="Character" parent="." instance=ExtResource("2_8c4um")]
 
 [node name="PlayerReachArea" type="Area2D" parent="."]
 collision_mask = 6
-script = ExtResource("3_gnaet")
-EquippedItem = ExtResource("4_o6r6c")
+script = ExtResource("3_6bd3a")
+EquippedItem = ExtResource("4_6alpd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerReachArea"]
 shape = SubResource("RectangleShape2D_pcyv0")

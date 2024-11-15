@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://cjfhlbxs1b48m"]
 
 [ext_resource type="Texture2D" uid="uid://b1fgqnwnmjil0" path="res://Sprites/UI/Character_Creator_Background_1.2.png" id="1_6wgd4"]
-[ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Character.tscn" id="2_tw5rk"]
+[ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Resources/Character.tscn" id="2_tw5rk"]
 [ext_resource type="ButtonGroup" uid="uid://ncicfe48eeg8" path="res://Groups/MaleFemaleButtons.tres" id="3_7sn6q"]
 [ext_resource type="Texture2D" uid="uid://bnan138yfebqp" path="res://Sprites/UI/Selection_2.png" id="4_3rt35"]
 [ext_resource type="Texture2D" uid="uid://cclovwmi261d4" path="res://Sprites/UI/Next_Button.png" id="5_cpd5k"]
