@@ -26,6 +26,13 @@ var stone_terrain_int = 1
 #used later when making caves
 var hole_noise = FastNoiseLite.new()
 
+#used to determine which tiles are rendered (x and y total = 125 typically)
+@export var camera : Node2D
+var cam_bounds_left : int = 45
+var cam_bounds_right : int = 80
+var cam_bounds_down : int = 10
+var cam_bounds_up : int = 10
+
 func _ready() -> void:
 	
 	#makes its own seed if the seed is 0 or not set
@@ -59,25 +66,9 @@ func create_snow():
 			var snow_noise = noise.get_noise_2d(1, s)
 			var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
 			
-			#Phase 1: fills bottom layers
+			#Phase 1: skips top layer and fills bottom layers
 			if f >= 1:
 				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
-			
-			
-			#Phase 2: draws the top layer with specific tiles
-	for f in range(1):
-		for s in map_length:
-			var snow_place_x = s
-			var snow_noise = noise.get_noise_2d(1, s)
-			var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
-			
-			if s < 90 and s > 20:
-				snow_tiles_arr.append(Vector2i(snow_place_x, snow_place_y))
-				self.set_cells_terrain_connect(snow_tiles_arr, snow_terrain_int, 0)
-				print ("Specific Cell Placed")
-			else:
-				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
-				print ("General Cell Placed")
 
 func create_stone():
 	
@@ -116,3 +107,25 @@ func create_caves():
 				set_cell(Vector2i(c, h + sky_height - 10), -1)
 			else:
 				pass
+
+func _process(_delta: float) -> void:
+	
+	noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	func _on_timer_timeout(2):
+		print ("Wow!")
+	
+	#Phase 2: updates the top layer with specific tiles
+	for f in range(1):
+		for s in map_length:
+			var snow_place_x = s
+			var snow_noise = noise.get_noise_2d(1, s)
+			var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
+			
+			cam_bounds_left = camera.position.x - 455
+			cam_bounds_right = camera.position.x - 450
+			
+			if s < cam_bounds_right and s > cam_bounds_left:
+				snow_tiles_arr.append(Vector2i(snow_place_x, snow_place_y))
+				self.set_cells_terrain_connect(snow_tiles_arr, snow_terrain_int, 0)
+			else:
+				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
