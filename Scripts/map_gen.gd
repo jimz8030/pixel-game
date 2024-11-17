@@ -33,6 +33,8 @@ var cam_bounds_right : int = 80
 var cam_bounds_down : int = 10
 var cam_bounds_up : int = 10
 
+var countdown : int = 0
+
 func _ready() -> void:
 	
 	#makes its own seed if the seed is 0 or not set
@@ -48,9 +50,9 @@ func _ready() -> void:
 	#only load what's on the screen, then load more as the camera moves
 	#only load where light reaches, reload when light reaches further
 	
-	create_stone()
+	#create_stone()
 	
-	create_caves()
+	#create_caves()
 
 func create_snow():
 	
@@ -108,24 +110,36 @@ func create_caves():
 			else:
 				pass
 
-func _process(_delta: float) -> void:
+func _process(delta: float) -> void:
 	
-	noise.noise_type = FastNoiseLite.TYPE_PERLIN
-	func _on_timer_timeout(2):
-		print ("Wow!")
+	countdown -= 1
 	
-	#Phase 2: updates the top layer with specific tiles
-	for f in range(1):
-		for s in map_length:
-			var snow_place_x = s
-			var snow_noise = noise.get_noise_2d(1, s)
-			var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
+	if countdown <= 0:
+		cam_bounds_left = (camera.position.x / 10.4166) - 20
+		cam_bounds_right = (camera.position.x / 10.4166) + 20
+	
+		noise.noise_type = FastNoiseLite.TYPE_PERLIN
+	
+		#Phase 2: updates the top layer with specific tiles
+		for f in range(2):
+			for s in map_length:
 			
-			cam_bounds_left = camera.position.x - 455
-			cam_bounds_right = camera.position.x - 450
-			
-			if s < cam_bounds_right and s > cam_bounds_left:
-				snow_tiles_arr.append(Vector2i(snow_place_x, snow_place_y))
-				self.set_cells_terrain_connect(snow_tiles_arr, snow_terrain_int, 0)
-			else:
-				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
+				if s < cam_bounds_right and s > cam_bounds_left:
+					
+					#fills new cells
+					var snow_place_x = s
+					var snow_noise = noise.get_noise_2d(1, s)
+					var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
+					self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(21,2))
+					#snow_tiles_arr.append(Vector2i(snow_place_x, snow_place_y))
+					#self.set_cells_terrain_connect(snow_tiles_arr, snow_terrain_int, 0)
+					
+				else:
+					#deletes old cells
+					var snow_place_x = s
+					var snow_noise = noise.get_noise_2d(1, s)
+					var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
+					self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
+		countdown = 60
+	
+	

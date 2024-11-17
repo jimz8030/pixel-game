@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		elif PlayerCamDifference < 130:
 			self.global_position.x += abs(PlayerCamDifference - 130) / DampeningAmount
 
-# detects if mous is to the left of player
+# detects if mouse is to the left of player
 	elif mouse_bounds == false: #Player.PlayerSprite.scale.x == 1:
 		#detects if the player is going left when mouse is to the left of player.
 		if PlayerCamDifference > -130:
