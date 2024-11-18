@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/apply_cosmetics.gd" id="1_6slve"]
 [ext_resource type="Texture2D" uid="uid://xmlx3drjs4q7" path="res://Sprites/Character_Sprites/Oops_All_Naked/F1.S1.png" id="1_28ogn"]
 [ext_resource type="Texture2D" uid="uid://uf1r84kmmjrd" path="res://Sprites/Character_Sprites/Bottom_Clothing/Bott.1.png" id="2_bk518"]
-[ext_resource type="Texture2D" uid="uid://8u8dccet2fn7" path="res://Sprites/Character_Sprites/Hair/H2.png" id="3_rjwdf"]
+[ext_resource type="Texture2D" uid="uid://biu1uyt18vnwe" path="res://Sprites/Character_Sprites/Hair/H1.png" id="4_8x1dq"]
 [ext_resource type="Texture2D" uid="uid://b0go2c2mlsswh" path="res://Sprites/Character_Sprites/Top_Clothing/T1_F1.png" id="4_s76gv"]
 [ext_resource type="Texture2D" uid="uid://oslnp1h4eaq7" path="res://Sprites/Character_Sprites/Oops_All_Naked/Flesh_Arms/F1.png" id="7_gsytt"]
 [ext_resource type="Texture2D" uid="uid://bmsuj35ubki02" path="res://Sprites/Character_Sprites/Top_Clothing/Clothing_Arms/A1.png" id="7_lvbfb"]
@@ -26,7 +26,7 @@ texture = ExtResource("2_bk518")
 
 [node name="Hair_Sprite" type="Sprite2D" parent="Hair"]
 position = Vector2(0, -9)
-texture = ExtResource("3_rjwdf")
+texture = ExtResource("4_8x1dq")
 
 [node name="Top_Clothing" type="Node2D" parent="."]
 

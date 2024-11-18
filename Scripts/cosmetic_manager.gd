@@ -3,7 +3,7 @@ extends CanvasLayer
 
 #makes strings that will be used later to make script find specific sprite files
 var Body_Skin_Name : String = "F1.S1.png"
-var Hair_type : String = "H2.png"
+var Hair_type : String = "H1.png"
 var Bottom_Clothing : String = "Bott.1.png"
 var Top_Clothing : String = "T1_F1.png"
 
