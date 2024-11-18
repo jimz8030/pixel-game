@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://frqekdgoxlqj"]
+
+[ext_resource type="Script" path="res://Scripts/PlatformNode.cs" id="1_0k5fp"]
+
+[node name="Platform" type="StaticBody2D"]
+script = ExtResource("1_0k5fp")
+
+[node name="PlatformImage" type="Sprite2D" parent="."]
+
+[node name="PlatformSize" type="CollisionShape2D" parent="."]
