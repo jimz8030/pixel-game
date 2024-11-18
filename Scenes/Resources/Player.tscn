@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://daw2q6af0o6j"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_hch2p"]
-[ext_resource type="PackedScene" uid="uid://cvc827vln58n5" path="res://Scenes/Resources/Character.tscn" id="2_8c4um"]
+[ext_resource type="PackedScene" uid="uid://dbl0mw3rp0nhj" path="res://Scenes/Character_Getup.tscn" id="2_hnum5"]
 [ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_6bd3a"]
 [ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Resources/EquipableItems/Hands.tres" id="4_6alpd"]
 
@@ -21,7 +21,7 @@ modulate = Color(1, 0, 1, 1)
 material = SubResource("CanvasItemMaterial_iafr2")
 shape = SubResource("CapsuleShape2D_h3p27")
 
-[node name="Character" parent="." instance=ExtResource("2_8c4um")]
+[node name="Character" parent="." instance=ExtResource("2_hnum5")]
 
 [node name="PlayerReachArea" type="Area2D" parent="."]
 collision_mask = 6

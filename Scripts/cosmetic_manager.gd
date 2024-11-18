@@ -40,10 +40,6 @@ func _ready() -> void:
 	Character_Hair = $Character/Hair/Hair_Sprite
 	Character_Top = $Character/Top_Clothing/Top_Clothing_Sprite
 	Character_Bottom = $Character/Bottom_Clothing/Bottom_Clothing_Sprite
-	
-	Hair_Excp_1 = $Character/Top_Clothing/Hair_Beard
-	Hair_Excp_2 = $Character/Top_Clothing/Hair_Beard_2
-
 	Character_Cloth_Arm = $Character/Arm/Clothing_Sprite
 	Character_Flesh_Arm = $Character/Arm/Skin_Arm
 
@@ -96,29 +92,30 @@ func Change_Body() -> void:
 	#Change the characters of the top clothing file name to match the last two digits of the body shape
 	#This way the clothing can match the body shape.
 	Top_Clothing = "T" + T_Count + "_" + Body_Skin_Name[0] + Body_Skin_Name[1] + ".png"
-	print(Character_Body.texture)
 	Character_Body.texture = load("res://Sprites/Character_Sprites/Oops_All_Naked/" + Body_Skin_Name)
 	Character_Hair.texture = load("res://Sprites/Character_Sprites/Hair/" + Hair_type)
 	Character_Bottom.texture = load("res://Sprites/Character_Sprites/Bottom_Clothing/" + Bottom_Clothing)
 	Character_Top.texture = load("res://Sprites/Character_Sprites/Top_Clothing/" + Top_Clothing)
-	
 	Character_Cloth_Arm.texture = load("res://Sprites/Character_Sprites/Top_Clothing/Clothing_Arms/" + Clothing_Arm)
 	Character_Flesh_Arm.texture = load("res://Sprites/Character_Sprites/Oops_All_Naked/Flesh_Arms/" + Flesh_Arm)
-
-	#Changes sprites that are displayed when they are exceptions
-	if Hair_type == Hair_Exception_1:
-		Character_Hair.visible = false
-		Hair_Excp_2.visible = false
-		Hair_Excp_1.visible = true
-	elif Hair_type == Hair_Exception_2:
-		Character_Hair.visible = false
-		Hair_Excp_1.visible = false
-		Hair_Excp_2.visible = true
+	
+	if Character_Hair.texture.resource_path == "res://Sprites/Character_Sprites/Hair/H4.png" or Character_Hair.texture.resource_path == "res://Sprites/Character_Sprites/Hair/H13.png":
+		if $Character/Hair.has_node("/root/Node2D/CanvasLayer/Character/Hair/Hair_Sprite"):
+			var hair_sprite = $Character/Hair/Hair_Sprite
+			$Character/Hair.remove_child($Character/Hair/Hair_Sprite)
+			$Character/Top_Clothing.add_child(hair_sprite)
 	else:
-		Character_Hair.visible = true
-		Hair_Excp_1.visible = false
-		Hair_Excp_2.visible = false
+		if $Character/Top_Clothing.has_node("/root/Node2D/CanvasLayer/Character/Top_Clothing/Hair_Sprite"):
+			var hair_sprite = $Character/Top_Clothing/Hair_Sprite
+			$Character/Top_Clothing.remove_child($Character/Top_Clothing/Hair_Sprite)
+			$Character/Hair.add_child(hair_sprite)
 
 #Plays next scene after character creator when button is pressed
 func _on_next_scene_button_down() -> void:
+	Globals.Character_Body = Character_Body.texture.resource_path
+	Globals.Character_Hair = Character_Hair.texture.resource_path
+	Globals.Character_Top = Character_Top.texture.resource_path
+	Globals.Character_Bottom = Character_Bottom.texture.resource_path
+	Globals.Character_Cloth_Arm = Character_Cloth_Arm.texture.resource_path
+	Globals.Character_Flesh_Arm = Character_Flesh_Arm.texture.resource_path
 	get_tree().change_scene_to_packed(Next_Scene)

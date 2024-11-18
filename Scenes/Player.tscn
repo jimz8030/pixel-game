@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4sxm6nqh544f"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_frcos"]
-[ext_resource type="PackedScene" uid="uid://dbl0mw3rp0nhj" path="res://Scenes/Character.tscn" id="2_86n8s"]
+[ext_resource type="PackedScene" uid="uid://dbl0mw3rp0nhj" path="res://Scenes/Character_Getup.tscn" id="2_86n8s"]
 [ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_gnaet"]
 [ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Resources/EquipableItems/Hands.tres" id="4_o6r6c"]
 

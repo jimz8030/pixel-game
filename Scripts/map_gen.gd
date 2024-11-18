@@ -205,7 +205,6 @@ func render_snow():
 					var snow_place_x = s
 					var snow_noise = noise.get_noise_2d(1, s)
 					var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
-					#erases tile from cell
 					self.erase_cell(Vector2i(snow_place_x, snow_place_y))
 		#countdown resets after function is ran
-		countdown = 80
+		countdown = 30
