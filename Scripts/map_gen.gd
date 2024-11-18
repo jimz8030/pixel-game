@@ -208,3 +208,5 @@ func render_snow():
 					self.erase_cell(Vector2i(snow_place_x, snow_place_y))
 		#countdown resets after function is ran
 		countdown = 30
+	
+	
