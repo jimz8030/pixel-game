@@ -14,8 +14,6 @@ var sky_height : int = 60
 @export var cave_amount: float = 20.0
 @export var noise_seed : int = 0
 
-@export var go_time : bool = false
-
 #information for terrain sets
 var source_id = 0
 var snow_tiles_arr = []
@@ -33,9 +31,11 @@ var cam_bounds_right : int = 80
 var cam_bounds_down : int = 1
 var cam_bounds_up : int = 1
 
+#Information used to render snow
 var countdown : int = 0
-
+var crush_count : int = 0
 var snow_run_tile : Vector2i
+@onready var Player : CharacterBody2D = $"../../CharacterBody2D"
 
 func _ready() -> void:
 	
@@ -89,11 +89,7 @@ func create_stone():
 			var stone_place_y = stone_noise * hill_heights + sky_height + 10 + stone_fill
 		
 			#applies the cells according to the numbers
-			if go_time == true:
-				stone_tiles_arr.append(Vector2i(stone_place_x, stone_place_y))
-				self.set_cells_terrain_connect(stone_tiles_arr, stone_terrain_int, 0)
-			else:
-				self.set_cell(Vector2i(stone_place_x, stone_place_y), 0, Vector2i(21,2))
+			self.set_cell(Vector2i(stone_place_x, stone_place_y), 0, Vector2i(21,2))
 
 func create_caves():
 	
@@ -117,6 +113,8 @@ func _process(delta: float) -> void:
 	#counts down to determine how often the snow is renewed
 	countdown -= 1
 	render_snow()
+	if Player.is_on_floor():
+		crush_count -= 1
 	#resets counter inside function
 
 func render_snow():
@@ -208,5 +206,12 @@ func render_snow():
 					self.erase_cell(Vector2i(snow_place_x, snow_place_y))
 		#countdown resets after function is ran
 		countdown = 30
-	
-	
+		
+		#crushes snow under player's feet
+		if Player.is_on_floor():
+			crush_count -= 1
+		else:
+			crush_count = 2
+		var crush_cell = Vector2i(Player.position.x / 10.4166, ((Player.position.y / 10.5) + 50))
+		if crush_count <= 0 and self.get_cell_atlas_coords(Vector2i(crush_cell)) != Vector2i(-1, -1):
+			self.set_cell(crush_cell, 0, Vector2i(10,8))

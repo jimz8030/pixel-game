@@ -22,7 +22,3 @@ func _ready() -> void:
 				var hair_sprite = $Top_Clothing/Hair_Sprite
 				$Top_Clothing.remove_child($Top_Clothing/Hair_Sprite)
 				$Hair.add_child(hair_sprite)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
