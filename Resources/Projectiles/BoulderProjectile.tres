@@ -7,6 +7,7 @@
 script = ExtResource("2_1w2sf")
 ProjectileImage = ExtResource("1_rrjb4")
 WallTouchProperty = "bounce"
+Damage = 4.0
 WallBounceMod = 0.5
 Radius = 4.0
 Gravity = 1.0

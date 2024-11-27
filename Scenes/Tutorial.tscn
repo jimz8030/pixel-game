@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://ds8j34objk1ko"]
+[gd_scene load_steps=10 format=3 uid="uid://ds8j34objk1ko"]
 
 [ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Resources/Player.tscn" id="1_40fnc"]
 [ext_resource type="PackedScene" uid="uid://bg55ebhvv5u5c" path="res://Scenes/Resources/Camera.tscn" id="3_y1ron"]
 [ext_resource type="PackedScene" uid="uid://mbniv3oq0u3n" path="res://Scenes/Resources/sappling.tscn" id="4_63ux1"]
+[ext_resource type="Script" path="res://Scenes/npc.gd" id="4_eyxli"]
+[ext_resource type="Texture2D" uid="uid://cnldwc1lvf2ex" path="res://Sprites/NPCs/Native/Tiv_Red.png" id="4_tgpr2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_is1rm"]
 
@@ -11,6 +13,9 @@ size = Vector2(1387, 20)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3gpi"]
 size = Vector2(800, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ilyu"]
+size = Vector2(20, 28)
 
 [node name="Tutorial" type="Node2D"]
 position = Vector2(-1, 0)
@@ -49,6 +54,19 @@ collision_mask = 5
 [node name="Camera" parent="." instance=ExtResource("3_y1ron")]
 position = Vector2(-135, 0)
 DampeningAmount = 40.0
+
+[node name="NPC" type="CharacterBody2D" parent="."]
+position = Vector2(-365, 29)
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("4_eyxli")
+
+[node name="Sprite2D" type="Sprite2D" parent="NPC"]
+texture = ExtResource("4_tgpr2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+shape = SubResource("RectangleShape2D_2ilyu")
+one_way_collision = true
 
 [connection signal="area_entered" from="Sapling" to="Sapling" method="ReadyToMine"]
 [connection signal="area_entered" from="Boulder" to="Boulder" method="ReadyToMine"]
