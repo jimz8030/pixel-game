@@ -7,6 +7,8 @@
 script = ExtResource("1_o3iol")
 ProjectileImage = ExtResource("1_wk6f1")
 WallTouchProperty = "destroy"
+Damage = 1.0
+WallBounceMod = 0.0
 Radius = 4.0
 Gravity = 0.0
 Lifetime = 100.0
