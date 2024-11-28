@@ -33,9 +33,9 @@ public partial class ProjectileNode : CharacterBody2D
 		//GD.Print("initalizing");
 		GetNode<Sprite2D>("ProjectileImage").Texture = projectileType.ProjectileImage;
 	}
-    public override void _Ready()
-    {
-        // base._EnterTree();
+	public override void _Ready()
+	{
+		// base._EnterTree();
 		Initialize(ProjectileType);
 		//replace this below with new Godot,Vector2(mouse position) this way it goes towards where we want.
 		Velocity = Speed.Rotated(RotationRadians);
@@ -61,7 +61,7 @@ public partial class ProjectileNode : CharacterBody2D
 		if (WallTouchProperty == "bounce"){
 			//if it is on the ground it tries to bounce by changing velocity to the other direction of it's fastest point (also gets halved so it doesn't bounce forever)
 			var collision = MoveAndCollide(Velocity * (float)delta);
-        	if (collision != null)
+			if (collision != null)
 			{
 				//this actually bounces the projectile
 				Velocity = Velocity.Bounce(collision.GetNormal());
@@ -74,7 +74,7 @@ public partial class ProjectileNode : CharacterBody2D
 		}
 		else if (WallTouchProperty == "destroy"){
 			var collision = MoveAndCollide(Velocity * (float)delta);
-        	if (collision != null){
+			if (collision != null){
 				DealDamage(collision);
 				QueueFree();
 			}
