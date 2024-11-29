@@ -71,7 +71,8 @@ public partial class CharacterBody2d : CharacterBody2D
 		JumpKey.Keycode = Key.W;
 		InputMap.ActionAddEvent("ui_accept", JumpKey);
 		DownKey.Keycode = Key.S;
-		InputMap.ActionAddEvent("ui_down", DownKey);
+		InputMap.AddAction("crouch");
+		InputMap.ActionAddEvent("crouch", DownKey);
 
 		//this gets the node player reach so they can interact with eachoter
 		PlayerReach = GetNode<Area2D>("PlayerReachArea");
@@ -141,7 +142,7 @@ public partial class CharacterBody2d : CharacterBody2D
 
 		// Get the input direction and handle the movement/deceleration.
 		// As good practice, you should replace UI actions with custom gameplay actions.
-		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "ui_down");
+		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "crouch");
 		// if thier movement is not 0 (they're moving), also checks if they recently dashed, in this case they shouldn't be able to move while dashing probably
 		if (direction != Vector2.Zero && DashCharging <= 9f)
 		{
@@ -181,7 +182,6 @@ public partial class CharacterBody2d : CharacterBody2D
 					velocity.X = Mathf.MoveToward(velocity.X, 0, Speed/4);
 				}
 			}
-			
 		}
 		
 		// checks if the dash can be reduced, than reduces it if true
@@ -227,6 +227,13 @@ public partial class CharacterBody2d : CharacterBody2D
 			// changes reach area to match
 			PlayerReach.Position = new Vector2(-16,0);
 
+		}
+		if (direction.Y == 1){
+			var PlayerCollision = GetNode<CollisionShape2D>("CharacterCollision");
+			PlayerCollision.Scale = new Vector2 (PlayerCollision.Scale.X, .5f);
+		}
+		else{
+		 GD.Print();
 		}
 		// sets the changed velocity to the new velocity
 		Velocity = velocity;
