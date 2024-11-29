@@ -9,11 +9,16 @@ func enter() -> void:
 	parent.velocity.x = 0
 	parent.pathfind = randf_range(parent.idle_bound_left,parent.idle_bound_right)
 	print(parent.pathfind)
+	parent.idle_time = parent.max_idle_time
 func exit() -> void:
 	pass
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	return null
-func process_frame(delta: float) -> State:
+func process_frame(_delta: float) -> State:
 	return null
-func process_physics(delta: float) -> State:
-	return wander_state
+func process_physics(_delta: float) -> State:
+	if parent.idle_time <= 0:
+		return wander_state
+	else:
+		parent.idle_time -= .125
+	return null

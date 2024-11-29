@@ -12,11 +12,11 @@ func enter() -> void:
 	print("entered wander state")
 func exit() -> void:
 	pass
-func process_input(event: InputEvent) -> State:
+func process_input(_event: InputEvent) -> State:
 	return null
-func process_frame(delta: float) -> State:
+func process_frame(_delta: float) -> State:
 	return null
-func process_physics(delta: float) -> State:
+func process_physics(_delta: float) -> State:
 	if parent.pathfind + 10 > parent.position.x and parent.position.x > parent.pathfind - 10:
 		print("returning idle state")
 		return idle_state
@@ -31,5 +31,4 @@ func process_physics(delta: float) -> State:
 			return idle_state
 	else:#I think this should be a slowing down state
 		parent.velocity.x = move_toward(parent.velocity.x, 0, parent.SPEED)
-	print(parent.position.x, " ", parent.pathfind)
 	return null

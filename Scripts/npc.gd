@@ -8,14 +8,17 @@ var state_machine = $StateMachine
 const SPEED = 50.0
 const JUMP_VELOCITY = -400.0
 
-var idle_bound_left: int
-var idle_bound_right: int
+var idle_bound_left: float
+var idle_bound_right: float
 var pathfind: float
+var max_idle_time: float = 15.0
+var idle_time: float
 
 func _ready() -> void:
 	state_machine.init(self)
-	idle_bound_left = self.global_position.x - 100
-	idle_bound_right = self.global_position.x + 100
+	idle_bound_left = self.global_position.x - 100.0
+	idle_bound_right = self.global_position.x + 100.0
+	pathfind = global_position.x
 func _unhandled_input(event: InputEvent) -> void:
 	state_machine.process_input(event)
 func _physics_process(delta: float) -> void:
