@@ -10,7 +10,7 @@ public partial class Player_reach_area : Area2D
 {
 	[Export]
 	public Resource EquippedItem;
-	public Area2D[] ReachableItems = new Area2D[2];
+	public Node2D[] ReachableItems = new Node2D[2];
 	string MergeFrom;
 	string ElementName;
 	string DamageType;
@@ -75,6 +75,7 @@ public partial class Player_reach_area : Area2D
 
 	//this function detects if the area2d is a resource or not. WARNING this code can be improved greatly if there are other kinds of Area2Ds (like an enemy)
 	public void GetNearbyArea2D(Area2D ReachableItem){
+		GD.Print(ReachableItem.Name);
 		// checks if the thing in reach is a resource WARNING (manually updating this for each type of resource will be a pain, find a better solution before you get too far)
 		if (ReachableItem.Name == "Sapling" || ReachableItem.Name == "Boulder" || ReachableItem.Name == "Fire"){
 			//WARNING ReachableItems is an array because there might be mulitple objects within reach, however the currently written code only affects the Area2D that entered last
@@ -83,6 +84,17 @@ public partial class Player_reach_area : Area2D
 		// if the item isn't a resource or isn't found
 		else{
 			GD.Print("something else is afoot. also area2d name is: "+ReachableItem.Name);
+		}
+	}
+
+
+	public void GetNerbyBody(Node2D body){
+		if (body.Name == "NPC"){
+			GD.Print("you reached the NPC");
+			ReachableItems[0] = body;
+		}
+		else{
+			GD.Print("something else is afoot. also body name is: ", body.Name, "the class name is ", body.GetType());
 		}
 	}
 
@@ -105,8 +117,18 @@ public partial class Player_reach_area : Area2D
 			//check if something is within reach
 			if (ReachableItems[0] != null){
 				GD.Print(ReachableItems[0].Name+" is being interacted with");
+				if (ReachableItems[0].Name == "NPC"){
+					if (Input.IsActionPressed("crouch")){
+						Vector2 NewPos = new Vector2 (ReachableItems[0].GlobalPosition.X, ReachableItems[0].GlobalPosition.Y -20);
+						GetParent<CharacterBody2D>().GlobalPosition = NewPos;
+					}
+					else{
+						//CHANGE put talking to npc here
+					}
+					GD.Print("class is ", ReachableItems[0]);
+				}
 				//checks if the resource the player is harvesting and the item they're holding can be merged together
-				if (CheckIfMergable(ReachableItems[0].GetMeta("merge_path")))
+				else if (CheckIfMergable(ReachableItems[0].GetMeta("merge_path")))
 				{
 					//this changes the equipped item the player is holding into the new merged item, then destroys the resource
 					EquipNewItem(GD.Load<EquipableItemScript>(Convert.ToString(ReachableItems[0].GetMeta("merge_path"))));

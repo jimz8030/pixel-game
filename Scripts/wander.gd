@@ -22,8 +22,10 @@ func process_physics(_delta: float) -> State:
 		return idle_state
 	elif parent.position.x > parent.pathfind:
 		direction = -1
+		parent.flip_left()
 	elif parent.position.x < parent.pathfind:
 		direction = 1
+		parent.flip_right()
 	if direction:
 		parent.velocity.x = direction * parent.SPEED
 		parent.move_and_slide()

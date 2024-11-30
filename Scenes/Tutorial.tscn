@@ -1,13 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://ds8j34objk1ko"]
+[gd_scene load_steps=8 format=3 uid="uid://ds8j34objk1ko"]
 
 [ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Resources/Player.tscn" id="1_40fnc"]
 [ext_resource type="PackedScene" uid="uid://bg55ebhvv5u5c" path="res://Scenes/Resources/Camera.tscn" id="3_y1ron"]
+[ext_resource type="PackedScene" uid="uid://cj8508si8yxrk" path="res://Scenes/npc.tscn" id="4_46nrm"]
 [ext_resource type="PackedScene" uid="uid://mbniv3oq0u3n" path="res://Scenes/Resources/sappling.tscn" id="4_63ux1"]
-[ext_resource type="Script" path="res://Scripts/npc.gd" id="4_eyxli"]
-[ext_resource type="Texture2D" uid="uid://cnldwc1lvf2ex" path="res://Sprites/NPCs/Native/Tiv_Red.png" id="4_tgpr2"]
-[ext_resource type="Script" path="res://Scripts/npcstate_machine.gd" id="6_sr7jh"]
-[ext_resource type="Script" path="res://Scripts/wander.gd" id="7_oxl83"]
-[ext_resource type="Script" path="res://Scripts/idle.gd" id="8_2dwrf"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_is1rm"]
 
@@ -17,13 +13,11 @@ size = Vector2(1387, 20)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t3gpi"]
 size = Vector2(800, 30)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2ilyu"]
-size = Vector2(20, 28)
-
 [node name="Tutorial" type="Node2D"]
 position = Vector2(-1, 0)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_40fnc")]
+position = Vector2(2, 1)
 collision_mask = 7
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -58,29 +52,7 @@ collision_mask = 5
 position = Vector2(-135, 0)
 DampeningAmount = 40.0
 
-[node name="NPC" type="CharacterBody2D" parent="."]
-position = Vector2(-365, 29)
-collision_layer = 2
-collision_mask = 6
-script = ExtResource("4_eyxli")
-
-[node name="Sprite2D" type="Sprite2D" parent="NPC"]
-texture = ExtResource("4_tgpr2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
-shape = SubResource("RectangleShape2D_2ilyu")
-
-[node name="StateMachine" type="Node" parent="NPC" node_paths=PackedStringArray("starting_state")]
-script = ExtResource("6_sr7jh")
-starting_state = NodePath("wander")
-
-[node name="wander" type="Node" parent="NPC/StateMachine" node_paths=PackedStringArray("idle_state")]
-script = ExtResource("7_oxl83")
-idle_state = NodePath("../idle")
-
-[node name="idle" type="Node" parent="NPC/StateMachine" node_paths=PackedStringArray("wander_state")]
-script = ExtResource("8_2dwrf")
-wander_state = NodePath("../wander")
+[node name="NPC" parent="." instance=ExtResource("4_46nrm")]
 
 [connection signal="area_entered" from="Sapling" to="Sapling" method="ReadyToMine"]
 [connection signal="area_entered" from="Boulder" to="Boulder" method="ReadyToMine"]

@@ -228,12 +228,13 @@ public partial class CharacterBody2d : CharacterBody2D
 			PlayerReach.Position = new Vector2(-16,0);
 
 		}
-		if (direction.Y == 1){
+		if (Input.IsActionPressed("crouch")){
 			var PlayerCollision = GetNode<CollisionShape2D>("CharacterCollision");
 			PlayerCollision.Scale = new Vector2 (PlayerCollision.Scale.X, .5f);
 		}
 		else{
-		 GD.Print();
+			var PlayerCollision = GetNode<CollisionShape2D>("CharacterCollision");
+			PlayerCollision.Scale = new Vector2 (PlayerCollision.Scale.X, 1);
 		}
 		// sets the changed velocity to the new velocity
 		Velocity = velocity;
