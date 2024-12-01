@@ -144,6 +144,12 @@ public partial class CharacterBody2d : CharacterBody2D
 		// As good practice, you should replace UI actions with custom gameplay actions.
 		Vector2 direction = Input.GetVector("ui_left", "ui_right", "ui_up", "crouch");
 		// if thier movement is not 0 (they're moving), also checks if they recently dashed, in this case they shouldn't be able to move while dashing probably
+		if (Input.IsActionPressed("ui_left") && !Input.IsActionPressed("ui_right")){
+			direction.X = -1;
+		}
+		else if (Input.IsActionPressed("ui_right") && !Input.IsActionPressed("ui_left")){
+			direction.X = 1;
+		}
 		if (direction != Vector2.Zero && DashCharging <= 9f)
 		{
 			//checks if velocity is greater than how fast the player would walk
@@ -160,12 +166,12 @@ public partial class CharacterBody2d : CharacterBody2D
 			}
 			// if the velocity theyre moving at is less than walking speed then walking speed gets updated
 			else{
-			if (velocity.X < direction.X * Speed){
-				velocity.X += direction.X * Speed/8;
-			}
-			else if (velocity.X > direction.X * Speed && Math.Sign(direction.X) < 0){
-				velocity.X += direction.X * Speed/8;
-			}
+				if (velocity.X < direction.X * Speed && Math.Sign(direction.X) > 0){
+					velocity.X += direction.X * Speed/8;
+				}
+				else if (velocity.X > direction.X * Speed && Math.Sign(direction.X) < 0){
+					velocity.X += direction.X * Speed/8;
+				}
 			}
 		}
 		// activates if they aren't moving or just recently dashed
@@ -213,7 +219,7 @@ public partial class CharacterBody2d : CharacterBody2D
 				velocity.X -= Speed * SpeedModifier;
 			}
 		}
-		// if you're pressing go right button
+		// if you're pressing go right button WARNING has trouble flipping character if both keys are pressed
 		if (Input.IsActionJustPressed("ui_right")){
 			// makes you face right
 			PlayerSprite.Scale = new Vector2(-1, 1);
@@ -238,6 +244,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		}
 		// sets the changed velocity to the new velocity
 		Velocity = velocity;
+		GD.Print(velocity.X);
 		// tells the node to move based on current velocity
 		MoveAndSlide();
 	}
