@@ -40,7 +40,6 @@ public partial class CharacterBody2d : CharacterBody2D
 	private void SetVariables()
 	{
 		Gravity = JumpHeight/(float)Math.Pow(TimeInAir/2, 2);
-		GD.Print(Gravity);
 		JumpVelocity = -TimeInAir * Gravity;
 	}
 	public override void _Ready()
@@ -150,7 +149,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		else if (Input.IsActionPressed("ui_right") && !Input.IsActionPressed("ui_left")){
 			direction.X = 1;
 		}
-		if (direction != Vector2.Zero && DashCharging <= 9f)
+		if (direction.X != 0 && DashCharging <= 9f)
 		{
 			//checks if velocity is greater than how fast the player would walk
 			if (Math.Abs(velocity.X) > Math.Abs(direction.X * Speed) && IsOnFloor() == false){
@@ -180,8 +179,12 @@ public partial class CharacterBody2d : CharacterBody2D
 			// they don't decelerate until dash is over
 			if (DashCharging < 9.5){
 				// reduces their movement by a lot (can stop fast on ground)
-				if (IsOnFloor()){
+				if (IsOnFloor() && !Input.IsActionPressed("crouch")){
 					velocity.X = Mathf.MoveToward(Velocity.X, 0, Speed);
+				}
+				else if (Input.IsActionPressed("crouch")){
+					velocity.X = Mathf.MoveToward(velocity.X, 0, Speed/16);
+					
 				}
 				// reduces their movement by a little if in the air
 				else{
@@ -244,7 +247,6 @@ public partial class CharacterBody2d : CharacterBody2D
 		}
 		// sets the changed velocity to the new velocity
 		Velocity = velocity;
-		GD.Print(velocity.X);
 		// tells the node to move based on current velocity
 		MoveAndSlide();
 	}
