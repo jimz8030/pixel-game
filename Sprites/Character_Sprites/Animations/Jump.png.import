@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wiy45nv7bido"
-path="res://.godot/imported/Scarf_Guy.png-df1c572c21e6db35d495ff5a24de3adc.ctex"
+uid="uid://br8erdp4l75md"
+path="res://.godot/imported/Jump.png-d9798b54d7cc203d24bcdf418342985d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Character_Sprites/Scarf Guy/Scarf_Guy.png"
-dest_files=["res://.godot/imported/Scarf_Guy.png-df1c572c21e6db35d495ff5a24de3adc.ctex"]
+source_file="res://Sprites/Character_Sprites/Animations/Jump.png"
+dest_files=["res://.godot/imported/Jump.png-d9798b54d7cc203d24bcdf418342985d.ctex"]
 
 [params]
 
