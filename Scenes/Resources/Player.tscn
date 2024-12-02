@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_hch2p"]
 [ext_resource type="PackedScene" uid="uid://dbl0mw3rp0nhj" path="res://Scenes/Character_Getup.tscn" id="2_hnum5"]
 [ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_6bd3a"]
-[ext_resource type="Resource" uid="uid://cegwepfwj5kdd" path="res://Resources/EquipableItems/Hands.tres" id="4_6alpd"]
+[ext_resource type="Resource" uid="uid://c3fqvtpgmbtse" path="res://Resources/EquipableItems/SaplingStaff.tres" id="4_c7rba"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iafr2"]
 
@@ -26,7 +26,7 @@ shape = SubResource("CapsuleShape2D_h3p27")
 [node name="PlayerReachArea" type="Area2D" parent="."]
 collision_mask = 6
 script = ExtResource("3_6bd3a")
-EquippedItem = ExtResource("4_6alpd")
+EquippedItem = ExtResource("4_c7rba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerReachArea"]
 shape = SubResource("RectangleShape2D_pcyv0")

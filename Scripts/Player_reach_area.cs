@@ -203,7 +203,7 @@ public partial class Player_reach_area : Area2D
 	public override void _Ready()
 	{
 		//this gets the equipped item resource that this node has, WARNING I need to update this code when we have a save file so that the equipped item isn't the player's hands
-		EquipNewItem(GD.Load<EquipableItemScript>("res://Resources/EquipableItems/Hands.tres"));
+		EquipNewItem(GD.Load<EquipableItemScript>("res://Resources/EquipableItems/SaplingStaff.tres"));
 		GD.Print(Damage + " " + DamageType);
 		SetMeta("MergeType", ElementName);
 	}

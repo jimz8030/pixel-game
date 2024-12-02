@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Resources/Player.tscn" id="1_40fnc"]
 [ext_resource type="PackedScene" uid="uid://bg55ebhvv5u5c" path="res://Scenes/Resources/Camera.tscn" id="3_y1ron"]
-[ext_resource type="PackedScene" path="res://Scenes/npc.tscn" id="4_46nrm"]
+[ext_resource type="PackedScene" uid="uid://cj8508si8yxrk" path="res://Scenes/npc.tscn" id="4_46nrm"]
 [ext_resource type="PackedScene" uid="uid://mbniv3oq0u3n" path="res://Scenes/Resources/sappling.tscn" id="4_63ux1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_is1rm"]

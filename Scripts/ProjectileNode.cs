@@ -69,13 +69,15 @@ public partial class ProjectileNode : CharacterBody2D
 				Velocity = new Godot.Vector2(Velocity.X * WallBounceMod, Velocity.Y * WallBounceMod);
 				
 				//used for dealing damage I think. Honestly I coppied bullet code to get bounce to work, but we can definately use this to deal damage and status affects
-				DealDamage(collision);
+				GD.Print(collision);
+				//DealDamage(collision);
 			}
 		}
 		else if (WallTouchProperty == "destroy"){
 			var collision = MoveAndCollide(Velocity * (float)delta);
+			GD.Print(collision);
 			if (collision != null){
-				DealDamage(collision);
+				//DealDamage(collision);
 				QueueFree();
 			}
 		}
@@ -88,12 +90,11 @@ public partial class ProjectileNode : CharacterBody2D
 		}
 	}
 
-	private void DealDamage(KinematicCollision2D collision){
-		GD.Print("checking for function hit");
-		if (collision.GetCollider().HasMethod("Hit"))
-		{
-			GD.Print("calling function");
-			collision.GetCollider().Call("Hit");
-		}
-	}
+	//private void DealDamage(CharacterBody2D collision){
+		//GD.Print("checking for function hit");
+		//if (collision.HasFunction("take_damage"))
+		//{
+			//collision.take_damage(2);
+		//}
+	//}
 }
