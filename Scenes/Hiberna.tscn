@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b76y2oaow36nk"]
+[gd_scene load_steps=14 format=3 uid="uid://b76y2oaow36nk"]
 
 [ext_resource type="PackedScene" uid="uid://vl31jfup6gjc" path="res://Sprites/Environment/snow.tscn" id="2_7132a"]
 [ext_resource type="Texture2D" uid="uid://d16qhgnmv0k0d" path="res://Sprites/Environment/Tile Maps/pixil-frame-0 (3).png" id="3_4x6fx"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://xdwsb57kv4gn" path="res://Sprites/Environment/Skybox/Hiberna/MidGround.png" id="8_60aar"]
 [ext_resource type="Texture2D" uid="uid://vg2weujqmq73" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.1.png" id="9_3ee7q"]
 [ext_resource type="Texture2D" uid="uid://b2a20eimr1q4u" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.2.png" id="10_hoih2"]
+[ext_resource type="AudioStream" uid="uid://75ag4p2nuqi" path="res://Audio/Non-Diegetic/Hiberna.05.mp3" id="11_e26co"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdg2r"]
 texture = ExtResource("3_4x6fx")
@@ -887,7 +888,6 @@ script = ExtResource("5_kehck")
 DampeningAmount = 40.0
 
 [node name="Snow" parent="Camera2D" instance=ExtResource("2_7132a")]
-visible = false
 amount = 300
 speed_scale = 0.4
 gravity = Vector2(0, 500)
@@ -897,3 +897,6 @@ switch = true
 
 [node name="NPC" parent="." instance=ExtResource("6_sq0qc")]
 position = Vector2(364, -10)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_e26co")
