@@ -37,6 +37,11 @@ var crush_count : int = 0
 var snow_run_tile : Vector2i
 @onready var Player : CharacterBody2D = $"../../CharacterBody2D"
 
+#Skybox Parallax effect
+@export var skybox : Node2D
+@export var background : Node2D
+@export var foreground : Node2D
+
 func _ready() -> void:
 	
 	#makes its own seed if the seed is 0 or not set
@@ -74,6 +79,11 @@ func _ready() -> void:
 				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
 			else:
 				pass
+
+func _physics_process(delta: float) -> void:
+	skybox.position.x = (camera.position.x / 1.05) - 300
+	background.position.x = (camera.position.x / 1.1) + 700
+	foreground.position.x = camera.position.x / 1.15
 
 func create_stone():
 	

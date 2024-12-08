@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b76y2oaow36nk"]
+[gd_scene load_steps=13 format=3 uid="uid://b76y2oaow36nk"]
 
 [ext_resource type="PackedScene" uid="uid://vl31jfup6gjc" path="res://Sprites/Environment/snow.tscn" id="2_7132a"]
 [ext_resource type="Texture2D" uid="uid://d16qhgnmv0k0d" path="res://Sprites/Environment/Tile Maps/pixil-frame-0 (3).png" id="3_4x6fx"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Resources/Player.tscn" id="4_414nb"]
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="5_kehck"]
 [ext_resource type="PackedScene" uid="uid://cj8508si8yxrk" path="res://Scenes/npc.tscn" id="6_sq0qc"]
+[ext_resource type="Texture2D" uid="uid://dkwtwkifsn2hj" path="res://Sprites/Environment/Skybox/Hiberna/Skybox.png" id="7_27i8y"]
+[ext_resource type="Texture2D" uid="uid://xdwsb57kv4gn" path="res://Sprites/Environment/Skybox/Hiberna/MidGround.png" id="8_60aar"]
+[ext_resource type="Texture2D" uid="uid://vg2weujqmq73" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.1.png" id="9_3ee7q"]
+[ext_resource type="Texture2D" uid="uid://b2a20eimr1q4u" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.2.png" id="10_hoih2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdg2r"]
 texture = ExtResource("3_4x6fx")
@@ -800,13 +804,69 @@ sources/0 = SubResource("TileSetAtlasSource_vdg2r")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Skybox" type="Node2D" parent="."]
+
+[node name="Skybox" type="Sprite2D" parent="Skybox"]
+position = Vector2(600, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("7_27i8y")
+
+[node name="Skybox3" type="Sprite2D" parent="Skybox"]
+position = Vector2(2112, 0)
+rotation = 3.14159
+scale = Vector2(2.8, -2.8)
+texture = ExtResource("7_27i8y")
+
+[node name="Skybox4" type="Sprite2D" parent="Skybox"]
+position = Vector2(3624, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("7_27i8y")
+
+[node name="Skybox5" type="Sprite2D" parent="Skybox"]
+position = Vector2(5136, 0)
+rotation = -3.14159
+scale = Vector2(2.8, -2.8)
+texture = ExtResource("7_27i8y")
+
+[node name="Background1" type="Node2D" parent="."]
+position = Vector2(1300, 0)
+scale = Vector2(1, 1)
+
+[node name="MidGround" type="Sprite2D" parent="Background1"]
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("8_60aar")
+
+[node name="Background2" type="Node2D" parent="."]
+position = Vector2(600, 0)
+scale = Vector2(1, 1)
+
+[node name="FrontGround_1" type="Sprite2D" parent="Background2"]
+position = Vector2(1.99988, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("9_3ee7q")
+
+[node name="FrontGround_3" type="Sprite2D" parent="Background2"]
+position = Vector2(3026, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("9_3ee7q")
+
+[node name="FrontGround_2" type="Sprite2D" parent="Background2"]
+position = Vector2(1514, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("10_hoih2")
+
+[node name="FrontGround_4" type="Sprite2D" parent="Background2"]
+position = Vector2(4538, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("10_hoih2")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_414nb")]
 position = Vector2(500, -100)
 
 [node name="Map_Gen (In Progress)" type="Node2D" parent="."]
 position = Vector2(0, -500)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Map_Gen (In Progress)" node_paths=PackedStringArray("camera")]
+[node name="TileMapLayer" type="TileMapLayer" parent="Map_Gen (In Progress)" node_paths=PackedStringArray("camera", "skybox", "background", "foreground")]
 visibility_layer = 2
 texture_filter = 1
 scale = Vector2(1.3, 1.3)
@@ -816,6 +876,9 @@ total_map_height = 30
 map_length = 500
 hill_heights = 8.0
 camera = NodePath("../../Camera2D")
+skybox = NodePath("../../Skybox")
+background = NodePath("../../Background1")
+foreground = NodePath("../../Background2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(500, 0)
@@ -824,6 +887,7 @@ script = ExtResource("5_kehck")
 DampeningAmount = 40.0
 
 [node name="Snow" parent="Camera2D" instance=ExtResource("2_7132a")]
+visible = false
 amount = 300
 speed_scale = 0.4
 gravity = Vector2(0, 500)
