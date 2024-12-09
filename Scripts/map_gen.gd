@@ -79,8 +79,6 @@ func _ready() -> void:
 				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
 			else:
 				pass
-	var music = $"../../AudioStreamPlayer"
-	music.play()
 
 func _physics_process(delta: float) -> void:
 	skybox.position.x = (camera.position.x / 1.05) - 300

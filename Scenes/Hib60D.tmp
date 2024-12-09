@@ -862,7 +862,6 @@ scale = Vector2(2.8, 2.8)
 texture = ExtResource("10_hoih2")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_414nb")]
-modulate = Color(0.882353, 1, 1, 1)
 position = Vector2(500, -100)
 
 [node name="Map_Gen (In Progress)" type="Node2D" parent="."]
@@ -894,17 +893,10 @@ speed_scale = 0.4
 gravity = Vector2(0, 500)
 orbit_velocity_min = -0.5
 orbit_velocity_max = -0.5
-
-[node name="WeatherWait" type="Timer" parent="Camera2D"]
-wait_time = 20.0
-autostart = true
+switch = true
 
 [node name="NPC" parent="." instance=ExtResource("6_sq0qc")]
 position = Vector2(364, -10)
 
-[node name="Traveling" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_e26co")
-volume_db = -30.0
-autoplay = true
-
-[connection signal="timeout" from="Camera2D/WeatherWait" to="Camera2D/Snow" method="_on_weather_wait_timeout"]

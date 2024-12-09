@@ -1,24 +1,23 @@
 extends CPUParticles2D
 
-@export var switch = false
+#Used to determine intensity of weather
+var weather : int = 1
 
-# Called when the node enters the scene tree for the first time.
+#sets initial weather
 func _ready() -> void:
-	pass # Replace with function body.
+	snowfall()
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	if switch == true:
-		snowfall()
-		switch = false
+#Used to determine when weather will change
+func _on_weather_wait_timeout() -> void:
+	snowfall()
+	print("WEATHER CHANGED")
 
 func snowfall():
-	var weather : int = randi_range(0, 3)
+	weather = randi_range(0, 20)
 	
-	if weather == 1:
+	if weather <= 5:
 		self.emitting = false
-	elif weather == 2:
+	elif weather <= 19 and weather >= 6:
 		self.emitting = true
 		self.amount = 80
 		self.gravity = Vector2(0, 500)
