@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Scripts/map_gen.gd" id="3_n5cae"]
 [ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Resources/Player.tscn" id="4_414nb"]
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="5_kehck"]
-[ext_resource type="PackedScene" uid="uid://cj8508si8yxrk" path="res://Scenes/npc.tscn" id="6_sq0qc"]
+[ext_resource type="PackedScene" uid="uid://dd8s6nvftaft3" path="res://Scenes/npc.tscn" id="6_sq0qc"]
 [ext_resource type="Texture2D" uid="uid://dkwtwkifsn2hj" path="res://Sprites/Environment/Skybox/Hiberna/Skybox.png" id="7_27i8y"]
 [ext_resource type="Texture2D" uid="uid://xdwsb57kv4gn" path="res://Sprites/Environment/Skybox/Hiberna/MidGround.png" id="8_60aar"]
 [ext_resource type="Texture2D" uid="uid://vg2weujqmq73" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.1.png" id="9_3ee7q"]
@@ -831,7 +831,6 @@ texture = ExtResource("7_27i8y")
 
 [node name="Background1" type="Node2D" parent="."]
 position = Vector2(1300, 0)
-scale = Vector2(1, 1)
 
 [node name="MidGround" type="Sprite2D" parent="Background1"]
 scale = Vector2(2.8, 2.8)
@@ -839,7 +838,6 @@ texture = ExtResource("8_60aar")
 
 [node name="Background2" type="Node2D" parent="."]
 position = Vector2(600, 0)
-scale = Vector2(1, 1)
 
 [node name="FrontGround_1" type="Sprite2D" parent="Background2"]
 position = Vector2(1.99988, 0)
@@ -862,7 +860,7 @@ scale = Vector2(2.8, 2.8)
 texture = ExtResource("10_hoih2")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_414nb")]
-modulate = Color(0.882353, 1, 1, 1)
+modulate = Color(0.827451, 1, 1, 1)
 position = Vector2(500, -100)
 
 [node name="Map_Gen (In Progress)" type="Node2D" parent="."]

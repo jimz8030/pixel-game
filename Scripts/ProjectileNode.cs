@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.ComponentModel;
+using System.IO.Pipes;
 using System.Numerics;
 
 public partial class ProjectileNode : CharacterBody2D
@@ -30,6 +31,8 @@ public partial class ProjectileNode : CharacterBody2D
 		Lifetime = projectileType.Lifetime;
 		GravityMultiplier = projectileType.Gravity;
 		WallTouchProperty = projectileType.WallTouchProperty;
+		// CollisionShape2D projectile_area = GetNode<CollisionShape2D>("Area2D/AreaShape2D");
+		// projectile_area.Shape = GetNode<CollisionShape2D>("ProjectileShape").Shape;
 		//GD.Print("initalizing");
 		GetNode<Sprite2D>("ProjectileImage").Texture = projectileType.ProjectileImage;
 	}
@@ -69,13 +72,14 @@ public partial class ProjectileNode : CharacterBody2D
 				Velocity = new Godot.Vector2(Velocity.X * WallBounceMod, Velocity.Y * WallBounceMod);
 				
 				//used for dealing damage I think. Honestly I coppied bullet code to get bounce to work, but we can definately use this to deal damage and status affects
-				GD.Print(collision);
+				CheckCollider(collision);
+				// GD.Print(collider);
 				//DealDamage(collision);
 			}
 		}
 		else if (WallTouchProperty == "destroy"){
 			var collision = MoveAndCollide(Velocity * (float)delta);
-			GD.Print(collision);
+			CheckCollider(collision);
 			if (collision != null){
 				//DealDamage(collision);
 				QueueFree();
@@ -90,11 +94,30 @@ public partial class ProjectileNode : CharacterBody2D
 		}
 	}
 
-	//private void DealDamage(CharacterBody2D collision){
-		//GD.Print("checking for function hit");
-		//if (collision.HasFunction("take_damage"))
-		//{
-			//collision.take_damage(2);
-		//}
-	//}
+	// public void CallDamage(CharacterBody2D Body){
+	// 	if (Body is NPC){
+	// 		if (Body.HasMethod("take_damage")){
+	// 		Body.take_damage(2);
+	// 	}
+	// 	}
+		
+	// }
+
+	private void CheckCollider(KinematicCollision2D collision){
+		var collider = collision.GetCollider();
+			if (collider.HasMeta("take_damage")){
+				GD.Print("this worked");
+			}
+			else{
+				GD.Print("this didn't work, because ",collider.GetClass(),"isn't NPC.");
+				GD.Print(collider.GetClass(), collider.GetType(), collision.GetColliderId());
+			}
+	}
+	private void DealDamage(NPC collision){
+		GD.Print("checking for function hit");
+		if (collision.HasMethod("take_damage"))
+		{
+			collision.take_damage(2);
+		}
+	}
 }

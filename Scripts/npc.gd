@@ -1,5 +1,6 @@
-class_name NPC
 extends CharacterBody2D
+class_name NPC
+
 
 @onready
 var state_machine = $StateMachine
@@ -15,6 +16,8 @@ var max_idle_time: float = 15.0
 var idle_time: float
 
 @export var health: float = 10.0
+
+
 
 func take_damage(amount: int) -> void:
 	health -= amount
