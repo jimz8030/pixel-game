@@ -22,6 +22,8 @@ var idle_time: float
 func take_damage(amount: int) -> void:
 	health -= amount
 	print (health)
+	if health <= 0:
+		queue_free()
 
 
 #flips the NPC around along with their sight and other nodes
