@@ -34,6 +34,7 @@ func flip_right() -> void:
 	get_node("SightArea2D/CollisionShape2D").position.x = 27
 
 func _ready() -> void:
+	print(self)
 	state_machine.init(self)
 	idle_bound_left = self.global_position.x - 100.0
 	idle_bound_right = self.global_position.x + 100.0

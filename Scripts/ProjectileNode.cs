@@ -74,14 +74,14 @@ public partial class ProjectileNode : CharacterBody2D
 				//used for dealing damage I think. Honestly I coppied bullet code to get bounce to work, but we can definately use this to deal damage and status affects
 				CheckCollider(collision);
 				// GD.Print(collider);
-				//DealDamage(collision);
+				DealDamage(collision);
 			}
 		}
 		else if (WallTouchProperty == "destroy"){
 			var collision = MoveAndCollide(Velocity * (float)delta);
 			CheckCollider(collision);
 			if (collision != null){
-				//DealDamage(collision);
+				DealDamage(collision);
 				QueueFree();
 			}
 		}
@@ -104,20 +104,24 @@ public partial class ProjectileNode : CharacterBody2D
 	// }
 
 	private void CheckCollider(KinematicCollision2D collision){
-		var collider = collision.GetCollider();
-			if (collider.HasMeta("take_damage")){
-				GD.Print("this worked");
-			}
-			else{
-				GD.Print("this didn't work, because ",collider.GetClass(),"isn't NPC.");
-				GD.Print(collider.GetClass(), collider.GetType(), collision.GetColliderId());
-			}
+		// var collider = collision.GetCollider();
+			// if (collider.HasMeta("take_damage")){
+			// 	GD.Print("this worked");
+			// }
+			// else{
+			// 	GD.Print("this didn't work, because ",collider.GetClass(),"isn't NPC.");
+			// 	GD.Print(collider.GetClass(), collider.GetType(), collision.GetColliderId());
+			// }
+			GD.Print();
 	}
-	private void DealDamage(NPC collision){
+	private void DealDamage(KinematicCollision2D collision){
+		var collider = collision.GetCollider();
 		GD.Print("checking for function hit");
-		if (collision.HasMethod("take_damage"))
+		GD.Print(collider, " should be a node");
+		if (collider.HasMethod("take_damage"))
 		{
-			collision.take_damage(2);
+			collider.Call("take_damage", 2.0f);
+			GD.Print("collision called!");
 		}
 	}
 }
