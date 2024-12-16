@@ -86,8 +86,8 @@ func _process(delta: float) -> void:
 #
 
 
-func _body_entered_sight(body: Node2D) -> void:
-	pass #the following commented code mades the npc crouch when you crouch, maybe have a system that puts you ontop of their head when you crouch and press interact
+#func _body_entered_sight(body: Node2D) -> void:
+	#pass #the following commented code mades the npc crouch when you crouch, maybe have a system that puts you ontop of their head when you crouch and press interact
 	#if body.has_node("CharacterCollision"):
 		#var body_collision: =  body.get_node("CharacterCollision")
 		#if body_collision.scale.y == .5:
