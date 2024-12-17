@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iej07yxgh0rm"
-path="res://.godot/imported/Grabber_1.png-5b3ff6249d7242a2e62ddc7a5be6e8ea.ctex"
+uid="uid://chcriu5obolu8"
+path="res://.godot/imported/Selection_3.png-1b24fb7ec231a4ecbb114b3c81661a35.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Grabber_1.png"
-dest_files=["res://.godot/imported/Grabber_1.png-5b3ff6249d7242a2e62ddc7a5be6e8ea.ctex"]
+source_file="res://Sprites/UI/Character Creator/Selection_3.png"
+dest_files=["res://.godot/imported/Selection_3.png-1b24fb7ec231a4ecbb114b3c81661a35.ctex"]
 
 [params]
 

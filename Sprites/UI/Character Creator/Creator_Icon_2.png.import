@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cclovwmi261d4"
-path="res://.godot/imported/Next_Button.png-def989e9312c0d7ffe98ccc2ab97151b.ctex"
+uid="uid://b4knnw6njkii2"
+path="res://.godot/imported/Creator_Icon_2.png-8fadcfbd92c69506ace4248a39133b75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Next_Button.png"
-dest_files=["res://.godot/imported/Next_Button.png-def989e9312c0d7ffe98ccc2ab97151b.ctex"]
+source_file="res://Sprites/UI/Character Creator/Creator_Icon_2.png"
+dest_files=["res://.godot/imported/Creator_Icon_2.png-8fadcfbd92c69506ace4248a39133b75.ctex"]
 
 [params]
 

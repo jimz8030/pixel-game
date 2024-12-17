@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnan138yfebqp"
-path="res://.godot/imported/Selection_2.png-ddc50b733dcb3a37ba6a51853e1eaf14.ctex"
+uid="uid://c2254aa4iu6dt"
+path="res://.godot/imported/HotBar.1.png-fe4a4b727ceb48b8cfa6b247c575bba7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Selection_2.png"
-dest_files=["res://.godot/imported/Selection_2.png-ddc50b733dcb3a37ba6a51853e1eaf14.ctex"]
+source_file="res://Sprites/UI/Inventory/HotBar.1.png"
+dest_files=["res://.godot/imported/HotBar.1.png-fe4a4b727ceb48b8cfa6b247c575bba7.ctex"]
 
 [params]
 

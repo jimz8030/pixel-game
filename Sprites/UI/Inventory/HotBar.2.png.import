@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cl3njghnmolv0"
-path="res://.godot/imported/Creator_Icon_3.png-7525db6a3618fd2120a2b29a166f0867.ctex"
+uid="uid://cww50cfvsxaqt"
+path="res://.godot/imported/HotBar.2.png-e46e105f564fcd6307aee415e095a060.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/UI/Creator_Icon_3.png"
-dest_files=["res://.godot/imported/Creator_Icon_3.png-7525db6a3618fd2120a2b29a166f0867.ctex"]
+source_file="res://Sprites/UI/Inventory/HotBar.2.png"
+dest_files=["res://.godot/imported/HotBar.2.png-e46e105f564fcd6307aee415e095a060.ctex"]
 
 [params]
 
