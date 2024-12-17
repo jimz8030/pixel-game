@@ -860,7 +860,7 @@ scale = Vector2(2.8, 2.8)
 texture = ExtResource("10_hoih2")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_414nb")]
-modulate = Color(0.827451, 1, 1, 1)
+modulate = Color(0.91897, 1, 0.999585, 1)
 position = Vector2(500, -100)
 
 [node name="Map_Gen (In Progress)" type="Node2D" parent="."]
