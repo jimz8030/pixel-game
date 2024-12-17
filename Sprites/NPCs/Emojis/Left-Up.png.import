@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c57gdqvpmqqnk"
-path="res://.godot/imported/Angry.4.png-5951f0e481855e3c1284054e41f221b1.ctex"
+uid="uid://dio4ghxpfpus"
+path="res://.godot/imported/Left-Up.png-321d64c1451206d8e84dccf9f5fbf0af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/NPCs/Emoji's/Angry.4.png"
-dest_files=["res://.godot/imported/Angry.4.png-5951f0e481855e3c1284054e41f221b1.ctex"]
+source_file="res://Sprites/NPCs/Emojis/Left-Up.png"
+dest_files=["res://.godot/imported/Left-Up.png-321d64c1451206d8e84dccf9f5fbf0af.ctex"]
 
 [params]
 

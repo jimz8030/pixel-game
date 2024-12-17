@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4nk7dsllr06"
-path="res://.godot/imported/Happy.1.png-ad445c70090d24a6112f3f6fd07b9793.ctex"
+uid="uid://cuax6vgshqbhi"
+path="res://.godot/imported/Water.png-297a52a098ef282abc8120163fa988a4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/NPCs/Emoji's/Happy.1.png"
-dest_files=["res://.godot/imported/Happy.1.png-ad445c70090d24a6112f3f6fd07b9793.ctex"]
+source_file="res://Sprites/NPCs/Emojis/Water.png"
+dest_files=["res://.godot/imported/Water.png-297a52a098ef282abc8120163fa988a4.ctex"]
 
 [params]
 

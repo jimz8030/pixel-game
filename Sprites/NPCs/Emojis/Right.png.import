@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dfarjlpn1a4fp"
-path="res://.godot/imported/Right.png-30306ea122050d3ee5bf372a4a9201ce.ctex"
+path="res://.godot/imported/Right.png-dd4d0fdd7a007510b08d8ee0f19faaf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/NPCs/Emoji's/Right.png"
-dest_files=["res://.godot/imported/Right.png-30306ea122050d3ee5bf372a4a9201ce.ctex"]
+source_file="res://Sprites/NPCs/Emojis/Right.png"
+dest_files=["res://.godot/imported/Right.png-dd4d0fdd7a007510b08d8ee0f19faaf8.ctex"]
 
 [params]
 

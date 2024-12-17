@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dd85mjemv1cnj"
-path="res://.godot/imported/Neutral.4.png-ced4ee68a153db40dd69ed9b88f99b3a.ctex"
+uid="uid://cbt3cckv7fm4q"
+path="res://.godot/imported/Happy.2.png-79814c193caff503e147234ed4dea80d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/NPCs/Emoji's/Neutral.4.png"
-dest_files=["res://.godot/imported/Neutral.4.png-ced4ee68a153db40dd69ed9b88f99b3a.ctex"]
+source_file="res://Sprites/NPCs/Emojis/Happy.2.png"
+dest_files=["res://.godot/imported/Happy.2.png-79814c193caff503e147234ed4dea80d.ctex"]
 
 [params]
 
