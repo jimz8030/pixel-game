@@ -945,7 +945,7 @@ texture = ExtResource("10_hoih2")
 modulate = Color(0.91897, 1, 0.999585, 1)
 position = Vector2(500, -100)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="CharacterBody2D"]
+[node name="Step_Particles" type="CPUParticles2D" parent="CharacterBody2D"]
 position = Vector2(0, 17)
 emitting = false
 lifetime = 0.5
