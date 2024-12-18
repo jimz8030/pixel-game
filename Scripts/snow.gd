@@ -2,11 +2,21 @@ extends CPUParticles2D
 
 #Used to determine intensity of weather
 var weather : int = 1
+var stepParticles : CPUParticles2D
+var character : CharacterBody2D
 
 #sets initial weather
 func _ready() -> void:
+	stepParticles = $"../../CharacterBody2D/CPUParticles2D"
+	character = $"../../CharacterBody2D"
 	self.emitting = true
 	snowfall()
+
+func _process(_delta: float) -> void:
+	if character.is_on_floor() and character.velocity != Vector2(0, 0):
+		stepParticles.emitting = true
+	else:
+		stepParticles.emitting = false
 
 #Used to determine when weather will change
 func _on_weather_wait_timeout() -> void:

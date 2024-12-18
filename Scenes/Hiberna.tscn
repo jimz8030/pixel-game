@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b76y2oaow36nk"]
+[gd_scene load_steps=18 format=3 uid="uid://b76y2oaow36nk"]
 
 [ext_resource type="PackedScene" uid="uid://vl31jfup6gjc" path="res://Sprites/Environment/snow.tscn" id="2_7132a"]
 [ext_resource type="Texture2D" uid="uid://d16qhgnmv0k0d" path="res://Sprites/Environment/Tile Maps/pixil-frame-0 (3).png" id="3_4x6fx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dkwtwkifsn2hj" path="res://Sprites/Environment/Skybox/Hiberna/Skybox.png" id="7_27i8y"]
 [ext_resource type="Texture2D" uid="uid://xdwsb57kv4gn" path="res://Sprites/Environment/Skybox/Hiberna/MidGround.png" id="8_60aar"]
 [ext_resource type="Texture2D" uid="uid://vg2weujqmq73" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.1.png" id="9_3ee7q"]
+[ext_resource type="Texture2D" uid="uid://c7vw2oqmu4s32" path="res://Sprites/Environment/SnowFlake.png" id="9_drqxx"]
 [ext_resource type="Texture2D" uid="uid://b2a20eimr1q4u" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.2.png" id="10_hoih2"]
 [ext_resource type="AudioStream" uid="uid://75ag4p2nuqi" path="res://Audio/Non-Diegetic/Hiberna.05.mp3" id="11_e26co"]
 [ext_resource type="Texture2D" uid="uid://c2254aa4iu6dt" path="res://Sprites/UI/Inventory/HotBar.1.png" id="12_cwib6"]
@@ -944,6 +945,21 @@ texture = ExtResource("10_hoih2")
 modulate = Color(0.91897, 1, 0.999585, 1)
 position = Vector2(500, -100)
 
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CharacterBody2D"]
+position = Vector2(0, 17)
+emitting = false
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.5
+explosiveness = 0.8
+texture = ExtResource("9_drqxx")
+spread = 180.0
+gravity = Vector2(0, 90)
+initial_velocity_min = 60.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
+
 [node name="Map_Gen (In Progress)" type="Node2D" parent="."]
 position = Vector2(0, -500)
 
@@ -975,7 +991,7 @@ orbit_velocity_min = -0.5
 orbit_velocity_max = -0.5
 
 [node name="WeatherWait" type="Timer" parent="Camera2D"]
-wait_time = 20.0
+wait_time = 600.0
 autostart = true
 
 [node name="NPC" parent="." instance=ExtResource("6_sq0qc")]
