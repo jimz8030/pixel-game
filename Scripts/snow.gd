@@ -5,6 +5,7 @@ var weather : int = 1
 
 #sets initial weather
 func _ready() -> void:
+	self.emitting = true
 	snowfall()
 
 #Used to determine when weather will change
