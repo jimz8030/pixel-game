@@ -53,6 +53,7 @@ position = Vector2(-135, 0)
 DampeningAmount = 40.0
 
 [node name="NPC" parent="." instance=ExtResource("4_46nrm")]
+position = Vector2(-362, -6)
 
 [connection signal="area_entered" from="Sapling" to="Sapling" method="ReadyToMine"]
 [connection signal="area_entered" from="Boulder" to="Boulder" method="ReadyToMine"]

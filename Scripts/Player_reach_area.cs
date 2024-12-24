@@ -99,6 +99,11 @@ public partial class Player_reach_area : Area2D
 	}
 
 
+	public void RemoveFarBody(Node2D bodyLeaving){
+		ReachableItems[0] = null;
+	}
+
+
 	//this function removes the Area2D from this node, so the player can't harvest the item if they go out of reach
 	public void RemoveFarArea2D(Area2D ItemLeaving){
 		// sets the rechable item to null WARNING when this code can fit multiple resources update this to match
