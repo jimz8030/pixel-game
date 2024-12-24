@@ -45,6 +45,86 @@
 [ext_resource type="Texture2D" uid="uid://ces16coeab3o1" path="res://Sprites/Character_Sprites/Animations/Male_Crouch_Frames/03_pixilart-sprite.png" id="43_lslpu"]
 [ext_resource type="Texture2D" uid="uid://liqciakwyw6n" path="res://Sprites/Character_Sprites/Animations/Male_Crouch_Frames/04_pixilart-sprite.png" id="44_wott6"]
 
+[sub_resource type="Animation" id="Animation_i10x5"]
+resource_name = "Female_Crouch"
+length = 0.275
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("38_1f1bf"), ExtResource("39_kqlc2"), ExtResource("40_w4e3c")]
+}
+
+[sub_resource type="Animation" id="Animation_bwlpe"]
+resource_name = "Female_Idle"
+length = 2.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.15, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_t51f0"), ExtResource("22_vn84a"), ExtResource("23_q6ihp"), ExtResource("24_g6un3")]
+}
+
+[sub_resource type="Animation" id="Animation_n00n8"]
+resource_name = "Female_Run"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.125, 0.2, 0.275, 0.325, 0.375, 0.45, 0.525, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("25_owkcj"), ExtResource("26_1xp6y"), ExtResource("27_kw2oo"), ExtResource("28_8bfqs"), ExtResource("29_t5ylx"), ExtResource("30_jf0fe"), ExtResource("31_plqt3"), ExtResource("32_t05ev"), ExtResource("33_pk2fk"), ExtResource("34_a7tba")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.325, 0.45, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -1), Vector2(0, 1), Vector2(0, -1), Vector2(0, 0)]
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cyc1v"]
+
+[sub_resource type="Animation" id="Animation_dafqn"]
+resource_name = "Female_isCrouching"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_cyc1v")]
+}
+
 [sub_resource type="Animation" id="Animation_jkw23"]
 resource_name = "Idle"
 tracks/0/type = "value"
@@ -90,8 +170,9 @@ tracks/0/keys = {
 "values": [ExtResource("11_e0n41")]
 }
 
-[sub_resource type="Animation" id="Animation_6oqwh"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_nn5nx"]
+resource_name = "Male_Crouch"
+length = 0.275
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -99,61 +180,10 @@ tracks/0/path = NodePath("Body/Body_Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.075, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [ExtResource("1_28ogn")]
-}
-
-[sub_resource type="Animation" id="Animation_vvp5u"]
-resource_name = "Male_Run"
-length = 0.65
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Body_Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.125, 0.2, 0.275, 0.325, 0.375, 0.45, 0.525, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("11_m2qp5"), ExtResource("12_guwms"), ExtResource("13_7rjdg"), ExtResource("14_ewihb"), ExtResource("15_coyhy"), ExtResource("16_evont"), ExtResource("17_qt6l3"), ExtResource("18_8f27g"), ExtResource("19_186ia"), ExtResource("20_abcst")]
-}
-
-[sub_resource type="Animation" id="Animation_bwlpe"]
-resource_name = "Female_Idle"
-length = 2.3
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Body_Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.15, 2.15),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("21_t51f0"), ExtResource("22_vn84a"), ExtResource("23_q6ihp"), ExtResource("24_g6un3")]
-}
-
-[sub_resource type="Animation" id="Animation_n00n8"]
-resource_name = "Female_Run"
-length = 0.65
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Body_Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.05, 0.125, 0.2, 0.275, 0.325, 0.375, 0.45, 0.525, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("25_owkcj"), ExtResource("26_1xp6y"), ExtResource("27_kw2oo"), ExtResource("28_8bfqs"), ExtResource("29_t5ylx"), ExtResource("30_jf0fe"), ExtResource("31_plqt3"), ExtResource("32_t05ev"), ExtResource("33_pk2fk"), ExtResource("34_a7tba")]
+"values": [ExtResource("41_21tmu"), ExtResource("42_q62og"), ExtResource("43_lslpu")]
 }
 
 [sub_resource type="Animation" id="Animation_77ipu"]
@@ -173,9 +203,10 @@ tracks/0/keys = {
 "values": [ExtResource("35_cws5g"), ExtResource("36_8gyak"), ExtResource("37_i2ydh"), ExtResource("38_freqf")]
 }
 
-[sub_resource type="Animation" id="Animation_i10x5"]
-resource_name = "Female_Crouch"
-length = 0.275
+[sub_resource type="Animation" id="Animation_vvp5u"]
+resource_name = "Male_Run"
+length = 0.65
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -183,45 +214,10 @@ tracks/0/path = NodePath("Body/Body_Sprite:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.133333),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.05, 0.125, 0.2, 0.275, 0.325, 0.375, 0.45, 0.525, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("38_1f1bf"), ExtResource("39_kqlc2"), ExtResource("40_w4e3c")]
-}
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cyc1v"]
-load_path = "res://.godot/imported/04_Crouch.png-23714929078a261f17b1d5cac936a61f.ctex"
-
-[sub_resource type="Animation" id="Animation_dafqn"]
-resource_name = "Female_isCrouching"
-length = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Body_Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("CompressedTexture2D_cyc1v")]
-}
-
-[sub_resource type="Animation" id="Animation_nn5nx"]
-resource_name = "Male_Crouch"
-length = 0.275
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Body/Body_Sprite:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.075, 0.133333),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("41_21tmu"), ExtResource("42_q62og"), ExtResource("43_lslpu")]
+"values": [ExtResource("11_m2qp5"), ExtResource("12_guwms"), ExtResource("13_7rjdg"), ExtResource("14_ewihb"), ExtResource("15_coyhy"), ExtResource("16_evont"), ExtResource("17_qt6l3"), ExtResource("18_8f27g"), ExtResource("19_186ia"), ExtResource("20_abcst")]
 }
 
 [sub_resource type="Animation" id="Animation_e5feo"]
@@ -238,6 +234,33 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [ExtResource("44_wott6")]
+}
+
+[sub_resource type="Animation" id="Animation_6oqwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_28ogn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ii6qi"]

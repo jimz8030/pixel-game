@@ -18,7 +18,7 @@ public partial class CharacterBody2d : CharacterBody2D
 	InputEventKey JumpKey = new InputEventKey();
 	InputEventKey DownKey = new InputEventKey();
 	
-	public const float Speed = 200.0f;
+	public const float Speed = 175.0f;
 	public float JumpVelocity;
 	public float Gravity;
 	public float DashCharging = 0f;
@@ -29,9 +29,9 @@ public partial class CharacterBody2d : CharacterBody2D
 	float JumpCharging = .25f;
 	
 	//jumpheight is the hight you want the player to jump at
-	const int JumpHeight = 30;
+	const int JumpHeight = 20;
 	//Time in air doubled is the ammount of time the jump takes before touching ground
-	const float TimeInAir = 0.5f;
+	const float TimeInAir = 0.375f;
 
 	public Node2D PlayerSprite;
 	

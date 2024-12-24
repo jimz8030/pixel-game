@@ -26,6 +26,8 @@ func _ready() -> void:
 				$Top_Clothing.remove_child($Top_Clothing/Hair_Sprite)
 				$Hair.add_child(hair_sprite)
 
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+func _input(_event: InputEvent) -> void:
+	if Input.is_action_pressed("ui_left") or Input.is_action_pressed("ui_right"):
 		animator.play("Female_Run")
+	else:
+		animator.play("Female_Idle")
