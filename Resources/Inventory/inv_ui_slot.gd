@@ -1,5 +1,6 @@
 extends Panel
 
+#All inventory functions are incomplete
 @onready var item_display : Sprite2D = $CenterContainer/Panel/Item_Display
 
 func update(item : invItem):

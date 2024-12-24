@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwgtngm60d3e7"]
+[gd_scene load_steps=6 format=3 uid="uid://bwgtngm60d3e7"]
 
 [ext_resource type="Texture2D" uid="uid://bekpvi2u8kjp4" path="res://Resources/Inventory/Inv_Sprites/invSlot.png" id="1_3f1m0"]
 [ext_resource type="Texture2D" uid="uid://djgw7c5mg7gnx" path="res://Resources/Inventory/Inv_Sprites/Basic_Square.png" id="1_08vfw"]
 [ext_resource type="Script" path="res://Resources/Inventory/inv_ui_slot.gd" id="1_50svb"]
 [ext_resource type="Texture2D" uid="uid://1im4vxyblfc6" path="res://Resources/Inventory/Inv_Sprites/HotBar.4.png" id="3_ibfcj"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="5_citpp"]
 
 [node name="Inv_UI_Slot" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
@@ -39,3 +40,16 @@ layout_mode = 2
 
 [node name="Item_Display" type="Sprite2D" parent="CenterContainer/Panel"]
 position = Vector2(0.5, 0.5)
+
+[node name="Count" type="Label" parent="CenterContainer/Panel"]
+custom_minimum_size = Vector2(28, 23)
+layout_mode = 0
+offset_left = -3.0
+offset_right = 33.0
+offset_bottom = 23.0
+scale = Vector2(0.4, 0.4)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_citpp")
+text = "999"
+horizontal_alignment = 2
+vertical_alignment = 1

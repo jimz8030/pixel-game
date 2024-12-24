@@ -7,5 +7,5 @@ func _ready():
 	update_slots()
 
 func update_slots():
-	for i in range(min(Inv.items.size(), slots.size())):
-		slots[i].update(Inv.items[i])
+	for i in range(min(Inv.slots.size(), slots.size())):
+		slots[i].update(Inv.slots[i])
