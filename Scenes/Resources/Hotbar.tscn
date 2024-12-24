@@ -1,0 +1,106 @@
+[gd_scene load_steps=4 format=3 uid="uid://b45sgkgm0762t"]
+
+[ext_resource type="Texture2D" uid="uid://dil7o6fvfn5ws" path="res://Resources/Inventory/Inv_Sprites/HotBar.3.png" id="1_bv0gv"]
+[ext_resource type="Script" path="res://Scenes/Resources/hotbar.gd" id="1_vfoe2"]
+[ext_resource type="PackedScene" uid="uid://bwgtngm60d3e7" path="res://Resources/Inventory/inv_ui_slot.tscn" id="3_hle34"]
+
+[node name="Hotbar" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vfoe2")
+
+[node name="Health_1" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -41.0
+offset_top = 85.0
+offset_right = -36.0
+offset_bottom = -626.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(5, 5)
+step = 0.5
+value = 15.0
+fill_mode = 3
+texture_under = ExtResource("1_bv0gv")
+texture_over = ExtResource("1_bv0gv")
+texture_progress = ExtResource("1_bv0gv")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(0.65098, 0.180392, 0.235294, 1)
+tint_progress = Color(0, 1, 1, 1)
+
+[node name="Health_2" type="TextureProgressBar" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.9999
+offset_top = 376.0
+offset_right = -35.9999
+offset_bottom = -335.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(5, 5)
+step = 0.5
+value = 15.0
+fill_mode = 3
+texture_under = ExtResource("1_bv0gv")
+texture_over = ExtResource("1_bv0gv")
+texture_progress = ExtResource("1_bv0gv")
+tint_under = Color(1, 1, 1, 0)
+tint_over = Color(0.545098, 0.780392, 0.713726, 1)
+tint_progress = Color(0.65098, 0.180392, 0.235294, 1)
+
+[node name="Inv_UI_Slot_1" type="Panel" parent="."]
+layout_mode = 2
+offset_left = -11.0
+offset_top = 75.0
+offset_bottom = 75.0
+
+[node name="GridContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -73.0
+offset_bottom = 73.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Inv_UI_Slot_1" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_2" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_3" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_4" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_5" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_6" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_7" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_8" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_9" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2
+
+[node name="Inv_UI_Slot_10" parent="GridContainer" instance=ExtResource("3_hle34")]
+layout_mode = 2

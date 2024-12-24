@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbl0mw3rp0nhj"]
+[gd_scene load_steps=59 format=3 uid="uid://dbl0mw3rp0nhj"]
 
 [ext_resource type="Script" path="res://Scripts/apply_cosmetics.gd" id="1_6slve"]
 [ext_resource type="Texture2D" uid="uid://xmlx3drjs4q7" path="res://Sprites/Character_Sprites/Oops_All_Naked/F1.S1.png" id="1_28ogn"]
@@ -7,6 +7,254 @@
 [ext_resource type="Texture2D" uid="uid://b0go2c2mlsswh" path="res://Sprites/Character_Sprites/Top_Clothing/T1_F1.png" id="4_s76gv"]
 [ext_resource type="Texture2D" uid="uid://oslnp1h4eaq7" path="res://Sprites/Character_Sprites/Oops_All_Naked/Flesh_Arms/F1.png" id="7_gsytt"]
 [ext_resource type="Texture2D" uid="uid://bmsuj35ubki02" path="res://Sprites/Character_Sprites/Top_Clothing/Clothing_Arms/A1.png" id="7_lvbfb"]
+[ext_resource type="Texture2D" uid="uid://br8erdp4l75md" path="res://Sprites/Character_Sprites/Animations/Jump.png" id="10_pfffy"]
+[ext_resource type="Texture2D" uid="uid://bnunkl83dynqs" path="res://Sprites/Character_Sprites/Animations/Fall.png" id="11_e0n41"]
+[ext_resource type="Texture2D" uid="uid://cmnwnk480q5t8" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/08_Run.png" id="11_m2qp5"]
+[ext_resource type="Texture2D" uid="uid://4uplsxus7532" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/09_Run.png" id="12_guwms"]
+[ext_resource type="Texture2D" uid="uid://c2ev4jt3dx5vm" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/00_Run.png" id="13_7rjdg"]
+[ext_resource type="Texture2D" uid="uid://1wj1mshr12bd" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/01_Run.png" id="14_ewihb"]
+[ext_resource type="Texture2D" uid="uid://dwj5hc15bx71l" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/02_Run.png" id="15_coyhy"]
+[ext_resource type="Texture2D" uid="uid://cwqvtbeurxi2u" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/03_Run.png" id="16_evont"]
+[ext_resource type="Texture2D" uid="uid://cvfl34if60h00" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/04_Run.png" id="17_qt6l3"]
+[ext_resource type="Texture2D" uid="uid://bwfmq7v2jblf1" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/05_Run.png" id="18_8f27g"]
+[ext_resource type="Texture2D" uid="uid://byw3n7hb3115m" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/06_Run.png" id="19_186ia"]
+[ext_resource type="Texture2D" uid="uid://bmkhorln65w04" path="res://Sprites/Character_Sprites/Animations/Male_Run_Frames/07_Run.png" id="20_abcst"]
+[ext_resource type="Texture2D" uid="uid://becu1cawa7736" path="res://Sprites/Character_Sprites/Animations/Female_Idle_Frames/00_idle.png" id="21_t51f0"]
+[ext_resource type="Texture2D" uid="uid://donmj78633pe0" path="res://Sprites/Character_Sprites/Animations/Female_Idle_Frames/01_idle.png" id="22_vn84a"]
+[ext_resource type="Texture2D" uid="uid://cbb11gl16wj5c" path="res://Sprites/Character_Sprites/Animations/Female_Idle_Frames/02_idle.png" id="23_q6ihp"]
+[ext_resource type="Texture2D" uid="uid://bfl7orwqdnkb1" path="res://Sprites/Character_Sprites/Animations/Female_Idle_Frames/03_idle.png" id="24_g6un3"]
+[ext_resource type="Texture2D" uid="uid://im0ig60ci1al" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/08_Female.png" id="25_owkcj"]
+[ext_resource type="Texture2D" uid="uid://clhjh2bgjxh3v" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/09_Female.png" id="26_1xp6y"]
+[ext_resource type="Texture2D" uid="uid://5f4alemau4gf" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/00_Female.png" id="27_kw2oo"]
+[ext_resource type="Texture2D" uid="uid://cfxocdsodac4a" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/01_Female.png" id="28_8bfqs"]
+[ext_resource type="Texture2D" uid="uid://bl77hnj3tlp7h" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/02_Female.png" id="29_t5ylx"]
+[ext_resource type="Texture2D" uid="uid://csechjsw7cjcq" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/03_Female.png" id="30_jf0fe"]
+[ext_resource type="Texture2D" uid="uid://d4ae1uehoakyb" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/04_Female.png" id="31_plqt3"]
+[ext_resource type="Texture2D" uid="uid://dsl53g71su218" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/05_Female.png" id="32_t05ev"]
+[ext_resource type="Texture2D" uid="uid://blngm3jm5vc1q" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/06_Female.png" id="33_pk2fk"]
+[ext_resource type="Texture2D" uid="uid://bl34iwy1426vc" path="res://Sprites/Character_Sprites/Animations/Female_Run_Frames/07_Female.png" id="34_a7tba"]
+[ext_resource type="Texture2D" uid="uid://7su6nobw0efj" path="res://Sprites/Character_Sprites/Animations/Male_Idle_Frames/00_Idle_M.png" id="35_cws5g"]
+[ext_resource type="Texture2D" uid="uid://eowmj88rq57k" path="res://Sprites/Character_Sprites/Animations/Male_Idle_Frames/01_Idle_M.png" id="36_8gyak"]
+[ext_resource type="Texture2D" uid="uid://bgrx0nun6hly2" path="res://Sprites/Character_Sprites/Animations/Male_Idle_Frames/02_Idle_M.png" id="37_i2ydh"]
+[ext_resource type="Texture2D" uid="uid://ci4ayyy86crun" path="res://Sprites/Character_Sprites/Animations/Female_Crouch_Frames/01_pixilart-sprite.png" id="38_1f1bf"]
+[ext_resource type="Texture2D" uid="uid://mna3ouawsyn3" path="res://Sprites/Character_Sprites/Animations/Male_Idle_Frames/03_Idle_M.png" id="38_freqf"]
+[ext_resource type="Texture2D" uid="uid://b0ygm6quhr6ur" path="res://Sprites/Character_Sprites/Animations/Female_Crouch_Frames/02_pixilart-sprite.png" id="39_kqlc2"]
+[ext_resource type="Texture2D" uid="uid://yrbberuoatbo" path="res://Sprites/Character_Sprites/Animations/Female_Crouch_Frames/03_pixilart-sprite.png" id="40_w4e3c"]
+[ext_resource type="Texture2D" uid="uid://bojnt61kuao5x" path="res://Sprites/Character_Sprites/Animations/Male_Crouch_Frames/01_pixilart-sprite.png" id="41_21tmu"]
+[ext_resource type="Texture2D" uid="uid://cbumptcexjjf4" path="res://Sprites/Character_Sprites/Animations/Male_Crouch_Frames/02_pixilart-sprite.png" id="42_q62og"]
+[ext_resource type="Texture2D" uid="uid://ces16coeab3o1" path="res://Sprites/Character_Sprites/Animations/Male_Crouch_Frames/03_pixilart-sprite.png" id="43_lslpu"]
+[ext_resource type="Texture2D" uid="uid://liqciakwyw6n" path="res://Sprites/Character_Sprites/Animations/Male_Crouch_Frames/04_pixilart-sprite.png" id="44_wott6"]
+
+[sub_resource type="Animation" id="Animation_jkw23"]
+resource_name = "Idle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_28ogn")]
+}
+
+[sub_resource type="Animation" id="Animation_o1ee8"]
+resource_name = "Jump_Ascend"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_pfffy")]
+}
+
+[sub_resource type="Animation" id="Animation_v43l2"]
+resource_name = "Jump_Descend"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_e0n41")]
+}
+
+[sub_resource type="Animation" id="Animation_6oqwh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_28ogn")]
+}
+
+[sub_resource type="Animation" id="Animation_vvp5u"]
+resource_name = "Male_Run"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.125, 0.2, 0.275, 0.325, 0.375, 0.45, 0.525, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("11_m2qp5"), ExtResource("12_guwms"), ExtResource("13_7rjdg"), ExtResource("14_ewihb"), ExtResource("15_coyhy"), ExtResource("16_evont"), ExtResource("17_qt6l3"), ExtResource("18_8f27g"), ExtResource("19_186ia"), ExtResource("20_abcst")]
+}
+
+[sub_resource type="Animation" id="Animation_bwlpe"]
+resource_name = "Female_Idle"
+length = 2.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.15, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("21_t51f0"), ExtResource("22_vn84a"), ExtResource("23_q6ihp"), ExtResource("24_g6un3")]
+}
+
+[sub_resource type="Animation" id="Animation_n00n8"]
+resource_name = "Female_Run"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.125, 0.2, 0.275, 0.325, 0.375, 0.45, 0.525, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("25_owkcj"), ExtResource("26_1xp6y"), ExtResource("27_kw2oo"), ExtResource("28_8bfqs"), ExtResource("29_t5ylx"), ExtResource("30_jf0fe"), ExtResource("31_plqt3"), ExtResource("32_t05ev"), ExtResource("33_pk2fk"), ExtResource("34_a7tba")]
+}
+
+[sub_resource type="Animation" id="Animation_77ipu"]
+resource_name = "Male_Idle"
+length = 2.3
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 1.15, 2.15),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("35_cws5g"), ExtResource("36_8gyak"), ExtResource("37_i2ydh"), ExtResource("38_freqf")]
+}
+
+[sub_resource type="Animation" id="Animation_i10x5"]
+resource_name = "Female_Crouch"
+length = 0.275
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("38_1f1bf"), ExtResource("39_kqlc2"), ExtResource("40_w4e3c")]
+}
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cyc1v"]
+load_path = "res://.godot/imported/04_Crouch.png-23714929078a261f17b1d5cac936a61f.ctex"
+
+[sub_resource type="Animation" id="Animation_dafqn"]
+resource_name = "Female_isCrouching"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_cyc1v")]
+}
+
+[sub_resource type="Animation" id="Animation_nn5nx"]
+resource_name = "Male_Crouch"
+length = 0.275
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("41_21tmu"), ExtResource("42_q62og"), ExtResource("43_lslpu")]
+}
+
+[sub_resource type="Animation" id="Animation_e5feo"]
+resource_name = "Male_isCrouching"
+length = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Body/Body_Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("44_wott6")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ii6qi"]
+_data = {
+"Female_Crouch": SubResource("Animation_i10x5"),
+"Female_Idle": SubResource("Animation_bwlpe"),
+"Female_Run": SubResource("Animation_n00n8"),
+"Female_isCrouching": SubResource("Animation_dafqn"),
+"Idle": SubResource("Animation_jkw23"),
+"Jump_Ascend": SubResource("Animation_o1ee8"),
+"Jump_Descend": SubResource("Animation_v43l2"),
+"Male_Crouch": SubResource("Animation_nn5nx"),
+"Male_Idle": SubResource("Animation_77ipu"),
+"Male_Run": SubResource("Animation_vvp5u"),
+"Male_isCrouching": SubResource("Animation_e5feo"),
+"RESET": SubResource("Animation_6oqwh")
+}
 
 [node name="Character" type="Node2D"]
 script = ExtResource("1_6slve")
@@ -17,24 +265,28 @@ script = ExtResource("1_6slve")
 texture = ExtResource("1_28ogn")
 
 [node name="Bottom_Clothing" type="Node2D" parent="."]
+visible = false
 
 [node name="Bottom_Clothing_Sprite" type="Sprite2D" parent="Bottom_Clothing"]
 position = Vector2(-0.5, 8)
 texture = ExtResource("2_bk518")
 
 [node name="Hair" type="Node2D" parent="."]
+visible = false
 
 [node name="Hair_Sprite" type="Sprite2D" parent="Hair"]
 position = Vector2(0, -9)
 texture = ExtResource("4_8x1dq")
 
 [node name="Top_Clothing" type="Node2D" parent="."]
+visible = false
 
 [node name="Top_Clothing_Sprite" type="Sprite2D" parent="Top_Clothing"]
 position = Vector2(-0.5, -1)
 texture = ExtResource("4_s76gv")
 
 [node name="Arm" type="Node2D" parent="."]
+visible = false
 
 [node name="Skin_Arm" type="Sprite2D" parent="Arm"]
 position = Vector2(3, -6)
@@ -47,3 +299,6 @@ texture = ExtResource("7_lvbfb")
 offset = Vector2(1.5, 5.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ii6qi")
+}

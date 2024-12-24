@@ -10,6 +10,7 @@ func _ready() -> void:
 	$Top_Clothing/Top_Clothing_Sprite.texture = load(Globals.Character_Top)
 	$Arm/Skin_Arm.texture = load(Globals.Character_Flesh_Arm)
 	$Arm/Clothing_Sprite.texture = load(Globals.Character_Cloth_Arm)
+	print($Body/Body_Sprite)
 	
 	if Character_Hair.texture != null:
 		if Character_Hair.texture.resource_path == "res://Sprites/Character_Sprites/Hair/H4.png" or Character_Hair.texture.resource_path == "res://Sprites/Character_Sprites/Hair/H13.png":

@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://b76y2oaow36nk"]
+[gd_scene load_steps=16 format=3 uid="uid://b76y2oaow36nk"]
 
+[ext_resource type="PackedScene" uid="uid://b45sgkgm0762t" path="res://Scenes/Resources/Hotbar.tscn" id="1_mesml"]
 [ext_resource type="PackedScene" uid="uid://vl31jfup6gjc" path="res://Sprites/Environment/snow.tscn" id="2_7132a"]
 [ext_resource type="Texture2D" uid="uid://d16qhgnmv0k0d" path="res://Sprites/Environment/Tile Maps/pixil-frame-0 (3).png" id="3_4x6fx"]
 [ext_resource type="Script" path="res://Scripts/map_gen.gd" id="3_n5cae"]
@@ -12,9 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://c7vw2oqmu4s32" path="res://Sprites/Environment/SnowFlake.png" id="9_drqxx"]
 [ext_resource type="Texture2D" uid="uid://b2a20eimr1q4u" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.2.png" id="10_hoih2"]
 [ext_resource type="AudioStream" uid="uid://75ag4p2nuqi" path="res://Audio/Non-Diegetic/Hiberna.05.mp3" id="11_e26co"]
-[ext_resource type="Texture2D" uid="uid://c2254aa4iu6dt" path="res://Sprites/UI/Inventory/HotBar.1.png" id="12_cwib6"]
-[ext_resource type="Texture2D" uid="uid://cww50cfvsxaqt" path="res://Sprites/UI/Inventory/HotBar.2.png" id="13_vqx10"]
-[ext_resource type="Texture2D" uid="uid://dil7o6fvfn5ws" path="res://Sprites/UI/Inventory/HotBar.3.png" id="14_ncdv8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdg2r"]
 texture = ExtResource("3_4x6fx")
@@ -812,82 +810,21 @@ sources/0 = SubResource("TileSetAtlasSource_vdg2r")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4
 
-[node name="Health_1" type="TextureProgressBar" parent="CanvasLayer"]
+[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("1_mesml")]
 anchors_preset = 11
 anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -41.0
-offset_top = 85.0
-offset_right = -36.0
-offset_bottom = -626.0
+offset_left = -10.0
+offset_top = 400.0
+offset_right = -10.0
+offset_bottom = -370.0
 grow_horizontal = 0
 grow_vertical = 2
-scale = Vector2(5, 5)
-step = 0.5
-value = 15.0
-fill_mode = 3
-texture_under = ExtResource("14_ncdv8")
-texture_over = ExtResource("14_ncdv8")
-texture_progress = ExtResource("14_ncdv8")
-tint_under = Color(1, 1, 1, 0)
-tint_over = Color(0.65098, 0.180392, 0.235294, 1)
-tint_progress = Color(0, 1, 1, 1)
-
-[node name="Health_2" type="TextureProgressBar" parent="CanvasLayer"]
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -40.9999
-offset_top = 376.0
-offset_right = -35.9999
-offset_bottom = -335.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(5, 5)
-step = 0.5
-value = 15.0
-fill_mode = 3
-texture_under = ExtResource("14_ncdv8")
-texture_over = ExtResource("14_ncdv8")
-texture_progress = ExtResource("14_ncdv8")
-tint_under = Color(1, 1, 1, 0)
-tint_over = Color(0.545098, 0.780392, 0.713726, 1)
-tint_progress = Color(0.65098, 0.180392, 0.235294, 1)
-
-[node name="Hotbar_1" type="TextureRect" parent="CanvasLayer"]
-modulate = Color(0.431373, 0.431373, 0.431373, 0.580392)
-layout_direction = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = 70.0
-offset_right = 28.0
-offset_bottom = 70.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("12_cwib6")
-
-[node name="Hotbar_2" type="TextureRect" parent="CanvasLayer"]
-layout_direction = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = 70.0
-offset_right = 28.0
-offset_bottom = 70.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-texture = ExtResource("13_vqx10")
+scale = Vector2(4, 4)
 
 [node name="Skybox" type="Node2D" parent="."]
+position = Vector2(0, -80)
 
 [node name="Skybox" type="Sprite2D" parent="Skybox"]
 position = Vector2(600, 0)
@@ -912,14 +849,14 @@ scale = Vector2(2.8, -2.8)
 texture = ExtResource("7_27i8y")
 
 [node name="Background1" type="Node2D" parent="."]
-position = Vector2(1300, 0)
+position = Vector2(1300, -80)
 
 [node name="MidGround" type="Sprite2D" parent="Background1"]
 scale = Vector2(2.8, 2.8)
 texture = ExtResource("8_60aar")
 
 [node name="Background2" type="Node2D" parent="."]
-position = Vector2(600, 0)
+position = Vector2(600, -80)
 
 [node name="FrontGround_1" type="Sprite2D" parent="Background2"]
 position = Vector2(1.99988, 0)
@@ -946,15 +883,16 @@ modulate = Color(0.91897, 1, 0.999585, 1)
 position = Vector2(500, -100)
 
 [node name="Step_Particles" type="CPUParticles2D" parent="CharacterBody2D"]
-position = Vector2(0, 17)
+self_modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(0, 30)
 emitting = false
-lifetime = 0.5
+lifetime = 0.2
 one_shot = true
 speed_scale = 0.5
 explosiveness = 0.8
 texture = ExtResource("9_drqxx")
 spread = 180.0
-gravity = Vector2(0, 90)
+gravity = Vector2(0, 180)
 initial_velocity_min = 60.0
 initial_velocity_max = 100.0
 scale_amount_min = 0.1

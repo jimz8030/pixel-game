@@ -12,8 +12,8 @@ func _ready() -> void:
 	self.emitting = true
 	snowfall()
 
-func _process(_delta: float) -> void:
-	if character.is_on_floor() and character.velocity != Vector2(0, 0):
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept") and character.is_on_floor():
 		stepParticles.emitting = true
 
 #Used to determine when weather will change
