@@ -2,6 +2,8 @@ extends State
 #the wander state
 @export
 var idle_state: State
+@export
+var falling_state: State
 
 var idle_bound_left: int
 var idle_bound_right: int
@@ -31,6 +33,9 @@ func process_physics(_delta: float) -> State:
 		parent.move_and_slide()
 		if parent.velocity.x == 0:
 			return idle_state
+			
+	if parent.is_on_floor():
+		return falling_state
 	else:#I think this should be a slowing down state
 		parent.velocity.x = move_toward(parent.velocity.x, 0, parent.SPEED)
 	return null

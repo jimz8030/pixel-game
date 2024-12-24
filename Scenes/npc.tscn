@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cj8508si8yxrk"]
+[gd_scene load_steps=10 format=3 uid="uid://cj8508si8yxrk"]
 
 [ext_resource type="Script" path="res://Scripts/npc.gd" id="1_htvpy"]
 [ext_resource type="Texture2D" uid="uid://cnldwc1lvf2ex" path="res://Sprites/NPCs/Native/Tiv_Red.png" id="2_524e7"]
 [ext_resource type="Script" path="res://Scripts/npcstate_machine.gd" id="3_gql6s"]
 [ext_resource type="Script" path="res://Scripts/wander.gd" id="4_ae3e4"]
 [ext_resource type="Script" path="res://Scripts/idle.gd" id="5_kwsvh"]
+[ext_resource type="Script" path="res://Scripts/falling.gd" id="6_4wwuk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ilyu"]
 size = Vector2(20, 28)
@@ -34,14 +35,19 @@ shape = SubResource("RectangleShape2D_g6yao")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("starting_state")]
 script = ExtResource("3_gql6s")
-starting_state = NodePath("wander")
+starting_state = NodePath("falling")
 
-[node name="wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="wander" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state", "falling_state")]
 script = ExtResource("4_ae3e4")
 idle_state = NodePath("../idle")
+falling_state = NodePath("../falling")
 
 [node name="idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("wander_state")]
 script = ExtResource("5_kwsvh")
+wander_state = NodePath("../wander")
+
+[node name="falling" type="Node" parent="StateMachine" node_paths=PackedStringArray("wander_state")]
+script = ExtResource("6_4wwuk")
 wander_state = NodePath("../wander")
 
 [node name="SightArea2D" type="Area2D" parent="."]
