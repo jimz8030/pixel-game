@@ -1,5 +1,6 @@
-class_name NPC
 extends CharacterBody2D
+class_name NPC
+
 
 @onready
 var state_machine = $StateMachine
@@ -14,6 +15,16 @@ var pathfind: float
 var max_idle_time: float = 15.0
 var idle_time: float
 
+@export var health: float = 10.0
+
+
+
+func take_damage(amount: int) -> void:
+	health -= amount
+	print (health)
+	if health <= 0:
+		queue_free()
+
 
 #flips the NPC around along with their sight and other nodes
 func flip_left() -> void:
@@ -25,6 +36,7 @@ func flip_right() -> void:
 	get_node("SightArea2D/CollisionShape2D").position.x = 27
 
 func _ready() -> void:
+	print(self)
 	state_machine.init(self)
 	idle_bound_left = self.global_position.x - 100.0
 	idle_bound_right = self.global_position.x + 100.0
@@ -74,8 +86,8 @@ func _process(delta: float) -> void:
 #
 
 
-func _body_entered_sight(body: Node2D) -> void:
-	pass #the following commented code mades the npc crouch when you crouch, maybe have a system that puts you ontop of their head when you crouch and press interact
+#func _body_entered_sight(body: Node2D) -> void:
+	#pass #the following commented code mades the npc crouch when you crouch, maybe have a system that puts you ontop of their head when you crouch and press interact
 	#if body.has_node("CharacterCollision"):
 		#var body_collision: =  body.get_node("CharacterCollision")
 		#if body_collision.scale.y == .5:

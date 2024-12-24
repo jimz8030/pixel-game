@@ -1,6 +1,7 @@
 using Godot;
 using System;
 using System.ComponentModel;
+using System.IO.Pipes;
 using System.Numerics;
 
 public partial class ProjectileNode : CharacterBody2D
@@ -12,7 +13,7 @@ public partial class ProjectileNode : CharacterBody2D
 	float Radius = 10f;
 	public float SizeMod;
 	//used to calculate how long the projectile should be alive
-	float Lifetime = 10f;
+	float Lifetime = 4f;
 	//makes gravity heavier for specific objects, 1 seems like normal gravity, 0 is no gravity
 	float GravityMultiplier = 1f;
 	//changes how fast the projectile is going on spawn, should be changed depending on mouse location and maybe how fast the player is moving too
@@ -30,6 +31,8 @@ public partial class ProjectileNode : CharacterBody2D
 		Lifetime = projectileType.Lifetime;
 		GravityMultiplier = projectileType.Gravity;
 		WallTouchProperty = projectileType.WallTouchProperty;
+		// CollisionShape2D projectile_area = GetNode<CollisionShape2D>("Area2D/AreaShape2D");
+		// projectile_area.Shape = GetNode<CollisionShape2D>("ProjectileShape").Shape;
 		//GD.Print("initalizing");
 		GetNode<Sprite2D>("ProjectileImage").Texture = projectileType.ProjectileImage;
 	}
@@ -69,11 +72,14 @@ public partial class ProjectileNode : CharacterBody2D
 				Velocity = new Godot.Vector2(Velocity.X * WallBounceMod, Velocity.Y * WallBounceMod);
 				
 				//used for dealing damage I think. Honestly I coppied bullet code to get bounce to work, but we can definately use this to deal damage and status affects
+				// CheckCollider(collision);
+				// GD.Print(collider);
 				DealDamage(collision);
 			}
 		}
 		else if (WallTouchProperty == "destroy"){
 			var collision = MoveAndCollide(Velocity * (float)delta);
+			// CheckCollider(collision);
 			if (collision != null){
 				DealDamage(collision);
 				QueueFree();
@@ -81,19 +87,43 @@ public partial class ProjectileNode : CharacterBody2D
 		}
 
 		//counts down the lifetime until it's destroyed by QueueFree() function
-		Lifetime -= .1f;
+		Lifetime -= .125f;
 		//checks if the object should be destroyed after a certain ammount of time (or is delta frames?)
 		if (Lifetime <= 0){
+			GD.Print("projectile destroyed");
 			QueueFree();
+
 		}
 	}
 
+	// public void CallDamage(CharacterBody2D Body){
+	// 	if (Body is NPC){
+	// 		if (Body.HasMethod("take_damage")){
+	// 		Body.take_damage(2);
+	// 	}
+	// 	}
+		
+	// }
+
+	// private void CheckCollider(KinematicCollision2D collision){
+	// 	// var collider = collision.GetCollider();
+	// 		// if (collider.HasMeta("take_damage")){
+	// 		// 	GD.Print("this worked");
+	// 		// }
+	// 		// else{
+	// 		// 	GD.Print("this didn't work, because ",collider.GetClass(),"isn't NPC.");
+	// 		// 	GD.Print(collider.GetClass(), collider.GetType(), collision.GetColliderId());
+	// 		// }
+	// 		GD.Print();
+	// }
 	private void DealDamage(KinematicCollision2D collision){
+		var collider = collision.GetCollider();
 		GD.Print("checking for function hit");
-		if (collision.GetCollider().HasMethod("Hit"))
+		GD.Print(collider, " should be a node");
+		if (collider.HasMethod("take_damage"))
 		{
-			GD.Print("calling function");
-			collision.GetCollider().Call("Hit");
+			collider.Call("take_damage", 2.0f);
+			GD.Print("collision called!");
 		}
 	}
 }

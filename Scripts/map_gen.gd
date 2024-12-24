@@ -9,7 +9,7 @@ var sky_height : int = 60
 #gives player option to change seed and map size
 @export var total_map_height: int = 150
 @export var map_length: int = 600
-@export var hill_heights: float = 5.0
+@export var hill_heights: int = 5
 @export var cave_size: float = 2.0
 @export var cave_amount: float = 20.0
 @export var noise_seed : int = 0
@@ -26,10 +26,10 @@ var hole_noise = FastNoiseLite.new()
 
 #used to determine which tiles are rendered (x and y total = 125 typically)
 @export var camera : Node2D
-var cam_bounds_left : int = 45
-var cam_bounds_right : int = 80
-var cam_bounds_down : int = 1
-var cam_bounds_up : int = 1
+var cam_bounds_left : float = 45
+var cam_bounds_right : float = 80
+var cam_bounds_down : float = 1
+var cam_bounds_up : float = 1
 
 #Information used to render snow
 var countdown : int = 0
@@ -37,11 +37,16 @@ var crush_count : int = 0
 var snow_run_tile : Vector2i
 @onready var Player : CharacterBody2D = $"../../CharacterBody2D"
 
+#Skybox Parallax effect
+@export var skybox : Node2D
+@export var background : Node2D
+@export var foreground : Node2D
+
 func _ready() -> void:
 	
 	#makes its own seed if the seed is 0 or not set
 	if noise_seed == 0:
-		noise_seed = RandomNumberGenerator.new().randf_range(0, 100)
+		noise_seed = RandomNumberGenerator.new().randi_range(0, 100)
 		noise.seed = noise_seed
 	
 	#IDEA
@@ -71,9 +76,14 @@ func _ready() -> void:
 			
 			#checks the bounds of the camera and only draws tiles around the camera
 			if s < 95 and s > 0 and f >= 1:
-				self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
+				self.set_cell(Vector2(snow_place_x, snow_place_y), 0, Vector2(9,2))
 			else:
 				pass
+
+func _physics_process(_delta: float) -> void:
+	skybox.position.x = (camera.position.x / 1.05) - 300
+	background.position.x = (camera.position.x / 1.1) + 700
+	foreground.position.x = camera.position.x / 1.15
 
 func create_stone():
 	
@@ -89,7 +99,7 @@ func create_stone():
 			var stone_place_y = stone_noise * hill_heights + sky_height + 10 + stone_fill
 		
 			#applies the cells according to the numbers
-			self.set_cell(Vector2i(stone_place_x, stone_place_y), 0, Vector2i(21,2))
+			self.set_cell(Vector2(stone_place_x, stone_place_y), 0, Vector2(21,2))
 
 func create_caves():
 	
@@ -109,7 +119,7 @@ func create_caves():
 			else:
 				pass
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	#counts down to determine how often the snow is renewed
 	countdown -= 1
 	render_snow()
@@ -122,10 +132,10 @@ func render_snow():
 	#renews top layer of snow when countdown is complete
 	if countdown <= 0:
 		#finds the bounds of the camera
-		cam_bounds_left = (camera.position.x / 10.4166) - 60
-		cam_bounds_right = (camera.position.x / 10.4166) + 60
-		cam_bounds_up = (camera.position.y / 10.4166) + 25
-		cam_bounds_down = (camera.position.y / 10.4166) - 25
+		cam_bounds_left = (camera.position.x / 10.4166) - 60.0
+		cam_bounds_right = (camera.position.x / 10.4166) + 60.0
+		cam_bounds_up = (camera.position.y / 10.4166) + 25.0
+		cam_bounds_down = (camera.position.y / 10.4166) - 25.0
 		
 		#defines the noise
 		noise.noise_type = FastNoiseLite.TYPE_PERLIN
@@ -150,7 +160,7 @@ func render_snow():
 					#applies noise to tile and considers the sky height. repeats the line to fill the area (f)
 					var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
 					
-					self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, Vector2i(9,2))
+					self.set_cell(Vector2(snow_place_x, snow_place_y), 0, Vector2(9,2))
 				
 				#removes tiles outside camera
 				else:
@@ -160,7 +170,7 @@ func render_snow():
 						var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
 						
 						#erases tile from cell
-						self.erase_cell(Vector2i(snow_place_x, snow_place_y))
+						self.erase_cell(Vector2(snow_place_x, snow_place_y))
 		
 		#STEP 2: renders top layer of snow
 		
@@ -179,7 +189,7 @@ func render_snow():
 					var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
 					
 					#checks if the cell is empty
-					if self.get_cell_atlas_coords(Vector2i(snow_place_x, snow_place_y)) == Vector2i(-1, -1):
+					if self.get_cell_atlas_coords(Vector2(snow_place_x, snow_place_y)) == Vector2i(-1.0, -1.0):
 						#picks a random "run tile" to place to draw the ground
 						var tile_number_1 = RandomNumberGenerator.new().randi_range(9, 10)
 						var tile_number_2 = RandomNumberGenerator.new().randi_range(0, 1)
@@ -191,7 +201,7 @@ func render_snow():
 						
 						snow_run_tile = Vector2i(tile_number_1, tile_number_2)
 						#applies the random run tile
-						self.set_cell(Vector2i(snow_place_x, snow_place_y), 0, snow_run_tile)
+						self.set_cell(Vector2(snow_place_x, snow_place_y), 0, snow_run_tile)
 					
 					#overlooks cells that are already drawn
 					else:
@@ -203,7 +213,7 @@ func render_snow():
 					var snow_place_x = s
 					var snow_noise = noise.get_noise_2d(1, s)
 					var snow_place_y = snow_noise * hill_heights * 5 + sky_height + f
-					self.erase_cell(Vector2i(snow_place_x, snow_place_y))
+					self.erase_cell(Vector2(snow_place_x, snow_place_y))
 		#countdown resets after function is ran
 		countdown = 30
 		
@@ -212,6 +222,6 @@ func render_snow():
 			crush_count -= 1
 		else:
 			crush_count = 2
-		var crush_cell = Vector2i(Player.position.x / 10.4166, ((Player.position.y / 10.5) + 50))
+		var crush_cell = Vector2(Player.position.x / 10.4166, ((Player.position.y / 10.5) + 50.0))
 		if crush_count <= 0 and self.get_cell_atlas_coords(Vector2i(crush_cell)) != Vector2i(-1, -1):
 			self.set_cell(crush_cell, 0, Vector2i(10,8))
