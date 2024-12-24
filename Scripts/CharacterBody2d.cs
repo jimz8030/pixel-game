@@ -240,6 +240,7 @@ public partial class CharacterBody2d : CharacterBody2D
 		if (Input.IsActionPressed("crouch")){
 			var PlayerCollision = GetNode<CollisionShape2D>("CharacterCollision");
 			PlayerCollision.Scale = new Vector2 (PlayerCollision.Scale.X, .5f);
+			PlayerSprite.GetNode<Node2D>("Body").GetNode<Sprite2D>("Body_Sprite").Texture = GD.Load("res://Sprites/Character_Sprites/Animations/Crouch_anim.png") as Texture2D;
 		}
 		else{
 			var PlayerCollision = GetNode<CollisionShape2D>("CharacterCollision");

@@ -1,11 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://b76y2oaow36nk"]
+[gd_scene load_steps=16 format=3 uid="uid://b76y2oaow36nk"]
 
+[ext_resource type="PackedScene" uid="uid://b45sgkgm0762t" path="res://Scenes/Resources/Hotbar.tscn" id="1_mesml"]
 [ext_resource type="PackedScene" uid="uid://vl31jfup6gjc" path="res://Sprites/Environment/snow.tscn" id="2_7132a"]
 [ext_resource type="Texture2D" uid="uid://d16qhgnmv0k0d" path="res://Sprites/Environment/Tile Maps/pixil-frame-0 (3).png" id="3_4x6fx"]
 [ext_resource type="Script" path="res://Scripts/map_gen.gd" id="3_n5cae"]
 [ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Resources/Player.tscn" id="4_414nb"]
 [ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="5_kehck"]
-[ext_resource type="PackedScene" uid="uid://cj8508si8yxrk" path="res://Scenes/npc.tscn" id="6_mrbmp"]
+[ext_resource type="PackedScene" uid="uid://dd8s6nvftaft3" path="res://Scenes/npc.tscn" id="6_sq0qc"]
+[ext_resource type="Texture2D" uid="uid://dkwtwkifsn2hj" path="res://Sprites/Environment/Skybox/Hiberna/Skybox.png" id="7_27i8y"]
+[ext_resource type="Texture2D" uid="uid://xdwsb57kv4gn" path="res://Sprites/Environment/Skybox/Hiberna/MidGround.png" id="8_60aar"]
+[ext_resource type="Texture2D" uid="uid://vg2weujqmq73" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.1.png" id="9_3ee7q"]
+[ext_resource type="Texture2D" uid="uid://c7vw2oqmu4s32" path="res://Sprites/Environment/SnowFlake.png" id="9_drqxx"]
+[ext_resource type="Texture2D" uid="uid://b2a20eimr1q4u" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.2.png" id="10_hoih2"]
+[ext_resource type="AudioStream" uid="uid://75ag4p2nuqi" path="res://Audio/Non-Diegetic/Hiberna.05.mp3" id="11_e26co"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdg2r"]
 texture = ExtResource("3_4x6fx")
@@ -800,8 +807,95 @@ sources/0 = SubResource("TileSetAtlasSource_vdg2r")
 
 [node name="Node2D" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("1_mesml")]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = 400.0
+offset_right = -10.0
+offset_bottom = -370.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(4, 4)
+
+[node name="Skybox" type="Node2D" parent="."]
+position = Vector2(0, -80)
+
+[node name="Skybox" type="Sprite2D" parent="Skybox"]
+position = Vector2(600, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("7_27i8y")
+
+[node name="Skybox3" type="Sprite2D" parent="Skybox"]
+position = Vector2(2112, 0)
+rotation = 3.14159
+scale = Vector2(2.8, -2.8)
+texture = ExtResource("7_27i8y")
+
+[node name="Skybox4" type="Sprite2D" parent="Skybox"]
+position = Vector2(3624, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("7_27i8y")
+
+[node name="Skybox5" type="Sprite2D" parent="Skybox"]
+position = Vector2(5136, 0)
+rotation = -3.14159
+scale = Vector2(2.8, -2.8)
+texture = ExtResource("7_27i8y")
+
+[node name="Background1" type="Node2D" parent="."]
+position = Vector2(1300, -80)
+
+[node name="MidGround" type="Sprite2D" parent="Background1"]
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("8_60aar")
+
+[node name="Background2" type="Node2D" parent="."]
+position = Vector2(600, -80)
+
+[node name="FrontGround_1" type="Sprite2D" parent="Background2"]
+position = Vector2(1.99988, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("9_3ee7q")
+
+[node name="FrontGround_3" type="Sprite2D" parent="Background2"]
+position = Vector2(3026, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("9_3ee7q")
+
+[node name="FrontGround_2" type="Sprite2D" parent="Background2"]
+position = Vector2(1514, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("10_hoih2")
+
+[node name="FrontGround_4" type="Sprite2D" parent="Background2"]
+position = Vector2(4538, 0)
+scale = Vector2(2.8, 2.8)
+texture = ExtResource("10_hoih2")
+
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_414nb")]
 position = Vector2(500, -100)
+
+[node name="Step_Particles" type="CPUParticles2D" parent="CharacterBody2D"]
+self_modulate = Color(1, 1, 1, 0.784314)
+position = Vector2(0, 30)
+emitting = false
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.5
+explosiveness = 0.8
+texture = ExtResource("9_drqxx")
+spread = 180.0
+gravity = Vector2(0, 180)
+initial_velocity_min = 60.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.1
+scale_amount_max = 0.5
 
 [node name="Map_Gen (In Progress)" type="Node2D" parent="."]
 position = Vector2(0, -500)
