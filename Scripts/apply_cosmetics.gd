@@ -1,5 +1,7 @@
 extends Node2D
 
+@onready var animator : AnimationPlayer = $AnimationPlayer
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:	
 	var Character_Hair : Sprite2D = $Hair/Hair_Sprite
@@ -23,3 +25,7 @@ func _ready() -> void:
 				var hair_sprite = $Top_Clothing/Hair_Sprite
 				$Top_Clothing.remove_child($Top_Clothing/Hair_Sprite)
 				$Hair.add_child(hair_sprite)
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_left") or Input.is_action_just_pressed("ui_right"):
+		animator.play("Female_Run")
