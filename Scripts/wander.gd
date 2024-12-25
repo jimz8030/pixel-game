@@ -11,7 +11,6 @@ var direction: = 0
 
 func enter() -> void:
 	super() #used to play the animation from the class
-	print("entered wander state")
 func exit() -> void:
 	pass
 func process_input(_event: InputEvent) -> State:
@@ -20,7 +19,6 @@ func process_frame(_delta: float) -> State:
 	return null
 func process_physics(_delta: float) -> State:
 	if parent.pathfind + 10 > parent.position.x and parent.position.x > parent.pathfind - 10:
-		print("returning idle state")
 		return idle_state
 	elif parent.position.x > parent.pathfind:
 		direction = -1

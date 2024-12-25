@@ -27,6 +27,7 @@ public partial class CharacterBody2d : CharacterBody2D
 	float FramePerfectJump;
 	float AttackCharging;
 	float JumpCharging = .25f;
+
 	
 	//jumpheight is the hight you want the player to jump at
 	const int JumpHeight = 20;
@@ -222,12 +223,17 @@ public partial class CharacterBody2d : CharacterBody2D
 				velocity.X -= Speed * SpeedModifier;
 			}
 		}
+		//WARNING should change this to "current state" instead of "is walking" when I change the way the player movement works.
+		SetMeta("is_walking", "false");
 		// if you're pressing go right button WARNING has trouble flipping character if both keys are pressed
+
 		if (Input.IsActionJustPressed("ui_right")){
 			// makes you face right
 			PlayerSprite.Scale = new Vector2(-1, 1);
 			// changes the player's reach square to match
 			PlayerReach.Position = new Vector2(16,0);
+			// sets the walking state to true for the stepheightarea to use
+			SetMeta("is_walking", "true");
 		}
 		// if pressing go left button
 		else if (Input.IsActionJustPressed("ui_left")){
@@ -235,7 +241,8 @@ public partial class CharacterBody2d : CharacterBody2D
 			PlayerSprite.Scale = new Vector2(1, 1);
 			// changes reach area to match
 			PlayerReach.Position = new Vector2(-16,0);
-
+			// sets the walking state to true for the stepheightarea to use
+			SetMeta("is_walking", "true");
 		}
 		if (Input.IsActionPressed("crouch")){
 			var PlayerCollision = GetNode<CollisionShape2D>("CharacterCollision");

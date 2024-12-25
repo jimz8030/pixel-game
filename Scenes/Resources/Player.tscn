@@ -1,17 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://daw2q6af0o6j"]
+[gd_scene load_steps=10 format=3 uid="uid://daw2q6af0o6j"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterBody2d.cs" id="1_hch2p"]
 [ext_resource type="PackedScene" uid="uid://dbl0mw3rp0nhj" path="res://Scenes/Character_Getup.tscn" id="2_hnum5"]
 [ext_resource type="Script" path="res://Scripts/Player_reach_area.cs" id="3_6bd3a"]
 [ext_resource type="Resource" uid="uid://c3fqvtpgmbtse" path="res://Resources/EquipableItems/SaplingStaff.tres" id="4_c7rba"]
+[ext_resource type="Script" path="res://Scenes/Resources/StepHeightArea.cs" id="5_wphb2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iafr2"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h3p27"]
-radius = 7.5
-height = 34.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ickf4"]
+size = Vector2(12, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pcyv0"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_do68r"]
+a = Vector2(7, 0)
+b = Vector2(-7, 0)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_hch2p")
@@ -19,7 +23,8 @@ script = ExtResource("1_hch2p")
 [node name="CharacterCollision" type="CollisionShape2D" parent="."]
 modulate = Color(1, 0, 1, 1)
 material = SubResource("CanvasItemMaterial_iafr2")
-shape = SubResource("CapsuleShape2D_h3p27")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ickf4")
 
 [node name="Character" parent="." instance=ExtResource("2_hnum5")]
 
@@ -33,7 +38,15 @@ shape = SubResource("RectangleShape2D_pcyv0")
 
 [node name="Node2D" type="Node2D" parent="."]
 
+[node name="StepHeightArea" type="Area2D" parent="."]
+script = ExtResource("5_wphb2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StepHeightArea"]
+position = Vector2(0, 7)
+shape = SubResource("SegmentShape2D_do68r")
+
 [connection signal="area_entered" from="PlayerReachArea" to="PlayerReachArea" method="GetNearbyArea2D"]
 [connection signal="area_exited" from="PlayerReachArea" to="PlayerReachArea" method="RemoveFarArea2D"]
 [connection signal="body_entered" from="PlayerReachArea" to="PlayerReachArea" method="GetNerbyBody"]
 [connection signal="body_exited" from="PlayerReachArea" to="PlayerReachArea" method="RemoveFarBody"]
+[connection signal="body_entered" from="StepHeightArea" to="StepHeightArea" method="DetectStep"]

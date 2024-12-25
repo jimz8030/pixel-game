@@ -175,7 +175,6 @@ scale = Vector2(5.504, 5.504)
 texture = ExtResource("9_a6vo6")
 
 [node name="Character" parent="CanvasLayer" instance=ExtResource("10_gv8l0")]
-position = Vector2(1170, 272)
 scale = Vector2(11, 11)
 
 [node name="Advanced_Setting" type="Button" parent="CanvasLayer"]
