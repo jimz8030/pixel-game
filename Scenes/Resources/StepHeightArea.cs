@@ -22,7 +22,7 @@ public partial class StepHeightArea : Area2D
 	public override void _Process(double delta)
 	{
 		if (ShouldStepUp && Player.IsOnWall() && Player.IsOnFloor() && (Input.IsActionPressed("ui_right") || Input.IsActionPressed("ui_left"))){
-			Player.Position = new Godot.Vector2 (Player.Position.X, Player.Position.Y - 11);
+			Player.Position = new Godot.Vector2 (Player.Position.X, Player.Position.Y - 12);
 			ShouldStepUp = false;
 			GD.Print("trying to move character up");
 		}

@@ -42,7 +42,7 @@ shape = SubResource("RectangleShape2D_pcyv0")
 script = ExtResource("5_wphb2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StepHeightArea"]
-position = Vector2(0, 7)
+position = Vector2(0, 14)
 shape = SubResource("SegmentShape2D_do68r")
 
 [connection signal="area_entered" from="PlayerReachArea" to="PlayerReachArea" method="GetNearbyArea2D"]
