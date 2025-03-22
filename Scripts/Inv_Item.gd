@@ -6,8 +6,6 @@ var moving_item : bool
 
 var mouse_offset = Vector2(0,0)
 
-var last_pos = Vector2(0,0)
-
 func _ready() -> void:
 	$RigidBody2D.freeze = false
 
@@ -20,10 +18,9 @@ func _process(delta: float) -> void:
 	elif Input.is_action_just_released("Left_Click"):
 		moving_item = false
 		$RigidBody2D.freeze = false
-		position = last_pos
 	if moving_item:
-		position = get_global_mouse_position()
-		last_pos = position
+		var cursor_pos = get_canvas_transform().affine_inverse() * get_global_mouse_position()
+		position = cursor_pos
 
 
 func _on_rigid_body_2d_mouse_entered() -> void:

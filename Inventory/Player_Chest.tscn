@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://7bbf7lm3rtmx" path="res://Sprites/Player_Sprites/Chest/Chest_2.png" id="1_kgmlj"]
 [ext_resource type="Texture2D" uid="uid://bky0uruyvyeog" path="res://Sprites/Player_Sprites/Chest/Chest_1.png" id="2_lvnrp"]
-[ext_resource type="PackedScene" uid="uid://c2pptcbhfxhpk" path="res://Inventory/Inventory_Items/Cotton.tscn" id="3_2bhrq"]
+[ext_resource type="PackedScene" uid="uid://82y23wcggxcm" path="res://Inventory/Inventory_Items/Cotton.tscn" id="3_2bhrq"]
 
 [node name="Chest" type="Node2D"]
 
@@ -15,18 +15,10 @@ texture = ExtResource("1_kgmlj")
 texture = ExtResource("2_lvnrp")
 
 [node name="Cotton" parent="." instance=ExtResource("3_2bhrq")]
-offset_left = 2.765
-offset_top = -66.0
-offset_right = 2.765
-offset_bottom = -66.0
 
 [node name="Cotton2" parent="." instance=ExtResource("3_2bhrq")]
 
 [node name="Cotton3" parent="." instance=ExtResource("3_2bhrq")]
-offset_left = 0.5
-offset_top = -28.285
-offset_right = 0.5
-offset_bottom = -28.285
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3.02, 3.02)
