@@ -6,7 +6,7 @@ var noise = FastNoiseLite.new()
 #determines where top surface is drawn
 var sky_height : int = 60
 
-#gives player option to change seed and map size
+#gives user option to change seed and map size
 @export var total_map_height: int = 150
 @export var map_length: int = 600
 @export var hill_heights: int = 5
@@ -35,7 +35,6 @@ var cam_bounds_up : float = 1
 var countdown : int = 0
 var crush_count : int = 0
 var snow_run_tile : Vector2i
-@onready var Player : CharacterBody2D = $"../../CharacterBody2D"
 
 #Skybox Parallax effect
 @export var skybox : Node2D
@@ -123,9 +122,6 @@ func _process(_delta: float) -> void:
 	#counts down to determine how often the snow is renewed
 	countdown -= 1
 	render_snow()
-	if Player.is_on_floor():
-		crush_count -= 1
-	#resets counter inside function
 
 func render_snow():
 	
@@ -216,12 +212,3 @@ func render_snow():
 					self.erase_cell(Vector2(snow_place_x, snow_place_y))
 		#countdown resets after function is ran
 		countdown = 30
-		
-		#crushes snow under player's feet
-		if Player.is_on_floor():
-			crush_count -= 1
-		else:
-			crush_count = 2
-		var crush_cell = Vector2(Player.position.x / 10.4166, ((Player.position.y / 10.5) + 50.0))
-		if crush_count <= 0 and self.get_cell_atlas_coords(Vector2i(crush_cell)) != Vector2i(-1, -1):
-			self.set_cell(crush_cell, 0, Vector2i(10,8))

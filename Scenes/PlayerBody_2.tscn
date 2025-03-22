@@ -1,0 +1,1428 @@
+[gd_scene load_steps=98 format=3 uid="uid://pqra1r2710k2"]
+
+[ext_resource type="Script" path="res://Scripts/Control_Player_2.gd" id="1_o32u1"]
+[ext_resource type="Texture2D" uid="uid://dhkonr7bskwxo" path="res://Sprites/Player_Sprites/Hair/H5.png" id="2_q33nx"]
+[ext_resource type="Texture2D" uid="uid://b3lkpgspp0vdk" path="res://Sprites/Player_Sprites/Bottom_Clothing/Bott.13.png" id="4_og0k4"]
+[ext_resource type="Texture2D" uid="uid://bcs6yshrt0u3w" path="res://Sprites/Environment/Flora/Cotton.png" id="5_d2twl"]
+[ext_resource type="Texture2D" uid="uid://bg5lr3k2aj7no" path="res://Sprites/Player_Sprites/Top_Clothing/T10_F1.png" id="5_t0p24"]
+[ext_resource type="Texture2D" uid="uid://dhosa0ieo0sne" path="res://Sprites/Player_Sprites/Oops_All_Naked/Flesh_Arms/F2.png" id="6_svp0k"]
+[ext_resource type="Texture2D" uid="uid://cv04030smrt0f" path="res://Sprites/Player_Sprites/Top_Clothing/Clothing_Arms/A10.png" id="7_autx8"]
+[ext_resource type="Texture2D" uid="uid://bciy2t66f1r1y" path="res://Sprites/Player_Sprites/Animations/Idle.png" id="8_qor76"]
+[ext_resource type="Texture2D" uid="uid://d2hhx06gcy30i" path="res://Sprites/Player_Sprites/Animations/Female_Crouch.png" id="10_of5db"]
+[ext_resource type="Texture2D" uid="uid://n7tb6ce3btlr" path="res://Sprites/Player_Sprites/Animations/Female_Walk.png" id="11_ed8dn"]
+[ext_resource type="Texture2D" uid="uid://yagmlqahb6db" path="res://Sprites/Player_Sprites/Animations/Female_Tuck.png" id="12_1nel3"]
+[ext_resource type="Texture2D" uid="uid://bco7gckx62wc4" path="res://Sprites/Player_Sprites/Animations/Female_Slide.png" id="13_umqir"]
+[ext_resource type="Texture2D" uid="uid://dgoooxqullna1" path="res://Sprites/Player_Sprites/Animations/Female_Run.png" id="14_ha2le"]
+[ext_resource type="Texture2D" uid="uid://demdglou7rs68" path="res://Sprites/Player_Sprites/Animations/Female_Jump_Fall.png" id="21_mgdfi"]
+[ext_resource type="Texture2D" uid="uid://cidnepcx6ahm1" path="res://Sprites/Player_Sprites/Animations/Female_Crawl.png" id="22_4vdt2"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8p5o8"]
+load_path = "res://.godot/imported/pixil-frame-0.png-da221accf9fa3d4c62f6805c7616c0f6.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl37s"]
+size = Vector2(10, 34)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gcb3d"]
+animation = &"Female Crawl"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a277s"]
+animation = &"Female Is_Crouching"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aquct"]
+animation = &"Female Fall"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rej52"]
+animation = &"Female Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nupcj"]
+animation = &"Female Is_Sliding"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lrryy"]
+animation = &"Female Jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hnn6p"]
+animation = &"Female Land"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dsr6h"]
+animation = &"Female Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_voohi"]
+animation = &"Female Slide"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v2h3m"]
+animation = &"Female Tuck"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uxkem"]
+animation = &"Female Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cpww8"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_16jxj"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xym5c"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4wwn8"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lormo"]
+advance_mode = 2
+advance_condition = &"is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gnccq"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rxv5g"]
+advance_mode = 2
+advance_condition = &"is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hhc55"]
+advance_mode = 2
+advance_condition = &"is_tucking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_05tr0"]
+advance_mode = 2
+advance_condition = &"is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a3iy7"]
+advance_mode = 2
+advance_condition = &"is_tucking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_331mw"]
+advance_mode = 2
+advance_condition = &"is_crouching"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dadtq"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ogyra"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_crawling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_44s7c"]
+advance_mode = 2
+advance_condition = &"is_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ieif1"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r3dxw"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_88e7g"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2aeec"]
+advance_mode = 2
+advance_condition = &"is_crawling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_myb3r"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_knveo"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cj1kt"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b7k77"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_axxgk"]
+advance_mode = 2
+advance_condition = &"is_crawling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gr4h6"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w8or0"]
+advance_mode = 2
+advance_condition = &"is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u5key"]
+advance_mode = 2
+advance_condition = &"is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_o2e7w"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sck3y"]
+advance_mode = 2
+advance_condition = &"landed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a1yhk"]
+advance_mode = 2
+advance_condition = &"landed"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3jnkc"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3psb2"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7hvnp"]
+advance_mode = 2
+advance_condition = &"is_crouching"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bh8x4"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v0wyj"]
+advance_mode = 2
+advance_condition = &"is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qbdq3"]
+advance_mode = 2
+advance_condition = &"is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eudb6"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8toug"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_owpdm"]
+advance_mode = 2
+advance_condition = &"is_crouching"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ssi2e"]
+advance_mode = 2
+advance_condition = &"is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l6tji"]
+advance_mode = 2
+advance_condition = &"is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mbylb"]
+advance_mode = 2
+advance_condition = &"is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yjwcb"]
+advance_mode = 2
+advance_condition = &"is_crawling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usb86"]
+advance_mode = 2
+advance_condition = &"is_tucking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xvgra"]
+advance_mode = 2
+advance_condition = &"is_crouching"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_51moq"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3yqpk"]
+advance_mode = 2
+advance_condition = &"is_crawling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0vn8n"]
+advance_mode = 2
+advance_condition = &"is_crouching"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tgq3y"]
+advance_mode = 2
+advance_condition = &"is_crawling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aoi26"]
+advance_mode = 2
+advance_condition = &"is_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e0edj"]
+advance_mode = 2
+advance_condition = &"is_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b5a1q"]
+advance_mode = 2
+advance_condition = &"is_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ftpgw"]
+advance_mode = 2
+advance_condition = &"is_sliding"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4l6o3"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_avwau"]
+advance_mode = 2
+advance_condition = &"is_crawling"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gd1b5"]
+states/End/position = Vector2(1161, 222.784)
+"states/Female Crawl/node" = SubResource("AnimationNodeAnimation_gcb3d")
+"states/Female Crawl/position" = Vector2(311.817, 436.272)
+"states/Female Crouch/node" = SubResource("AnimationNodeAnimation_a277s")
+"states/Female Crouch/position" = Vector2(540.553, 437.238)
+"states/Female Fall/node" = SubResource("AnimationNodeAnimation_aquct")
+"states/Female Fall/position" = Vector2(539.227, -138.997)
+"states/Female Idle/node" = SubResource("AnimationNodeAnimation_rej52")
+"states/Female Idle/position" = Vector2(538.747, 220.926)
+"states/Female Is_Sliding/node" = SubResource("AnimationNodeAnimation_nupcj")
+"states/Female Is_Sliding/position" = Vector2(999.567, 221.855)
+"states/Female Jump/node" = SubResource("AnimationNodeAnimation_lrryy")
+"states/Female Jump/position" = Vector2(538.266, -288.418)
+"states/Female Land/node" = SubResource("AnimationNodeAnimation_hnn6p")
+"states/Female Land/position" = Vector2(241.824, -139.495)
+"states/Female Run/node" = SubResource("AnimationNodeAnimation_dsr6h")
+"states/Female Run/position" = Vector2(690.692, 49.2106)
+"states/Female Slide/node" = SubResource("AnimationNodeAnimation_voohi")
+"states/Female Slide/position" = Vector2(1001.19, 49.1481)
+"states/Female Tuck/node" = SubResource("AnimationNodeAnimation_v2h3m")
+"states/Female Tuck/position" = Vector2(740.718, -216.405)
+"states/Female Walk/node" = SubResource("AnimationNodeAnimation_uxkem")
+"states/Female Walk/position" = Vector2(196.192, 49.2731)
+states/Start/position = Vector2(131, 224)
+transitions = ["Female Idle", "Female Run", SubResource("AnimationNodeStateMachineTransition_cpww8"), "Female Run", "Female Idle", SubResource("AnimationNodeStateMachineTransition_16jxj"), "Female Idle", "Female Walk", SubResource("AnimationNodeStateMachineTransition_xym5c"), "Female Walk", "Female Idle", SubResource("AnimationNodeStateMachineTransition_4wwn8"), "Female Idle", "Female Jump", SubResource("AnimationNodeStateMachineTransition_lormo"), "Female Jump", "Female Idle", SubResource("AnimationNodeStateMachineTransition_gnccq"), "Female Jump", "Female Fall", SubResource("AnimationNodeStateMachineTransition_rxv5g"), "Female Jump", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_hhc55"), "Female Tuck", "Female Fall", SubResource("AnimationNodeStateMachineTransition_05tr0"), "Female Fall", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_a3iy7"), "Female Idle", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_331mw"), "Female Crouch", "Female Idle", SubResource("AnimationNodeStateMachineTransition_dadtq"), "Female Crouch", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_ogyra"), "Female Run", "Female Slide", SubResource("AnimationNodeStateMachineTransition_44s7c"), "Female Slide", "Female Run", SubResource("AnimationNodeStateMachineTransition_ieif1"), "Female Slide", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_r3dxw"), "Female Is_Sliding", "Female Run", SubResource("AnimationNodeStateMachineTransition_88e7g"), "Female Is_Sliding", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_2aeec"), "Female Walk", "Female Run", SubResource("AnimationNodeStateMachineTransition_myb3r"), "Female Run", "Female Walk", SubResource("AnimationNodeStateMachineTransition_knveo"), "Start", "Female Idle", SubResource("AnimationNodeStateMachineTransition_cj1kt"), "Female Crawl", "Female Idle", SubResource("AnimationNodeStateMachineTransition_b7k77"), "Female Walk", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_axxgk"), "Female Crawl", "Female Walk", SubResource("AnimationNodeStateMachineTransition_gr4h6"), "Female Is_Sliding", "Female Fall", SubResource("AnimationNodeStateMachineTransition_w8or0"), "Female Walk", "Female Fall", SubResource("AnimationNodeStateMachineTransition_u5key"), "Female Tuck", "Female Idle", SubResource("AnimationNodeStateMachineTransition_o2e7w"), "Female Fall", "Female Land", SubResource("AnimationNodeStateMachineTransition_sck3y"), "Female Tuck", "Female Land", SubResource("AnimationNodeStateMachineTransition_a1yhk"), "Female Land", "Female Walk", SubResource("AnimationNodeStateMachineTransition_3jnkc"), "Female Land", "Female Idle", SubResource("AnimationNodeStateMachineTransition_3psb2"), "Female Land", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_7hvnp"), "Female Land", "Female Run", SubResource("AnimationNodeStateMachineTransition_bh8x4"), "Female Land", "Female Jump", SubResource("AnimationNodeStateMachineTransition_v0wyj"), "Female Crouch", "Female Jump", SubResource("AnimationNodeStateMachineTransition_qbdq3"), "Female Crouch", "Female Walk", SubResource("AnimationNodeStateMachineTransition_eudb6"), "Female Crouch", "Female Run", SubResource("AnimationNodeStateMachineTransition_8toug"), "Female Crawl", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_owpdm"), "Female Run", "Female Fall", SubResource("AnimationNodeStateMachineTransition_ssi2e"), "Female Run", "Female Jump", SubResource("AnimationNodeStateMachineTransition_l6tji"), "Female Walk", "Female Jump", SubResource("AnimationNodeStateMachineTransition_mbylb"), "Female Land", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_yjwcb"), "Female Crawl", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_usb86"), "Female Is_Sliding", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_xvgra"), "Female Crawl", "Female Run", SubResource("AnimationNodeStateMachineTransition_51moq"), "Female Idle", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_3yqpk"), "Female Walk", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_0vn8n"), "Female Slide", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_tgq3y"), "Female Fall", "Female Slide", SubResource("AnimationNodeStateMachineTransition_aoi26"), "Female Fall", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_e0edj"), "Female Land", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_b5a1q"), "Female Land", "Female Slide", SubResource("AnimationNodeStateMachineTransition_ftpgw"), "Female Is_Sliding", "Female Idle", SubResource("AnimationNodeStateMachineTransition_4l6o3"), "Female Run", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_avwau")]
+graph_offset = Vector2(190.94, 267.127)
+
+[sub_resource type="Animation" id="Animation_7oc74"]
+resource_name = "Female Crawl"
+length = 0.64
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("22_4vdt2")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 17)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Top_Clothing:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 12)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Hair:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-4, 6), Vector2(-4, 7), Vector2(-4, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_6jltj"]
+resource_name = "Female Crouch"
+length = 0.25
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("10_of5db")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0, 1, 2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Hair:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -2), Vector2(-1, 7)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Top_Clothing:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, 7), Vector2(-0.5, 12), Vector2(-0.5, 13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, 14), Vector2(-0.5, 17), Vector2(-0.5, 16)]
+}
+
+[sub_resource type="Animation" id="Animation_yrgqc"]
+resource_name = "Female Fall"
+length = 0.4
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("21_mgdfi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:vframes")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Body:frame")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [7, 8]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Top_Clothing:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -2), Vector2(-0.5, -1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.5, 7), Vector2(-0.5, 8)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Hair:position")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -10), Vector2(0, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_b5317"]
+resource_name = "Female Idle"
+length = 1.5
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:hframes")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:frame")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.666667, 0.833333, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:texture")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("8_qor76")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Hair:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.847891),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -9), Vector2(0, -10)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 8)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Top_Clothing:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -1), Vector2(-0.5, -2)]
+}
+
+[sub_resource type="Animation" id="Animation_iumoc"]
+resource_name = "Female Is_Crouching"
+length = 0.25
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("10_of5db")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 16)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Top_Clothing:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 13)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Hair:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_pxy8f"]
+resource_name = "Female Is_Sliding"
+length = 0.25
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("13_umqir")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Hair:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(8, 10)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4.5, 19)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Top_Clothing:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(7.5, 17)]
+}
+
+[sub_resource type="Animation" id="Animation_tccse"]
+resource_name = "Female Jump"
+length = 0.75
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("21_mgdfi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:vframes")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Body:frame")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.25, 0.416667, 0.916667, 1.16667, 1.33333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [3, 4, 5, 6, 7, 8, 9]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Hair:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0833337, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -8), Vector2(0, -10), Vector2(0, -11)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0833337, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, 7), Vector2(-0.5, 8), Vector2(-0.5, 5)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Top_Clothing:position")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0833337, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, -2), Vector2(-0.5, -1), Vector2(-0.5, -3)]
+}
+
+[sub_resource type="Animation" id="Animation_dfj5x"]
+resource_name = "Female Land"
+length = 0.15
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("21_mgdfi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [11]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:vframes")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Body:frame")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [9]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Top_Clothing:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 7)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 14)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Hair:position")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a76va"]
+resource_name = "Female Run"
+length = 0.83
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:hframes")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [10]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:texture")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("14_ha2le")]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Hair:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.416667, 0.666666),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, -7), Vector2(-2, -9), Vector2(-2, -7), Vector2(-2, -9)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Top_Clothing:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2.5, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_rs0ht"]
+resource_name = "Female Slide"
+length = 0.34
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("13_umqir")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1, 2, 3, 4]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 9), Vector2(0.5, 13), Vector2(0.5, 20), Vector2(0.5, 19)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Top_Clothing:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-0.5, 2), Vector2(4.5, 9), Vector2(4.5, 19), Vector2(5.5, 17)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Hair:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -5), Vector2(7, 2), Vector2(8, 12), Vector2(9, 10)]
+}
+
+[sub_resource type="Animation" id="Animation_ek3me"]
+resource_name = "Female Tuck"
+length = 0.25
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("12_1nel3")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Top_Clothing:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1.5, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/4/interp = 0
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 6)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Hair:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -7)]
+}
+
+[sub_resource type="Animation" id="Animation_01xj5"]
+resource_name = "Female Walk"
+length = 0.96
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("11_ed8dn")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Hair:position")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.24, 0.48, 0.72),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-2, -8), Vector2(-2, -9), Vector2(-2, -8), Vector2(-2, -9)]
+}
+
+[sub_resource type="Animation" id="Animation_o5tfk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_8p5o8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Hair:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Top_Clothing:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, -1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-0.5, 8)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Body:hframes")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Body:vframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Body:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvyqu"]
+_data = {
+"Female Crawl": SubResource("Animation_7oc74"),
+"Female Crouch": SubResource("Animation_6jltj"),
+"Female Fall": SubResource("Animation_yrgqc"),
+"Female Idle": SubResource("Animation_b5317"),
+"Female Is_Crouching": SubResource("Animation_iumoc"),
+"Female Is_Sliding": SubResource("Animation_pxy8f"),
+"Female Jump": SubResource("Animation_tccse"),
+"Female Land": SubResource("Animation_dfj5x"),
+"Female Run": SubResource("Animation_a76va"),
+"Female Slide": SubResource("Animation_rs0ht"),
+"Female Tuck": SubResource("Animation_ek3me"),
+"Female Walk": SubResource("Animation_01xj5"),
+"RESET": SubResource("Animation_o5tfk")
+}
+
+[node name="Player_2" type="CharacterBody2D"]
+script = ExtResource("1_o32u1")
+
+[node name="Appearance" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Appearance"]
+modulate = Color(0.818949, 0.402033, 0.36769, 1)
+position = Vector2(0, -1)
+texture = SubResource("CompressedTexture2D_8p5o8")
+
+[node name="Hair" type="Sprite2D" parent="Appearance"]
+position = Vector2(0, -9)
+texture = ExtResource("2_q33nx")
+
+[node name="Bottom_Clothing" type="Sprite2D" parent="Appearance"]
+position = Vector2(-0.5, 8)
+texture = ExtResource("4_og0k4")
+
+[node name="Top_Clothing" type="Sprite2D" parent="Appearance"]
+position = Vector2(-0.5, -1)
+texture = ExtResource("5_t0p24")
+
+[node name="Held_Item" type="Sprite2D" parent="Appearance/Top_Clothing"]
+position = Vector2(5.5, 6)
+texture = ExtResource("5_d2twl")
+
+[node name="Skin_Arm" type="Sprite2D" parent="Appearance/Top_Clothing"]
+position = Vector2(3.5, -5)
+texture = ExtResource("6_svp0k")
+offset = Vector2(1.5, 4.5)
+
+[node name="Clothing_Arm" type="Sprite2D" parent="Appearance/Top_Clothing/Skin_Arm"]
+texture = ExtResource("7_autx8")
+offset = Vector2(1.5, 4.5)
+
+[node name="Body_Collision" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_yl37s")
+
+[node name="Left_Ray" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(-5, 0)
+target_position = Vector2(0, -17)
+
+[node name="Right_Ray" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(5, 0)
+target_position = Vector2(0, -17)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_gd1b5")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_crawling = false
+parameters/conditions/is_crouching = false
+parameters/conditions/is_falling = false
+parameters/conditions/is_idle = false
+parameters/conditions/is_jumping = false
+parameters/conditions/is_running = false
+parameters/conditions/is_sliding = false
+parameters/conditions/is_tucking = false
+parameters/conditions/is_walking = false
+parameters/conditions/landed = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pvyqu")
+}
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="Coyote Timer" type="Timer" parent="Timers"]
+wait_time = 0.2
+one_shot = true
+
+[node name="Landing Impact" type="Timer" parent="Timers"]
+wait_time = 0.15
+one_shot = true
+
+[connection signal="timeout" from="Timers/Coyote Timer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="timeout" from="Timers/Landing Impact" to="." method="_on_landing_impact_timeout"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0mxfvlpw4xh1"]
+
+[ext_resource type="Script" path="res://Scripts/Plant-Fruit.gd" id="1_k3cnv"]
+[ext_resource type="Texture2D" uid="uid://bcs6yshrt0u3w" path="res://Sprites/Environment/Flora/Cotton.png" id="1_vnb31"]
+[ext_resource type="Texture2D" uid="uid://c4yj8eya7ued7" path="res://Sprites/Environment/Flora/CottonBush.png" id="2_n3p8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfah0"]
+size = Vector2(30, 35)
+
+[node name="Cotton_Bush" type="Area2D"]
+script = ExtResource("1_k3cnv")
+fruit_name = "Cotton"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -17.5)
+shape = SubResource("RectangleShape2D_sfah0")
+
+[node name="Fruit_1" type="Sprite2D" parent="."]
+position = Vector2(11, -26)
+texture = ExtResource("1_vnb31")
+
+[node name="Fruit_2" type="Sprite2D" parent="."]
+position = Vector2(-14, -18)
+texture = ExtResource("1_vnb31")
+
+[node name="Bush" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+texture = ExtResource("2_n3p8k")
+
+[node name="Regrow Time" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Regrow Time" to="." method="_on_regrow_time_timeout"]

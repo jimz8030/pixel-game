@@ -1,0 +1,104 @@
+[gd_scene load_steps=20 format=3 uid="uid://cfniu18kvs8v"]
+
+[ext_resource type="Script" path="res://Scripts/AI_1.gd" id="1_sdqli"]
+[ext_resource type="Texture2D" uid="uid://dp708pua4n1or" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-0.png" id="2_cbnci"]
+[ext_resource type="Texture2D" uid="uid://6cx11j1h4cjm" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-1.png" id="3_g5se0"]
+[ext_resource type="Texture2D" uid="uid://gpp3jemjakb7" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-2.png" id="4_j243d"]
+[ext_resource type="Texture2D" uid="uid://cdabyudbbkeml" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-3.png" id="5_pikrw"]
+[ext_resource type="Texture2D" uid="uid://ctbkh0ppl1wa3" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-4.png" id="6_bv4u6"]
+[ext_resource type="Texture2D" uid="uid://cxwxnpxwqei88" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-5.png" id="7_4amyo"]
+[ext_resource type="Texture2D" uid="uid://cbytrogr1trdy" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-6.png" id="8_7aujj"]
+[ext_resource type="Texture2D" uid="uid://baar6ihh5a1v8" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-7.png" id="9_k3n8w"]
+[ext_resource type="Texture2D" uid="uid://chtdv0meoogf8" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Walk/pixil-frame-0.png" id="10_gqra7"]
+[ext_resource type="Texture2D" uid="uid://hi23v47jxrb2" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Walk/pixil-frame-1.png" id="11_2qpcc"]
+[ext_resource type="Texture2D" uid="uid://dlv64hutn3otj" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Walk/pixil-frame-2.png" id="12_npo41"]
+[ext_resource type="Texture2D" uid="uid://bukmm7l2fa3ox" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Walk/pixil-frame-3.png" id="13_aihnn"]
+[ext_resource type="Texture2D" uid="uid://bxbjndda33g0i" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Walk/pixil-frame-4.png" id="14_5b3xr"]
+[ext_resource type="Texture2D" uid="uid://c7ehgsusslwbe" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Walk/pixil-frame-5.png" id="15_qisya"]
+[ext_resource type="Texture2D" uid="uid://bcmbiqgolj8n4" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Walk/pixil-frame-6.png" id="16_j2fgb"]
+[ext_resource type="Texture2D" uid="uid://bmuw6bhw36dd8" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Walk/pixil-frame-7.png" id="17_4oh71"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rcyx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cbnci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_g5se0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_j243d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pikrw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_bv4u6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4amyo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7aujj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_k3n8w")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gqra7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_2qpcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_npo41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_aihnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5b3xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qisya")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_j2fgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_4oh71")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahjv8"]
+radius = 4.52755
+
+[node name="Cat" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_sdqli")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.495, 0)
+sprite_frames = SubResource("SpriteFrames_rcyx1")
+animation = &"Idle"
+frame = 7
+frame_progress = 0.339421
+offset = Vector2(1.2, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4.5)
+shape = SubResource("CircleShape2D_ahjv8")
+
+[node name="MovementTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]

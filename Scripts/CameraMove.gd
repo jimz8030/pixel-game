@@ -1,16 +1,15 @@
 extends Node2D
 
-var Player : CharacterBody2D
 var PlayerSprite : Node2D
 
 var PlayerCamDifference : float
 var YPlayerCamDifference : float
 
 @export var DampeningAmount : float
+@export var Player : CharacterBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Player = $"../CharacterBody2D"
 	PlayerSprite = $"../CharacterBody2D/Character"
 
 

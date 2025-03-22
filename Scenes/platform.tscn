@@ -1,10 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://frqekdgoxlqj"]
+[gd_scene load_steps=2 format=3 uid="uid://8r277bmhuyuh"]
 
-[ext_resource type="Script" path="res://Scripts/PlatformNode.cs" id="1_0k5fp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_otc7o"]
 
 [node name="Platform" type="StaticBody2D"]
-script = ExtResource("1_0k5fp")
 
-[node name="PlatformImage" type="Sprite2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0, 0, 0, 1)
 
-[node name="PlatformSize" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_otc7o")

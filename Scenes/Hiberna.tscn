@@ -1,18 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://b76y2oaow36nk"]
+[gd_scene load_steps=11 format=3 uid="uid://b76y2oaow36nk"]
 
-[ext_resource type="PackedScene" uid="uid://b45sgkgm0762t" path="res://Scenes/Resources/Hotbar.tscn" id="1_mesml"]
-[ext_resource type="PackedScene" uid="uid://vl31jfup6gjc" path="res://Sprites/Environment/snow.tscn" id="2_7132a"]
 [ext_resource type="Texture2D" uid="uid://d16qhgnmv0k0d" path="res://Sprites/Environment/Tile Maps/pixil-frame-0 (3).png" id="3_4x6fx"]
 [ext_resource type="Script" path="res://Scripts/map_gen.gd" id="3_n5cae"]
-[ext_resource type="PackedScene" uid="uid://daw2q6af0o6j" path="res://Scenes/Resources/Player.tscn" id="4_414nb"]
-[ext_resource type="Script" path="res://Scripts/CameraMove.gd" id="5_kehck"]
-[ext_resource type="PackedScene" uid="uid://cj8508si8yxrk" path="res://Scenes/npc.tscn" id="6_sq0qc"]
 [ext_resource type="Texture2D" uid="uid://dkwtwkifsn2hj" path="res://Sprites/Environment/Skybox/Hiberna/Skybox.png" id="7_27i8y"]
 [ext_resource type="Texture2D" uid="uid://xdwsb57kv4gn" path="res://Sprites/Environment/Skybox/Hiberna/MidGround.png" id="8_60aar"]
+[ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_1up77"]
 [ext_resource type="Texture2D" uid="uid://vg2weujqmq73" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.1.png" id="9_3ee7q"]
-[ext_resource type="Texture2D" uid="uid://c7vw2oqmu4s32" path="res://Sprites/Environment/SnowFlake.png" id="9_drqxx"]
 [ext_resource type="Texture2D" uid="uid://b2a20eimr1q4u" path="res://Sprites/Environment/Skybox/Hiberna/FrontGround.2.png" id="10_hoih2"]
-[ext_resource type="AudioStream" uid="uid://75ag4p2nuqi" path="res://Audio/Non-Diegetic/Hiberna.05.mp3" id="11_e26co"]
+[ext_resource type="PackedScene" uid="uid://pqra1r2710k2" path="res://Scenes/PlayerBody_2.tscn" id="13_o8ah5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vdg2r"]
 texture = ExtResource("3_4x6fx")
@@ -796,7 +791,8 @@ texture_region_size = Vector2i(8, 8)
 
 [sub_resource type="TileSet" id="TileSet_vk3rr"]
 tile_size = Vector2i(8, 8)
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 7
+physics_layer_0/collision_mask = 7
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Snow"
 terrain_set_0/terrain_0/color = Color(0.381813, 0.791876, 0.961755, 1)
@@ -809,19 +805,6 @@ sources/0 = SubResource("TileSetAtlasSource_vdg2r")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 4
-
-[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("1_mesml")]
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -30.0
-offset_top = 400.0
-offset_right = -30.0
-offset_bottom = -370.0
-grow_horizontal = 0
-grow_vertical = 2
-scale = Vector2(4, 4)
 
 [node name="Skybox" type="Node2D" parent="."]
 position = Vector2(0, -80)
@@ -878,67 +861,55 @@ position = Vector2(4538, 0)
 scale = Vector2(2.8, 2.8)
 texture = ExtResource("10_hoih2")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_414nb")]
-modulate = Color(0.91897, 1, 0.999585, 1)
-position = Vector2(500, -100)
-
-[node name="Step_Particles" type="CPUParticles2D" parent="CharacterBody2D"]
-self_modulate = Color(1, 1, 1, 0.784314)
-position = Vector2(0, 30)
-emitting = false
-lifetime = 0.2
-one_shot = true
-speed_scale = 0.5
-explosiveness = 0.8
-texture = ExtResource("9_drqxx")
-spread = 180.0
-gravity = Vector2(0, 180)
-initial_velocity_min = 60.0
-initial_velocity_max = 100.0
-scale_amount_min = 0.1
-scale_amount_max = 0.5
-
-[node name="Map_Gen (In Progress)" type="Node2D" parent="."]
+[node name="Map_Gen" type="Node2D" parent="."]
+visible = false
 position = Vector2(0, -500)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Map_Gen (In Progress)" node_paths=PackedStringArray("camera", "skybox", "background", "foreground")]
-visibility_layer = 2
+[node name="TileMapLayer" type="TileMapLayer" parent="Map_Gen" node_paths=PackedStringArray("camera", "skybox", "background", "foreground")]
+visibility_layer = 4
 texture_filter = 1
 scale = Vector2(1.3, 1.3)
 tile_set = SubResource("TileSet_vk3rr")
 script = ExtResource("3_n5cae")
 total_map_height = 30
-map_length = 500
-hill_heights = 12
-camera = NodePath("../../Camera2D")
+map_length = 1000
+hill_heights = 0
+camera = NodePath("../../PlayerBody2/Camera2D")
 skybox = NodePath("../../Skybox")
 background = NodePath("../../Background1")
 foreground = NodePath("../../Background2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(500, 0)
+[node name="PlayerBody2" parent="." instance=ExtResource("13_o8ah5")]
+position = Vector2(500, -100)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerBody2"]
+position = Vector2(0, 100)
+offset = Vector2(0, -100)
 zoom = Vector2(2, 2)
-script = ExtResource("5_kehck")
-DampeningAmount = 40.0
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
 
-[node name="Snow" parent="Camera2D" instance=ExtResource("2_7132a")]
-emitting = false
-amount = 300
-speed_scale = 0.4
-gravity = Vector2(0, 500)
-orbit_velocity_min = -0.5
-orbit_velocity_max = -0.5
+[node name="Platforms" type="Node2D" parent="."]
+position = Vector2(500, -100)
 
-[node name="WeatherWait" type="Timer" parent="Camera2D"]
-wait_time = 600.0
-autostart = true
+[node name="Platform" parent="Platforms" instance=ExtResource("9_1up77")]
+position = Vector2(54, 236.5)
+scale = Vector2(7, 1)
 
-[node name="NPC" parent="." instance=ExtResource("6_sq0qc")]
-position = Vector2(364, -10)
-collision_mask = 7
+[node name="Platform3" parent="Platforms" instance=ExtResource("9_1up77")]
+position = Vector2(255, 213)
+scale = Vector2(13, 1)
 
-[node name="Traveling" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_e26co")
-volume_db = -30.0
+[node name="Platform2" parent="Platforms" instance=ExtResource("9_1up77")]
+position = Vector2(134, 273)
+scale = Vector2(1, 7)
 
-[connection signal="timeout" from="Camera2D/WeatherWait" to="Camera2D/Snow" method="_on_weather_wait_timeout"]
+[node name="Platform4" parent="Platforms" instance=ExtResource("9_1up77")]
+position = Vector2(294, 227)
+scale = Vector2(1, 7)
+
+[node name="Platform6" parent="Platforms" instance=ExtResource("9_1up77")]
+position = Vector2(366, 196)
+scale = Vector2(1, 7)

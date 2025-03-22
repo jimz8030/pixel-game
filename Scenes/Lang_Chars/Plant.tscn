@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://joxeqfivnf5u"]
+
+[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_moqr3"]
+[ext_resource type="Texture2D" uid="uid://ddfpqe8uku7j2" path="res://Sprites/Lang Characters/Plant.png" id="2_3tyor"]
+
+[node name="Plant" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_moqr3")
+possible_answers = ["Sunset", "Reflection", "Tunnel", "Equal", "Trade", "Dodge", "Dig"]
+correct_answers = ["Plant", "Fruit", "Organic"]
+compound_sentence = ["No", "Want", "Plant"]
+sentence_answer = "I don't want any flowers."
+sentence_wrongs = ["I don't want any animals.", "I don't want any money.", "I don't want any medicine."]
+
+[node name="W_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -8.0
+offset_right = 117.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.943552, 0.939704, 0.915376, 1)
+
+[node name="Symbol" type="Sprite2D" parent="."]
+position = Vector2(54, 54)
+scale = Vector2(12, 12)
+texture = ExtResource("2_3tyor")
+offset = Vector2(0.25, 0)

@@ -1,0 +1,85 @@
+[gd_scene load_steps=16 format=3 uid="uid://b5jek7utm4fvg"]
+
+[ext_resource type="Script" path="res://Scripts/AI_1.gd" id="1_ftmom"]
+[ext_resource type="Texture2D" uid="uid://b7htdveu80q7v" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Idle/pixil-frame-0.png" id="2_c7nm8"]
+[ext_resource type="Texture2D" uid="uid://optlm6lppo8c" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Idle/pixil-frame-1.png" id="3_agwjx"]
+[ext_resource type="Texture2D" uid="uid://b7lc5nak3echl" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Idle/pixil-frame-2.png" id="4_4gv1q"]
+[ext_resource type="Texture2D" uid="uid://dmr16gekp3po7" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Idle/pixil-frame-3.png" id="5_5qmr1"]
+[ext_resource type="Texture2D" uid="uid://bkuuphm3hcub8" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Trot/pixil-frame-0.png" id="6_3lpcc"]
+[ext_resource type="Texture2D" uid="uid://d2idcdbrce44t" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Trot/pixil-frame-1.png" id="7_o74qk"]
+[ext_resource type="Texture2D" uid="uid://bgx5rbybtakor" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Trot/pixil-frame-2.png" id="8_vo4lx"]
+[ext_resource type="Texture2D" uid="uid://c0mm643bxm1k1" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Trot/pixil-frame-3.png" id="9_idrun"]
+[ext_resource type="Texture2D" uid="uid://df3dnjntqiqmt" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Trot/pixil-frame-4.png" id="10_k7pv0"]
+[ext_resource type="Texture2D" uid="uid://cf8oaw1ev246v" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Trot/pixil-frame-5.png" id="11_kdjdu"]
+[ext_resource type="Texture2D" uid="uid://cqk1edkyib443" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Trot/pixil-frame-6.png" id="12_ckt0p"]
+[ext_resource type="Texture2D" uid="uid://dkljdw4bqkbxx" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Trot/pixil-frame-7.png" id="13_4pkdq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rcyx1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c7nm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_agwjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4gv1q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_5qmr1")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_3lpcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_o74qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_vo4lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_idrun")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_k7pv0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_kdjdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ckt0p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4pkdq")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ahjv8"]
+radius = 6.75644
+
+[node name="Dog" type="CharacterBody2D"]
+script = ExtResource("1_ftmom")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0.495, 0)
+sprite_frames = SubResource("SpriteFrames_rcyx1")
+animation = &"Idle"
+offset = Vector2(1.2, -12.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.735, -5.315)
+shape = SubResource("CircleShape2D_ahjv8")
+
+[node name="MovementTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="MovementTimer" to="." method="_on_movement_timer_timeout"]

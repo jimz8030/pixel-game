@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2pptcbhfxhpk"]
+
+[ext_resource type="Texture2D" uid="uid://bcs6yshrt0u3w" path="res://Sprites/Environment/Flora/Cotton.png" id="1_t7w6h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d0eju"]
+radius = 3.0
+
+[node name="Cotton" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t7w6h")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CircleShape2D_d0eju")

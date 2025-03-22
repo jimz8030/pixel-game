@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://d13luno7tf1wa"]
+
+[ext_resource type="Texture2D" uid="uid://bd61oemyqfeis" path="res://Sprites/Environment/Flora/Mango.png" id="1_lpd6q"]
+[ext_resource type="Script" path="res://Scripts/Plant-Fruit.gd" id="1_xxeoa"]
+[ext_resource type="Texture2D" uid="uid://4ilff1c7jxte" path="res://Sprites/Environment/Flora/MangoVine.png" id="2_44q8k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfah0"]
+size = Vector2(37, 42)
+
+[node name="Mango_Vine" type="Area2D"]
+script = ExtResource("1_xxeoa")
+fruit_name = "Mango"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4.5, -8)
+shape = SubResource("RectangleShape2D_sfah0")
+
+[node name="Fruit_1" type="Sprite2D" parent="."]
+position = Vector2(8, -17)
+texture = ExtResource("1_lpd6q")
+
+[node name="Fruit_2" type="Sprite2D" parent="."]
+position = Vector2(-18, 1)
+texture = ExtResource("1_lpd6q")
+
+[node name="Vine" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+texture = ExtResource("2_44q8k")
+
+[node name="Regrow Time" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="Regrow Time" to="." method="_on_regrow_time_timeout"]

@@ -1,0 +1,208 @@
+[gd_scene load_steps=11 format=3 uid="uid://b7dieiyw60f3i"]
+
+[ext_resource type="PackedScene" uid="uid://b45sgkgm0762t" path="res://Scenes/Resources/Hotbar.tscn" id="1_6j70w"]
+[ext_resource type="Texture2D" uid="uid://bd61oemyqfeis" path="res://Sprites/Environment/Flora/Mango.png" id="2_m54p5"]
+[ext_resource type="Texture2D" uid="uid://bcs6yshrt0u3w" path="res://Sprites/Environment/Flora/Cotton.png" id="3_achdv"]
+[ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="4_ciyrf"]
+[ext_resource type="PackedScene" uid="uid://cy6r04q7k65fp" path="res://Scenes/Resources/NPCs/slime.tscn" id="5_iois6"]
+[ext_resource type="PackedScene" uid="uid://d13luno7tf1wa" path="res://Scenes/Resources/mango_vine.tscn" id="6_1doqs"]
+[ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Cotton_Bush.tscn" id="7_iv5cg"]
+[ext_resource type="PackedScene" uid="uid://pqra1r2710k2" path="res://Scenes/PlayerBody_2.tscn" id="8_3tg4l"]
+[ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Hotbar" parent="CanvasLayer" instance=ExtResource("1_6j70w")]
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -30.0
+offset_top = 400.0
+offset_right = -30.0
+offset_bottom = -370.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(4, 4)
+
+[node name="Fruit Count" type="Node2D" parent="CanvasLayer"]
+
+[node name="Mangos" type="Sprite2D" parent="CanvasLayer/Fruit Count"]
+position = Vector2(38, 38)
+scale = Vector2(4, 4)
+texture = ExtResource("2_m54p5")
+
+[node name="Cotton" type="Sprite2D" parent="CanvasLayer/Fruit Count"]
+position = Vector2(38, 101.44)
+scale = Vector2(4, 4)
+texture = ExtResource("3_achdv")
+
+[node name="Mango Label" type="Label" parent="CanvasLayer/Fruit Count"]
+offset_left = 56.0
+offset_top = 31.0
+offset_right = 187.0
+offset_bottom = 52.0
+theme_override_fonts/font = ExtResource("4_ciyrf")
+text = "0"
+
+[node name="Cotton Label" type="Label" parent="CanvasLayer/Fruit Count"]
+offset_left = 56.0
+offset_top = 91.0
+offset_right = 187.0
+offset_bottom = 112.0
+theme_override_fonts/font = ExtResource("4_ciyrf")
+text = "0"
+
+[node name="PlayerBody" parent="." instance=ExtResource("8_3tg4l")]
+position = Vector2(589, 864)
+
+[node name="Camera2D" type="Camera2D" parent="PlayerBody"]
+position = Vector2(0, 100)
+offset = Vector2(0, -100)
+zoom = Vector2(2, 2)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="Slime" parent="." instance=ExtResource("5_iois6")]
+position = Vector2(-880, 1077.49)
+
+[node name="Map" type="Node2D" parent="."]
+position = Vector2(-15, 70)
+
+[node name="Platform" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(6, 20)
+scale = Vector2(12, 10)
+
+[node name="Platform11" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-167, 339)
+scale = Vector2(22, 10)
+
+[node name="Platform19" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(151, 1084)
+scale = Vector2(20, 10)
+
+[node name="Platform23" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-194, 1128)
+scale = Vector2(16, 10)
+
+[node name="Platform15" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(99, 417)
+scale = Vector2(6, 12)
+
+[node name="Platform6" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(284, 99)
+scale = Vector2(18, 2)
+
+[node name="Platform7" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(427, 83)
+scale = Vector2(4, 2)
+
+[node name="Platform8" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(457, 68)
+scale = Vector2(4, 4)
+
+[node name="Platform12" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(415, 330)
+scale = Vector2(3, 4)
+
+[node name="Platform14" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(254, 549)
+scale = Vector2(10, 10)
+
+[node name="Platform16" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(584, 1007)
+scale = Vector2(10, 10)
+
+[node name="Platform17" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(408, 980)
+scale = Vector2(8, 10)
+
+[node name="Platform18" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(403, 1038)
+scale = Vector2(8, 10)
+
+[node name="Platform3" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-149, 10)
+scale = Vector2(4, 5)
+
+[node name="Platform4" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-340, -1)
+scale = Vector2(7, 4)
+
+[node name="Platform10" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(643, 351)
+scale = Vector2(4, 32)
+
+[node name="Platform5" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-564, 291)
+scale = Vector2(20, 64)
+
+[node name="Platform9" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(878, 376)
+scale = Vector2(20, 74)
+
+[node name="Platform2" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(90, -122.2)
+scale = Vector2(3, 1.4)
+
+[node name="Platform21" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(99, -137)
+scale = Vector2(2.135, 2.905)
+
+[node name="Platform20" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-850, 1108)
+scale = Vector2(50, 10)
+
+[node name="Platform26" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-1250, 849)
+scale = Vector2(10, 20)
+
+[node name="Platform25" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-959, 699)
+scale = Vector2(20, 10)
+
+[node name="Platform22" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-469, 950)
+scale = Vector2(3, 3)
+
+[node name="Platform28" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-793, 921)
+scale = Vector2(3, 1)
+
+[node name="Platform27" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-974, 997)
+scale = Vector2(3, 3)
+
+[node name="Platform24" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-30, 927)
+scale = Vector2(3, 3)
+
+[node name="JumpPad" parent="Map" instance=ExtResource("4_2jut1")]
+position = Vector2(395, 867)
+jump_boost = 940
+
+[node name="JumpPad3" parent="Map" instance=ExtResource("4_2jut1")]
+position = Vector2(173, 436)
+jump_boost = 600
+
+[node name="JumpPad2" parent="Map" instance=ExtResource("4_2jut1")]
+position = Vector2(-228, 226)
+jump_boost = 800
+
+[node name="Mango_Vine" parent="Map" instance=ExtResource("6_1doqs")]
+position = Vector2(-763, 995)
+
+[node name="Mango_Vine2" parent="Map" instance=ExtResource("6_1doqs")]
+position = Vector2(-291, 226)
+
+[node name="Cotton_Bush" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(102, -166)
+
+[node name="Cotton_Bush2" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(425, 290)

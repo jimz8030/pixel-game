@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6sem2bpvwuib"]
+
+[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_pmytu"]
+[ext_resource type="Texture2D" uid="uid://bjvaftqk0s3ip" path="res://Sprites/Lang Characters/Broken.png" id="2_1cnw7"]
+
+[node name="Broken" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_pmytu")
+possible_answers = ["Currency", "Machine", "Mend", "River", "Travel", "Together", "Rotate"]
+correct_answers = ["Damaged", "Torn", "Disrepair"]
+compound_sentence = ["Hunt", "Tool", "Broken"]
+sentence_answer = "A broken Knife."
+sentence_wrongs = ["A high quality knife.", "A sharp knife.", "A repaired knife."]
+
+[node name="W_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -62.0
+offset_right = 62.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.943552, 0.939704, 0.915376, 1)
+
+[node name="Symbol" type="Sprite2D" parent="."]
+scale = Vector2(12, 12)
+texture = ExtResource("2_1cnw7")

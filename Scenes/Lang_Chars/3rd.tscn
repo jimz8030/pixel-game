@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf1c5paxbcy5r"]
+
+[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_t0o0y"]
+[ext_resource type="Texture2D" uid="uid://bjijrkixv5rmb" path="res://Sprites/Lang Characters/3rd.png" id="2_f18ob"]
+
+[node name="3rd" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_t0o0y")
+possible_answers = ["These", "Look", "Beneath", "View", "Flag", "Harvest", "Fallen"]
+correct_answers = ["Their", "They", "Her"]
+compound_sentence = ["3rd", "Hunt", "Business"]
+sentence_answer = "Her hunting business."
+sentence_wrongs = ["Our hunting business.", "My hunting business.", "Your hunting business."]
+
+[node name="W_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -8.0
+offset_right = 117.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.943552, 0.939704, 0.915376, 1)
+
+[node name="Symbol" type="Sprite2D" parent="."]
+position = Vector2(54, 54)
+scale = Vector2(12, 12)
+texture = ExtResource("2_f18ob")

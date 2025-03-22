@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="invItem" load_steps=3 format=3 uid="uid://cy1aemjq2bqv6"]
-
-[ext_resource type="Script" path="res://Scripts/Inventory_Item.gd" id="1_sn28u"]
-[ext_resource type="Texture2D" uid="uid://dt5ruaqnmvx5p" path="res://Sprites/NPCs/Emojis/Food.4.png" id="2_es8xp"]
-
-[resource]
-script = ExtResource("1_sn28u")
-name = "Mushroom"
-texture = ExtResource("2_es8xp")

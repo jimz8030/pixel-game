@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://dny3ryu848exe"]
+
+[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_64mwa"]
+[ext_resource type="Texture2D" uid="uid://b6h244samu3nq" path="res://Sprites/Lang Characters/Money.png" id="2_2nv10"]
+
+[node name="Money" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_64mwa")
+possible_answers = ["Sunset", "Reflection", "Tunnel", "Equal", "Trade", "Dodge", "Dig"]
+correct_answers = ["Currency", "Savings", "Money"]
+compound_sentence = ["3rd", "No", "Money"]
+sentence_answer = "She has no money."
+sentence_wrongs = ["She has no plants.", "She has no medicine.", "She has no tribe."]
+
+[node name="W_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -8.0
+offset_right = 117.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.943552, 0.939704, 0.915376, 1)
+
+[node name="Symbol" type="Sprite2D" parent="."]
+position = Vector2(54, 54)
+scale = Vector2(12, 12)
+texture = ExtResource("2_2nv10")

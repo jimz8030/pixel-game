@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmrjv0mqolov"]
+
+[ext_resource type="Script" path="res://Scripts/mini_game.gd" id="1_q4lgr"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="2_ox2g6"]
+
+[node name="LoadingScreen" type="Node2D"]
+
+[node name="Mini_Game" type="CanvasLayer" parent="."]
+script = ExtResource("1_q4lgr")
+
+[node name="Background" type="ColorRect" parent="Mini_Game"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.95948, 0.919675, 0.786656, 1)
+
+[node name="Background2" type="ColorRect" parent="Mini_Game"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 40.0
+offset_top = 39.0
+offset_right = -40.0
+offset_bottom = 344.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.945098, 0.941176, 0.913725, 1)
+
+[node name="Answer_1" type="Button" parent="Mini_Game"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 78.0
+offset_top = 71.025
+offset_right = -738.0
+offset_bottom = 175.025
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ox2g6")
+theme_override_font_sizes/font_size = 36
+text = "TEST"
+flat = true
+
+[node name="Answer_2" type="Button" parent="Mini_Game"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 78.0
+offset_top = 189.0
+offset_right = -738.0
+offset_bottom = 312.095
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ox2g6")
+theme_override_font_sizes/font_size = 36
+text = "TEST"
+flat = true
+
+[node name="Answer_3" type="Button" parent="Mini_Game"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 742.0
+offset_top = 71.025
+offset_right = -74.0
+offset_bottom = 175.025
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ox2g6")
+theme_override_font_sizes/font_size = 36
+text = "TEST"
+flat = true
+
+[node name="Answer_4" type="Button" parent="Mini_Game"]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 742.0
+offset_top = 189.0
+offset_right = -74.0
+offset_bottom = 312.095
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_ox2g6")
+theme_override_font_sizes/font_size = 36
+text = "TEST"
+flat = true
+
+[node name="Holder" type="Control" parent="Mini_Game"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = 152.0
+offset_bottom = 152.0
+grow_horizontal = 2
+
+[node name="Grid" type="GridContainer" parent="Mini_Game/Holder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 124
+columns = 6
+
+[connection signal="button_down" from="Mini_Game/Answer_1" to="Mini_Game" method="_on_answer_1_button_down"]
+[connection signal="button_down" from="Mini_Game/Answer_2" to="Mini_Game" method="_on_answer_2_button_down"]
+[connection signal="button_down" from="Mini_Game/Answer_3" to="Mini_Game" method="_on_answer_3_button_down"]
+[connection signal="button_down" from="Mini_Game/Answer_4" to="Mini_Game" method="_on_answer_4_button_down"]

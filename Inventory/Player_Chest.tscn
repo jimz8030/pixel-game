@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://cov482ya5qpyp"]
+
+[ext_resource type="Texture2D" uid="uid://7bbf7lm3rtmx" path="res://Sprites/Player_Sprites/Chest/Chest_2.png" id="1_kgmlj"]
+[ext_resource type="Texture2D" uid="uid://bky0uruyvyeog" path="res://Sprites/Player_Sprites/Chest/Chest_1.png" id="2_lvnrp"]
+[ext_resource type="PackedScene" uid="uid://c2pptcbhfxhpk" path="res://Inventory/Inventory_Items/Cotton.tscn" id="3_2bhrq"]
+
+[node name="Chest" type="Node2D"]
+
+[node name="Appearance" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Appearance"]
+texture = ExtResource("1_kgmlj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Appearance"]
+texture = ExtResource("2_lvnrp")
+
+[node name="Cotton" parent="." instance=ExtResource("3_2bhrq")]
+offset_left = 2.765
+offset_top = -66.0
+offset_right = 2.765
+offset_bottom = -66.0
+
+[node name="Cotton2" parent="." instance=ExtResource("3_2bhrq")]
+
+[node name="Cotton3" parent="." instance=ExtResource("3_2bhrq")]
+offset_left = 0.5
+offset_top = -28.285
+offset_right = 0.5
+offset_bottom = -28.285
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.02, 3.02)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-20, 4, -18, 58, 30, 59, 30, 3, 40, 3, 38, 64, -26, 64, -30, 3)

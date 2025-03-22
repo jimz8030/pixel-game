@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://cy6r04q7k65fp"]
+
+[ext_resource type="Script" path="res://Scripts/AI_6_Neutral.gd" id="1_8snx2"]
+[ext_resource type="Texture2D" uid="uid://3hk0b25keoox" path="res://Sprites/NPCs/Native/Slime/Idle/pixil-frame-0.png" id="1_yhld8"]
+[ext_resource type="Texture2D" uid="uid://catotpbiwtn03" path="res://Sprites/NPCs/Native/Slime/Idle/pixil-frame-1.png" id="3_vqt8e"]
+[ext_resource type="Texture2D" uid="uid://6r324cvmlnl6" path="res://Sprites/NPCs/Native/Slime/Idle/pixil-frame-2.png" id="4_bq0t6"]
+[ext_resource type="Texture2D" uid="uid://cfbn1fno6x3a6" path="res://Sprites/NPCs/Native/Slime/Idle/pixil-frame-3.png" id="5_ca24l"]
+[ext_resource type="Texture2D" uid="uid://ne8h6hc0qwqu" path="res://Sprites/NPCs/Native/Slime/Idle/pixil-frame-4.png" id="6_jqkjk"]
+[ext_resource type="Texture2D" uid="uid://bdgwsha344hxb" path="res://Sprites/NPCs/Native/Slime/Idle/pixil-frame-5.png" id="7_jpyi1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hryh"]
+radius = 260.002
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a05jy"]
+radius = 5.0
+
+[sub_resource type="Animation" id="Animation_fabq3"]
+resource_name = "Idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("1_yhld8"), ExtResource("3_vqt8e"), ExtResource("4_bq0t6"), ExtResource("5_ca24l"), ExtResource("6_jqkjk"), ExtResource("7_jpyi1")]
+}
+
+[sub_resource type="Animation" id="Animation_5iaue"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_yhld8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7xajp"]
+_data = {
+"Idle": SubResource("Animation_fabq3"),
+"RESET": SubResource("Animation_5iaue")
+}
+
+[node name="Slime" type="CharacterBody2D"]
+script = ExtResource("1_8snx2")
+
+[node name="Sight Area" type="Area2D" parent="."]
+collision_priority = 0.0
+monitorable = false
+
+[node name="Personal Bubble" type="CollisionShape2D" parent="Sight Area"]
+shape = SubResource("CircleShape2D_6hryh")
+debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.745098)
+position = Vector2(0, -16.5)
+texture = ExtResource("1_yhld8")
+
+[node name="Body Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_a05jy")
+debug_color = Color(0.966468, 1.92523e-07, 0.480345, 0.42)
+
+[node name="Reaction Time" type="Timer" parent="."]
+autostart = true
+
+[node name="Interest Cooldown" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7xajp")
+}
+autoplay = "Idle"
+
+[connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_body_entered"]
+[connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_body_exited"]
+[connection signal="timeout" from="Reaction Time" to="." method="_on_crumb_timer_timeout"]
+[connection signal="timeout" from="Interest Cooldown" to="." method="_on_detection_cooldown_timeout"]

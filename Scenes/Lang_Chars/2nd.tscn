@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://yfxy7u3fscra"]
+
+[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_igij3"]
+[ext_resource type="Texture2D" uid="uid://dvwpeb84rc805" path="res://Sprites/Lang Characters/2nd.png" id="2_j3bpe"]
+
+[node name="2nd" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 4
+script = ExtResource("1_igij3")
+possible_answers = ["Up", "Music", "Down", "Fall", "Step", "Corner", "Peirce"]
+correct_answers = ["You", "Your", "Yours"]
+compound_sentence = ["2nd", "No", "Medicine"]
+sentence_answer = "You are not healthy."
+sentence_wrongs = ["We are not healthy.", "It's not healthy.", "None of them are healthy."]
+
+[node name="W_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -62.0
+offset_top = -62.0
+offset_right = 62.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.943552, 0.939704, 0.915376, 1)
+
+[node name="Symbol" type="Sprite2D" parent="."]
+scale = Vector2(12, 12)
+texture = ExtResource("2_j3bpe")

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://blx32c110yoqe"]
+
+[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_idhvw"]
+[ext_resource type="Texture2D" uid="uid://20d51rfmda4s" path="res://Sprites/Lang Characters/Hunt.png" id="2_8pgnx"]
+
+[node name="Hunt" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_idhvw")
+possible_answers = ["Sunset", "Reflection", "Tunnel", "Equal", "Trade", "Dodge", "Dig"]
+correct_answers = ["Endeavor", "Hunt", "Focus"]
+compound_sentence = ["Many", "Preditor", "Hunt"]
+sentence_answer = "There are many preditors hunting nearby."
+sentence_wrongs = ["There are many preditors drinking nearby.", "There are many preditors resting nearby.", "There are many preditors watching nearby."]
+
+[node name="W_Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = -8.0
+offset_right = 117.0
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.943552, 0.939704, 0.915376, 1)
+
+[node name="Symbol" type="Sprite2D" parent="."]
+position = Vector2(54, 54)
+scale = Vector2(12, 12)
+texture = ExtResource("2_8pgnx")
