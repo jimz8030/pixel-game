@@ -10,11 +10,12 @@ var YPlayerCamDifference : float
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	PlayerSprite = $"../CharacterBody2D/Character"
+	PlayerSprite = $"../PlayerBody/Appearance"
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
+	print (position)
 	PlayerCamDifference = self.global_position.x - Player.global_position.x
 	YPlayerCamDifference = self.global_position.y - Player.global_position.y
 

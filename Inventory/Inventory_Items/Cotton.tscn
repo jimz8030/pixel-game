@@ -1,22 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://82y23wcggxcm"]
+[gd_scene load_steps=4 format=3 uid="uid://cwru5830kqe6k"]
 
-[ext_resource type="Script" path="res://Scripts/Inv_Item.gd" id="1_1cij8"]
-[ext_resource type="Texture2D" uid="uid://bcs6yshrt0u3w" path="res://Sprites/Environment/Flora/Cotton.png" id="1_t7w6h"]
+[ext_resource type="Script" path="res://Scripts/item_physics.gd" id="1_dwo4q"]
+[ext_resource type="Texture2D" uid="uid://bcs6yshrt0u3w" path="res://Sprites/Environment/Flora/Cotton.png" id="2_mxjv1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_q6c2y"]
-radius = 6.03692
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lw6b"]
+radius = 4.0
 
-[node name="Cotton" type="Node2D"]
-script = ExtResource("1_1cij8")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Cotton" type="RigidBody2D"]
+collision_layer = 257
+collision_mask = 257
 input_pickable = true
+mass = 0.5
+gravity_scale = 0.6
+script = ExtResource("1_dwo4q")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
-scale = Vector2(2, 2)
-texture = ExtResource("1_t7w6h")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mxjv1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-shape = SubResource("CircleShape2D_q6c2y")
-
-[connection signal="mouse_entered" from="RigidBody2D" to="." method="_on_rigid_body_2d_mouse_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3lw6b")

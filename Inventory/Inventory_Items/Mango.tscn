@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://xju17vy5w0wl"]
+
+[ext_resource type="Script" path="res://Scripts/item_physics.gd" id="1_e8ewa"]
+[ext_resource type="Texture2D" uid="uid://bd61oemyqfeis" path="res://Sprites/Environment/Flora/Mango.png" id="2_ywxhk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3lw6b"]
+radius = 3.0
+
+[node name="Mango" type="RigidBody2D"]
+collision_layer = 257
+collision_mask = 257
+input_pickable = true
+mass = 2.0
+gravity_scale = 0.6
+script = ExtResource("1_e8ewa")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ywxhk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_3lw6b")
