@@ -5,8 +5,9 @@ var dude : Node2D
 @export var jump_boost = 500
 
 func _on_body_entered(body: Node2D) -> void:
-	can_boost = true
-	dude = body
+	if body != RigidBody2D:
+		can_boost = true
+		dude = body
 
 func _on_body_exited(_body: Node2D) -> void:
 	can_boost = false

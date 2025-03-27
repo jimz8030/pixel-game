@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7bbf7lm3rtmx"
-path="res://.godot/imported/Chest_2.png-49a9836b47c28036b78c93c07de991eb.ctex"
+uid="uid://b1gps7wmvsfyb"
+path="res://.godot/imported/pixil-frame-0 (3).png-1f44af19afde9a7a24ec4c7b5832abba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Player_Sprites/Chest/Chest_2.png"
-dest_files=["res://.godot/imported/Chest_2.png-49a9836b47c28036b78c93c07de991eb.ctex"]
+source_file="res://pixil-frame-0 (3).png"
+dest_files=["res://.godot/imported/pixil-frame-0 (3).png-1f44af19afde9a7a24ec4c7b5832abba.ctex"]
 
 [params]
 

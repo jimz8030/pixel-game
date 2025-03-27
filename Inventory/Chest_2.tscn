@@ -1,34 +1,51 @@
 [gd_scene load_steps=6 format=3 uid="uid://e1edkeh5k1o"]
 
 [ext_resource type="Script" path="res://Scripts/Inv_Chest_2.gd" id="1_iw2uq"]
-[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="1_jm5nq"]
-[ext_resource type="Texture2D" uid="uid://7bbf7lm3rtmx" path="res://Sprites/Player_Sprites/Chest/Chest_2.png" id="1_slrbd"]
-[ext_resource type="Texture2D" uid="uid://bky0uruyvyeog" path="res://Sprites/Player_Sprites/Chest/Chest_1.png" id="2_kmjw2"]
+[ext_resource type="Texture2D" uid="uid://cb8dsfe6t07o8" path="res://Sprites/Player_Sprites/Chest/Chest_Back.png" id="2_rlh1t"]
+[ext_resource type="Texture2D" uid="uid://bdkr3gkt0qw86" path="res://Sprites/Player_Sprites/Chest/Chest_Front.png" id="3_r4rpu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fpva5"]
 radius = 3.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afa7u"]
+size = Vector2(21, 26)
+
 [node name="Chest" type="StaticBody2D"]
 script = ExtResource("1_iw2uq")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("1_slrbd")
-
-[node name="Sprite2D3" type="Sprite2D" parent="."]
-texture = ExtResource("2_kmjw2")
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-30, 3, -19, 3, -18, 59, 29, 59, 30, 3, 41, 3, 39, 64, -26, 63)
-
-[node name="Pointer" type="StaticBody2D" parent="."]
-collision_layer = 256
-collision_mask = 256
-collision_priority = 0.0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pointer"]
-shape = SubResource("CircleShape2D_fpva5")
+[node name="Back" type="Sprite2D" parent="."]
+texture = ExtResource("2_rlh1t")
 
 [node name="Items" type="Node2D" parent="."]
 
-[node name="Cotton" parent="Items" instance=ExtResource("1_jm5nq")]
-position = Vector2(0, -49.53)
+[node name="Front" type="Sprite2D" parent="."]
+texture = ExtResource("3_r4rpu")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-12, 1, -8, 1, -8, 16, 7, 16, 7, 2, 11, 2, 11, 20, -12, 20)
+
+[node name="Pointer" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+
+[node name="Detection" type="CollisionShape2D" parent="Pointer"]
+shape = SubResource("CircleShape2D_fpva5")
+
+[node name="Grip" type="PinJoint2D" parent="Pointer"]
+node_a = NodePath("..")
+node_b = NodePath("..")
+softness = 5.0
+
+[node name="Item_Detect" type="Area2D" parent="."]
+
+[node name="Area" type="CollisionShape2D" parent="Item_Detect"]
+position = Vector2(-0.5, 6)
+shape = SubResource("RectangleShape2D_afa7u")
+
+[connection signal="body_entered" from="Pointer" to="." method="_on_pointer_body_entered"]
+[connection signal="body_entered" from="Item_Detect" to="." method="_on_item_detect_body_entered"]
+[connection signal="body_exited" from="Item_Detect" to="." method="_on_item_detect_body_exited"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://cwru5830kqe6k"]
 
-[ext_resource type="Script" path="res://Scripts/item_physics.gd" id="1_dwo4q"]
+[ext_resource type="Script" path="res://Scripts/Inv_Item.gd" id="1_2mqac"]
 [ext_resource type="Texture2D" uid="uid://bcs6yshrt0u3w" path="res://Sprites/Environment/Flora/Cotton.png" id="2_mxjv1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3lw6b"]
-radius = 4.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xdic"]
+size = Vector2(8, 7)
 
 [node name="Cotton" type="RigidBody2D"]
 collision_layer = 257
@@ -12,10 +12,11 @@ collision_mask = 257
 input_pickable = true
 mass = 0.5
 gravity_scale = 0.6
-script = ExtResource("1_dwo4q")
+script = ExtResource("1_2mqac")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_mxjv1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_3lw6b")
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1xdic")

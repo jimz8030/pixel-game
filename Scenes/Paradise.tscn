@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7dieiyw60f3i"]
+[gd_scene load_steps=10 format=3 uid="uid://b7dieiyw60f3i"]
 
 [ext_resource type="Script" path="res://Scripts/Cam_Move.gd" id="1_67esq"]
 [ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
@@ -6,23 +6,22 @@
 [ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Cotton_Bush.tscn" id="7_iv5cg"]
 [ext_resource type="PackedScene" uid="uid://pqra1r2710k2" path="res://Scenes/PlayerBody_2.tscn" id="8_3tg4l"]
 [ext_resource type="PackedScene" uid="uid://e1edkeh5k1o" path="res://Inventory/Chest_2.tscn" id="8_68iw8"]
+[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="8_u3d0n"]
+[ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 4
 
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, -31.165)
 zoom = Vector2(2, 2)
 script = ExtResource("1_67esq")
 
-[node name="Chest2" parent="Camera" instance=ExtResource("8_68iw8")]
-position = Vector2(290, -120)
-
 [node name="PlayerBody" parent="." instance=ExtResource("8_3tg4l")]
 position = Vector2(0, -31.165)
+
+[node name="Chest2" parent="PlayerBody" instance=ExtResource("8_68iw8")]
+position = Vector2(0, -50)
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2(-15, 70)
@@ -158,3 +157,9 @@ position = Vector2(102, -166)
 
 [node name="Cotton_Bush2" parent="Map" instance=ExtResource("7_iv5cg")]
 position = Vector2(425, 290)
+
+[node name="Cotton" parent="." instance=ExtResource("8_u3d0n")]
+position = Vector2(-69, -61)
+
+[node name="Mango" parent="." instance=ExtResource("9_6yukn")]
+position = Vector2(-97, -36)
