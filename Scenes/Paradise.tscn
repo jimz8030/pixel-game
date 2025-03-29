@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7dieiyw60f3i"]
+[gd_scene load_steps=9 format=3 uid="uid://b7dieiyw60f3i"]
 
 [ext_resource type="Script" path="res://Scripts/Cam_Move.gd" id="1_67esq"]
+[ext_resource type="PackedScene" uid="uid://cds386o1s71ur" path="res://Inventory/Item_Frame.tscn" id="3_m20nj"]
 [ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
 [ext_resource type="PackedScene" uid="uid://d13luno7tf1wa" path="res://Scenes/Resources/mango_vine.tscn" id="6_1doqs"]
 [ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Cotton_Bush.tscn" id="7_iv5cg"]
 [ext_resource type="PackedScene" uid="uid://pqra1r2710k2" path="res://Scenes/PlayerBody_2.tscn" id="8_3tg4l"]
-[ext_resource type="PackedScene" uid="uid://e1edkeh5k1o" path="res://Inventory/Chest_2.tscn" id="8_68iw8"]
 [ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="8_u3d0n"]
-[ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
 
 [node name="Node2D" type="Node2D"]
@@ -19,9 +18,13 @@ script = ExtResource("1_67esq")
 
 [node name="PlayerBody" parent="." instance=ExtResource("8_3tg4l")]
 position = Vector2(0, -31.165)
+collision_layer = 2
 
-[node name="Chest2" parent="PlayerBody" instance=ExtResource("8_68iw8")]
-position = Vector2(0, -50)
+[node name="ItemFrame" parent="PlayerBody" instance=ExtResource("3_m20nj")]
+position = Vector2(0, -44)
+
+[node name="Cotton" parent="." instance=ExtResource("8_u3d0n")]
+position = Vector2(-69, -61)
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2(-15, 70)
@@ -29,121 +32,154 @@ position = Vector2(-15, 70)
 [node name="Platform" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(6, 20)
 scale = Vector2(12, 10)
+collision_mask = 6
 
 [node name="Platform11" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-167, 339)
 scale = Vector2(22, 10)
+collision_mask = 6
 
 [node name="Platform19" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(151, 1084)
 scale = Vector2(20, 10)
+collision_mask = 6
 
 [node name="Platform23" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-194, 1128)
 scale = Vector2(16, 10)
+collision_mask = 6
 
 [node name="Platform15" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(99, 417)
 scale = Vector2(6, 12)
+collision_mask = 6
 
 [node name="Platform6" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(284, 99)
 scale = Vector2(18, 2)
+collision_mask = 6
 
 [node name="Platform7" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(427, 83)
 scale = Vector2(4, 2)
+collision_mask = 6
 
 [node name="Platform8" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(457, 68)
 scale = Vector2(4, 4)
+collision_mask = 6
 
 [node name="Platform12" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(415, 330)
 scale = Vector2(3, 4)
+collision_mask = 6
 
 [node name="Platform14" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(254, 549)
 scale = Vector2(10, 10)
+collision_mask = 6
 
 [node name="Platform16" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(584, 1007)
 scale = Vector2(10, 10)
+collision_mask = 6
 
 [node name="Platform17" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(408, 980)
 scale = Vector2(8, 10)
+collision_mask = 6
 
 [node name="Platform18" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(403, 1038)
 scale = Vector2(8, 10)
+collision_mask = 6
 
 [node name="Platform3" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-149, 10)
 scale = Vector2(4, 5)
+collision_mask = 6
 
 [node name="Platform4" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-340, -1)
 scale = Vector2(7, 4)
+collision_mask = 6
 
 [node name="Platform10" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(643, 351)
 scale = Vector2(4, 32)
+collision_mask = 6
 
 [node name="Platform5" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-564, 291)
 scale = Vector2(20, 64)
+collision_mask = 6
 
 [node name="Platform9" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(878, 376)
 scale = Vector2(20, 74)
+collision_mask = 6
 
 [node name="Platform2" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(90, -122.2)
 scale = Vector2(3, 1.4)
+collision_mask = 6
 
 [node name="Platform21" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(99, -137)
 scale = Vector2(2.135, 2.905)
+collision_mask = 6
 
 [node name="Platform20" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-850, 1108)
 scale = Vector2(50, 10)
+collision_mask = 6
 
 [node name="Platform26" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-1250, 849)
 scale = Vector2(10, 20)
+collision_mask = 6
 
 [node name="Platform25" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-959, 699)
 scale = Vector2(20, 10)
+collision_mask = 6
 
 [node name="Platform22" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-469, 950)
 scale = Vector2(3, 3)
+collision_mask = 6
 
 [node name="Platform28" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-793, 921)
 scale = Vector2(3, 1)
+collision_mask = 6
 
 [node name="Platform27" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-974, 997)
 scale = Vector2(3, 3)
+collision_mask = 6
 
 [node name="Platform24" parent="Map" instance=ExtResource("9_kghhe")]
 position = Vector2(-30, 927)
 scale = Vector2(3, 3)
+collision_mask = 6
 
 [node name="JumpPad" parent="Map" instance=ExtResource("4_2jut1")]
 position = Vector2(395, 867)
+collision_layer = 0
+collision_mask = 6
 jump_boost = 940
 
 [node name="JumpPad3" parent="Map" instance=ExtResource("4_2jut1")]
 position = Vector2(173, 436)
+collision_layer = 0
+collision_mask = 6
 jump_boost = 600
 
 [node name="JumpPad2" parent="Map" instance=ExtResource("4_2jut1")]
 position = Vector2(-228, 226)
+collision_layer = 0
+collision_mask = 6
 jump_boost = 800
 
 [node name="Mango_Vine" parent="Map" instance=ExtResource("6_1doqs")]
@@ -157,9 +193,3 @@ position = Vector2(102, -166)
 
 [node name="Cotton_Bush2" parent="Map" instance=ExtResource("7_iv5cg")]
 position = Vector2(425, 290)
-
-[node name="Cotton" parent="." instance=ExtResource("8_u3d0n")]
-position = Vector2(-69, -61)
-
-[node name="Mango" parent="." instance=ExtResource("9_6yukn")]
-position = Vector2(-97, -36)

@@ -1,0 +1,46 @@
+[gd_scene load_steps=5 format=3 uid="uid://cds386o1s71ur"]
+
+[ext_resource type="Texture2D" uid="uid://csqf6ys6oi1wm" path="res://Sprites/Player_Sprites/Item Frame/Item Frame.png" id="1_5hr7t"]
+[ext_resource type="Script" path="res://Scripts/Inv_Chest_2.gd" id="2_gfd33"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_paxux"]
+radius = 3.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd8yw"]
+size = Vector2(8, 7)
+
+[node name="ItemFrame" type="Sprite2D"]
+texture = ExtResource("1_5hr7t")
+script = ExtResource("2_gfd33")
+
+[node name="Pointer" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 12
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+
+[node name="Detection" type="CollisionShape2D" parent="Pointer"]
+shape = SubResource("CircleShape2D_paxux")
+
+[node name="Surface" type="StaticBody2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sticky_Area" type="CollisionShape2D" parent="Surface"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_qd8yw")
+
+[node name="Item_Detect" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 12
+
+[node name="Detecting_Area" type="CollisionShape2D" parent="Item_Detect"]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_qd8yw")
+
+[node name="Items" type="Node2D" parent="."]
+
+[connection signal="body_entered" from="Item_Detect" to="." method="_on_item_detect_body_entered"]
+[connection signal="body_exited" from="Item_Detect" to="." method="_on_item_detect_body_exited"]

@@ -84,6 +84,10 @@ Left_Click={
 2d_render/layer_1="Player"
 2d_render/layer_2="Enemy"
 2d_render/layer_3="Ground"
+2d_physics/layer_1="Static Map"
+2d_physics/layer_2="Player"
+2d_physics/layer_3="Dropped Item"
+2d_physics/layer_4="Hung Item"
 
 [rendering]
 
