@@ -7,7 +7,7 @@
 radius = 3.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd8yw"]
-size = Vector2(8, 7)
+size = Vector2(14, 13)
 
 [node name="ItemFrame" type="Sprite2D"]
 texture = ExtResource("1_5hr7t")

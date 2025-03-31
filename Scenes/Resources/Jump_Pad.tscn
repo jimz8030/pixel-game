@@ -3,9 +3,11 @@
 [ext_resource type="Script" path="res://Scripts/jump_pad.gd" id="1_gmydx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0m652"]
+size = Vector2(20, 7)
 
 [node name="Jump_Pad" type="Area2D"]
-collision_priority = 0.0
+collision_layer = 0
+collision_mask = 6
 script = ExtResource("1_gmydx")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -16,6 +18,7 @@ offset_bottom = 10.0
 color = Color(0.635784, 0.910535, 0.957948, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10.5)
 shape = SubResource("RectangleShape2D_0m652")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

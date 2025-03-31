@@ -3,11 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/Inv_Item.gd" id="1_a1x3h"]
 [ext_resource type="Texture2D" uid="uid://cmerqq7lrfmri" path="res://Sprites/Environment/Flora/Mongo.png" id="2_xv2m2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocbat"]
-size = Vector2(6, 9)
+[sub_resource type="CircleShape2D" id="CircleShape2D_087qd"]
+radius = 3.3541
 
 [node name="Mango" type="RigidBody2D"]
 collision_layer = 4
+collision_mask = 5
 input_pickable = true
 mass = 2.0
 gravity_scale = 0.6
@@ -25,4 +26,4 @@ texture = ExtResource("2_xv2m2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_ocbat")
+shape = SubResource("CircleShape2D_087qd")

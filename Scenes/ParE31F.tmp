@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Scripts/Cam_Move.gd" id="1_67esq"]
 [ext_resource type="PackedScene" uid="uid://cds386o1s71ur" path="res://Inventory/Item_Frame.tscn" id="3_m20nj"]
 [ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
-[ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Fruit_Bearing_Plants/Cotton_Bush.tscn" id="7_iv5cg"]
+[ext_resource type="PackedScene" uid="uid://d13luno7tf1wa" path="res://Scenes/Resources/mango_vine.tscn" id="6_1doqs"]
+[ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Cotton_Bush.tscn" id="7_iv5cg"]
 [ext_resource type="PackedScene" uid="uid://pqra1r2710k2" path="res://Scenes/PlayerBody_2.tscn" id="8_3tg4l"]
-[ext_resource type="PackedScene" uid="uid://dmilc6v55ij7y" path="res://Scenes/Resources/NPCs/Slime.tscn" id="8_dryg6"]
 [ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="8_u3d0n"]
 [ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
@@ -25,13 +25,13 @@ collision_layer = 2
 position = Vector2(0, -44)
 
 [node name="Cotton" parent="." instance=ExtResource("8_u3d0n")]
-position = Vector2(-132, 1088)
+position = Vector2(-69, -61)
 
 [node name="Cotton2" parent="." instance=ExtResource("8_u3d0n")]
-position = Vector2(284, 500)
+position = Vector2(-69, -76)
 
 [node name="Mango" parent="." instance=ExtResource("9_6yukn")]
-position = Vector2(86, -130)
+position = Vector2(-53, -62)
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2(-15, 70)
@@ -183,8 +183,14 @@ jump_boost = 600
 position = Vector2(-228, 226)
 jump_boost = 800
 
-[node name="Slime" parent="." instance=ExtResource("8_dryg6")]
-position = Vector2(317, 137)
+[node name="Mango_Vine" parent="Map" instance=ExtResource("6_1doqs")]
+position = Vector2(-763, 995)
 
-[node name="Cotton_Bush" parent="." instance=ExtResource("7_iv5cg")]
-position = Vector2(-357, 29)
+[node name="Mango_Vine2" parent="Map" instance=ExtResource("6_1doqs")]
+position = Vector2(-291, 226)
+
+[node name="Cotton_Bush" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(102, -166)
+
+[node name="Cotton_Bush2" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(425, 290)
