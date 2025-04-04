@@ -4,14 +4,16 @@
 [ext_resource type="Texture2D" uid="uid://c4yj8eya7ued7" path="res://Sprites/Environment/Flora/CottonBush.png" id="2_n3p8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfah0"]
-size = Vector2(30, 35)
+size = Vector2(30, 34)
 
 [node name="Cotton_Bush" type="Area2D"]
+collision_layer = 0
+collision_mask = 32
 script = ExtResource("1_k3cnv")
 fruit_file_path = "res://Inventory/Inventory_Items/Cotton.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -17.5)
+position = Vector2(0, -17)
 shape = SubResource("RectangleShape2D_sfah0")
 
 [node name="Bush" type="Sprite2D" parent="."]
@@ -19,9 +21,15 @@ position = Vector2(0, -19)
 texture = ExtResource("2_n3p8k")
 
 [node name="Regrow Time" type="Timer" parent="."]
-wait_time = 60.0
+wait_time = 40.0
+one_shot = true
+autostart = true
+
+[node name="Drop Time" type="Timer" parent="."]
+wait_time = 20.0
 one_shot = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="Regrow Time" to="." method="_on_regrow_time_timeout"]
+[connection signal="timeout" from="Drop Time" to="." method="_on_drop_time_timeout"]

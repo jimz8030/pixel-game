@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7yr6jgmhdp1b"]
+
+[ext_resource type="Script" path="res://Scripts/Inv_Item.gd" id="1_io47i"]
+[ext_resource type="Texture2D" uid="uid://b6htrygve7oi8" path="res://Inventory/Weapons/Sprites/Weapon_Chest_Broke_1.png" id="2_sptt4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8kwjy"]
+size = Vector2(6, 8)
+
+[node name="Piece" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+input_pickable = true
+mass = 3.0
+gravity_scale = 0.6
+lock_rotation = true
+script = ExtResource("1_io47i")
+
+[node name="Grip" type="PinJoint2D" parent="."]
+position = Vector2(0, -3)
+node_a = NodePath("..")
+node_b = NodePath("..")
+softness = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sptt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8kwjy")

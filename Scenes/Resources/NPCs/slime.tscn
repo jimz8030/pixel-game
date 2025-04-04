@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dmilc6v55ij7y"]
+[gd_scene load_steps=17 format=3 uid="uid://dmilc6v55ij7y"]
 
 [ext_resource type="Script" path="res://Scripts/AI_6_Neutral.gd" id="1_8snx2"]
 [ext_resource type="Texture2D" uid="uid://x7wr8tw13i4q" path="res://Sprites/NPCs/Native/Slime/Slime_Idle.png" id="2_4xhbp"]
@@ -6,6 +6,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hryh"]
 radius = 300.002
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouj61"]
+size = Vector2(16, 13)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a05jy"]
 radius = 5.0
@@ -165,16 +168,28 @@ _data = {
 }
 
 [node name="Slime" type="CharacterBody2D"]
+collision_layer = 32
 script = ExtResource("1_8snx2")
+player_opinion = 2.0
 
 [node name="Sight Area" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 6
-collision_priority = 0.0
 monitorable = false
 
 [node name="Personal Bubble" type="CollisionShape2D" parent="Sight Area"]
 shape = SubResource("CircleShape2D_6hryh")
+debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
+
+[node name="Consume Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+collision_priority = 0.0
+monitorable = false
+
+[node name="Feel Area" type="CollisionShape2D" parent="Consume Area"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ouj61")
 debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -213,16 +228,25 @@ one_shot = true
 [node name="Wander Timer" type="Timer" parent="Timers"]
 autostart = true
 
-[node name="Wall Detect Left" type="RayCast2D" parent="."]
-position = Vector2(-1, 0)
-target_position = Vector2(-32, 0)
+[node name="Hunger" type="Timer" parent="Timers"]
+wait_time = 240.0
+one_shot = true
+autostart = true
 
-[node name="Wall Detect Right" type="RayCast2D" parent="."]
-position = Vector2(1, 0)
-target_position = Vector2(32, 0)
+[node name="JumpCast Right" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+target_position = Vector2(20, 0)
+
+[node name="JumpCast Left" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+target_position = Vector2(-20, 0)
 
 [connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_body_entered"]
 [connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_body_exited"]
+[connection signal="body_entered" from="Consume Area" to="." method="_on_consume_area_body_entered"]
 [connection signal="timeout" from="Timers/Reaction Time" to="." method="_on_crumb_timer_timeout"]
 [connection signal="timeout" from="Timers/Interest Cooldown" to="." method="_on_detection_cooldown_timeout"]
 [connection signal="timeout" from="Timers/Wander Timer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="Timers/Hunger" to="." method="_on_hunger_timeout"]

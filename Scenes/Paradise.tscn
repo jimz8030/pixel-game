@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7dieiyw60f3i"]
+[gd_scene load_steps=13 format=3 uid="uid://b7dieiyw60f3i"]
 
 [ext_resource type="Script" path="res://Scripts/Cam_Move.gd" id="1_67esq"]
 [ext_resource type="PackedScene" uid="uid://cds386o1s71ur" path="res://Inventory/Item_Frame.tscn" id="3_m20nj"]
@@ -6,9 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Fruit_Bearing_Plants/Cotton_Bush.tscn" id="7_iv5cg"]
 [ext_resource type="PackedScene" uid="uid://pqra1r2710k2" path="res://Scenes/PlayerBody_2.tscn" id="8_3tg4l"]
 [ext_resource type="PackedScene" uid="uid://dmilc6v55ij7y" path="res://Scenes/Resources/NPCs/Slime.tscn" id="8_dryg6"]
-[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="8_u3d0n"]
 [ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
+[ext_resource type="PackedScene" uid="uid://bj8nhvy7xdlvk" path="res://Inventory/Weapons/Weapon_Chest/Weapon_Chest.tscn" id="9_t17do"]
+[ext_resource type="PackedScene" uid="uid://c7yr6jgmhdp1b" path="res://Inventory/Weapons/Weapon_Chest/W_Chest_Broken_1.tscn" id="10_nucts"]
+[ext_resource type="PackedScene" uid="uid://bb6fti7a5why4" path="res://Inventory/Weapons/Weapon_Chest/W_Chest_Broken_2.tscn" id="11_p7qwe"]
+[ext_resource type="PackedScene" uid="uid://bmhjgma6t1nxw" path="res://Inventory/Weapons/Weapon_Chest/W_Chest_Broken_3.tscn" id="12_hcfmt"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -23,12 +26,6 @@ collision_layer = 2
 
 [node name="ItemFrame" parent="PlayerBody" instance=ExtResource("3_m20nj")]
 position = Vector2(0, -44)
-
-[node name="Cotton" parent="." instance=ExtResource("8_u3d0n")]
-position = Vector2(-132, 1088)
-
-[node name="Cotton2" parent="." instance=ExtResource("8_u3d0n")]
-position = Vector2(284, 500)
 
 [node name="Mango" parent="." instance=ExtResource("9_6yukn")]
 position = Vector2(86, -130)
@@ -184,7 +181,22 @@ position = Vector2(-228, 226)
 jump_boost = 800
 
 [node name="Slime" parent="." instance=ExtResource("8_dryg6")]
-position = Vector2(317, 137)
+position = Vector2(339, -155)
 
 [node name="Cotton_Bush" parent="." instance=ExtResource("7_iv5cg")]
 position = Vector2(-357, 29)
+
+[node name="Cotton_Bush2" parent="." instance=ExtResource("7_iv5cg")]
+position = Vector2(144, 149)
+
+[node name="Weapon_Chest" parent="." instance=ExtResource("9_t17do")]
+position = Vector2(-113, -45)
+
+[node name="Piece" parent="." instance=ExtResource("10_nucts")]
+position = Vector2(-157, -16)
+
+[node name="Piece2" parent="." instance=ExtResource("11_p7qwe")]
+position = Vector2(-170, -17)
+
+[node name="Piece3" parent="." instance=ExtResource("12_hcfmt")]
+position = Vector2(-142, -15)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scripts/Inv_Chest_2.gd" id="2_gfd33"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_paxux"]
-radius = 3.0
+radius = 5.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qd8yw"]
 size = Vector2(14, 13)

@@ -86,7 +86,14 @@ func _physics_process(delta: float) -> void:
 
 		# HANDLE SPRINTING
 		var current_pos = position.x
-		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Down") and direction != 0:
+		#Player cannot sprint while carrying items
+		var carrying_item : bool
+		if $ItemFrame.selected_item != null and Input.is_action_pressed("Left_Click"):
+			carrying_item = true
+		else:
+			carrying_item = false
+		
+		if Input.is_action_pressed("Sprint") and !Input.is_action_pressed("Down") and direction != 0 and !carrying_item:
 			if Input.is_action_pressed("Down"):
 				speed = crawl_speed
 				friction = 0.04

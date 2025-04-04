@@ -19,7 +19,7 @@ func _input(event: InputEvent) -> void:
 
 	if event is InputEventMouseMotion:
 		#get cursor position and make a "feeler" (or the pointer) follow it
-		var event_pos = (event.position / Vector2(2,2)) + Vector2(-345,-142)
+		var event_pos = (event.position / Vector2(2,2)) + Vector2(-345,-148)
 		pointer.set_position(event_pos)
 
 		#declares that there is an item to select
@@ -27,6 +27,7 @@ func _input(event: InputEvent) -> void:
 
 			#ACTIVELY DRAGGING ITEM
 			if Input.is_action_pressed("Left_Click"):
+				
 				#reparent item to scene (item no longer follows item frame)
 				selected_item.reparent(get_tree().get_current_scene())
 				#item is not frozen (item's rigidbody is active)
@@ -34,8 +35,8 @@ func _input(event: InputEvent) -> void:
 				#item follows cursor (or a pointer following the cursor)
 				selected_item.get_child(0).set_node_b(pointer.get_path())
 				#item collision changes to collide with the world
-				selected_item.collision_layer = 4 | 8
-				selected_item.collision_mask = 1 | 4
+				selected_item.collision_layer = 4
+				selected_item.collision_mask = 1 | 4 | 8
 
 			#DROPPED ITEM
 			elif stick_waiting == false:
@@ -68,7 +69,7 @@ func find_colliding_item():
 func _on_item_detect_body_entered(body: Node2D) -> void:
 
 	#ITEM FALLS INTO ITEM FRAME
-	if selected_item == null:
+	if selected_item == null and body.collectable:
 		#get item parent beforehand to help aleviate pressure on code
 		var item_collection : Node2D = $Items
 		#reset collision layers so the item doesn't collide with the world while in the frame
@@ -80,7 +81,7 @@ func _on_item_detect_body_entered(body: Node2D) -> void:
 		body.call_deferred("reparent", item_collection)
 
 	#HOVERING ITEM OVER ITEM FRAME
-	else:
+	elif body.collectable:
 		#the item frame anticipates the item being dropped so it can catch it
 		stick_waiting = true
 
