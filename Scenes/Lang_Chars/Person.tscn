@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dtt1xhirld74c"]
 
-[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_0eu3l"]
+[ext_resource type="Script" uid="uid://4ftj87vr31qw" path="res://Scripts/Guessable_Char.gd" id="1_0eu3l"]
 [ext_resource type="Texture2D" uid="uid://bt70ogvgtukjf" path="res://Sprites/Lang Characters/Person.png" id="1_q2j70"]
 
 [node name="Person" type="Control"]

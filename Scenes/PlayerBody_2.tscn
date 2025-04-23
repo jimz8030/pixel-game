@@ -1,9 +1,9 @@
-[gd_scene load_steps=98 format=3 uid="uid://pqra1r2710k2"]
+[gd_scene load_steps=101 format=3 uid="uid://pqra1r2710k2"]
 
-[ext_resource type="Script" path="res://Scripts/Control_Player_2.gd" id="1_o32u1"]
-[ext_resource type="Texture2D" uid="uid://dhkonr7bskwxo" path="res://Sprites/Player_Sprites/Hair/H5.png" id="2_q33nx"]
-[ext_resource type="Texture2D" uid="uid://b3lkpgspp0vdk" path="res://Sprites/Player_Sprites/Bottom_Clothing/Bott.13.png" id="4_og0k4"]
-[ext_resource type="Texture2D" uid="uid://bcs6yshrt0u3w" path="res://Sprites/Environment/Flora/Cotton.png" id="5_d2twl"]
+[ext_resource type="Script" uid="uid://tjsr01jyy3wl" path="res://Scripts/Control_Player_2.gd" id="1_o32u1"]
+[ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_824o3"]
+[ext_resource type="Texture2D" uid="uid://b2xyp6jda1x82" path="res://Sprites/Player_Sprites/Hair/H6.png" id="2_hyw08"]
+[ext_resource type="Texture2D" uid="uid://cdltlhbb3wwov" path="res://Sprites/Player_Sprites/Bottom_Clothing/Bott.8.png" id="3_7lhbs"]
 [ext_resource type="Texture2D" uid="uid://bg5lr3k2aj7no" path="res://Sprites/Player_Sprites/Top_Clothing/T10_F1.png" id="5_t0p24"]
 [ext_resource type="Texture2D" uid="uid://dhosa0ieo0sne" path="res://Sprites/Player_Sprites/Oops_All_Naked/Flesh_Arms/F2.png" id="6_svp0k"]
 [ext_resource type="Texture2D" uid="uid://cv04030smrt0f" path="res://Sprites/Player_Sprites/Top_Clothing/Clothing_Arms/A10.png" id="7_autx8"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://yagmlqahb6db" path="res://Sprites/Player_Sprites/Animations/Female_Tuck.png" id="12_1nel3"]
 [ext_resource type="Texture2D" uid="uid://bco7gckx62wc4" path="res://Sprites/Player_Sprites/Animations/Female_Slide.png" id="13_umqir"]
 [ext_resource type="Texture2D" uid="uid://dgoooxqullna1" path="res://Sprites/Player_Sprites/Animations/Female_Run.png" id="14_ha2le"]
+[ext_resource type="PackedScene" uid="uid://cds386o1s71ur" path="res://Inventory/Item_Frame.tscn" id="16_cs30t"]
 [ext_resource type="Texture2D" uid="uid://demdglou7rs68" path="res://Sprites/Player_Sprites/Animations/Female_Jump_Fall.png" id="21_mgdfi"]
 [ext_resource type="Texture2D" uid="uid://cidnepcx6ahm1" path="res://Sprites/Player_Sprites/Animations/Female_Crawl.png" id="22_4vdt2"]
 
@@ -272,6 +273,10 @@ advance_condition = &"is_idle"
 advance_mode = 2
 advance_condition = &"is_crawling"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lj1d5"]
+advance_mode = 2
+advance_condition = &"is_tucking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gd1b5"]
 states/End/position = Vector2(1161, 222.784)
 "states/Female Crawl/node" = SubResource("AnimationNodeAnimation_gcb3d")
@@ -297,8 +302,8 @@ states/End/position = Vector2(1161, 222.784)
 "states/Female Walk/node" = SubResource("AnimationNodeAnimation_uxkem")
 "states/Female Walk/position" = Vector2(196.192, 49.2731)
 states/Start/position = Vector2(131, 224)
-transitions = ["Female Idle", "Female Run", SubResource("AnimationNodeStateMachineTransition_cpww8"), "Female Run", "Female Idle", SubResource("AnimationNodeStateMachineTransition_16jxj"), "Female Idle", "Female Walk", SubResource("AnimationNodeStateMachineTransition_xym5c"), "Female Walk", "Female Idle", SubResource("AnimationNodeStateMachineTransition_4wwn8"), "Female Idle", "Female Jump", SubResource("AnimationNodeStateMachineTransition_lormo"), "Female Jump", "Female Idle", SubResource("AnimationNodeStateMachineTransition_gnccq"), "Female Jump", "Female Fall", SubResource("AnimationNodeStateMachineTransition_rxv5g"), "Female Jump", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_hhc55"), "Female Tuck", "Female Fall", SubResource("AnimationNodeStateMachineTransition_05tr0"), "Female Fall", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_a3iy7"), "Female Idle", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_331mw"), "Female Crouch", "Female Idle", SubResource("AnimationNodeStateMachineTransition_dadtq"), "Female Crouch", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_ogyra"), "Female Run", "Female Slide", SubResource("AnimationNodeStateMachineTransition_44s7c"), "Female Slide", "Female Run", SubResource("AnimationNodeStateMachineTransition_ieif1"), "Female Slide", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_r3dxw"), "Female Is_Sliding", "Female Run", SubResource("AnimationNodeStateMachineTransition_88e7g"), "Female Is_Sliding", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_2aeec"), "Female Walk", "Female Run", SubResource("AnimationNodeStateMachineTransition_myb3r"), "Female Run", "Female Walk", SubResource("AnimationNodeStateMachineTransition_knveo"), "Start", "Female Idle", SubResource("AnimationNodeStateMachineTransition_cj1kt"), "Female Crawl", "Female Idle", SubResource("AnimationNodeStateMachineTransition_b7k77"), "Female Walk", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_axxgk"), "Female Crawl", "Female Walk", SubResource("AnimationNodeStateMachineTransition_gr4h6"), "Female Is_Sliding", "Female Fall", SubResource("AnimationNodeStateMachineTransition_w8or0"), "Female Walk", "Female Fall", SubResource("AnimationNodeStateMachineTransition_u5key"), "Female Tuck", "Female Idle", SubResource("AnimationNodeStateMachineTransition_o2e7w"), "Female Fall", "Female Land", SubResource("AnimationNodeStateMachineTransition_sck3y"), "Female Tuck", "Female Land", SubResource("AnimationNodeStateMachineTransition_a1yhk"), "Female Land", "Female Walk", SubResource("AnimationNodeStateMachineTransition_3jnkc"), "Female Land", "Female Idle", SubResource("AnimationNodeStateMachineTransition_3psb2"), "Female Land", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_7hvnp"), "Female Land", "Female Run", SubResource("AnimationNodeStateMachineTransition_bh8x4"), "Female Land", "Female Jump", SubResource("AnimationNodeStateMachineTransition_v0wyj"), "Female Crouch", "Female Jump", SubResource("AnimationNodeStateMachineTransition_qbdq3"), "Female Crouch", "Female Walk", SubResource("AnimationNodeStateMachineTransition_eudb6"), "Female Crouch", "Female Run", SubResource("AnimationNodeStateMachineTransition_8toug"), "Female Crawl", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_owpdm"), "Female Run", "Female Fall", SubResource("AnimationNodeStateMachineTransition_ssi2e"), "Female Run", "Female Jump", SubResource("AnimationNodeStateMachineTransition_l6tji"), "Female Walk", "Female Jump", SubResource("AnimationNodeStateMachineTransition_mbylb"), "Female Land", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_yjwcb"), "Female Crawl", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_usb86"), "Female Is_Sliding", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_xvgra"), "Female Crawl", "Female Run", SubResource("AnimationNodeStateMachineTransition_51moq"), "Female Idle", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_3yqpk"), "Female Walk", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_0vn8n"), "Female Slide", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_tgq3y"), "Female Fall", "Female Slide", SubResource("AnimationNodeStateMachineTransition_aoi26"), "Female Fall", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_e0edj"), "Female Land", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_b5a1q"), "Female Land", "Female Slide", SubResource("AnimationNodeStateMachineTransition_ftpgw"), "Female Is_Sliding", "Female Idle", SubResource("AnimationNodeStateMachineTransition_4l6o3"), "Female Run", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_avwau")]
-graph_offset = Vector2(190.94, 267.127)
+transitions = ["Female Idle", "Female Run", SubResource("AnimationNodeStateMachineTransition_cpww8"), "Female Run", "Female Idle", SubResource("AnimationNodeStateMachineTransition_16jxj"), "Female Idle", "Female Walk", SubResource("AnimationNodeStateMachineTransition_xym5c"), "Female Walk", "Female Idle", SubResource("AnimationNodeStateMachineTransition_4wwn8"), "Female Idle", "Female Jump", SubResource("AnimationNodeStateMachineTransition_lormo"), "Female Jump", "Female Idle", SubResource("AnimationNodeStateMachineTransition_gnccq"), "Female Jump", "Female Fall", SubResource("AnimationNodeStateMachineTransition_rxv5g"), "Female Jump", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_hhc55"), "Female Tuck", "Female Fall", SubResource("AnimationNodeStateMachineTransition_05tr0"), "Female Fall", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_a3iy7"), "Female Idle", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_331mw"), "Female Crouch", "Female Idle", SubResource("AnimationNodeStateMachineTransition_dadtq"), "Female Crouch", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_ogyra"), "Female Run", "Female Slide", SubResource("AnimationNodeStateMachineTransition_44s7c"), "Female Slide", "Female Run", SubResource("AnimationNodeStateMachineTransition_ieif1"), "Female Slide", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_r3dxw"), "Female Is_Sliding", "Female Run", SubResource("AnimationNodeStateMachineTransition_88e7g"), "Female Is_Sliding", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_2aeec"), "Female Walk", "Female Run", SubResource("AnimationNodeStateMachineTransition_myb3r"), "Female Run", "Female Walk", SubResource("AnimationNodeStateMachineTransition_knveo"), "Start", "Female Idle", SubResource("AnimationNodeStateMachineTransition_cj1kt"), "Female Crawl", "Female Idle", SubResource("AnimationNodeStateMachineTransition_b7k77"), "Female Walk", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_axxgk"), "Female Crawl", "Female Walk", SubResource("AnimationNodeStateMachineTransition_gr4h6"), "Female Is_Sliding", "Female Fall", SubResource("AnimationNodeStateMachineTransition_w8or0"), "Female Walk", "Female Fall", SubResource("AnimationNodeStateMachineTransition_u5key"), "Female Tuck", "Female Idle", SubResource("AnimationNodeStateMachineTransition_o2e7w"), "Female Fall", "Female Land", SubResource("AnimationNodeStateMachineTransition_sck3y"), "Female Tuck", "Female Land", SubResource("AnimationNodeStateMachineTransition_a1yhk"), "Female Land", "Female Walk", SubResource("AnimationNodeStateMachineTransition_3jnkc"), "Female Land", "Female Idle", SubResource("AnimationNodeStateMachineTransition_3psb2"), "Female Land", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_7hvnp"), "Female Land", "Female Run", SubResource("AnimationNodeStateMachineTransition_bh8x4"), "Female Land", "Female Jump", SubResource("AnimationNodeStateMachineTransition_v0wyj"), "Female Crouch", "Female Jump", SubResource("AnimationNodeStateMachineTransition_qbdq3"), "Female Crouch", "Female Walk", SubResource("AnimationNodeStateMachineTransition_eudb6"), "Female Crouch", "Female Run", SubResource("AnimationNodeStateMachineTransition_8toug"), "Female Crawl", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_owpdm"), "Female Run", "Female Fall", SubResource("AnimationNodeStateMachineTransition_ssi2e"), "Female Run", "Female Jump", SubResource("AnimationNodeStateMachineTransition_l6tji"), "Female Walk", "Female Jump", SubResource("AnimationNodeStateMachineTransition_mbylb"), "Female Land", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_yjwcb"), "Female Crawl", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_usb86"), "Female Is_Sliding", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_xvgra"), "Female Crawl", "Female Run", SubResource("AnimationNodeStateMachineTransition_51moq"), "Female Idle", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_3yqpk"), "Female Walk", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_0vn8n"), "Female Slide", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_tgq3y"), "Female Fall", "Female Slide", SubResource("AnimationNodeStateMachineTransition_aoi26"), "Female Fall", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_e0edj"), "Female Land", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_b5a1q"), "Female Land", "Female Slide", SubResource("AnimationNodeStateMachineTransition_ftpgw"), "Female Is_Sliding", "Female Idle", SubResource("AnimationNodeStateMachineTransition_4l6o3"), "Female Run", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_avwau"), "Female Slide", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_lj1d5")]
+graph_offset = Vector2(479.781, -259.024)
 
 [sub_resource type="Animation" id="Animation_7oc74"]
 resource_name = "Female Crawl"
@@ -1331,53 +1336,77 @@ tracks/6/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvyqu"]
 _data = {
-"Female Crawl": SubResource("Animation_7oc74"),
-"Female Crouch": SubResource("Animation_6jltj"),
-"Female Fall": SubResource("Animation_yrgqc"),
-"Female Idle": SubResource("Animation_b5317"),
-"Female Is_Crouching": SubResource("Animation_iumoc"),
-"Female Is_Sliding": SubResource("Animation_pxy8f"),
-"Female Jump": SubResource("Animation_tccse"),
-"Female Land": SubResource("Animation_dfj5x"),
-"Female Run": SubResource("Animation_a76va"),
-"Female Slide": SubResource("Animation_rs0ht"),
-"Female Tuck": SubResource("Animation_ek3me"),
-"Female Walk": SubResource("Animation_01xj5"),
-"RESET": SubResource("Animation_o5tfk")
+&"Female Crawl": SubResource("Animation_7oc74"),
+&"Female Crouch": SubResource("Animation_6jltj"),
+&"Female Fall": SubResource("Animation_yrgqc"),
+&"Female Idle": SubResource("Animation_b5317"),
+&"Female Is_Crouching": SubResource("Animation_iumoc"),
+&"Female Is_Sliding": SubResource("Animation_pxy8f"),
+&"Female Jump": SubResource("Animation_tccse"),
+&"Female Land": SubResource("Animation_dfj5x"),
+&"Female Run": SubResource("Animation_a76va"),
+&"Female Slide": SubResource("Animation_rs0ht"),
+&"Female Tuck": SubResource("Animation_ek3me"),
+&"Female Walk": SubResource("Animation_01xj5"),
+&"RESET": SubResource("Animation_o5tfk")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_824o3"]
+size = Vector2(35, 25)
 
 [node name="Player_2" type="CharacterBody2D"]
 script = ExtResource("1_o32u1")
+health_total = 26
+
+[node name="Health Bar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -27.0
+offset_right = -10.0
+offset_bottom = -22.0
+scale = Vector2(6, 1)
+value = 49.0
+allow_greater = true
+texture_under = ExtResource("2_824o3")
+texture_progress = ExtResource("2_824o3")
+tint_under = Color(0, 0, 0, 0.745098)
+tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
+
+[node name="Health Overshoot" type="TextureProgressBar" parent="."]
+offset_left = 15.0
+offset_top = -27.0
+offset_right = 20.0
+offset_bottom = -22.0
+scale = Vector2(6, 1)
+value = 10.0
+allow_greater = true
+texture_progress = ExtResource("2_824o3")
+tint_progress = Color(0.945098, 0.32549, 0.219608, 0.815686)
 
 [node name="Appearance" type="Node2D" parent="."]
 
 [node name="Body" type="Sprite2D" parent="Appearance"]
-modulate = Color(0.818949, 0.402033, 0.36769, 1)
+modulate = Color(0.911601, 0.596331, 0.531721, 1)
 position = Vector2(0, -1)
 texture = SubResource("CompressedTexture2D_8p5o8")
 
 [node name="Hair" type="Sprite2D" parent="Appearance"]
 position = Vector2(0, -9)
-texture = ExtResource("2_q33nx")
+texture = ExtResource("2_hyw08")
 
 [node name="Bottom_Clothing" type="Sprite2D" parent="Appearance"]
 position = Vector2(-0.5, 8)
-texture = ExtResource("4_og0k4")
+texture = ExtResource("3_7lhbs")
 
 [node name="Top_Clothing" type="Sprite2D" parent="Appearance"]
 position = Vector2(-0.5, -1)
 texture = ExtResource("5_t0p24")
-
-[node name="Held_Item" type="Sprite2D" parent="Appearance/Top_Clothing"]
-position = Vector2(5.5, 6)
-texture = ExtResource("5_d2twl")
 
 [node name="Skin_Arm" type="Sprite2D" parent="Appearance/Top_Clothing"]
 position = Vector2(3.5, -5)
 texture = ExtResource("6_svp0k")
 offset = Vector2(1.5, 4.5)
 
-[node name="Clothing_Arm" type="Sprite2D" parent="Appearance/Top_Clothing/Skin_Arm"]
+[node name="Clothing_Arm2" type="Sprite2D" parent="Appearance/Top_Clothing/Skin_Arm"]
 texture = ExtResource("7_autx8")
 offset = Vector2(1.5, 4.5)
 
@@ -1411,18 +1440,37 @@ parameters/conditions/landed = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_pvyqu")
+&"": SubResource("AnimationLibrary_pvyqu")
 }
 
 [node name="Timers" type="Node2D" parent="."]
 
 [node name="Coyote Timer" type="Timer" parent="Timers"]
-wait_time = 0.2
+wait_time = 0.15
 one_shot = true
 
 [node name="Landing Impact" type="Timer" parent="Timers"]
 wait_time = 0.15
 one_shot = true
 
+[node name="Attack Cooldown" type="Timer" parent="Timers"]
+wait_time = 0.5
+
+[node name="Overeat" type="Timer" parent="Timers"]
+wait_time = 5.0
+
+[node name="Hurt Box" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 36
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurt Box"]
+position = Vector2(-26, 1.5)
+shape = SubResource("RectangleShape2D_824o3")
+
+[node name="ItemFrame" parent="." instance=ExtResource("16_cs30t")]
+position = Vector2(0, -44)
+
 [connection signal="timeout" from="Timers/Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Timers/Landing Impact" to="." method="_on_landing_impact_timeout"]
+[connection signal="timeout" from="Timers/Attack Cooldown" to="." method="_on_attack_cooldown_timeout"]
+[connection signal="timeout" from="Timers/Overeat" to="." method="_on_timer_timeout"]

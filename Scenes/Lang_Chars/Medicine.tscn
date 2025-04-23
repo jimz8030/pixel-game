@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bjgoqp5k30tw7"]
 
-[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_lalbr"]
+[ext_resource type="Script" uid="uid://4ftj87vr31qw" path="res://Scripts/Guessable_Char.gd" id="1_lalbr"]
 [ext_resource type="Texture2D" uid="uid://gs250nglgaas" path="res://Sprites/Lang Characters/Medicine.png" id="2_27xpe"]
 
 [node name="Medicine" type="Control"]

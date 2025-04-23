@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://b5jek7utm4fvg"]
 
-[ext_resource type="Script" path="res://Scripts/AI_1.gd" id="1_ftmom"]
+[ext_resource type="Script" uid="uid://dfnjoco3gf5xo" path="res://Scripts/AI_1.gd" id="1_ftmom"]
 [ext_resource type="Texture2D" uid="uid://b7htdveu80q7v" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Idle/pixil-frame-0.png" id="2_c7nm8"]
 [ext_resource type="Texture2D" uid="uid://optlm6lppo8c" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Idle/pixil-frame-1.png" id="3_agwjx"]
 [ext_resource type="Texture2D" uid="uid://b7lc5nak3echl" path="res://Sprites/NPCs/Wildlife/Dog/Dog_Idle/pixil-frame-2.png" id="4_4gv1q"]

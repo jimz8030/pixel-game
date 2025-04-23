@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://cfniu18kvs8v"]
 
-[ext_resource type="Script" path="res://Scripts/AI_1.gd" id="1_sdqli"]
+[ext_resource type="Script" uid="uid://dfnjoco3gf5xo" path="res://Scripts/AI_1.gd" id="1_sdqli"]
 [ext_resource type="Texture2D" uid="uid://dp708pua4n1or" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-0.png" id="2_cbnci"]
 [ext_resource type="Texture2D" uid="uid://6cx11j1h4cjm" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-1.png" id="3_g5se0"]
 [ext_resource type="Texture2D" uid="uid://gpp3jemjakb7" path="res://Sprites/NPCs/Wildlife/Cat/Cat_Idle/pixil-frame-2.png" id="4_j243d"]

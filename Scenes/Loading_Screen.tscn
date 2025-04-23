@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmrjv0mqolov"]
 
-[ext_resource type="Script" path="res://Scripts/mini_game.gd" id="1_q4lgr"]
+[ext_resource type="Script" uid="uid://d4mwuweglhtmh" path="res://Scripts/mini_game.gd" id="1_q4lgr"]
 [ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="2_ox2g6"]
 
 [node name="LoadingScreen" type="Node2D"]

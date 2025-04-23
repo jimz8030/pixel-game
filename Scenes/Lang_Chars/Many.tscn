@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmo4b1bfpml1x"]
 
-[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_lhugw"]
+[ext_resource type="Script" uid="uid://4ftj87vr31qw" path="res://Scripts/Guessable_Char.gd" id="1_lhugw"]
 [ext_resource type="Texture2D" uid="uid://cuyee24ronf0q" path="res://Sprites/Lang Characters/Many.png" id="2_b2um5"]
 
 [node name="Many" type="Control"]

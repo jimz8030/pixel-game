@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7xmb3tnsrhi2"
-path="res://.godot/imported/Weapon_Chest_Broke_3.png-36260d823c87097346f3050e5881d487.ctex"
+uid="uid://d0phnrg8bkmj"
+path="res://.godot/imported/Terrapus_Jump.png-7691583279d09b5333d07b03364847e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory/Weapons/Sprites/Weapon_Chest_Broke_3.png"
-dest_files=["res://.godot/imported/Weapon_Chest_Broke_3.png-36260d823c87097346f3050e5881d487.ctex"]
+source_file="res://Sprites/NPCs/Native/Terrapus/Terrapus_Jump.png"
+dest_files=["res://.godot/imported/Terrapus_Jump.png-7691583279d09b5333d07b03364847e1.ctex"]
 
 [params]
 

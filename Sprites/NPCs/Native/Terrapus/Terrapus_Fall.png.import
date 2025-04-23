@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ba3lugd254hvh"
-path="res://.godot/imported/Weapon_Chest.png-f6fc31407818a8914af38e6e0188e707.ctex"
+uid="uid://co273nce216wb"
+path="res://.godot/imported/Terrapus_Fall.png-fc1e41a8b3f87e3b85d5bdc0c466e8a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory/Weapons/Sprites/Weapon_Chest.png"
-dest_files=["res://.godot/imported/Weapon_Chest.png-f6fc31407818a8914af38e6e0188e707.ctex"]
+source_file="res://Sprites/NPCs/Native/Terrapus/Terrapus_Fall.png"
+dest_files=["res://.godot/imported/Terrapus_Fall.png-fc1e41a8b3f87e3b85d5bdc0c466e8a2.ctex"]
 
 [params]
 

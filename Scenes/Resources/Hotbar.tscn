@@ -1,7 +1,52 @@
-[gd_scene load_steps=3 format=3 uid="uid://b45sgkgm0762t"]
+[gd_scene load_steps=17 format=3 uid="uid://b45sgkgm0762t"]
 
-[ext_resource type="Texture2D" uid="uid://dil7o6fvfn5ws" path="res://Resources/Inventory/Inv_Sprites/HotBar.3.png" id="1_bv0gv"]
-[ext_resource type="PackedScene" uid="uid://bwgtngm60d3e7" path="res://Resources/Inventory/inv_ui_slot.tscn" id="3_hle34"]
+[sub_resource type="Resource" id="Resource_f2k56"]
+metadata/__load_path__ = "res://Resources/Inventory/Inv_Sprites/HotBar.3.png"
+
+[sub_resource type="Resource" id="Resource_bow0i"]
+metadata/__load_path__ = "res://Resources/Inventory/Inv_Sprites/HotBar.3.png"
+
+[sub_resource type="Resource" id="Resource_jr03h"]
+metadata/__load_path__ = "res://Resources/Inventory/Inv_Sprites/HotBar.3.png"
+
+[sub_resource type="Resource" id="Resource_l6a0i"]
+metadata/__load_path__ = "res://Resources/Inventory/Inv_Sprites/HotBar.3.png"
+
+[sub_resource type="Resource" id="Resource_ubfwj"]
+metadata/__load_path__ = "res://Resources/Inventory/Inv_Sprites/HotBar.3.png"
+
+[sub_resource type="Resource" id="Resource_evfwu"]
+metadata/__load_path__ = "res://Resources/Inventory/Inv_Sprites/HotBar.3.png"
+
+[sub_resource type="Resource" id="Resource_yxtj0"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_bgvgm"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_8u5uw"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_7cdlb"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_8q51b"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_io8hs"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_71yw7"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_pw38h"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_ipvm4"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_jnqmm"]
+metadata/__load_path__ = "res://Resources/Inventory/inv_ui_slot.tscn"
 
 [node name="Hotbar" type="Control"]
 layout_mode = 3
@@ -24,9 +69,9 @@ scale = Vector2(5, 5)
 step = 0.5
 value = 15.0
 fill_mode = 3
-texture_under = ExtResource("1_bv0gv")
-texture_over = ExtResource("1_bv0gv")
-texture_progress = ExtResource("1_bv0gv")
+texture_under = SubResource("Resource_f2k56")
+texture_over = SubResource("Resource_bow0i")
+texture_progress = SubResource("Resource_jr03h")
 tint_under = Color(1, 1, 1, 0)
 tint_over = Color(0.65098, 0.180392, 0.235294, 1)
 tint_progress = Color(0, 1, 1, 1)
@@ -48,9 +93,9 @@ scale = Vector2(5, 5)
 step = 0.5
 value = 15.0
 fill_mode = 3
-texture_under = ExtResource("1_bv0gv")
-texture_over = ExtResource("1_bv0gv")
-texture_progress = ExtResource("1_bv0gv")
+texture_under = SubResource("Resource_l6a0i")
+texture_over = SubResource("Resource_ubfwj")
+texture_progress = SubResource("Resource_evfwu")
 tint_under = Color(1, 1, 1, 0)
 tint_over = Color(0.545098, 0.780392, 0.713726, 1)
 tint_progress = Color(0.65098, 0.180392, 0.235294, 1)
@@ -73,42 +118,42 @@ offset_bottom = 73.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="Inv_UI_Slot_1" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_1" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_2" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_2" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_3" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_3" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_4" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_4" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_5" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_5" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_6" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_6" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_7" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_7" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_8" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_8" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_9" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_9" parent="GridContainer"]
 layout_mode = 2
 script = null
 
-[node name="Inv_UI_Slot_10" parent="GridContainer" instance=ExtResource("3_hle34")]
+[node name="Inv_UI_Slot_10" parent="GridContainer"]
 layout_mode = 2
 script = null

@@ -1,0 +1,419 @@
+[gd_scene load_steps=34 format=3 uid="uid://ca4j3fefh5812"]
+
+[ext_resource type="Script" uid="uid://b262f4myj4klh" path="res://Scripts/AI_6_Neutral.gd" id="1_kn0hl"]
+[ext_resource type="Texture2D" uid="uid://5jussxn5gn8k" path="res://Sprites/NPCs/Native/Terrapus/Terrapus_Idle.png" id="3_kws46"]
+[ext_resource type="Texture2D" uid="uid://bf01y3y2wcnth" path="res://Sprites/NPCs/Native/Terrapus/Terrapus_Walk.png" id="4_27oqi"]
+[ext_resource type="Texture2D" uid="uid://b6vsj7pgpppsv" path="res://Sprites/Lang Characters/Bond.png" id="4_ycohf"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="5_3hdoa"]
+[ext_resource type="Texture2D" uid="uid://cqn764jymb785" path="res://Sprites/Lang Characters/No.png" id="5_cv635"]
+[ext_resource type="Texture2D" uid="uid://bu0fh5hsmwghb" path="res://Sprites/Lang Characters/1st.png" id="5_vupu6"]
+[ext_resource type="Texture2D" uid="uid://20d51rfmda4s" path="res://Sprites/Lang Characters/Hunt.png" id="6_17iy2"]
+[ext_resource type="Texture2D" uid="uid://co273nce216wb" path="res://Sprites/NPCs/Native/Terrapus/Terrapus_Fall.png" id="6_en6ac"]
+[ext_resource type="Texture2D" uid="uid://d0phnrg8bkmj" path="res://Sprites/NPCs/Native/Terrapus/Terrapus_Jump.png" id="7_fj5o4"]
+[ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="11_osk2w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6hryh"]
+radius = 280.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouj61"]
+size = Vector2(16, 13)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a05jy"]
+radius = 5.0
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wwwwv"]
+animation = &"TrPus Falling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fwkcj"]
+animation = &"TrPus Moving"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2f23t"]
+animation = &"TrPus Jumping"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dxm80"]
+animation = &"TrPus Idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mf8sk"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1miar"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mypy3"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uyq8a"]
+advance_mode = 2
+advance_condition = &"is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0es00"]
+advance_mode = 2
+advance_condition = &"is_falling"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c72ut"]
+advance_mode = 2
+advance_condition = &"is_jumping"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_efjlm"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_h0cjk"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mhun0"]
+"states/TrPus Falling/node" = SubResource("AnimationNodeAnimation_wwwwv")
+"states/TrPus Falling/position" = Vector2(628, -47.5)
+"states/TrPus Idle/node" = SubResource("AnimationNodeAnimation_fwkcj")
+"states/TrPus Idle/position" = Vector2(372.5, 97.75)
+"states/TrPus Jumping/node" = SubResource("AnimationNodeAnimation_2f23t")
+"states/TrPus Jumping/position" = Vector2(412.5, -39.5)
+"states/TrPus Moving/node" = SubResource("AnimationNodeAnimation_dxm80")
+"states/TrPus Moving/position" = Vector2(669, 96)
+transitions = ["TrPus Moving", "TrPus Idle", SubResource("AnimationNodeStateMachineTransition_mf8sk"), "TrPus Idle", "TrPus Moving", SubResource("AnimationNodeStateMachineTransition_1miar"), "Start", "TrPus Idle", SubResource("AnimationNodeStateMachineTransition_mypy3"), "TrPus Jumping", "TrPus Falling", SubResource("AnimationNodeStateMachineTransition_uyq8a"), "TrPus Idle", "TrPus Falling", SubResource("AnimationNodeStateMachineTransition_0es00"), "TrPus Moving", "TrPus Jumping", SubResource("AnimationNodeStateMachineTransition_c72ut"), "TrPus Falling", "TrPus Moving", SubResource("AnimationNodeStateMachineTransition_efjlm"), "TrPus Falling", "TrPus Idle", SubResource("AnimationNodeStateMachineTransition_h0cjk")]
+graph_offset = Vector2(158, -106)
+
+[sub_resource type="Animation" id="Animation_byl01"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_kws46")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_0eqxu"]
+resource_name = "TrPus Falling"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_en6ac")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_xewhr"]
+resource_name = "TrPus Idle"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("4_27oqi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.15, 0.3, 0.45, 0.6, 0.75, 0.9, 1.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_oos70"]
+resource_name = "TrPus Jumping"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fj5o4")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_aotaq"]
+resource_name = "TrPus Moving"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_kws46")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86gwy"]
+_data = {
+&"RESET": SubResource("Animation_byl01"),
+&"TrPus Falling": SubResource("Animation_0eqxu"),
+&"TrPus Idle": SubResource("Animation_xewhr"),
+&"TrPus Jumping": SubResource("Animation_oos70"),
+&"TrPus Moving": SubResource("Animation_aotaq")
+}
+
+[node name="Terrapus" type="CharacterBody2D"]
+collision_layer = 32
+script = ExtResource("1_kn0hl")
+total_health = 10
+will_envy_valuable = true
+
+[node name="Sight Area" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 6
+monitorable = false
+
+[node name="Personal Bubble" type="CollisionShape2D" parent="Sight Area"]
+shape = SubResource("CircleShape2D_6hryh")
+debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
+
+[node name="Consume Area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 6
+collision_priority = 0.0
+monitorable = false
+
+[node name="Feel Area" type="CollisionShape2D" parent="Consume Area"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_ouj61")
+debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -0.5)
+texture = ExtResource("3_kws46")
+hframes = 4
+
+[node name="Body Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+shape = SubResource("CircleShape2D_a05jy")
+debug_color = Color(0.966468, 1.92523e-07, 0.480345, 0.42)
+
+[node name="Timers" type="Node2D" parent="."]
+
+[node name="Reaction Time" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="Interest Cooldown" type="Timer" parent="Timers"]
+wait_time = 3.0
+one_shot = true
+
+[node name="Wander Timer" type="Timer" parent="Timers"]
+autostart = true
+
+[node name="Hunger" type="Timer" parent="Timers"]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[node name="JumpCast Right" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+target_position = Vector2(20, 0)
+
+[node name="JumpCast Left" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(0, -3)
+target_position = Vector2(-20, 0)
+
+[node name="Bonded" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, -17)
+texture = ExtResource("4_ycohf")
+
+[node name="Amount" type="Label" parent="Bonded"]
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 29.0
+offset_bottom = 16.0
+scale = Vector2(0.33, 0.33)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_3hdoa")
+text = "1
+"
+metadata/_edit_use_anchors_ = true
+
+[node name="Refuse" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -25)
+texture = ExtResource("5_cv635")
+
+[node name="Hunting" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, -17)
+texture = ExtResource("5_vupu6")
+
+[node name="You" type="Sprite2D" parent="Hunting"]
+position = Vector2(7, 0)
+texture = ExtResource("6_17iy2")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_mhun0")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_falling = false
+parameters/conditions/is_idle = false
+parameters/conditions/is_jumping = false
+parameters/conditions/is_moving = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_86gwy")
+}
+
+[node name="Health Bar" type="TextureProgressBar" parent="."]
+offset_left = -15.0
+offset_top = -27.0
+offset_right = -10.0
+offset_bottom = -22.0
+scale = Vector2(6, 1)
+max_value = 32.0
+value = 10.0
+texture_under = ExtResource("11_osk2w")
+texture_progress = ExtResource("11_osk2w")
+tint_under = Color(0, 0, 0, 0.745098)
+tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
+
+[connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_body_entered"]
+[connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_body_exited"]
+[connection signal="body_entered" from="Consume Area" to="." method="_on_consume_area_body_entered"]
+[connection signal="body_exited" from="Consume Area" to="." method="_on_consume_area_body_exited"]
+[connection signal="timeout" from="Timers/Reaction Time" to="." method="_on_crumb_timer_timeout"]
+[connection signal="timeout" from="Timers/Interest Cooldown" to="." method="_on_detection_cooldown_timeout"]
+[connection signal="timeout" from="Timers/Wander Timer" to="." method="_on_wander_timer_timeout"]

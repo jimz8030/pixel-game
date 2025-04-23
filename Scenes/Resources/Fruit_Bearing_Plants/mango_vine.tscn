@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://d13luno7tf1wa"]
 
 [ext_resource type="Texture2D" uid="uid://bd61oemyqfeis" path="res://Sprites/Environment/Flora/Mango.png" id="1_lpd6q"]
-[ext_resource type="Script" path="res://Scripts/Plant-Fruit.gd" id="1_xxeoa"]
+[ext_resource type="Script" uid="uid://fn2rs8nwe3jd" path="res://Scripts/Plant-Fruit.gd" id="1_xxeoa"]
 [ext_resource type="Texture2D" uid="uid://4ilff1c7jxte" path="res://Sprites/Environment/Flora/MangoVine.png" id="2_44q8k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfah0"]

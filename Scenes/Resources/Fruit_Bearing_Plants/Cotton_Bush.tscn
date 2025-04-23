@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0mxfvlpw4xh1"]
+[gd_scene load_steps=5 format=3 uid="uid://c0mxfvlpw4xh1"]
 
-[ext_resource type="Script" path="res://Scripts/Plant-Fruit.gd" id="1_k3cnv"]
+[ext_resource type="Script" uid="uid://fn2rs8nwe3jd" path="res://Scripts/Plant-Fruit.gd" id="1_k3cnv"]
 [ext_resource type="Texture2D" uid="uid://c4yj8eya7ued7" path="res://Sprites/Environment/Flora/CottonBush.png" id="2_n3p8k"]
+[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="3_frf0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfah0"]
 size = Vector2(30, 34)
@@ -21,13 +22,16 @@ position = Vector2(0, -19)
 texture = ExtResource("2_n3p8k")
 
 [node name="Regrow Time" type="Timer" parent="."]
-wait_time = 40.0
+wait_time = 3.0
 one_shot = true
-autostart = true
 
 [node name="Drop Time" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 10.0
 one_shot = true
+
+[node name="Cotton" parent="." instance=ExtResource("3_frf0y")]
+position = Vector2(11, -24)
+freeze = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

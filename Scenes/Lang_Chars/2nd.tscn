@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://yfxy7u3fscra"]
 
-[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_igij3"]
+[ext_resource type="Script" uid="uid://4ftj87vr31qw" path="res://Scripts/Guessable_Char.gd" id="1_igij3"]
 [ext_resource type="Texture2D" uid="uid://dvwpeb84rc805" path="res://Sprites/Lang Characters/2nd.png" id="2_j3bpe"]
 
 [node name="2nd" type="Control"]

@@ -1,8 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmilc6v55ij7y"]
+[gd_scene load_steps=19 format=3 uid="uid://dmilc6v55ij7y"]
 
-[ext_resource type="Script" path="res://Scripts/AI_6_Neutral.gd" id="1_8snx2"]
+[ext_resource type="Script" uid="uid://b262f4myj4klh" path="res://Scripts/AI_6_Neutral.gd" id="1_8snx2"]
 [ext_resource type="Texture2D" uid="uid://x7wr8tw13i4q" path="res://Sprites/NPCs/Native/Slime/Slime_Idle.png" id="2_4xhbp"]
 [ext_resource type="Texture2D" uid="uid://cevj4r0qven5k" path="res://Sprites/NPCs/Native/Slime/Slime_Move.png" id="3_s4ino"]
+[ext_resource type="Texture2D" uid="uid://b6vsj7pgpppsv" path="res://Sprites/Lang Characters/Bond.png" id="4_cjbk0"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="5_bmsut"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6hryh"]
 radius = 300.002
@@ -21,7 +23,6 @@ animation = &"Move"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ditl"]
 advance_mode = 2
-advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8s282"]
 advance_mode = 2
@@ -37,7 +38,7 @@ states/Idle/position = Vector2(394.5, 100.75)
 states/Move/node = SubResource("AnimationNodeAnimation_8xe35")
 states/Move/position = Vector2(595.5, 100.375)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_1ditl"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_8s282"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_xshwp")]
-graph_offset = Vector2(48, -166)
+graph_offset = Vector2(94, -57)
 
 [sub_resource type="Animation" id="Animation_fabq3"]
 resource_name = "Idle"
@@ -162,9 +163,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7xajp"]
 _data = {
-"Idle": SubResource("Animation_fabq3"),
-"Move": SubResource("Animation_shmay"),
-"RESET": SubResource("Animation_5iaue")
+&"Idle": SubResource("Animation_fabq3"),
+&"Move": SubResource("Animation_shmay"),
+&"RESET": SubResource("Animation_5iaue")
 }
 
 [node name="Slime" type="CharacterBody2D"]
@@ -173,6 +174,7 @@ script = ExtResource("1_8snx2")
 player_opinion = 2.0
 
 [node name="Sight Area" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 6
 monitorable = false
@@ -183,7 +185,7 @@ debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
 
 [node name="Consume Area" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 6
 collision_priority = 0.0
 monitorable = false
 
@@ -242,6 +244,23 @@ target_position = Vector2(20, 0)
 visible = false
 position = Vector2(0, -3)
 target_position = Vector2(-20, 0)
+
+[node name="Bonded" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-3, -17)
+texture = ExtResource("4_cjbk0")
+
+[node name="Amount" type="Label" parent="Bonded"]
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 29.0
+offset_bottom = 16.0
+scale = Vector2(0.33, 0.33)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_bmsut")
+text = "1
+"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_body_entered"]
 [connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_body_exited"]

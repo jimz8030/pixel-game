@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://demrclqsq1egd"]
 
-[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_gos2b"]
+[ext_resource type="Script" uid="uid://4ftj87vr31qw" path="res://Scripts/Guessable_Char.gd" id="1_gos2b"]
 [ext_resource type="Texture2D" uid="uid://du1uyx1cq76k8" path="res://Sprites/Lang Characters/Business.png" id="2_n7qb7"]
 
 [node name="Business" type="Control"]

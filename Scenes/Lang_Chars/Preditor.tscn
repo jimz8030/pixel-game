@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://6rfcqpty2bmr"]
 
-[ext_resource type="Script" path="res://Scripts/Guessable_Char.gd" id="1_g5ntw"]
+[ext_resource type="Script" uid="uid://4ftj87vr31qw" path="res://Scripts/Guessable_Char.gd" id="1_g5ntw"]
 [ext_resource type="Texture2D" uid="uid://du340j0n2blee" path="res://Sprites/Lang Characters/Preditor.png" id="2_nr6q8"]
 
 [node name="Preditor" type="Control"]

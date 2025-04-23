@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b76y2oaow36nk"]
 
 [ext_resource type="Texture2D" uid="uid://d16qhgnmv0k0d" path="res://Sprites/Environment/Tile Maps/pixil-frame-0 (3).png" id="3_4x6fx"]
-[ext_resource type="Script" path="res://Scripts/map_gen.gd" id="3_n5cae"]
+[ext_resource type="Script" uid="uid://ditby7oywaiug" path="res://Scripts/map_gen.gd" id="3_n5cae"]
 [ext_resource type="Texture2D" uid="uid://dkwtwkifsn2hj" path="res://Sprites/Environment/Skybox/Hiberna/Skybox.png" id="7_27i8y"]
 [ext_resource type="Texture2D" uid="uid://xdwsb57kv4gn" path="res://Sprites/Environment/Skybox/Hiberna/MidGround.png" id="8_60aar"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_1up77"]

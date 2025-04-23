@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6htrygve7oi8"
-path="res://.godot/imported/Weapon_Chest_Broke_1.png-026c953c8f9de8d2569455c00024d71f.ctex"
+uid="uid://bwp1kl5fqbaw6"
+path="res://.godot/imported/Chest.png-017d8397062a17fb93a3b0c3debc27a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Inventory/Weapons/Sprites/Weapon_Chest_Broke_1.png"
-dest_files=["res://.godot/imported/Weapon_Chest_Broke_1.png-026c953c8f9de8d2569455c00024d71f.ctex"]
+source_file="res://Chest.png"
+dest_files=["res://.godot/imported/Chest.png-017d8397062a17fb93a3b0c3debc27a2.ctex"]
 
 [params]
 

@@ -1,17 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7dieiyw60f3i"]
+[gd_scene load_steps=15 format=3 uid="uid://b7dieiyw60f3i"]
 
-[ext_resource type="Script" path="res://Scripts/Cam_Move.gd" id="1_67esq"]
-[ext_resource type="PackedScene" uid="uid://cds386o1s71ur" path="res://Inventory/Item_Frame.tscn" id="3_m20nj"]
+[ext_resource type="Script" uid="uid://7ov5eq7usb1o" path="res://Scripts/Cam_Move.gd" id="1_67esq"]
 [ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
 [ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Fruit_Bearing_Plants/Cotton_Bush.tscn" id="7_iv5cg"]
 [ext_resource type="PackedScene" uid="uid://pqra1r2710k2" path="res://Scenes/PlayerBody_2.tscn" id="8_3tg4l"]
-[ext_resource type="PackedScene" uid="uid://dmilc6v55ij7y" path="res://Scenes/Resources/NPCs/Slime.tscn" id="8_dryg6"]
 [ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
-[ext_resource type="PackedScene" uid="uid://bj8nhvy7xdlvk" path="res://Inventory/Weapons/Weapon_Chest/Weapon_Chest.tscn" id="9_t17do"]
-[ext_resource type="PackedScene" uid="uid://c7yr6jgmhdp1b" path="res://Inventory/Weapons/Weapon_Chest/W_Chest_Broken_1.tscn" id="10_nucts"]
-[ext_resource type="PackedScene" uid="uid://bb6fti7a5why4" path="res://Inventory/Weapons/Weapon_Chest/W_Chest_Broken_2.tscn" id="11_p7qwe"]
-[ext_resource type="PackedScene" uid="uid://bmhjgma6t1nxw" path="res://Inventory/Weapons/Weapon_Chest/W_Chest_Broken_3.tscn" id="12_hcfmt"]
+[ext_resource type="PackedScene" uid="uid://bj8nhvy7xdlvk" path="res://Scenes/Resources/Machines/Weapon_Chest.tscn" id="9_t17do"]
+[ext_resource type="PackedScene" uid="uid://c5nsb75b3pcqx" path="res://Inventory/Inventory_Items/Dagger.tscn" id="10_iqggt"]
+[ext_resource type="PackedScene" uid="uid://nvyd8v04kk00" path="res://Scenes/Resources/Machines/Dispenser.tscn" id="11_ojm4g"]
+[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="11_r235b"]
+[ext_resource type="PackedScene" uid="uid://ca4j3fefh5812" path="res://Scenes/Resources/NPCs/Terrapus.tscn" id="12_b8cag"]
+[ext_resource type="Script" uid="uid://cq5tqqth8v446" path="res://Scripts/scene_manager.gd" id="13_r235b"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="14_4txwh"]
+[ext_resource type="PackedScene" uid="uid://3vxm3ljsuolg" path="res://Scenes/Resources/Machines/Fancy_Chest.tscn" id="14_wjyym"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,182 +23,187 @@ zoom = Vector2(2, 2)
 script = ExtResource("1_67esq")
 
 [node name="PlayerBody" parent="." instance=ExtResource("8_3tg4l")]
-position = Vector2(0, -31.165)
+position = Vector2(0, 24)
 collision_layer = 2
 
-[node name="ItemFrame" parent="PlayerBody" instance=ExtResource("3_m20nj")]
-position = Vector2(0, -44)
+[node name="Mango3" parent="." instance=ExtResource("9_6yukn")]
+position = Vector2(435, 672)
 
-[node name="Mango" parent="." instance=ExtResource("9_6yukn")]
-position = Vector2(86, -130)
+[node name="Mango4" parent="." instance=ExtResource("9_6yukn")]
+position = Vector2(-232, 690)
+
+[node name="Terrapus" parent="." instance=ExtResource("12_b8cag")]
+position = Vector2(-22, 255)
+
+[node name="Terrapus2" parent="." instance=ExtResource("12_b8cag")]
+modulate = Color(0.676433, 1, 0.664622, 1)
+position = Vector2(319, 645)
+
+[node name="Terrapus3" parent="." instance=ExtResource("12_b8cag")]
+modulate = Color(0.965094, 0.661446, 0.477317, 1)
+position = Vector2(-159, 655)
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2(-15, 70)
 
 [node name="Platform" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(6, 20)
+position = Vector2(251, 22)
 scale = Vector2(12, 10)
 collision_mask = 6
 
 [node name="Platform11" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-167, 339)
+position = Vector2(30, 306)
 scale = Vector2(22, 10)
 collision_mask = 6
 
-[node name="Platform19" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(151, 1084)
-scale = Vector2(20, 10)
-collision_mask = 6
-
-[node name="Platform23" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-194, 1128)
-scale = Vector2(16, 10)
-collision_mask = 6
-
 [node name="Platform15" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(99, 417)
-scale = Vector2(6, 12)
+position = Vector2(-244, 487)
+scale = Vector2(6, 3)
+collision_mask = 6
+
+[node name="Platform17" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(547, 516)
+scale = Vector2(11, 3)
 collision_mask = 6
 
 [node name="Platform6" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(284, 99)
+position = Vector2(18, 88)
 scale = Vector2(18, 2)
 collision_mask = 6
 
 [node name="Platform7" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(427, 83)
-scale = Vector2(4, 2)
+position = Vector2(52, 49)
+scale = Vector2(8, 4)
 collision_mask = 6
 
 [node name="Platform8" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(457, 68)
+position = Vector2(138, 8)
 scale = Vector2(4, 4)
 collision_mask = 6
 
-[node name="Platform12" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(415, 330)
-scale = Vector2(3, 4)
-collision_mask = 6
-
 [node name="Platform14" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(254, 549)
+position = Vector2(344, 334)
 scale = Vector2(10, 10)
 collision_mask = 6
 
 [node name="Platform16" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(584, 1007)
-scale = Vector2(10, 10)
-collision_mask = 6
-
-[node name="Platform17" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(408, 980)
-scale = Vector2(8, 10)
-collision_mask = 6
-
-[node name="Platform18" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(403, 1038)
-scale = Vector2(8, 10)
+position = Vector2(524, -37)
+scale = Vector2(2, 4)
 collision_mask = 6
 
 [node name="Platform3" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-149, 10)
+position = Vector2(-149, 118)
 scale = Vector2(4, 5)
 collision_mask = 6
 
 [node name="Platform4" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-340, -1)
-scale = Vector2(7, 4)
+position = Vector2(-368, 287)
+scale = Vector2(7, 23)
 collision_mask = 6
 
 [node name="Platform10" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(643, 351)
-scale = Vector2(4, 32)
+position = Vector2(584, 160)
+scale = Vector2(8, 20)
 collision_mask = 6
 
 [node name="Platform5" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-564, 291)
+position = Vector2(-636, 59)
 scale = Vector2(20, 64)
 collision_mask = 6
 
+[node name="Platform12" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(193, -534)
+scale = Vector2(64, 20)
+collision_mask = 6
+
 [node name="Platform9" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(878, 376)
+position = Vector2(856, 376)
 scale = Vector2(20, 74)
 collision_mask = 6
 
-[node name="Platform2" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(90, -122.2)
-scale = Vector2(3, 1.4)
-collision_mask = 6
-
 [node name="Platform21" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(99, -137)
-scale = Vector2(2.135, 2.905)
+position = Vector2(151, -125)
+scale = Vector2(2, 1.5)
 collision_mask = 6
 
 [node name="Platform20" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-850, 1108)
-scale = Vector2(50, 10)
-collision_mask = 6
-
-[node name="Platform26" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-1250, 849)
-scale = Vector2(10, 20)
-collision_mask = 6
-
-[node name="Platform25" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-959, 699)
-scale = Vector2(20, 10)
-collision_mask = 6
-
-[node name="Platform22" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-469, 950)
-scale = Vector2(3, 3)
-collision_mask = 6
-
-[node name="Platform28" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-793, 921)
-scale = Vector2(3, 1)
-collision_mask = 6
-
-[node name="Platform27" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-974, 997)
-scale = Vector2(3, 3)
+position = Vector2(47.0001, 731)
+scale = Vector2(63.32, 10)
 collision_mask = 6
 
 [node name="Platform24" parent="Map" instance=ExtResource("9_kghhe")]
-position = Vector2(-30, 927)
-scale = Vector2(3, 3)
+position = Vector2(223, 503)
+scale = Vector2(8, 10)
 collision_mask = 6
 
 [node name="JumpPad" parent="Map" instance=ExtResource("4_2jut1")]
-position = Vector2(395, 867)
-jump_boost = 940
+position = Vector2(409, 617)
+jump_boost = 550
 
 [node name="JumpPad3" parent="Map" instance=ExtResource("4_2jut1")]
-position = Vector2(173, 436)
-jump_boost = 600
-
-[node name="JumpPad2" parent="Map" instance=ExtResource("4_2jut1")]
-position = Vector2(-228, 226)
+position = Vector2(495, 472)
 jump_boost = 800
 
-[node name="Slime" parent="." instance=ExtResource("8_dryg6")]
-position = Vector2(339, -155)
+[node name="JumpPad2" parent="Map" instance=ExtResource("4_2jut1")]
+position = Vector2(-241, 443)
+jump_boost = 1000
 
-[node name="Cotton_Bush" parent="." instance=ExtResource("7_iv5cg")]
-position = Vector2(-357, 29)
+[node name="Cotton_Bush" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(-205, 631)
 
-[node name="Cotton_Bush2" parent="." instance=ExtResource("7_iv5cg")]
-position = Vector2(144, 149)
+[node name="Cotton_Bush2" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(-50, 206)
 
-[node name="Weapon_Chest" parent="." instance=ExtResource("9_t17do")]
-position = Vector2(-113, -45)
+[node name="Cotton_Bush3" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(629, -40)
 
-[node name="Piece" parent="." instance=ExtResource("10_nucts")]
-position = Vector2(-157, -16)
+[node name="Weapon_Chest1" parent="." instance=ExtResource("9_t17do")]
+position = Vector2(567, -3)
+rotation = 1.13795
+held_items = Array[PackedScene]([ExtResource("9_6yukn"), null, null, null])
 
-[node name="Piece2" parent="." instance=ExtResource("11_p7qwe")]
-position = Vector2(-170, -17)
+[node name="Weapon_Chest2" parent="." instance=ExtResource("9_t17do")]
+position = Vector2(32, 53)
+rotation = 1.13795
+held_items = Array[PackedScene]([ExtResource("11_r235b"), ExtResource("9_6yukn"), null, null])
 
-[node name="Piece3" parent="." instance=ExtResource("12_hcfmt")]
-position = Vector2(-142, -15)
+[node name="Dispenser" parent="." instance=ExtResource("11_ojm4g")]
+position = Vector2(171, -43)
+
+[node name="Dispenser2" parent="." instance=ExtResource("11_ojm4g")]
+position = Vector2(67, 69)
+
+[node name="Dispenser3" parent="." instance=ExtResource("11_ojm4g")]
+position = Vector2(99, -43)
+
+[node name="Scene_Manager" type="Node2D" parent="."]
+script = ExtResource("13_r235b")
+
+[node name="Weapon_Chest3" parent="." instance=ExtResource("14_wjyym")]
+position = Vector2(-254, 654)
+held_items = Array[PackedScene]([ExtResource("10_iqggt"), null, null, null])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="kill_counter" type="Label" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 5.0
+offset_right = 72.0
+offset_bottom = 28.0
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("14_4txwh")
+text = "0"
+
+[node name="Kill_Instruction" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -315.0
+offset_top = 13.0
+offset_right = -157.0
+offset_bottom = 36.0
+grow_horizontal = 2
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("14_4txwh")
+text = "SHIFT to attack"

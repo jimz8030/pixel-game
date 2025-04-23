@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5kl6ikb8s0tg"]
+
+[ext_resource type="Script" uid="uid://cq5tqqth8v446" path="res://Scripts/scene_manager.gd" id="1_0jrhr"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="2_y40gx"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_0jrhr")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CONTROLS" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -609.0
+offset_top = 107.0
+offset_right = -315.0
+offset_bottom = 214.0
+grow_horizontal = 2
+scale = Vector2(3, 3)
+theme_override_fonts/font = ExtResource("2_y40gx")
+text = "WASD to Move
+
+CLICK and DRAG to hold items
+
+F to use held items"
+metadata/_edit_use_anchors_ = true
+
+[node name="BEGIN" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 2.0
+offset_bottom = -119.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("2_y40gx")
+action_mode = 0
+text = "BEGIN"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/BEGIN" to="." method="_on_try_again_loser_pressed"]
