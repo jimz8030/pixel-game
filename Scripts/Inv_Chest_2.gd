@@ -26,7 +26,7 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		
 		#get cursor position and make a "feeler" (or the pointer) follow it
-		var event_pos = (event.position / Vector2(2,2)) + Vector2(-345,-148)
+		var event_pos = (event.position + Vector2(-314,-130))
 		$Pointer.set_position(event_pos)
 		line_of_sight_1.set_target_position((event_pos + Vector2(4,-34)) * 1.1)
 		line_of_sight_2.set_target_position((event_pos + Vector2(4,-28)) *1.1)
@@ -109,8 +109,8 @@ func _input(event: InputEvent) -> void:
 			selected_item.freeze = true
 			selected_item.get_child(2).disabled = true
 			selected_item.reparent(get_parent().get_node("Appearance/Top_Clothing"))
-			get_parent().get_node("Appearance/Top_Clothing").get_child(1).position = Vector2(0,0)
-			get_parent().get_node("Appearance/Top_Clothing").get_child(1).rotation = 45
+			get_parent().get_node("Appearance/Top_Clothing").get_child(0).position = Vector2(0,0)
+			get_parent().get_node("Appearance/Top_Clothing").get_child(0).rotation = 45
 		selected_item = null
 
 

@@ -280,7 +280,7 @@ func _on_consume_area_body_entered(body: Node2D) -> void:
 	
 	#ATTACK
 	if body == player and player_opinion < 3:
-		player_opinion += 0.3
+		player_opinion += 0.5
 		body.current_health -= 8
 		body.velocity = Vector2(self.velocity.x * 4, -200)
 	

@@ -52,10 +52,12 @@ shape = SubResource("RectangleShape2D_qd8yw")
 curve = SubResource("Curve2D_45rtp")
 
 [node name="Line_of_Sight_1" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-1, 31)
 collision_mask = 77
 
 [node name="Line_of_Sight_2" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-1, 31)
 collision_mask = 77
 

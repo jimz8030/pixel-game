@@ -1,0 +1,102 @@
+[gd_scene load_steps=9 format=3 uid="uid://einchx0n761s"]
+
+[ext_resource type="Script" uid="uid://cq5tqqth8v446" path="res://Scripts/scene_manager.gd" id="1_lbk0v"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="2_c5ooh"]
+[ext_resource type="Texture2D" uid="uid://bciy2t66f1r1y" path="res://Sprites/Player_Sprites/Animations/Idle.png" id="3_kdxhr"]
+[ext_resource type="Texture2D" uid="uid://b2xyp6jda1x82" path="res://Sprites/Player_Sprites/Hair/H6.png" id="4_811te"]
+[ext_resource type="Texture2D" uid="uid://cdltlhbb3wwov" path="res://Sprites/Player_Sprites/Bottom_Clothing/Bott.8.png" id="5_xi38b"]
+[ext_resource type="Texture2D" uid="uid://cv04030smrt0f" path="res://Sprites/Player_Sprites/Top_Clothing/Clothing_Arms/A10.png" id="6_btgel"]
+[ext_resource type="Texture2D" uid="uid://bg5lr3k2aj7no" path="res://Sprites/Player_Sprites/Top_Clothing/T10_F1.png" id="7_7hr6d"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v3ib1"]
+load_path = "res://.godot/imported/F2.png-352b04a2945c13702189c0514e6c7fbc.ctex"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lbk0v")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.168627, 0, 0, 1)
+
+[node name="TEXT" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.185937
+anchor_bottom = 0.122222
+offset_left = -302.0
+offset_top = 33.0
+offset_right = -8.0
+offset_bottom = 140.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("2_c5ooh")
+text = "SKIN
+
+HEAD
+
+TOP
+
+BOTTOM"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CONTINUE" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -56.0
+offset_right = 102.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_c5ooh")
+action_mode = 0
+text = "CONTINUE"
+metadata/_edit_use_anchors_ = true
+
+[node name="Appearance" type="Node2D" parent="."]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(-16.27, -14.97)
+
+[node name="Body" type="Sprite2D" parent="Appearance"]
+modulate = Color(0.911601, 0.596331, 0.531721, 1)
+light_mask = 0
+position = Vector2(0, -1)
+texture = ExtResource("3_kdxhr")
+hframes = 4
+
+[node name="Hair" type="Sprite2D" parent="Appearance"]
+position = Vector2(0, -9)
+texture = ExtResource("4_811te")
+
+[node name="Bottom_Clothing" type="Sprite2D" parent="Appearance"]
+visible = false
+position = Vector2(-0.5, 8)
+texture = ExtResource("5_xi38b")
+
+[node name="Skin_Arm" type="Sprite2D" parent="Appearance"]
+position = Vector2(3, -6)
+texture = SubResource("CompressedTexture2D_v3ib1")
+offset = Vector2(1.5, 4.5)
+
+[node name="Clothing_Arm2" type="Sprite2D" parent="Appearance/Skin_Arm"]
+visible = false
+texture = ExtResource("6_btgel")
+offset = Vector2(1.5, 4.5)
+
+[node name="Top_Clothing" type="Sprite2D" parent="Appearance"]
+visible = false
+position = Vector2(-0.5, -1)
+texture = ExtResource("7_7hr6d")
+
+[connection signal="pressed" from="CanvasLayer/CONTINUE" to="." method="_on_try_again_loser_pressed"]

@@ -15,12 +15,18 @@ run/main_scene="uid://b5kl6ikb8s0tg"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
 
+[autoload]
+
+Customization="*res://Scripts/customization.gd"
+
 [display]
 
-window/size/viewport_width=1380
-window/size/viewport_height=770
+window/size/viewport_width=640
+window/size/viewport_height=360
 window/size/mode=2
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://5ejt3h4ljbwy"
+mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [dotnet]
 
