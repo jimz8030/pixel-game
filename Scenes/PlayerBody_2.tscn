@@ -1,22 +1,36 @@
-[gd_scene load_steps=99 format=3 uid="uid://pqra1r2710k2"]
+[gd_scene load_steps=111 format=3 uid="uid://pqra1r2710k2"]
 
 [ext_resource type="Script" uid="uid://tjsr01jyy3wl" path="res://Scripts/Control_Player_2.gd" id="1_o32u1"]
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_824o3"]
-[ext_resource type="Texture2D" uid="uid://b2xyp6jda1x82" path="res://Sprites/Player_Sprites/Hair/H6.png" id="2_hyw08"]
-[ext_resource type="Texture2D" uid="uid://cdltlhbb3wwov" path="res://Sprites/Player_Sprites/Bottom_Clothing/Bott.8.png" id="3_7lhbs"]
-[ext_resource type="Texture2D" uid="uid://bg5lr3k2aj7no" path="res://Sprites/Player_Sprites/Top_Clothing/T10_F1.png" id="5_t0p24"]
-[ext_resource type="Texture2D" uid="uid://bciy2t66f1r1y" path="res://Sprites/Player_Sprites/Animations/Idle.png" id="8_qor76"]
-[ext_resource type="Texture2D" uid="uid://d2hhx06gcy30i" path="res://Sprites/Player_Sprites/Animations/Female_Crouch.png" id="10_of5db"]
-[ext_resource type="Texture2D" uid="uid://n7tb6ce3btlr" path="res://Sprites/Player_Sprites/Animations/Female_Walk.png" id="11_ed8dn"]
-[ext_resource type="Texture2D" uid="uid://yagmlqahb6db" path="res://Sprites/Player_Sprites/Animations/Female_Tuck.png" id="12_1nel3"]
-[ext_resource type="Texture2D" uid="uid://bco7gckx62wc4" path="res://Sprites/Player_Sprites/Animations/Female_Slide.png" id="13_umqir"]
-[ext_resource type="Texture2D" uid="uid://dgoooxqullna1" path="res://Sprites/Player_Sprites/Animations/Female_Run.png" id="14_ha2le"]
+[ext_resource type="Texture2D" uid="uid://k50kop71y8qw" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Run.png" id="4_7bvje"]
+[ext_resource type="Texture2D" uid="uid://dotbbnlmsb2ne" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Run.png" id="5_7bvje"]
+[ext_resource type="Texture2D" uid="uid://yvup3b3gk6i8" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Crawl.png" id="7_k7txw"]
+[ext_resource type="Texture2D" uid="uid://0yr2i0lt3ayo" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Crawl.png" id="8_m5fkn"]
+[ext_resource type="Texture2D" uid="uid://bciy2t66f1r1y" path="res://Sprites/Player_Sprites/Body/Idle.png" id="8_qor76"]
+[ext_resource type="Texture2D" uid="uid://d2hhx06gcy30i" path="res://Sprites/Player_Sprites/Body/Female_Crouch.png" id="10_of5db"]
+[ext_resource type="Texture2D" uid="uid://bf5dpjxtkc0ea" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Crouch.png" id="10_ul7sv"]
+[ext_resource type="Texture2D" uid="uid://d5qokawpvi0t" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Idle.png" id="10_vhd6k"]
+[ext_resource type="Texture2D" uid="uid://ckc53lsttv5tg" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Idle.png" id="11_cs30t"]
+[ext_resource type="Texture2D" uid="uid://n7tb6ce3btlr" path="res://Sprites/Player_Sprites/Body/Female_Walk.png" id="11_ed8dn"]
+[ext_resource type="Texture2D" uid="uid://djbu1knsbqnro" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Crouch.png" id="11_o0bsn"]
+[ext_resource type="Texture2D" uid="uid://yagmlqahb6db" path="res://Sprites/Player_Sprites/Body/Female_Tuck.png" id="12_1nel3"]
+[ext_resource type="Texture2D" uid="uid://c6orxuivayxp8" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Jump.png" id="12_tex0i"]
+[ext_resource type="Texture2D" uid="uid://fqvs1ud2synm" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Jump.png" id="13_1fb86"]
+[ext_resource type="Texture2D" uid="uid://bco7gckx62wc4" path="res://Sprites/Player_Sprites/Body/Female_Slide.png" id="13_umqir"]
+[ext_resource type="Texture2D" uid="uid://dgoooxqullna1" path="res://Sprites/Player_Sprites/Body/Female_Run.png" id="14_ha2le"]
 [ext_resource type="PackedScene" uid="uid://cds386o1s71ur" path="res://Inventory/Item_Frame.tscn" id="16_cs30t"]
-[ext_resource type="Texture2D" uid="uid://demdglou7rs68" path="res://Sprites/Player_Sprites/Animations/Female_Jump_Fall.png" id="21_mgdfi"]
-[ext_resource type="Texture2D" uid="uid://cidnepcx6ahm1" path="res://Sprites/Player_Sprites/Animations/Female_Crawl.png" id="22_4vdt2"]
+[ext_resource type="Texture2D" uid="uid://bsvuutvs41jvf" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Tuck.png" id="19_2usdy"]
+[ext_resource type="Texture2D" uid="uid://brkmxr10kchiu" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Tuck.png" id="20_645f7"]
+[ext_resource type="Texture2D" uid="uid://demdglou7rs68" path="res://Sprites/Player_Sprites/Body/Female_Jump_Fall.png" id="21_mgdfi"]
+[ext_resource type="Texture2D" uid="uid://cidnepcx6ahm1" path="res://Sprites/Player_Sprites/Body/Female_Crawl.png" id="22_4vdt2"]
+[ext_resource type="Texture2D" uid="uid://cohqyl4mlur6n" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Walk.png" id="22_645f7"]
+[ext_resource type="Texture2D" uid="uid://10vsxabutmbw" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Walk.png" id="22_s4ilp"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8p5o8"]
 load_path = "res://.godot/imported/pixil-frame-0.png-da221accf9fa3d4c62f6805c7616c0f6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jingq"]
+load_path = "res://.godot/imported/Hair_0.png-36d9e36bfa43ecdd6390d58cec9e97a9.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yl37s"]
 size = Vector2(10, 34)
@@ -354,7 +368,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 17)]
+"values": [Vector2(0, -1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -366,7 +380,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 12)]
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -378,7 +392,79 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.166667, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-4, 6), Vector2(-4, 7), Vector2(-4, 6)]
+"values": [Vector2(-5, 2), Vector2(-5, 3), Vector2(-5, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_k7txw")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_m5fkn")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.08, 0.16, 0.24, 0.32, 0.4, 0.48, 0.56),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
 
 [sub_resource type="Animation" id="Animation_6jltj"]
@@ -428,10 +514,10 @@ tracks/3/path = NodePath("Appearance/Hair:position")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.0833333),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -2), Vector2(-1, 7)]
+"values": [Vector2(0, -6), Vector2(-1, 3), Vector2(-2, 3)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -440,10 +526,10 @@ tracks/4/path = NodePath("Appearance/Top_Clothing:position")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 7), Vector2(-0.5, 12), Vector2(-0.5, 13)]
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -452,10 +538,82 @@ tracks/5/path = NodePath("Appearance/Bottom_Clothing:position")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_ul7sv")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.0833333, 0.166667),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-0.5, 14), Vector2(-0.5, 17), Vector2(-0.5, 16)]
+"update": 1,
+"values": [1, 2, 3]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_o0bsn")]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [1, 2, 3]
 }
 
 [sub_resource type="Animation" id="Animation_yrgqc"]
@@ -517,10 +675,10 @@ tracks/4/path = NodePath("Appearance/Top_Clothing:position")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, -2), Vector2(-0.5, -1)]
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -529,10 +687,10 @@ tracks/5/path = NodePath("Appearance/Bottom_Clothing:position")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 7), Vector2(-0.5, 8)]
+"values": [Vector2(0, -1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -544,7 +702,79 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -10), Vector2(0, -9)]
+"values": [Vector2(-1, -14), Vector2(-1, -13)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [7, 8]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_1fb86")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_tex0i")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [7, 8]
 }
 
 [sub_resource type="Animation" id="Animation_b5317"]
@@ -595,10 +825,10 @@ tracks/3/path = NodePath("Appearance/Hair:position")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.847891),
+"times": PackedFloat32Array(0, 0.8333),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -9), Vector2(0, -10)]
+"values": [Vector2(-1, -13), Vector2(-1, -14)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -610,7 +840,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 8)]
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -619,10 +849,70 @@ tracks/5/path = NodePath("Appearance/Top_Clothing:position")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, -1), Vector2(-0.5, -2)]
+"values": [Vector2(0, -1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_vhd6k")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_cs30t")]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_iumoc"]
@@ -675,7 +965,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 16)]
+"values": [Vector2(0, -1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -687,7 +977,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 13)]
+"values": [Vector2(0, -0.97)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -699,13 +989,84 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 7)]
+"values": [Vector2(-2, 3)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("10_ul7sv")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("11_o0bsn")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
 }
 
 [sub_resource type="Animation" id="Animation_pxy8f"]
 resource_name = "Female Is_Sliding"
 length = 0.25
-loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -753,7 +1114,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(8, 10)]
+"values": [Vector2(7, 6)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -765,7 +1126,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4.5, 19)]
+"values": [Vector2(-1, 0)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -777,7 +1138,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7.5, 17)]
+"values": [Vector2(6, 4)]
 }
 
 [sub_resource type="Animation" id="Animation_tccse"]
@@ -842,7 +1203,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0833337, 0.25),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, -8), Vector2(0, -10), Vector2(0, -11)]
+"values": [Vector2(-1, -12), Vector2(-1, -14), Vector2(-1, -15)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -851,10 +1212,10 @@ tracks/5/path = NodePath("Appearance/Bottom_Clothing:position")
 tracks/5/interp = 0
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.0833337, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 7), Vector2(-0.5, 8), Vector2(-0.5, 5)]
+"values": [Vector2(0, -1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -863,10 +1224,82 @@ tracks/6/path = NodePath("Appearance/Top_Clothing:position")
 tracks/6/interp = 0
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.0833337, 0.25),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0833337, 0.25, 0.415063),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-0.5, -2), Vector2(-0.5, -1), Vector2(-0.5, -3)]
+"values": [Vector2(0, -1), Vector2(0, -1), Vector2(0, -1), Vector2(0, -1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_1fb86")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.25, 0.416667, 0.916667, 1, 1.08333, 1.16667, 1.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6, 1, 2, 7, 8, 10]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_tex0i")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.25, 0.416667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 4, 5, 6]
 }
 
 [sub_resource type="Animation" id="Animation_dfj5x"]
@@ -931,7 +1364,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 7)]
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -943,7 +1376,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 14)]
+"values": [Vector2(0, -1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -955,7 +1388,79 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 0)]
+"values": [Vector2(-2, -4)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.0161016),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("13_1fb86")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.0161016),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("12_tex0i")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [11]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
 }
 
 [sub_resource type="Animation" id="Animation_a76va"]
@@ -1009,7 +1514,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.416667, 0.666666),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-2, -7), Vector2(-2, -9), Vector2(-2, -7), Vector2(-2, -9)]
+"values": [Vector2(-3, -11), Vector2(-3, -13), Vector2(-3, -11), Vector2(-3, -13)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1021,7 +1526,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-2.5, 0)]
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1033,7 +1538,79 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-0.5, 10)]
+"values": [Vector2(0, -1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_7bvje")]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_7bvje")]
 }
 
 [sub_resource type="Animation" id="Animation_rs0ht"]
@@ -1083,10 +1660,10 @@ tracks/3/path = NodePath("Appearance/Bottom_Clothing:position")
 tracks/3/interp = 0
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.5, 9), Vector2(0.5, 13), Vector2(0.5, 20), Vector2(0.5, 19)]
+"values": [Vector2(0.5, 2)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1110,13 +1687,12 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1, -5), Vector2(7, 2), Vector2(8, 12), Vector2(9, 10)]
+"values": [Vector2(0, -9), Vector2(6, -2), Vector2(7, 8), Vector2(8, 6)]
 }
 
 [sub_resource type="Animation" id="Animation_ek3me"]
 resource_name = "Female Tuck"
 length = 0.25
-loop_mode = 1
 step = 0.0833333
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1164,7 +1740,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1.5, 0)]
+"values": [Vector2(0, -1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1176,7 +1752,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.5, 6)]
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1188,7 +1764,55 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-2, -7)]
+"values": [Vector2(-3, -11)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_2usdy")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("20_645f7")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_01xj5"]
@@ -1242,7 +1866,103 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.24, 0.48, 0.72),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-2, -8), Vector2(-2, -9), Vector2(-2, -8), Vector2(-2, -9)]
+"values": [Vector2(-3, -12), Vector2(-3, -13), Vector2(-3, -12), Vector2(-3, -13)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("22_s4ilp")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Bottom_Clothing:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("22_645f7")]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.12, 0.24, 0.36, 0.48, 0.6, 0.72, 0.84),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Top_Clothing:position")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -2)]
 }
 
 [sub_resource type="Animation" id="Animation_o5tfk"]
@@ -1331,6 +2051,78 @@ tracks/6/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_7bvje")]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [10]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_7bvje")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pvyqu"]
 _data = {
@@ -1384,21 +2176,25 @@ tint_progress = Color(0.945098, 0.32549, 0.219608, 0.815686)
 [node name="Appearance" type="Node2D" parent="."]
 
 [node name="Body" type="Sprite2D" parent="Appearance"]
-modulate = Color(0.911601, 0.596331, 0.531721, 1)
+modulate = Color(0.964666, 0.818576, 0.787189, 1)
 position = Vector2(0, -1)
 texture = SubResource("CompressedTexture2D_8p5o8")
 
 [node name="Hair" type="Sprite2D" parent="Appearance"]
 position = Vector2(0, -9)
-texture = ExtResource("2_hyw08")
+texture = SubResource("CompressedTexture2D_jingq")
+hframes = 7
+vframes = 3
 
 [node name="Bottom_Clothing" type="Sprite2D" parent="Appearance"]
 position = Vector2(-0.5, 8)
-texture = ExtResource("3_7lhbs")
+texture = ExtResource("4_7bvje")
+hframes = 10
 
 [node name="Top_Clothing" type="Sprite2D" parent="Appearance"]
 position = Vector2(-0.5, -1)
-texture = ExtResource("5_t0p24")
+texture = ExtResource("5_7bvje")
+hframes = 10
 
 [node name="Body_Collision" type="CollisionShape2D" parent="."]
 visible = false
@@ -1434,6 +2230,7 @@ libraries = {
 }
 
 [node name="Timers" type="Node2D" parent="."]
+visible = false
 
 [node name="Coyote Timer" type="Timer" parent="Timers"]
 wait_time = 0.15
@@ -1450,6 +2247,7 @@ wait_time = 0.5
 wait_time = 5.0
 
 [node name="Hurt Box" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 36
 

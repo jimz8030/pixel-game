@@ -29,9 +29,16 @@ var can_coyote_jump = false
 @onready var prev_pos = position.x
 
 func _ready() -> void:
+	#Set health variables
 	current_health = health_total
 	$"Health Bar".max_value = health_total
 	$"Health Overshoot".value = 0
+	
+	#Set Player Customization
+	$Appearance/Hair.frame = CosmeticManager.hair_type
+	$Appearance/Top_Clothing.visible = CosmeticManager.top_clothing
+	$Appearance/Bottom_Clothing.visible = CosmeticManager.bottom_clothing
+	$Appearance/Body.set_modulate(CosmeticManager.skin)
 
 func _physics_process(delta: float) -> void:
 

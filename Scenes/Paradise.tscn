@@ -187,7 +187,7 @@ offset_right = 72.0
 offset_bottom = 28.0
 scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("14_4txwh")
-text = "0"
+text = "3"
 
 [node name="Kill_Instruction" type="Label" parent="CanvasLayer"]
 visible = false

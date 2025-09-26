@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="Pixel Game"
-run/main_scene="uid://b5kl6ikb8s0tg"
+run/main_scene="uid://einchx0n761s"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/show_image=false
 
 [autoload]
 
-Customization="*res://Scripts/customization.gd"
+CosmeticManager="*res://Scripts/CosmeticManager.gd"
 
 [display]
 

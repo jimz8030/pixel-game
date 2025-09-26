@@ -93,8 +93,8 @@ func _input(event: InputEvent) -> void:
 				$Items.get_child(0).freeze = true
 				$Items.get_child(0).get_child(2).disabled = true
 				$Items.get_child(0).reparent(get_parent().get_node("Appearance/Top_Clothing"))
-				get_parent().get_node("Appearance/Top_Clothing").get_child(1).position = Vector2(0,0)
-				get_parent().get_node("Appearance/Top_Clothing").get_child(1).rotation = 45
+				get_parent().get_node("Appearance/Top_Clothing").get_child(0).position = Vector2(0,0)
+				get_parent().get_node("Appearance/Top_Clothing").get_child(0).rotation = 45
 	
 	#HOLDING ITEM
 	elif event.is_action_pressed("Use") and selected_item != null:

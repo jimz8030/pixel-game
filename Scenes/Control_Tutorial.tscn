@@ -51,4 +51,4 @@ action_mode = 0
 text = "BEGIN"
 metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="CanvasLayer/BEGIN" to="." method="_on_try_again_loser_pressed"]
+[connection signal="pressed" from="CanvasLayer/BEGIN" to="." method="_on_begin_pressed"]

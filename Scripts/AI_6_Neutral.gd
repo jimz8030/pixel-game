@@ -291,6 +291,8 @@ func _on_consume_area_body_entered(body: Node2D) -> void:
 			if body.get_child(0).node_b == get_parent().get_node("PlayerBody/ItemFrame/Pointer").get_path():
 				#opinion goes up when eating fruit from player's hand
 				player_opinion += 1.5
+				if player_opinion > 1.5:
+					player.win_count()
 				$"../PlayerBody/ItemFrame".lift_line.curve.set_point_position(1, Vector2(0, 41))
 				queue_redraw()
 			current_health += body.eat_heal_amount
