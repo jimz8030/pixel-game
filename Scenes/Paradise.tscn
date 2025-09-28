@@ -1,6 +1,5 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7dieiyw60f3i"]
+[gd_scene load_steps=14 format=3 uid="uid://b7dieiyw60f3i"]
 
-[ext_resource type="Script" uid="uid://7ov5eq7usb1o" path="res://Scripts/Cam_Move.gd" id="1_67esq"]
 [ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
 [ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Fruit_Bearing_Plants/Cotton_Bush.tscn" id="7_iv5cg"]
 [ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
@@ -16,10 +15,6 @@
 [ext_resource type="PackedScene" uid="uid://3vxm3ljsuolg" path="res://Scenes/Resources/Machines/Fancy_Chest.tscn" id="14_wjyym"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Camera" type="Camera2D" parent="."]
-position = Vector2(0, -31.165)
-script = ExtResource("1_67esq")
 
 [node name="Mango3" parent="." instance=ExtResource("9_6yukn")]
 position = Vector2(435, 646)
@@ -176,6 +171,7 @@ script = ExtResource("13_r235b")
 
 [node name="Weapon_Chest3" parent="." instance=ExtResource("14_wjyym")]
 position = Vector2(-254, 628)
+mass = 12.0
 held_items = Array[PackedScene]([ExtResource("10_iqggt"), null, null, null])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -205,3 +201,13 @@ text = "SHIFT to attack"
 
 [node name="PlayerBody" parent="." instance=ExtResource("14_abwgp")]
 position = Vector2(-27, 28)
+
+[node name="Camera" type="Camera2D" parent="PlayerBody"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.0

@@ -301,10 +301,15 @@ func _on_consume_area_body_entered(body: Node2D) -> void:
 			#hungry no more (hunger timer restarts)
 			$Timers/Hunger.start()
 	#"X" if food is there but not hungry
-	elif body != player and $Timers/Hunger.get_time_left() > 115:
-		if body.get_child(0).node_b != body.get_path():
-			if $Refuse.visible == false:
-				$Refuse.visible = true
+	elif body != player:
+		if $Timers/Hunger.get_time_left() > 115:
+			if body.get_child(0).node_b != body.get_path():
+				if $Refuse.visible == false:
+					$Refuse.visible = true
+	
+	if body != player and body.eat_heal_amount == null:
+		print (round((body.linear_velocity.x + body.linear_velocity.y) / 400))
+		take_damage(round((body.linear_velocity.x + body.linear_velocity.y) / 400), body.linear_velocity, true)
 
 	#remove secondary line of sight
 	if second_sight_line != null:

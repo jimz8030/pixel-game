@@ -26,10 +26,9 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		
 		#get cursor position and make a "feeler" (or the pointer) follow it
-		var event_pos = (event.position + Vector2(-314,-130))
-		$Pointer.set_position(event_pos)
-		line_of_sight_1.set_target_position((event_pos + Vector2(4,-34)) * 1.1)
-		line_of_sight_2.set_target_position((event_pos + Vector2(4,-28)) *1.1)
+		$Pointer.set_position(get_local_mouse_position())
+		line_of_sight_1.set_target_position((get_local_mouse_position() + Vector2(4,-34)) * 1.1)
+		line_of_sight_2.set_target_position((get_local_mouse_position() + Vector2(4,-28)) *1.1)
 
 		#declares that there is an item to select
 		if selected_item != null:
@@ -48,8 +47,9 @@ func _input(event: InputEvent) -> void:
 					selected_item.collision_mask = 1 | 4 | 8
 				
 				#DRAW EFFORT CURVE
-				lift_line.curve.set_point_position(1, selected_item.position - $"..".position + Vector2(0,44))
+				lift_line.curve.set_point_position(1, selected_item.position - $"..".position + Vector2(0,50))
 				lift_line.curve.set_point_out(0, $Pointer.position)
+				lift_line.curve.set_point_position(0, Vector2(-2,45))
 
 			#DROPPED ITEM
 			elif stick_waiting == false:

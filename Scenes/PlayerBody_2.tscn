@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://pqra1r2710k2"]
+[gd_scene load_steps=113 format=3 uid="uid://pqra1r2710k2"]
 
 [ext_resource type="Script" uid="uid://tjsr01jyy3wl" path="res://Scripts/Control_Player_2.gd" id="1_o32u1"]
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_824o3"]
@@ -19,7 +19,9 @@
 [ext_resource type="Texture2D" uid="uid://bco7gckx62wc4" path="res://Sprites/Player_Sprites/Body/Female_Slide.png" id="13_umqir"]
 [ext_resource type="Texture2D" uid="uid://dgoooxqullna1" path="res://Sprites/Player_Sprites/Body/Female_Run.png" id="14_ha2le"]
 [ext_resource type="PackedScene" uid="uid://cds386o1s71ur" path="res://Inventory/Item_Frame.tscn" id="16_cs30t"]
+[ext_resource type="Texture2D" uid="uid://ldo0dow6tlg3" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Slide.png" id="18_cgcqq"]
 [ext_resource type="Texture2D" uid="uid://bsvuutvs41jvf" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Tuck.png" id="19_2usdy"]
+[ext_resource type="Texture2D" uid="uid://drlrdpbywup3p" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Slide.png" id="19_4h2tv"]
 [ext_resource type="Texture2D" uid="uid://brkmxr10kchiu" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Tuck.png" id="20_645f7"]
 [ext_resource type="Texture2D" uid="uid://demdglou7rs68" path="res://Sprites/Player_Sprites/Body/Female_Jump_Fall.png" id="21_mgdfi"]
 [ext_resource type="Texture2D" uid="uid://cidnepcx6ahm1" path="res://Sprites/Player_Sprites/Body/Female_Crawl.png" id="22_4vdt2"]
@@ -296,13 +298,13 @@ states/End/position = Vector2(1161, 222.784)
 "states/Female Crouch/node" = SubResource("AnimationNodeAnimation_a277s")
 "states/Female Crouch/position" = Vector2(540.553, 437.238)
 "states/Female Fall/node" = SubResource("AnimationNodeAnimation_aquct")
-"states/Female Fall/position" = Vector2(539.227, -138.997)
+"states/Female Fall/position" = Vector2(540.553, -139.495)
 "states/Female Idle/node" = SubResource("AnimationNodeAnimation_rej52")
-"states/Female Idle/position" = Vector2(538.747, 220.926)
+"states/Female Idle/position" = Vector2(541.033, 223.713)
 "states/Female Is_Sliding/node" = SubResource("AnimationNodeAnimation_nupcj")
 "states/Female Is_Sliding/position" = Vector2(999.567, 221.855)
 "states/Female Jump/node" = SubResource("AnimationNodeAnimation_lrryy")
-"states/Female Jump/position" = Vector2(538.266, -288.418)
+"states/Female Jump/position" = Vector2(542.514, -288.418)
 "states/Female Land/node" = SubResource("AnimationNodeAnimation_hnn6p")
 "states/Female Land/position" = Vector2(241.824, -139.495)
 "states/Female Run/node" = SubResource("AnimationNodeAnimation_dsr6h")
@@ -315,7 +317,7 @@ states/End/position = Vector2(1161, 222.784)
 "states/Female Walk/position" = Vector2(196.192, 49.2731)
 states/Start/position = Vector2(131, 224)
 transitions = ["Female Idle", "Female Run", SubResource("AnimationNodeStateMachineTransition_cpww8"), "Female Run", "Female Idle", SubResource("AnimationNodeStateMachineTransition_16jxj"), "Female Idle", "Female Walk", SubResource("AnimationNodeStateMachineTransition_xym5c"), "Female Walk", "Female Idle", SubResource("AnimationNodeStateMachineTransition_4wwn8"), "Female Idle", "Female Jump", SubResource("AnimationNodeStateMachineTransition_lormo"), "Female Jump", "Female Idle", SubResource("AnimationNodeStateMachineTransition_gnccq"), "Female Jump", "Female Fall", SubResource("AnimationNodeStateMachineTransition_rxv5g"), "Female Jump", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_hhc55"), "Female Tuck", "Female Fall", SubResource("AnimationNodeStateMachineTransition_05tr0"), "Female Fall", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_a3iy7"), "Female Idle", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_331mw"), "Female Crouch", "Female Idle", SubResource("AnimationNodeStateMachineTransition_dadtq"), "Female Crouch", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_ogyra"), "Female Run", "Female Slide", SubResource("AnimationNodeStateMachineTransition_44s7c"), "Female Slide", "Female Run", SubResource("AnimationNodeStateMachineTransition_ieif1"), "Female Slide", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_r3dxw"), "Female Is_Sliding", "Female Run", SubResource("AnimationNodeStateMachineTransition_88e7g"), "Female Is_Sliding", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_2aeec"), "Female Walk", "Female Run", SubResource("AnimationNodeStateMachineTransition_myb3r"), "Female Run", "Female Walk", SubResource("AnimationNodeStateMachineTransition_knveo"), "Start", "Female Idle", SubResource("AnimationNodeStateMachineTransition_cj1kt"), "Female Crawl", "Female Idle", SubResource("AnimationNodeStateMachineTransition_b7k77"), "Female Walk", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_axxgk"), "Female Crawl", "Female Walk", SubResource("AnimationNodeStateMachineTransition_gr4h6"), "Female Is_Sliding", "Female Fall", SubResource("AnimationNodeStateMachineTransition_w8or0"), "Female Walk", "Female Fall", SubResource("AnimationNodeStateMachineTransition_u5key"), "Female Tuck", "Female Idle", SubResource("AnimationNodeStateMachineTransition_o2e7w"), "Female Fall", "Female Land", SubResource("AnimationNodeStateMachineTransition_sck3y"), "Female Tuck", "Female Land", SubResource("AnimationNodeStateMachineTransition_a1yhk"), "Female Land", "Female Walk", SubResource("AnimationNodeStateMachineTransition_3jnkc"), "Female Land", "Female Idle", SubResource("AnimationNodeStateMachineTransition_3psb2"), "Female Land", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_7hvnp"), "Female Land", "Female Run", SubResource("AnimationNodeStateMachineTransition_bh8x4"), "Female Land", "Female Jump", SubResource("AnimationNodeStateMachineTransition_v0wyj"), "Female Crouch", "Female Jump", SubResource("AnimationNodeStateMachineTransition_qbdq3"), "Female Crouch", "Female Walk", SubResource("AnimationNodeStateMachineTransition_eudb6"), "Female Crouch", "Female Run", SubResource("AnimationNodeStateMachineTransition_8toug"), "Female Crawl", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_owpdm"), "Female Run", "Female Fall", SubResource("AnimationNodeStateMachineTransition_ssi2e"), "Female Run", "Female Jump", SubResource("AnimationNodeStateMachineTransition_l6tji"), "Female Walk", "Female Jump", SubResource("AnimationNodeStateMachineTransition_mbylb"), "Female Land", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_yjwcb"), "Female Crawl", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_usb86"), "Female Is_Sliding", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_xvgra"), "Female Crawl", "Female Run", SubResource("AnimationNodeStateMachineTransition_51moq"), "Female Idle", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_3yqpk"), "Female Walk", "Female Crouch", SubResource("AnimationNodeStateMachineTransition_0vn8n"), "Female Slide", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_tgq3y"), "Female Fall", "Female Slide", SubResource("AnimationNodeStateMachineTransition_aoi26"), "Female Fall", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_e0edj"), "Female Land", "Female Is_Sliding", SubResource("AnimationNodeStateMachineTransition_b5a1q"), "Female Land", "Female Slide", SubResource("AnimationNodeStateMachineTransition_ftpgw"), "Female Is_Sliding", "Female Idle", SubResource("AnimationNodeStateMachineTransition_4l6o3"), "Female Run", "Female Crawl", SubResource("AnimationNodeStateMachineTransition_avwau"), "Female Slide", "Female Tuck", SubResource("AnimationNodeStateMachineTransition_lj1d5")]
-graph_offset = Vector2(7.781, -325.024)
+graph_offset = Vector2(-9.21899, -345.024)
 
 [sub_resource type="Animation" id="Animation_7oc74"]
 resource_name = "Female Crawl"
@@ -391,7 +393,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.166667, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-5, 2), Vector2(-5, 3), Vector2(-5, 2)]
 }
 tracks/6/type = "value"
@@ -610,7 +612,7 @@ tracks/11/path = NodePath("Appearance/Bottom_Clothing:frame")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667),
+"times": PackedFloat32Array(0, 0.0833, 0.1667),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [1, 2, 3]
@@ -701,7 +703,7 @@ tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.25),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-1, -14), Vector2(-1, -13)]
 }
 tracks/7/type = "value"
@@ -801,10 +803,10 @@ tracks/1/path = NodePath("Appearance/Body:frame")
 tracks/1/interp = 0
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.666667, 0.833333, 1.33333),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0, 1, 2, 3]
+"values": [0, 1, 2]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -815,7 +817,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [ExtResource("8_qor76")]
 }
 tracks/3/type = "value"
@@ -827,7 +829,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.8333),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-1, -13), Vector2(-1, -14)]
 }
 tracks/4/type = "value"
@@ -839,7 +841,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
@@ -851,7 +853,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -1)]
 }
 tracks/6/type = "value"
@@ -1126,7 +1128,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1, 0)]
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1138,7 +1140,79 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6, 4)]
+"values": [Vector2(0, -1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_cgcqq")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_4h2tv")]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [6]
 }
 
 [sub_resource type="Animation" id="Animation_tccse"]
@@ -1248,7 +1322,7 @@ tracks/8/path = NodePath("Appearance/Top_Clothing:frame")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.25, 0.416667, 0.916667, 1, 1.08333, 1.16667, 1.25),
+"times": PackedFloat32Array(0, 0.0833333, 0.25, 0.4167, 0.916667, 1, 1.08333, 1.16667, 1.25),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [3, 4, 5, 6, 1, 2, 7, 8, 10]
@@ -1537,7 +1611,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -1)]
 }
 tracks/6/type = "value"
@@ -1559,7 +1633,7 @@ tracks/7/path = NodePath("Appearance/Bottom_Clothing:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.0833333, 0.166667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75),
+"times": PackedFloat32Array(0, 0.0833333, 0.1667, 0.25, 0.333333, 0.416667, 0.5, 0.583333, 0.666666, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -1663,7 +1737,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0.5, 2)]
+"values": [Vector2(0, -1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -1672,10 +1746,10 @@ tracks/4/path = NodePath("Appearance/Top_Clothing:position")
 tracks/4/interp = 0
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(-0.5, 2), Vector2(4.5, 9), Vector2(4.5, 19), Vector2(5.5, 17)]
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -1686,8 +1760,80 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -9), Vector2(6, -2), Vector2(7, 8), Vector2(8, 6)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Appearance/Bottom_Clothing:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("18_cgcqq")]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Appearance/Bottom_Clothing:hframes")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Appearance/Bottom_Clothing:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Appearance/Top_Clothing:texture")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("19_4h2tv")]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Appearance/Top_Clothing:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.085, 0.17, 0.255),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Appearance/Top_Clothing:hframes")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [14]
 }
 
 [sub_resource type="Animation" id="Animation_ek3me"]
@@ -1727,7 +1873,7 @@ tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [0]
 }
 tracks/3/type = "value"
@@ -1739,7 +1885,7 @@ tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -1)]
 }
 tracks/4/type = "value"
@@ -1751,7 +1897,7 @@ tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -1)]
 }
 tracks/5/type = "value"
@@ -1763,7 +1909,7 @@ tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(-3, -11)]
 }
 tracks/6/type = "value"
@@ -1913,7 +2059,7 @@ tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -1)]
 }
 tracks/8/type = "value"
@@ -1961,7 +2107,7 @@ tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [Vector2(0, -2)]
 }
 
@@ -2256,7 +2402,7 @@ position = Vector2(-26, 1.5)
 shape = SubResource("RectangleShape2D_824o3")
 
 [node name="ItemFrame" parent="." instance=ExtResource("16_cs30t")]
-position = Vector2(0, -44)
+position = Vector2(2, -51)
 
 [connection signal="timeout" from="Timers/Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Timers/Landing Impact" to="." method="_on_landing_impact_timeout"]
