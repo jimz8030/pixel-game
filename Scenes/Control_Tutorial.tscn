@@ -31,7 +31,9 @@ text = "WASD to Move
 
 CLICK and DRAG to hold items
 
-F to use held items"
+F to use held items
+
+E to view inventory"
 metadata/_edit_use_anchors_ = true
 
 [node name="BEGIN" type="Button" parent="CanvasLayer"]

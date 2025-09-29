@@ -91,6 +91,11 @@ flat = true
 icon_alignment = 1
 expand_icon = true
 
+[node name="Visual" type="Sprite2D" parent="CanvasLayer/HEAD BACK"]
+position = Vector2(17, 35.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_chu7y")
+
 [node name="HEAD NEXT" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -111,6 +116,11 @@ icon = ExtResource("4_chu7y")
 flat = true
 icon_alignment = 1
 expand_icon = true
+
+[node name="Visual" type="Sprite2D" parent="CanvasLayer/HEAD NEXT"]
+position = Vector2(18, 35.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_chu7y")
 
 [node name="TOP" type="Button" parent="CanvasLayer"]
 anchors_preset = 8

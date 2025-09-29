@@ -2296,10 +2296,10 @@ script = ExtResource("1_o32u1")
 health_total = 26
 
 [node name="Health Bar" type="TextureProgressBar" parent="."]
-offset_left = -15.0
-offset_top = -27.0
-offset_right = -10.0
-offset_bottom = -22.0
+offset_left = -14.0
+offset_top = -36.0
+offset_right = -9.0
+offset_bottom = -31.0
 scale = Vector2(6, 1)
 value = 49.0
 allow_greater = true
@@ -2309,10 +2309,10 @@ tint_under = Color(0, 0, 0, 0.745098)
 tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
 
 [node name="Health Overshoot" type="TextureProgressBar" parent="."]
-offset_left = 15.0
-offset_top = -27.0
-offset_right = 20.0
-offset_bottom = -22.0
+offset_left = 16.0
+offset_top = -36.0
+offset_right = 21.0
+offset_bottom = -31.0
 scale = Vector2(6, 1)
 value = 10.0
 allow_greater = true
@@ -2402,7 +2402,7 @@ position = Vector2(-26, 1.5)
 shape = SubResource("RectangleShape2D_824o3")
 
 [node name="ItemFrame" parent="." instance=ExtResource("16_cs30t")]
-position = Vector2(2, -51)
+position = Vector2(-23, -41)
 
 [connection signal="timeout" from="Timers/Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Timers/Landing Impact" to="." method="_on_landing_impact_timeout"]
