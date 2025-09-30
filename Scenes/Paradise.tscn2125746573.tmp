@@ -1,0 +1,213 @@
+[gd_scene load_steps=14 format=3 uid="uid://b7dieiyw60f3i"]
+
+[ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
+[ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Fruit_Bearing_Plants/Cotton_Bush.tscn" id="7_iv5cg"]
+[ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
+[ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
+[ext_resource type="PackedScene" uid="uid://bj8nhvy7xdlvk" path="res://Scenes/Resources/Machines/Weapon_Chest.tscn" id="9_t17do"]
+[ext_resource type="PackedScene" uid="uid://c5nsb75b3pcqx" path="res://Inventory/Inventory_Items/Dagger.tscn" id="10_iqggt"]
+[ext_resource type="PackedScene" uid="uid://nvyd8v04kk00" path="res://Scenes/Resources/Machines/Dispenser.tscn" id="11_ojm4g"]
+[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="11_r235b"]
+[ext_resource type="PackedScene" uid="uid://ca4j3fefh5812" path="res://Scenes/Resources/NPCs/Terrapus.tscn" id="12_b8cag"]
+[ext_resource type="Script" uid="uid://cq5tqqth8v446" path="res://Scripts/scene_manager.gd" id="13_r235b"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="14_4txwh"]
+[ext_resource type="PackedScene" uid="uid://pqra1r2710k2" path="res://Scenes/PlayerBody_2.tscn" id="14_abwgp"]
+[ext_resource type="PackedScene" uid="uid://3vxm3ljsuolg" path="res://Scenes/Resources/Machines/Fancy_Chest.tscn" id="14_wjyym"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Mango3" parent="." instance=ExtResource("9_6yukn")]
+position = Vector2(435, 646)
+
+[node name="Mango4" parent="." instance=ExtResource("9_6yukn")]
+position = Vector2(-232, 664)
+
+[node name="Terrapus" parent="." instance=ExtResource("12_b8cag")]
+position = Vector2(-22, 255)
+
+[node name="Terrapus2" parent="." instance=ExtResource("12_b8cag")]
+modulate = Color(0.676433, 1, 0.664622, 1)
+position = Vector2(319, 619)
+
+[node name="Terrapus3" parent="." instance=ExtResource("12_b8cag")]
+modulate = Color(0.965094, 0.661446, 0.477317, 1)
+position = Vector2(-159, 629)
+
+[node name="Map" type="Node2D" parent="."]
+position = Vector2(-15, 70)
+
+[node name="Platform" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(251, 22)
+scale = Vector2(12, 10)
+collision_mask = 6
+
+[node name="Platform11" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(30, 306)
+scale = Vector2(22, 10)
+collision_mask = 6
+
+[node name="Platform15" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-244, 487)
+scale = Vector2(6, 3)
+collision_mask = 6
+
+[node name="Platform17" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(547, 516)
+scale = Vector2(11, 3)
+collision_mask = 6
+
+[node name="Platform6" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(18, 88)
+scale = Vector2(18, 2)
+collision_mask = 6
+
+[node name="Platform7" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(52, 49)
+scale = Vector2(8, 4)
+collision_mask = 6
+
+[node name="Platform8" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(138, 8)
+scale = Vector2(4, 4)
+collision_mask = 6
+
+[node name="Platform14" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(344, 334)
+scale = Vector2(10, 10)
+collision_mask = 6
+
+[node name="Platform16" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(524, -37)
+scale = Vector2(2, 4)
+collision_mask = 6
+
+[node name="Platform3" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-149, 118)
+scale = Vector2(4, 5)
+collision_mask = 6
+
+[node name="Platform4" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-368, 287)
+scale = Vector2(7, 23)
+collision_mask = 6
+
+[node name="Platform10" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(584, 160)
+scale = Vector2(8, 20)
+collision_mask = 6
+
+[node name="Platform5" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(-636, 59)
+scale = Vector2(20, 64)
+collision_mask = 6
+
+[node name="Platform12" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(193, -534)
+scale = Vector2(64, 20)
+collision_mask = 6
+
+[node name="Platform9" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(856, 376)
+scale = Vector2(20, 74)
+collision_mask = 6
+
+[node name="Platform21" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(151, -125)
+scale = Vector2(2, 1.5)
+collision_mask = 6
+
+[node name="Platform20" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(47.0001, 705)
+scale = Vector2(63.32, 10)
+collision_mask = 6
+
+[node name="Platform24" parent="Map" instance=ExtResource("9_kghhe")]
+position = Vector2(223, 477)
+scale = Vector2(8, 10)
+collision_mask = 6
+
+[node name="JumpPad" parent="Map" instance=ExtResource("4_2jut1")]
+position = Vector2(409, 591)
+jump_boost = 550
+
+[node name="JumpPad3" parent="Map" instance=ExtResource("4_2jut1")]
+position = Vector2(495, 472)
+jump_boost = 800
+
+[node name="JumpPad2" parent="Map" instance=ExtResource("4_2jut1")]
+position = Vector2(-241, 443)
+jump_boost = 1000
+
+[node name="Cotton_Bush" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(-205, 605)
+
+[node name="Cotton_Bush2" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(-50, 206)
+
+[node name="Cotton_Bush3" parent="Map" instance=ExtResource("7_iv5cg")]
+position = Vector2(629, -40)
+
+[node name="Weapon_Chest1" parent="." instance=ExtResource("9_t17do")]
+position = Vector2(567, -3)
+rotation = 1.13795
+held_items = Array[PackedScene]([ExtResource("9_6yukn"), null, null, null])
+
+[node name="Weapon_Chest2" parent="." instance=ExtResource("9_t17do")]
+position = Vector2(32, 53)
+rotation = 1.13795
+held_items = Array[PackedScene]([ExtResource("11_r235b"), ExtResource("9_6yukn"), null, null])
+
+[node name="Dispenser" parent="." instance=ExtResource("11_ojm4g")]
+position = Vector2(171, -43)
+
+[node name="Dispenser2" parent="." instance=ExtResource("11_ojm4g")]
+position = Vector2(67, 69)
+
+[node name="Dispenser3" parent="." instance=ExtResource("11_ojm4g")]
+position = Vector2(99, -43)
+
+[node name="Scene_Manager" type="Node2D" parent="."]
+script = ExtResource("13_r235b")
+
+[node name="Weapon_Chest3" parent="." instance=ExtResource("14_wjyym")]
+position = Vector2(-254, 628)
+mass = 12.0
+held_items = Array[PackedScene]([ExtResource("10_iqggt"), null, null, null])
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="kill_counter" type="Label" parent="CanvasLayer"]
+offset_left = 32.0
+offset_top = 5.0
+offset_right = 72.0
+offset_bottom = 28.0
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("14_4txwh")
+text = "3"
+
+[node name="Kill_Instruction" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -157.0
+offset_top = 14.0
+offset_right = 1.0
+offset_bottom = 37.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+theme_override_fonts/font = ExtResource("14_4txwh")
+text = "SHIFT to attack"
+
+[node name="PlayerBody" parent="." instance=ExtResource("14_abwgp")]
+position = Vector2(-27, 28)
+
+[node name="Camera" type="Camera2D" parent="PlayerBody"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.0

@@ -8,7 +8,13 @@ var selected_item : Node2D = null
 @onready var line_of_sight_2: RayCast2D = $Line_of_Sight_2
 @onready var lift_line: Path2D = $Lift_Line
 
+#Used to figure out where stored items go
 var available_slot : Control
+
+#Used to determine where the cursor goes while dragging on inventory slots
+var cursor_initial_pos = null
+#Stores item details from the slot
+var inv_selected_item = null
 
 #HANDLE ITEM DRAGGING
 func _input(event: InputEvent) -> void:
@@ -23,9 +29,11 @@ func _input(event: InputEvent) -> void:
 	#CHECK FOR ITEM
 	if event.is_action_pressed("Left_Click"):
 
+		#Feel for an item
 		if line_of_sight_1.is_colliding():
-			if line_of_sight_1.get_collider().get_class() == "RigidBody2D":
-				selected_item = find_colliding_item()
+			if line_of_sight_1.get_collider() != null:
+				if line_of_sight_1.get_collider().get_class() == "RigidBody2D":
+					selected_item = find_colliding_item()
 			elif line_of_sight_2.is_colliding():
 				if line_of_sight_2.get_collider().get_class() == "RigidBody2D":
 					selected_item = find_colliding_item()
@@ -83,7 +91,6 @@ func _input(event: InputEvent) -> void:
 					selected_item.get_child(0).set_node_b(selected_item.get_path())
 					selected_item = null
 					lift_line.curve.set_point_position(1, Vector2(0, 41))
-	queue_redraw()
 
 	#STORE ITEM
 	if event.is_action_pressed("Store") and selected_item != null:
@@ -105,23 +112,39 @@ func _input(event: InputEvent) -> void:
 				selected_item.get_child(0).set_node_b(selected_item.get_path())
 				selected_item = null
 				lift_line.curve.set_point_position(1, Vector2(0, 41))
-			
-		##EAT ITEM
-		#if selected_item.eat_heal_amount > 0:
-			#get_parent().current_health += selected_item.eat_heal_amount
-			#lift_line.curve.set_point_position(1, Vector2(0, 41))
-			#selected_item.queue_free()
-			#selected_item = null
-		##EQUIP ITEM
-		#elif selected_item.equipable:
-			#get_parent().equipped_item = selected_item
-			#selected_item.freeze = true
-			#selected_item.get_child(2).disabled = true
-			#selected_item.reparent(get_parent().get_node("Appearance/Top_Clothing"))
-			#get_parent().get_node("Appearance/Top_Clothing").get_child(0).position = Vector2(0,0)
-			#get_parent().get_node("Appearance/Top_Clothing").get_child(0).rotation = 45
-			#selected_item = null
 
+	#DROP OR USE INVENTORY ITEM
+	if cursor_initial_pos != null:
+		var cursor_current_pos = get_global_mouse_position().y
+		#DROP ITEM
+		if event is InputEventMouseMotion and cursor_current_pos - cursor_initial_pos > 10:
+			selected_item = inv_selected_item
+			inv_selected_item.position = $Pointer.position
+			var button_to_disable_num
+			for slot in $Slots.get_children():
+				if slot.get_child(0).button_pressed:
+					button_to_disable_num = int(slot.name.left(5))
+					break
+			_on_slot_up(button_to_disable_num)
+		
+		#EQUIP OR EAT ITEM
+		if event.is_action_released("Left_Click") and cursor_current_pos - cursor_initial_pos < -10:
+			if cursor_initial_pos != null and inv_selected_item != null:
+				#EQUIP ITEM
+				if inv_selected_item.equipable:
+					get_parent().equipped_item = inv_selected_item
+					inv_selected_item.freeze = true
+					inv_selected_item.get_child(2).disabled = true
+					inv_selected_item.reparent(get_parent().get_node("Appearance/Top_Clothing"))
+					get_parent().get_node("Appearance/Top_Clothing").get_child(0).position = Vector2(0,0)
+					get_parent().get_node("Appearance/Top_Clothing").get_child(0).rotation = 45
+				#EAT ITEM
+				elif inv_selected_item.eat_heal_amount > 0:
+					get_parent().current_health += inv_selected_item.eat_heal_amount
+					lift_line.curve.set_point_position(1, Vector2(0, 41))
+					inv_selected_item.queue_free()
+				inv_selected_item = null
+	queue_redraw()
 
 #DRAW LIFT LINE
 func _draw() -> void:
@@ -140,18 +163,18 @@ func find_colliding_item():
 	if !collided_things.is_empty():
 		return collided_things[0]
 
-func _on_slot_0_selected() -> void:
-	if $Slots/Slot_0/Button/Drop.visible == false:
-		$Slots/Slot_0/Button/Drop.visible = true
-		$Slots/Slot_0/Button/Use.visible == true
-
-func _on_slot_1_selected() -> void:
-	pass # Replace with function body.
-
-
-func _on_slot_2_selected() -> void:
-	pass # Replace with function body.
-
-
-func _on_slot_3_selected() -> void:
-	pass # Replace with function body.
+#Recieving slot signals
+func _on_slot_up(slot_num: int) -> void:
+	var slot_pressed : Control = get_node("Slots/Slot_" + str(slot_num))
+	for label in slot_pressed.get_child(0).get_children():
+		label.visible = false
+	inv_selected_item = null
+	cursor_initial_pos = null
+func _on_slot_down(slot_num: int) -> void:
+	var slot_pressed : Control = get_node("Slots/Slot_" + str(slot_num))
+	if slot_pressed.get_child_count() == 2:
+		inv_selected_item = slot_pressed.get_child(1)
+		available_slot = inv_selected_item.get_parent()
+		cursor_initial_pos = get_global_mouse_position().y
+		for label in slot_pressed.get_child(0).get_children():
+			label.visible = true
