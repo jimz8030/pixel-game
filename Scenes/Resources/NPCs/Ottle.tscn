@@ -1,0 +1,139 @@
+[gd_scene load_steps=7 format=3 uid="uid://burda1hjuhxrg"]
+
+[ext_resource type="Script" uid="uid://20ie1mah4w6y" path="res://Scripts/Ottle.gd" id="1_vyqst"]
+[ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_5np3e"]
+[ext_resource type="Texture2D" uid="uid://bt10aw03qpjev" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Idle.png" id="3_b5idd"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5np3e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5idd"]
+radius = 7.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hs20i"]
+radius = 280.0
+
+[node name="Ottle" type="CharacterBody2D"]
+script = ExtResource("1_vyqst")
+speed = 60
+
+[node name="Stats" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -31.0
+offset_top = -60.0
+offset_right = 18.0
+offset_bottom = -31.0
+scale = Vector2(1.25, 1.25)
+color = Color(0.0747908, 0.0906947, 0.186837, 1)
+
+[node name="Health Bar" type="TextureProgressBar" parent="Stats"]
+offset_left = 10.0
+offset_top = 4.03888
+offset_right = 15.0
+offset_bottom = 9.03888
+scale = Vector2(6, 0.6)
+max_value = 15.0
+value = 15.0
+texture_under = ExtResource("2_5np3e")
+texture_progress = ExtResource("2_5np3e")
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
+
+[node name="Hunger Bar" type="TextureProgressBar" parent="Stats"]
+offset_left = 10.0
+offset_top = 12.1166
+offset_right = 15.0
+offset_bottom = 17.1166
+scale = Vector2(6, 0.6)
+max_value = 15.0
+step = 0.0
+value = 15.0
+texture_under = ExtResource("2_5np3e")
+texture_progress = ExtResource("2_5np3e")
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.8373, 0.42087, 0.144208, 0.815686)
+
+[node name="Drowsy Bar" type="TextureProgressBar" parent="Stats"]
+offset_left = 10.0
+offset_top = 21.1944
+offset_right = 15.0
+offset_bottom = 26.1944
+scale = Vector2(6, 0.6)
+max_value = 15.0
+step = 0.0
+value = 15.0
+texture_under = ExtResource("2_5np3e")
+texture_progress = ExtResource("2_5np3e")
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.248979, 0.733491, 0.920836, 0.815686)
+
+[node name="Snuggle Bar" type="TextureProgressBar" parent="Stats"]
+visible = false
+offset_left = 43.0
+offset_top = 4.03888
+offset_right = 48.0
+offset_bottom = 9.03888
+scale = Vector2(0.6, 4)
+max_value = 32.0
+value = 10.0
+fill_mode = 3
+texture_under = ExtResource("2_5np3e")
+texture_progress = ExtResource("2_5np3e")
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.918529, 0.396715, 0.827337, 0.815686)
+
+[node name="Safe Box" type="ColorRect" parent="Stats"]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 7.0
+offset_bottom = 8.0
+scale = Vector2(1, 0.990373)
+color = Color(0.764706, 0.768627, 0.792157, 1)
+
+[node name="Appearance" type="Sprite2D" parent="."]
+position = Vector2(0, -19)
+texture = ExtResource("3_b5idd")
+hframes = 4
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_5np3e")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="Action_Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Time_to_Idle" type="Timer" parent="Action_Timer"]
+one_shot = true
+
+[node name="Body_Collision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-1, -7)
+shape = SubResource("CircleShape2D_b5idd")
+
+[node name="Tether_Line" type="RayCast2D" parent="."]
+position = Vector2(-1, -13)
+
+[node name="Jump_Cast_Right" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(30, 0)
+
+[node name="Jump_Cast_Left" type="RayCast2D" parent="."]
+visible = false
+target_position = Vector2(-30, 0)
+
+[node name="Sight Area" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 6
+monitorable = false
+
+[node name="Personal Bubble" type="CollisionShape2D" parent="Sight Area"]
+shape = SubResource("CircleShape2D_hs20i")
+debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
+
+[connection signal="timeout" from="Action_Timer" to="." method="_on_action_timer_timeout"]
+[connection signal="timeout" from="Action_Timer/Time_to_Idle" to="." method="wander_time"]
+[connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_entered"]
+[connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_exited"]

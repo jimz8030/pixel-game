@@ -99,6 +99,9 @@ func _input(event: InputEvent) -> void:
 				#item's collisions are set to no longer collide with the map
 				selected_item.collision_layer = 8
 				selected_item.collision_mask = 8
+				selected_item.z_index = 1
+				#Selected item is no longer attached to the cursor
+				selected_item.get_child(0).set_node_b(selected_item.get_path())
 				#call_deferred performs code when it can, so the rigidbody doesn't break. Other than that, I don't know
 				selected_item.freeze = true
 				#item is reparented to the available slot
@@ -115,20 +118,29 @@ func _input(event: InputEvent) -> void:
 
 	#DROP OR USE INVENTORY ITEM
 	if cursor_initial_pos != null:
-		var cursor_current_pos = get_global_mouse_position().y
-		#DROP ITEM
-		if event is InputEventMouseMotion and cursor_current_pos - cursor_initial_pos > 10:
-			selected_item = inv_selected_item
-			inv_selected_item.position = $Pointer.position
+		var cursor_current_pos = get_global_mouse_position()
+		if cursor_current_pos.x - cursor_initial_pos.x > 10 or cursor_current_pos.x - cursor_initial_pos.x < -10:
 			var button_to_disable_num
 			for slot in $Slots.get_children():
 				if slot.get_child(0).button_pressed:
 					button_to_disable_num = int(slot.name.left(5))
 					break
 			_on_slot_up(button_to_disable_num)
+			return
+		
+		#DROP ITEM
+		if event is InputEventMouseMotion and cursor_current_pos.y - cursor_initial_pos.y > 10:
+			#reparent item to scene (item no longer follows item frame)
+			selected_item = inv_selected_item
+			var button_to_disable_num
+			for slot in $Slots.get_children():
+				if slot.get_child(0).button_pressed:
+					button_to_disable_num = int(str(slot.name)[5])
+					break
+			_on_slot_up(button_to_disable_num)
 		
 		#EQUIP OR EAT ITEM
-		if event.is_action_released("Left_Click") and cursor_current_pos - cursor_initial_pos < -10:
+		if event.is_action_released("Left_Click") and cursor_current_pos.y - cursor_initial_pos.y < -10:
 			if cursor_initial_pos != null and inv_selected_item != null:
 				#EQUIP ITEM
 				if inv_selected_item.equipable:
@@ -136,6 +148,7 @@ func _input(event: InputEvent) -> void:
 					inv_selected_item.freeze = true
 					inv_selected_item.get_child(2).disabled = true
 					inv_selected_item.reparent(get_parent().get_node("Appearance/Top_Clothing"))
+					inv_selected_item.z_index = -1
 					get_parent().get_node("Appearance/Top_Clothing").get_child(0).position = Vector2(0,0)
 					get_parent().get_node("Appearance/Top_Clothing").get_child(0).rotation = 45
 				#EAT ITEM
@@ -175,6 +188,6 @@ func _on_slot_down(slot_num: int) -> void:
 	if slot_pressed.get_child_count() == 2:
 		inv_selected_item = slot_pressed.get_child(1)
 		available_slot = inv_selected_item.get_parent()
-		cursor_initial_pos = get_global_mouse_position().y
+		cursor_initial_pos = get_global_mouse_position()
 		for label in slot_pressed.get_child(0).get_children():
 			label.visible = true

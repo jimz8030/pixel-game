@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7dieiyw60f3i"]
+[gd_scene load_steps=15 format=3 uid="uid://b7dieiyw60f3i"]
 
 [ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
+[ext_resource type="PackedScene" uid="uid://burda1hjuhxrg" path="res://Scenes/Resources/NPCs/Ottle.tscn" id="6_wjyym"]
 [ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Fruit_Bearing_Plants/Cotton_Bush.tscn" id="7_iv5cg"]
 [ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
@@ -26,12 +27,13 @@ position = Vector2(-232, 664)
 position = Vector2(-22, 255)
 
 [node name="Terrapus2" parent="." instance=ExtResource("12_b8cag")]
-modulate = Color(0.676433, 1, 0.664622, 1)
 position = Vector2(319, 619)
 
 [node name="Terrapus3" parent="." instance=ExtResource("12_b8cag")]
-modulate = Color(0.965094, 0.661446, 0.477317, 1)
 position = Vector2(-159, 629)
+
+[node name="Ottle" parent="." instance=ExtResource("6_wjyym")]
+position = Vector2(-154, 138)
 
 [node name="Map" type="Node2D" parent="."]
 position = Vector2(-15, 70)
@@ -170,7 +172,8 @@ position = Vector2(99, -43)
 script = ExtResource("13_r235b")
 
 [node name="Weapon_Chest3" parent="." instance=ExtResource("14_wjyym")]
-position = Vector2(-254, 628)
+position = Vector2(-267, 473)
+scale = Vector2(0.996849, 1.00411)
 mass = 12.0
 held_items = Array[PackedScene]([ExtResource("10_iqggt"), null, null, null])
 

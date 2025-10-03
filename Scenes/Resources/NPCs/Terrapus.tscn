@@ -292,7 +292,6 @@ _data = {
 collision_layer = 32
 script = ExtResource("1_kn0hl")
 total_health = 10
-will_envy_valuable = true
 
 [node name="Sight Area" type="Area2D" parent="."]
 visible = false
@@ -397,18 +396,75 @@ libraries = {
 &"": SubResource("AnimationLibrary_86gwy")
 }
 
-[node name="Health Bar" type="TextureProgressBar" parent="."]
-offset_left = -15.0
-offset_top = -27.0
-offset_right = -10.0
-offset_bottom = -22.0
-scale = Vector2(6, 1)
+[node name="Stats" type="ColorRect" parent="."]
+z_index = 1
+offset_left = -24.0
+offset_top = -49.0
+offset_right = 25.0
+offset_bottom = -20.0
+color = Color(0.0747908, 0.0906947, 0.186837, 1)
+
+[node name="Health Bar" type="TextureProgressBar" parent="Stats"]
+offset_left = 10.0
+offset_top = 4.03888
+offset_right = 15.0
+offset_bottom = 9.03888
+scale = Vector2(6, 0.6)
+max_value = 10.0
+value = 10.0
+texture_under = ExtResource("11_osk2w")
+texture_progress = ExtResource("11_osk2w")
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
+
+[node name="Hunger Bar" type="TextureProgressBar" parent="Stats"]
+offset_left = 10.0
+offset_top = 12.1166
+offset_right = 15.0
+offset_bottom = 17.1166
+scale = Vector2(6, 0.6)
+max_value = 32.0
+value = 10.0
+allow_greater = true
+texture_under = ExtResource("11_osk2w")
+texture_progress = ExtResource("11_osk2w")
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.8373, 0.42087, 0.144208, 0.815686)
+
+[node name="Drowsy Bar" type="TextureProgressBar" parent="Stats"]
+offset_left = 10.0
+offset_top = 21.1944
+offset_right = 15.0
+offset_bottom = 26.1944
+scale = Vector2(6, 0.6)
 max_value = 32.0
 value = 10.0
 texture_under = ExtResource("11_osk2w")
 texture_progress = ExtResource("11_osk2w")
-tint_under = Color(0, 0, 0, 0.745098)
-tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.248979, 0.733491, 0.920836, 0.815686)
+
+[node name="Snuggle Bar" type="TextureProgressBar" parent="Stats"]
+offset_left = 43.0
+offset_top = 4.03888
+offset_right = 48.0
+offset_bottom = 9.03888
+scale = Vector2(0.6, 4)
+max_value = 32.0
+value = 10.0
+fill_mode = 3
+texture_under = ExtResource("11_osk2w")
+texture_progress = ExtResource("11_osk2w")
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.918529, 0.396715, 0.827337, 0.815686)
+
+[node name="Safe Box" type="ColorRect" parent="Stats"]
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 7.0
+offset_bottom = 8.0
+scale = Vector2(1, 0.990373)
+color = Color(0.764706, 0.768627, 0.792157, 1)
 
 [connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_body_entered"]
 [connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_body_exited"]

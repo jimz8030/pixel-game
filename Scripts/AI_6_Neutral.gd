@@ -5,8 +5,6 @@ extends CharacterBody2D
 @export var player_opinion : float
 @export var total_health : int
 var current_health : int
-#Determines if the creature is jealous of heavy items the player is carrying
-@export var will_envy_valuable : bool
 
 @onready var bond_label : Label = $Bonded/Amount
 
@@ -51,14 +49,9 @@ func _ready() -> void:
 
 #Stuff to run every frame
 func _physics_process(delta: float) -> void:
-	
-	$"Health Bar".value = current_health
-	if current_health < total_health:
-		$"Health Bar".visible = true
-	else:
-		if current_health > total_health:
+	$"Stats/Health Bar".value = current_health
+	if current_health > total_health:
 			current_health = total_health
-		$"Health Bar".visible = false
 	#DEAD
 	if current_health <= 0:
 		player.win_count()
