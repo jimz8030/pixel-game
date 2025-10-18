@@ -7,8 +7,8 @@
 radius = 3.20156
 
 [node name="Mango" type="RigidBody2D"]
-collision_layer = 20
-collision_mask = 37
+collision_layer = 4
+collision_mask = 5
 input_pickable = true
 mass = 5.0
 script = ExtResource("1_a1x3h")

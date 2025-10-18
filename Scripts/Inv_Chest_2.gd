@@ -41,6 +41,16 @@ func _input(event: InputEvent) -> void:
 			if line_of_sight_2.get_collider().get_class() == "RigidBody2D":
 				selected_item = find_colliding_item()
 
+		#Turn on animal stats
+		var animal_stats : ColorRect
+		if !$Pointer.get_colliding_bodies().is_empty():
+			if get_node($Pointer.get_colliding_bodies()[0].get_path()).get_class() == "CharacterBody2D":
+				animal_stats = get_node($Pointer.get_colliding_bodies()[0].get_path()).get_child(0)
+				if animal_stats.visible == true:
+					animal_stats.visible = false
+				else:
+					animal_stats.visible = true
+
 		#Figure out what slot the object would go to
 		for slot in $Slots.get_children():
 			#reset the available slot
@@ -76,7 +86,7 @@ func _input(event: InputEvent) -> void:
 					selected_item.collision_mask = 1 | 4
 				
 				#DRAW EFFORT CURVE
-				lift_line.curve.set_point_position(1, selected_item.position - $"..".position + Vector2(22,40))
+				lift_line.curve.set_point_position(1, selected_item.position - $"..".position + Vector2(18,60))
 				lift_line.curve.set_point_out(0, $Pointer.position)
 				lift_line.curve.set_point_position(0, line_of_sight_2.position)
 
@@ -170,11 +180,10 @@ func _draw() -> void:
 
 #DETECT WHAT YOU CLICK ON
 func find_colliding_item():
-	#a list of items colliding with the cursor (or pointer/feeler) is gathered
-	var collided_things = $Pointer.get_colliding_bodies()
 	#if the array stored something, then it returns the first item in the list.
-	if !collided_things.is_empty():
-		return collided_things[0]
+	if !$Pointer.get_colliding_bodies().is_empty():
+		if get_node($Pointer.get_colliding_bodies()[0].get_path()).get_class() == "RigidBody2D":
+			return $Pointer.get_colliding_bodies()[0]
 
 #Recieving slot signals
 func _on_slot_up(slot_num: int) -> void:

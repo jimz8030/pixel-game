@@ -1,10 +1,298 @@
-[gd_scene load_steps=7 format=3 uid="uid://burda1hjuhxrg"]
+[gd_scene load_steps=34 format=3 uid="uid://burda1hjuhxrg"]
 
-[ext_resource type="Script" uid="uid://20ie1mah4w6y" path="res://Scripts/Ottle.gd" id="1_vyqst"]
+[ext_resource type="Script" uid="uid://bh3f7c603b0n" path="res://Scripts/Ottle.gd" id="1_vyqst"]
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_5np3e"]
 [ext_resource type="Texture2D" uid="uid://bt10aw03qpjev" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Idle.png" id="3_b5idd"]
+[ext_resource type="Texture2D" uid="uid://cm6mcaxo0nhov" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Walk.png" id="4_hs20i"]
+[ext_resource type="Texture2D" uid="uid://ddodsg1g4sbrc" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Stand.png" id="5_3drhi"]
+[ext_resource type="Texture2D" uid="uid://x7f4c816hf2r" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Run.png" id="6_ugbtk"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3drhi"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ugbtk"]
+animation = &"Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ptyls"]
+animation = &"Stand"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y7b3f"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_irle5"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yp6a7"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5p4jl"]
+advance_mode = 2
+advance_condition = &"is_standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hjnkt"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ehf17"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sx7oe"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gqsj2"]
+advance_mode = 2
+advance_condition = &"is_standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uy6hs"]
+advance_mode = 2
+advance_condition = &"is_running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wj0le"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l875j"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3drhi"]
+advance_mode = 2
+advance_condition = &"is_standing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ugbtk"]
+advance_mode = 2
+advance_condition = &"is_walking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ptyls"]
+advance_mode = 2
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5np3e"]
+states/Idle/node = SubResource("AnimationNodeAnimation_3drhi")
+states/Idle/position = Vector2(200, 5)
+states/Run/node = SubResource("AnimationNodeAnimation_ugbtk")
+states/Run/position = Vector2(368, -83)
+states/Stand/node = SubResource("AnimationNodeAnimation_ptyls")
+states/Stand/position = Vector2(363, 5)
+states/Walk/node = SubResource("AnimationNodeAnimation_y7b3f")
+states/Walk/position = Vector2(200, -83)
+transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_irle5"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_yp6a7"), "Idle", "Stand", SubResource("AnimationNodeStateMachineTransition_5p4jl"), "Idle", "Run", SubResource("AnimationNodeStateMachineTransition_hjnkt"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_ehf17"), "Stand", "Run", SubResource("AnimationNodeStateMachineTransition_sx7oe"), "Run", "Stand", SubResource("AnimationNodeStateMachineTransition_gqsj2"), "Walk", "Run", SubResource("AnimationNodeStateMachineTransition_uy6hs"), "Run", "Walk", SubResource("AnimationNodeStateMachineTransition_wj0le"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_l875j"), "Walk", "Stand", SubResource("AnimationNodeStateMachineTransition_3drhi"), "Stand", "Walk", SubResource("AnimationNodeStateMachineTransition_ugbtk"), "Stand", "Idle", SubResource("AnimationNodeStateMachineTransition_ptyls")]
+graph_offset = Vector2(-189, -261)
+
+[sub_resource type="Animation" id="Animation_b5idd"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_b5idd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1.03333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_hs20i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_b5idd")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_y7b3f"]
+resource_name = "Run"
+length = 0.46
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_ugbtk")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.136911, 0.203578, 0.270245, 0.335122, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="Animation" id="Animation_ptyls"]
+resource_name = "Stand"
+length = 1.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_3drhi")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.366667, 0.733333, 1.13333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_qc3ol"]
+resource_name = "Walk"
+length = 1.03
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_hs20i")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8, 0.933333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qc3ol"]
+_data = {
+&"Idle": SubResource("Animation_b5idd"),
+&"RESET": SubResource("Animation_hs20i"),
+&"Run": SubResource("Animation_y7b3f"),
+&"Stand": SubResource("Animation_ptyls"),
+&"Walk": SubResource("Animation_qc3ol")
+}
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b5idd"]
 radius = 7.0
@@ -12,11 +300,15 @@ radius = 7.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_hs20i"]
 radius = 280.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5idd"]
+size = Vector2(21, 13)
+
 [node name="Ottle" type="CharacterBody2D"]
+collision_layer = 32
 script = ExtResource("1_vyqst")
-speed = 60
 
 [node name="Stats" type="ColorRect" parent="."]
+visible = false
 z_index = 1
 offset_left = -31.0
 offset_top = -60.0
@@ -26,6 +318,7 @@ scale = Vector2(1.25, 1.25)
 color = Color(0.0747908, 0.0906947, 0.186837, 1)
 
 [node name="Health Bar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 4.03888
 offset_right = 15.0
@@ -39,6 +332,7 @@ tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
 
 [node name="Hunger Bar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 12.1166
 offset_right = 15.0
@@ -53,6 +347,7 @@ tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.8373, 0.42087, 0.144208, 0.815686)
 
 [node name="Drowsy Bar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 21.1944
 offset_right = 15.0
@@ -68,6 +363,7 @@ tint_progress = Color(0.248979, 0.733491, 0.920836, 0.815686)
 
 [node name="Snuggle Bar" type="TextureProgressBar" parent="Stats"]
 visible = false
+layout_mode = 0
 offset_left = 43.0
 offset_top = 4.03888
 offset_right = 48.0
@@ -82,6 +378,7 @@ tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.918529, 0.396715, 0.827337, 0.815686)
 
 [node name="Safe Box" type="ColorRect" parent="Stats"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 7.0
@@ -90,50 +387,91 @@ scale = Vector2(1, 0.990373)
 color = Color(0.764706, 0.768627, 0.792157, 1)
 
 [node name="Appearance" type="Sprite2D" parent="."]
-position = Vector2(0, -19)
+position = Vector2(0, -18.95)
 texture = ExtResource("3_b5idd")
 hframes = 4
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_5np3e")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_idle = true
+parameters/conditions/is_running = false
+parameters/conditions/is_standing = false
+parameters/conditions/is_walking = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qc3ol")
+}
 
 [node name="Action_Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
-[node name="Time_to_Idle" type="Timer" parent="Action_Timer"]
+[node name="Wander" type="Timer" parent="Action_Timer"]
 one_shot = true
 
+[node name="Sleep" type="Timer" parent="Action_Timer"]
+wait_time = 20.0
+one_shot = true
+
+[node name="Find_Friend" type="Timer" parent="Action_Timer"]
+wait_time = 10.0
+one_shot = true
+
+[node name="Heal" type="Timer" parent="Action_Timer"]
+wait_time = 2.0
+
 [node name="Body_Collision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(-1, -7)
 shape = SubResource("CircleShape2D_b5idd")
 
 [node name="Tether_Line" type="RayCast2D" parent="."]
-position = Vector2(-1, -13)
-
-[node name="Jump_Cast_Right" type="RayCast2D" parent="."]
 visible = false
+position = Vector2(1, -13)
+target_position = Vector2(1, 13)
+
+[node name="Jump_Cast_Right" type="RayCast2D" parent="Tether_Line"]
+position = Vector2(1, 8)
 target_position = Vector2(30, 0)
 
-[node name="Jump_Cast_Left" type="RayCast2D" parent="."]
-visible = false
+[node name="Jump_Cast_Left" type="RayCast2D" parent="Tether_Line"]
+position = Vector2(1, 8)
 target_position = Vector2(-30, 0)
+
+[node name="Food_Line" type="RayCast2D" parent="Tether_Line"]
+position = Vector2(1, 13)
+collision_mask = 5
 
 [node name="Sight Area" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
-collision_mask = 6
+collision_mask = 38
 monitorable = false
 
 [node name="Personal Bubble" type="CollisionShape2D" parent="Sight Area"]
 shape = SubResource("CircleShape2D_hs20i")
 debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
 
+[node name="Consume Area" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 22
+collision_priority = 0.0
+monitorable = false
+
+[node name="Feel Area" type="CollisionShape2D" parent="Consume Area"]
+position = Vector2(-7.5, -6.5)
+shape = SubResource("RectangleShape2D_b5idd")
+debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
+
 [connection signal="timeout" from="Action_Timer" to="." method="_on_action_timer_timeout"]
-[connection signal="timeout" from="Action_Timer/Time_to_Idle" to="." method="wander_time"]
+[connection signal="timeout" from="Action_Timer/Wander" to="." method="wander_time"]
+[connection signal="timeout" from="Action_Timer/Sleep" to="." method="_on_wake_up"]
+[connection signal="timeout" from="Action_Timer/Find_Friend" to="." method="_on_find_friend_timeout"]
+[connection signal="timeout" from="Action_Timer/Heal" to="." method="_on_heal"]
 [connection signal="body_entered" from="Sight Area" to="." method="_on_sight_area_entered"]
 [connection signal="body_exited" from="Sight Area" to="." method="_on_sight_area_exited"]
+[connection signal="area_entered" from="Consume Area" to="." method="_on_consume_area_area_entered"]
+[connection signal="area_exited" from="Consume Area" to="." method="_on_consume_area_area_exited"]
+[connection signal="body_entered" from="Consume Area" to="." method="_on_consume_area_body_entered"]

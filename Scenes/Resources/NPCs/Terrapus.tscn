@@ -405,6 +405,7 @@ offset_bottom = -20.0
 color = Color(0.0747908, 0.0906947, 0.186837, 1)
 
 [node name="Health Bar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 4.03888
 offset_right = 15.0
@@ -418,6 +419,7 @@ tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
 
 [node name="Hunger Bar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 12.1166
 offset_right = 15.0
@@ -432,6 +434,7 @@ tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.8373, 0.42087, 0.144208, 0.815686)
 
 [node name="Drowsy Bar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 21.1944
 offset_right = 15.0
@@ -445,6 +448,7 @@ tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.248979, 0.733491, 0.920836, 0.815686)
 
 [node name="Snuggle Bar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 0
 offset_left = 43.0
 offset_top = 4.03888
 offset_right = 48.0
@@ -459,6 +463,7 @@ tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.918529, 0.396715, 0.827337, 0.815686)
 
 [node name="Safe Box" type="ColorRect" parent="Stats"]
+layout_mode = 0
 offset_left = 3.0
 offset_top = 4.0
 offset_right = 7.0

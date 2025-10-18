@@ -1,6 +1,6 @@
 [gd_scene load_steps=113 format=3 uid="uid://pqra1r2710k2"]
 
-[ext_resource type="Script" uid="uid://tjsr01jyy3wl" path="res://Scripts/Control_Player_2.gd" id="1_o32u1"]
+[ext_resource type="Script" uid="uid://tjsr01jyy3wl" path="res://Scripts/Control_Player_4.gd" id="1_o32u1"]
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_824o3"]
 [ext_resource type="Texture2D" uid="uid://k50kop71y8qw" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Run.png" id="4_7bvje"]
 [ext_resource type="Texture2D" uid="uid://dotbbnlmsb2ne" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Run.png" id="5_7bvje"]
@@ -2293,7 +2293,6 @@ size = Vector2(35, 25)
 [node name="PlayerBody" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_o32u1")
-health_total = 26
 
 [node name="Health Bar" type="TextureProgressBar" parent="."]
 offset_left = -14.0
@@ -2318,6 +2317,20 @@ value = 10.0
 allow_greater = true
 texture_progress = ExtResource("2_824o3")
 tint_progress = Color(0.945098, 0.32549, 0.219608, 0.815686)
+
+[node name="Block Bar" type="TextureProgressBar" parent="."]
+offset_left = -14.0
+offset_top = -31.0
+offset_right = -9.0
+offset_bottom = -26.0
+scale = Vector2(6, 0.75)
+step = 0.0
+value = 50.0
+fill_mode = 6
+texture_under = ExtResource("2_824o3")
+texture_progress = ExtResource("2_824o3")
+tint_under = Color(0, 0, 0, 0)
+tint_progress = Color(0.443845, 0.30923, 0.804801, 0.815686)
 
 [node name="Appearance" type="Node2D" parent="."]
 
@@ -2402,7 +2415,7 @@ position = Vector2(-26, 1.5)
 shape = SubResource("RectangleShape2D_824o3")
 
 [node name="ItemFrame" parent="." instance=ExtResource("16_cs30t")]
-position = Vector2(-23, -41)
+position = Vector2(-17, -59)
 
 [connection signal="timeout" from="Timers/Coyote Timer" to="." method="_on_coyote_timer_timeout"]
 [connection signal="timeout" from="Timers/Landing Impact" to="." method="_on_landing_impact_timeout"]

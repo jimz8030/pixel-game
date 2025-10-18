@@ -48,6 +48,7 @@ offset_right = 9.0
 offset_bottom = 46.79
 theme_override_constants/h_separation = 12
 theme_override_constants/v_separation = 12
+columns = 4
 
 [node name="Slot_0" type="Control" parent="Slots"]
 layout_mode = 2
@@ -71,6 +72,7 @@ expand_icon = true
 [node name="Use" type="Label" parent="Slots/Slot_0/Button"]
 visible = false
 z_index = 1
+layout_mode = 0
 offset_left = 2.0
 offset_top = -7.0
 offset_right = 35.0
@@ -115,6 +117,7 @@ expand_icon = true
 [node name="Use" type="Label" parent="Slots/Slot_1/Button"]
 visible = false
 z_index = 1
+layout_mode = 0
 offset_left = 2.0
 offset_top = -7.0
 offset_right = 35.0
@@ -159,6 +162,7 @@ expand_icon = true
 [node name="Use" type="Label" parent="Slots/Slot_2/Button"]
 visible = false
 z_index = 1
+layout_mode = 0
 offset_left = 2.0
 offset_top = -7.0
 offset_right = 35.0
@@ -203,6 +207,7 @@ expand_icon = true
 [node name="Use" type="Label" parent="Slots/Slot_3/Button"]
 visible = false
 z_index = 1
+layout_mode = 0
 offset_left = 2.0
 offset_top = -7.0
 offset_right = 35.0

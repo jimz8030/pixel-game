@@ -188,7 +188,7 @@ position = Vector2(328, -16)
 position = Vector2(195, 247)
 
 [node name="PlayerBody" parent="." instance=ExtResource("13_wjyym")]
-position = Vector2(0, 81)
+position = Vector2(0, 86)
 
 [node name="Camera" type="Camera2D" parent="PlayerBody"]
 position_smoothing_enabled = true

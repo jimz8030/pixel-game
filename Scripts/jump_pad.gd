@@ -10,10 +10,8 @@ var player_body : CharacterBody2D
 
 
 func _on_body_entered(body: Node2D) -> void:
-	var possible_jump = randi_range(1,3)
 
 	anim_tree["parameters/conditions/is_idle"] = false
-	
 	
 	#if the body's collision layer matches the player's (or is the player)
 	#...player_body stores the body for later use
@@ -25,13 +23,6 @@ func _on_body_entered(body: Node2D) -> void:
 	#if the body is a creature, there's a chance that the creature jumps.
 	elif body.collision_layer == 32:
 		anim_tree["parameters/conditions/is_prep"] = true
-		if possible_jump <= 2:
-			body.velocity.x *= 2
-			body.velocity.y = -jump_boost
-			anim_tree["parameters/conditions/pressure_released"] = true
-			anim_tree["parameters/conditions/is_prep"] = false
-			
-			
 
 	#if the body matches the item collision layer (or is an item)...
 	if body.collision_layer == 12 and !Input.is_action_pressed("Left_Click"):
@@ -54,5 +45,3 @@ func _process(_delta: float) -> void:
 			player_body.velocity.y = -jump_boost
 			anim_tree["parameters/conditions/pressure_released"] = true
 			anim_tree["parameters/conditions/is_prep"] = false
-			
-			

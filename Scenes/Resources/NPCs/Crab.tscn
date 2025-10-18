@@ -1,0 +1,307 @@
+[gd_scene load_steps=20 format=3 uid="uid://d1ibkb5dr5oiq"]
+
+[ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_h837m"]
+[ext_resource type="Texture2D" uid="uid://bt10aw03qpjev" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Idle.png" id="3_rqeim"]
+[ext_resource type="Texture2D" uid="uid://daqk0d7udy474" path="res://Sprites/NPCs/Wildlife/Crab/Crab_Idle.png" id="4_h837m"]
+[ext_resource type="Texture2D" uid="uid://dxppanr0d8324" path="res://Sprites/NPCs/Wildlife/Crab/Crab_Move.png" id="5_ktv3r"]
+[ext_resource type="Texture2D" uid="uid://dbrlbga8k7hn4" path="res://Sprites/NPCs/Wildlife/Crab/Crab_Fall.png" id="6_h837m"]
+[ext_resource type="Script" uid="uid://c2c2klsvycopt" path="res://Scripts/Crab.gd" id="6_lrdra"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lrdra"]
+animation = &"Walk"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h837m"]
+animation = &"Falling"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xiflk"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_x4ft3"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_lrdra")
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_h837m")
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource("AnimationNodeAnimation_xiflk")
+blend_point_2/pos = 0.0
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lrdra"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_5np3e"]
+states/End/position = Vector2(605, 25)
+states/Move/node = SubResource("AnimationNodeBlendSpace1D_x4ft3")
+states/Move/position = Vector2(296, -9)
+states/Start/position = Vector2(296, 151)
+transitions = ["Start", "Move", SubResource("AnimationNodeStateMachineTransition_lrdra")]
+graph_offset = Vector2(-183, -147)
+
+[sub_resource type="Animation" id="Animation_ktv3r"]
+resource_name = "Falling"
+length = 0.39
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_h837m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_b5idd"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_h837m")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_hs20i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_rqeim")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_qc3ol"]
+resource_name = "Walk"
+length = 0.93
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_ktv3r")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [7]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.266667, 0.4, 0.533333, 0.666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qc3ol"]
+_data = {
+&"Falling": SubResource("Animation_ktv3r"),
+&"Idle": SubResource("Animation_b5idd"),
+&"RESET": SubResource("Animation_hs20i"),
+&"Walk": SubResource("Animation_qc3ol")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5idd"]
+radius = 4.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b5idd"]
+size = Vector2(21, 13)
+
+[node name="Crab" type="CharacterBody2D"]
+collision_layer = 32
+script = ExtResource("6_lrdra")
+
+[node name="Stats" type="ColorRect" parent="."]
+visible = false
+z_index = 1
+offset_left = -27.0
+offset_top = -37.0
+offset_right = 16.0
+offset_bottom = -26.0
+scale = Vector2(1.25, 1.25)
+color = Color(0.0747908, 0.0906947, 0.186837, 1)
+
+[node name="Health Bar" type="TextureProgressBar" parent="Stats"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 4.03888
+offset_right = 15.0
+offset_bottom = 9.03888
+scale = Vector2(6, 0.6)
+max_value = 6.0
+step = 0.0
+value = 6.0
+texture_under = ExtResource("2_h837m")
+texture_progress = ExtResource("2_h837m")
+tint_under = Color(1, 1, 1, 0.745098)
+tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
+
+[node name="Safe Box" type="ColorRect" parent="Stats"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 4.0
+offset_right = 7.0
+offset_bottom = 8.0
+scale = Vector2(1, 0.990373)
+color = Color(0.764706, 0.768627, 0.792157, 1)
+
+[node name="Appearance" type="Sprite2D" parent="."]
+position = Vector2(0, -8.95)
+texture = ExtResource("3_rqeim")
+hframes = 4
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_5np3e")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Move/blend_position = -0.00249374
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qc3ol")
+}
+
+[node name="Action_Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="Wander" type="Timer" parent="Action_Timer"]
+one_shot = true
+
+[node name="Heal" type="Timer" parent="Action_Timer"]
+wait_time = 0.5
+
+[node name="Body_Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_b5idd")
+
+[node name="Consume Area" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 22
+collision_priority = 0.0
+monitorable = false
+
+[node name="Feel Area" type="CollisionShape2D" parent="Consume Area"]
+position = Vector2(0, -6.5)
+shape = SubResource("RectangleShape2D_b5idd")
+debug_color = Color(0.352192, 0.542318, 0.799956, 0.42)
+
+[node name="Wall_Feel_L" type="RayCast2D" parent="."]
+position = Vector2(0, -3)
+target_position = Vector2(5, 0)
+
+[node name="Wall_Feel_R" type="RayCast2D" parent="."]
+position = Vector2(0, -3)
+target_position = Vector2(-5, 0)
+
+[connection signal="timeout" from="Action_Timer" to="." method="_on_action_timer_timeout"]
+[connection signal="timeout" from="Action_Timer/Wander" to="." method="wander_time"]
+[connection signal="timeout" from="Action_Timer/Heal" to="." method="_on_heal"]
+[connection signal="area_entered" from="Consume Area" to="." method="_on_consume_area_area_entered"]
+[connection signal="area_exited" from="Consume Area" to="." method="_on_consume_area_area_exited"]
+[connection signal="body_entered" from="Consume Area" to="." method="_on_consume_area_body_entered"]
