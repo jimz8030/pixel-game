@@ -20,34 +20,13 @@ var can_coyote_jump = false
 
 @onready var prev_pos = position.x
 
-func _ready() -> void:
-	
-	#Set Player Customization
-	$Appearance/Hair.frame = CosmeticManager.hair_type
-	$Appearance/Top_Clothing.visible = CosmeticManager.top_clothing
-	$Appearance/Bottom_Clothing.visible = CosmeticManager.bottom_clothing
-	$Appearance/Body.set_modulate(CosmeticManager.skin)
-
 func _physics_process(delta: float) -> void:
-	#HANDLE HEALTH
-	$"Health Overshoot".value = $"Health Bar".value - $"Health Bar".max_value
-	if $"Health Bar".value == $"Health Bar".max_value:
-		$"Health Bar".visible = false
-	elif $"Health Bar".value > $"Health Bar".max_value:
-		$"Health Bar".visible = true
-		if $"Timers/Overeat".is_stopped():
-			$"Timers/Overeat".start()
-	else:
-		$"Health Bar".visible = true
-	if $"Health Bar".value == 0:
-		dead()
 
 	# HANDLE MOVING
 	var direction = Input.get_axis("Left", "Right")
 	velocity.x = move_toward(velocity.x, direction * speed, speed * friction)
 	if direction != 0:
 		$Appearance.scale.x = -direction
-		$"Hurt Box".get_child(0).position.x = 26 * direction
 
 	#AIRBORNE
 	if !is_on_floor():
@@ -68,10 +47,14 @@ func _physics_process(delta: float) -> void:
 		#RISING
 		elif velocity.y < 0:
 			$AnimationTree["parameters/Airborne/blend_position"] = 1
+			$Body_Collision.scale.y = 1
+			$Body_Collision.position.y = 1.5
 		
 		#FALLING
 		elif velocity.y > 0:
 			$AnimationTree.get("parameters/playback").travel("3c- Female Fall")
+			$Body_Collision.scale.y = 1
+			$Body_Collision.position.y = 1.5
 
 		move_and_slide()
 
@@ -87,30 +70,11 @@ func _physics_process(delta: float) -> void:
 		if !landed:
 			if $"Timers/Landing Impact".is_stopped():
 				$"Timers/Landing Impact".start()
-			speed = 120
+			speed = 0
 			friction = 0.08
 			$AnimationTree["parameters/Grounded/blend_position"] = Vector2(0,-0.2)
 
-		#ATTACKING
-		elif Input.is_action_just_pressed("Attack") and can_attack:
-			damage_signal = true
-			attack_queue += 1
-			if attack_queue > 3:
-				attack_queue = 3
-			if attack_count == 3:
-				$"Timers/Attack Cooldown".wait_time = 0.6
-			elif attack_count == 4:
-				attack_count = 3
-			else:
-				$"Timers/Attack Cooldown".wait_time = 0.2
-			$"Timers/Attack Cooldown".start()
-			$"Timers/Attack Cooldown Pt2".start()
-
-		elif attack_queue > 0:
-			in_attack_state = true
-			$AnimationTree.get("parameters/playback").travel("Attack " + str(attack_count))
-
-		#DONE LANDING and NOT ATTACKING
+		#DONE LANDING
 		else:
 
 			#CROUCH
@@ -142,7 +106,7 @@ func _physics_process(delta: float) -> void:
 
 			#RUNNING
 			elif Input.get_axis("Left", "Right"):
-				speed = 150
+				speed = 50
 				friction = 0.08
 				$"AnimationTree"["parameters/Grounded/blend_position"] = Vector2(1,0)
 				$Body_Collision.scale.y = 1
@@ -161,29 +125,6 @@ func _on_coyote_timer_timeout() -> void:
 
 func _on_landing_impact_timeout() -> void:
 	landed = true
-
-func dead():
-	get_tree().change_scene_to_file("res://Scenes/Death_Screen.tscn")
-
-func _on_attack_cooldown_timeout() -> void:
-	attack_count += 1
-	can_attack = true
-	attack_queue -= 1
-	$"Timers/Attack Cooldown Pt2".start()
-func _on_attack_cooldown_pt_2_timeout() -> void:
-	attack_count = 1
-	in_attack_state = false
-	attack_queue = 0
-
-func deal_damage():
-	if damage_signal:
-		for thing in $"Hurt Box".get_overlapping_bodies():
-			if thing.get_class() == "RigidBody2D":
-				thing.apply_central_impulse(Vector2(50, -1000))
-			if thing.get_class() == "CharacterBody2D":
-				print ($AnimationTree.get("parameters/playback"))
-				thing.take_damage(5, Vector2(-50 * $Appearance.scale.x, -30), true)
-		damage_signal = false
 
 func _on_timer_timeout() -> void:
 	if $"Health Bar".value <= $"Health Bar".max_value:

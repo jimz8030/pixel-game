@@ -134,5 +134,5 @@ func take_damage(dmg_amount : int, knockback_amount : Vector2, player_attacking 
 		var item_to_drop : RigidBody2D = item_in_file.instantiate()
 		$"..".add_child(item_to_drop)
 		item_to_drop.position = self.position
-		item_to_drop.apply_impulse(Vector2(knockback_amount.x / 4, knockback_amount.y / 2))
+		item_to_drop.apply_impulse(Vector2(knockback_amount.x, knockback_amount.y))
 		self.queue_free()

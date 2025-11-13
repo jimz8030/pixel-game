@@ -1,0 +1,801 @@
+[gd_scene load_steps=15 format=3 uid="uid://dcvjty2b41ses"]
+
+[ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="1_nx00x"]
+[ext_resource type="Script" uid="uid://c0yk0jnad48nx" path="res://Scenes/Intro_Handler.gd" id="1_pr2a3"]
+[ext_resource type="PackedScene" uid="uid://crc3t8b70v77q" path="res://Scenes/Player_Intro.tscn" id="2_75w15"]
+[ext_resource type="PackedScene" uid="uid://c8jauvbp5icbd" path="res://Scenes/Bike.tscn" id="3_75w15"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="5_ef74u"]
+[ext_resource type="Texture2D" uid="uid://d08uue5jnbnd8" path="res://Sprites/Player_Sprites/Fresh Clone/Clone_Idle.png" id="6_sr2jf"]
+[ext_resource type="Texture2D" uid="uid://e3mstj6c5vsp" path="res://Sprites/Player_Sprites/Sunil/Sunil_Idle.png" id="7_sr2jf"]
+[ext_resource type="Texture2D" uid="uid://qsbs8wb633o1" path="res://Sprites/UI/Glitch Corners.png" id="8_sr2jf"]
+[ext_resource type="PackedScene" uid="uid://dhvkc2n7ivgok" path="res://Scenes/Player_Clone.tscn" id="9_pr2a3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75w15"]
+size = Vector2(20, 30)
+
+[sub_resource type="Animation" id="Animation_o7m1o"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Fresh_Clone:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Sunil:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-56, -54)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Sunil:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Fresh_Clone:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Glitch Corner 1:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(207, 155)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Glitch Corner 2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(435, 164)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/Sunil:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Clone Console/ColorRect2:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Clone Console/ColorRect3:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Clone Console/Collision:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Clone Console2/Label2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Clone Console2/ColorRect4:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Clone Console/Label:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Clone Console2/CollisionShape2D2:disabled")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("AnimationPlayer/Fresh_Clone:position")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-118, -32.93)]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Clone:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/17/type = "value"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("AnimationPlayer/Fresh_Clone:visible")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ct43b"]
+resource_name = "Sunil Runs"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/Fresh_Clone:frame")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(5.1667, 5.73333, 6.3, 6.86667, 7.41672, 7.98336, 8.55002, 9.11669, 9.67027, 10.2369, 10.8036, 11.3702),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Sunil:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3.1667, 3.30665, 3.48859, 5.16802, 5.2667, 5.93337, 6.32236, 8.0964),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-76.385, -54), Vector2(-74.9819, -54), Vector2(-76.385, -54), Vector2(-76.385, -54), Vector2(-56, -54), Vector2(-44, -54), Vector2(-44, -54), Vector2(336, -54)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/Sunil:scale")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.1667, 5.20003, 6.33337),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(-1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer/Fresh_Clone:scale")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2(-1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.16667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Glitch Corner 1:position")
+tracks/5/interp = 0
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(257, 155), Vector2(207, 155)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Glitch Corner 2:position")
+tracks/6/interp = 0
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1.05036),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Vector2(435, 164), Vector2(435, 204)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AnimationPlayer/Sunil:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(3.1667, 8.0333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "method"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"delete_Sunil"
+}]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Clone Console/ColorRect2:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3.1667, 5.19952),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Clone Console/ColorRect3:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(5.49664, 6.36323),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Clone Console/Collision:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(7.20505),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Clone Console2/CollisionShape2D2:disabled")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(7.2051),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Clone Console2/ColorRect4:visible")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(7.2051),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("AnimationPlayer/Fresh_Clone:position")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(5.22023, 6.38979),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-118, -32.93), Vector2(-118, -52)]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Clone:visible")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(8.0964),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("AnimationPlayer/Fresh_Clone:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 8.0964),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath(".")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(8.03333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"end_of_scene"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_sr2jf"]
+resource_name = "Idle"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Sunil:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Clone Console/ColorRect2:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Clone Console/ColorRect3:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Clone Console2/Label2:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Clone Console2/ColorRect4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Clone Console/Label:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Clone Console/Collision:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Clone Console2/CollisionShape2D2:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Clone:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ef74u"]
+_data = {
+&"Idle": SubResource("Animation_sr2jf"),
+&"RESET": SubResource("Animation_o7m1o"),
+&"Sunil Runs": SubResource("Animation_ct43b")
+}
+
+[node name="Introduction" type="Node2D"]
+script = ExtResource("1_pr2a3")
+
+[node name="Platform" parent="." instance=ExtResource("1_nx00x")]
+z_index = 1
+position = Vector2(377, 124)
+scale = Vector2(12, 10)
+collision_mask = 6
+
+[node name="Platform2" parent="." instance=ExtResource("1_nx00x")]
+position = Vector2(58, 101)
+scale = Vector2(20, 10)
+collision_mask = 6
+
+[node name="Platform4" parent="." instance=ExtResource("1_nx00x")]
+position = Vector2(141, -160)
+scale = Vector2(12, 10)
+collision_mask = 6
+
+[node name="Platform6" parent="." instance=ExtResource("1_nx00x")]
+position = Vector2(-95, -355)
+scale = Vector2(12, 10)
+collision_mask = 6
+
+[node name="Platform7" parent="." instance=ExtResource("1_nx00x")]
+position = Vector2(-257, -137)
+scale = Vector2(12, 14.665)
+collision_mask = 6
+
+[node name="Platform3" parent="." instance=ExtResource("1_nx00x")]
+z_index = 1
+position = Vector2(61, -29)
+scale = Vector2(20, 0.5)
+collision_mask = 6
+
+[node name="Platform5" parent="." instance=ExtResource("1_nx00x")]
+z_index = 1
+position = Vector2(-91, -10)
+scale = Vector2(5, 2)
+collision_mask = 6
+
+[node name="PlayerBody" parent="." instance=ExtResource("2_75w15")]
+position = Vector2(0, -77.325)
+
+[node name="Camera" type="Camera2D" parent="PlayerBody"]
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.0
+
+[node name="Bike" parent="." instance=ExtResource("3_75w15")]
+position = Vector2(460, 2)
+
+[node name="Clone Console" type="Area2D" parent="."]
+position = Vector2(-77, -57)
+collision_layer = 0
+collision_mask = 2
+
+[node name="ColorRect" type="ColorRect" parent="Clone Console"]
+offset_left = -10.0
+offset_top = -7.0
+offset_right = 10.0
+offset_bottom = 23.0
+color = Color(0.890057, 0.191422, 0.323509, 1)
+
+[node name="Collision" type="CollisionShape2D" parent="Clone Console"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_75w15")
+disabled = true
+
+[node name="ColorRect2" type="ColorRect" parent="Clone Console"]
+offset_left = -48.0
+offset_top = -50.0
+offset_right = 44.0
+offset_bottom = -17.0
+color = Color(0.313088, 0.530379, 0.689746, 1)
+
+[node name="Label2" type="Label" parent="Clone Console/ColorRect2"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 148.0
+offset_bottom = 46.0
+scale = Vector2(0.58, 0.58)
+theme_override_fonts/font = ExtResource("5_ef74u")
+text = "This isn't one
+of our ships..."
+
+[node name="Label" type="Label" parent="Clone Console"]
+visible = false
+offset_left = -72.0
+offset_top = -24.0
+offset_right = 178.0
+offset_bottom = -1.0
+scale = Vector2(0.58, 0.58)
+theme_override_fonts/font = ExtResource("5_ef74u")
+text = "PRESS F TO NAVIGATE SHIP"
+
+[node name="ColorRect3" type="ColorRect" parent="Clone Console"]
+visible = false
+offset_left = -21.0
+offset_top = -54.0
+offset_right = 71.0
+offset_bottom = -21.0
+color = Color(0.313088, 0.530379, 0.689746, 1)
+
+[node name="Label2" type="Label" parent="Clone Console/ColorRect3"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 148.0
+offset_bottom = 46.0
+scale = Vector2(0.58, 0.58)
+theme_override_fonts/font = ExtResource("5_ef74u")
+text = "What is
+that?"
+
+[node name="Clone Console2" type="Area2D" parent="."]
+position = Vector2(-77, -57)
+collision_layer = 0
+collision_mask = 2
+
+[node name="ColorRect4" type="ColorRect" parent="Clone Console2"]
+visible = false
+z_index = 1
+offset_left = 70.0
+offset_top = -7.0
+offset_right = 90.0
+offset_bottom = 23.0
+color = Color(0.298061, 0.507897, 0.802006, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Clone Console2"]
+position = Vector2(80, 8)
+shape = SubResource("RectangleShape2D_75w15")
+
+[node name="Label2" type="Label" parent="Clone Console2"]
+visible = false
+offset_left = 8.00001
+offset_top = -24.0
+offset_right = 258.0
+offset_bottom = -1.0
+scale = Vector2(0.58, 0.58)
+theme_override_fonts/font = ExtResource("5_ef74u")
+text = "PRESS F TO CUSTOMIZE"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ef74u")
+}
+
+[node name="Fresh_Clone" type="Sprite2D" parent="AnimationPlayer"]
+visible = false
+position = Vector2(-118, -32.93)
+scale = Vector2(1e-05, 1)
+texture = ExtResource("6_sr2jf")
+hframes = 4
+
+[node name="Sunil" type="Sprite2D" parent="AnimationPlayer"]
+z_index = 1
+position = Vector2(-56, -54)
+scale = Vector2(-1, 1)
+texture = ExtResource("7_sr2jf")
+hframes = 4
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.808136, 1.46077e-05, 4.90934e-06, 1)
+
+[node name="Glitch Corner 1" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(207, 155)
+scale = Vector2(4, 4)
+texture = ExtResource("8_sr2jf")
+hframes = 2
+
+[node name="Glitch Corner 2" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(435, 164)
+scale = Vector2(4, 4)
+texture = ExtResource("8_sr2jf")
+hframes = 2
+frame = 1
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 140.0
+offset_top = 48.0
+offset_right = 1090.0
+offset_bottom = 261.0
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_ef74u")
+text = "SCANNING SUBJECT...
+SUBEJECT IS 2 2 2 2 2 2
+CERULIAN       NOT CERULIAN
+COMPROMISED
+
+PROGRESS MUST END UNLESS"
+
+[node name="Clone" parent="." instance=ExtResource("9_pr2a3")]
+visible = false
+position = Vector2(-118, -51)
+
+[connection signal="body_entered" from="Clone Console" to="." method="_on_clone_console_body_entered"]
+[connection signal="body_exited" from="Clone Console" to="." method="_on_clone_console_body_exited"]

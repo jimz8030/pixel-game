@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://burda1hjuhxrg"]
+[gd_scene load_steps=35 format=3 uid="uid://burda1hjuhxrg"]
 
 [ext_resource type="Script" uid="uid://bh3f7c603b0n" path="res://Scripts/Ottle.gd" id="1_vyqst"]
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_5np3e"]
+[ext_resource type="Texture2D" uid="uid://d25x1pj7u1dx3" path="res://Sprites/NPCs/Wildlife/Animal_Stat_Symbols.png" id="2_ugbtk"]
 [ext_resource type="Texture2D" uid="uid://bt10aw03qpjev" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Idle.png" id="3_b5idd"]
 [ext_resource type="Texture2D" uid="uid://cm6mcaxo0nhov" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Walk.png" id="4_hs20i"]
 [ext_resource type="Texture2D" uid="uid://ddodsg1g4sbrc" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Stand.png" id="5_3drhi"]
@@ -317,11 +318,19 @@ offset_bottom = -31.0
 scale = Vector2(1.25, 1.25)
 color = Color(0.0747908, 0.0906947, 0.186837, 1)
 
+[node name="Health" type="Sprite2D" parent="Stats"]
+modulate = Color(0.780392, 0.141176, 0.396078, 1)
+position = Vector2(11.2, 5.60001)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ugbtk")
+hframes = 3
+frame = 1
+
 [node name="Health Bar" type="TextureProgressBar" parent="Stats"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 15.6
 offset_top = 4.03888
-offset_right = 15.0
+offset_right = 20.6
 offset_bottom = 9.03888
 scale = Vector2(6, 0.6)
 max_value = 15.0
@@ -331,11 +340,18 @@ texture_progress = ExtResource("2_5np3e")
 tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
 
+[node name="Hunger" type="Sprite2D" parent="Stats"]
+modulate = Color(0.823529, 0.482353, 0.262745, 1)
+position = Vector2(11.2, 14.125)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ugbtk")
+hframes = 3
+
 [node name="Hunger Bar" type="TextureProgressBar" parent="Stats"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 15.6
 offset_top = 12.1166
-offset_right = 15.0
+offset_right = 20.6
 offset_bottom = 17.1166
 scale = Vector2(6, 0.6)
 max_value = 15.0
@@ -346,11 +362,19 @@ texture_progress = ExtResource("2_5np3e")
 tint_under = Color(1, 1, 1, 0.745098)
 tint_progress = Color(0.8373, 0.42087, 0.144208, 0.815686)
 
+[node name="Sleep" type="Sprite2D" parent="Stats"]
+modulate = Color(0.341176, 0.741176, 0.898039, 1)
+position = Vector2(11.2, 22.4)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_ugbtk")
+hframes = 3
+frame = 2
+
 [node name="Drowsy Bar" type="TextureProgressBar" parent="Stats"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 15.6
 offset_top = 21.1944
-offset_right = 15.0
+offset_right = 20.6
 offset_bottom = 26.1944
 scale = Vector2(6, 0.6)
 max_value = 15.0
@@ -379,9 +403,9 @@ tint_progress = Color(0.918529, 0.396715, 0.827337, 0.815686)
 
 [node name="Safe Box" type="ColorRect" parent="Stats"]
 layout_mode = 0
-offset_left = 3.0
+offset_left = 2.2
 offset_top = 4.0
-offset_right = 7.0
+offset_right = 6.2
 offset_bottom = 8.0
 scale = Vector2(1, 0.990373)
 color = Color(0.764706, 0.768627, 0.792157, 1)

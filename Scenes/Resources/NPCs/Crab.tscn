@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1ibkb5dr5oiq"]
+[gd_scene load_steps=21 format=3 uid="uid://d1ibkb5dr5oiq"]
 
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="2_h837m"]
+[ext_resource type="Texture2D" uid="uid://d25x1pj7u1dx3" path="res://Sprites/NPCs/Wildlife/Animal_Stat_Symbols.png" id="2_rqeim"]
 [ext_resource type="Texture2D" uid="uid://bt10aw03qpjev" path="res://Sprites/NPCs/Wildlife/Ottle/Ottle_Idle.png" id="3_rqeim"]
 [ext_resource type="Texture2D" uid="uid://daqk0d7udy474" path="res://Sprites/NPCs/Wildlife/Crab/Crab_Idle.png" id="4_h837m"]
 [ext_resource type="Texture2D" uid="uid://dxppanr0d8324" path="res://Sprites/NPCs/Wildlife/Crab/Crab_Move.png" id="5_ktv3r"]
@@ -221,16 +222,24 @@ visible = false
 z_index = 1
 offset_left = -27.0
 offset_top = -37.0
-offset_right = 16.0
+offset_right = 21.0
 offset_bottom = -26.0
 scale = Vector2(1.25, 1.25)
 color = Color(0.0747908, 0.0906947, 0.186837, 1)
 
+[node name="Health" type="Sprite2D" parent="Stats"]
+modulate = Color(0.780392, 0.141176, 0.396078, 1)
+position = Vector2(11.2, 5.60001)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_rqeim")
+hframes = 3
+frame = 1
+
 [node name="Health Bar" type="TextureProgressBar" parent="Stats"]
 layout_mode = 0
-offset_left = 10.0
+offset_left = 16.4
 offset_top = 4.03888
-offset_right = 15.0
+offset_right = 21.4
 offset_bottom = 9.03888
 scale = Vector2(6, 0.6)
 max_value = 6.0
@@ -243,10 +252,10 @@ tint_progress = Color(0.784314, 0, 0.305882, 0.815686)
 
 [node name="Safe Box" type="ColorRect" parent="Stats"]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 4.0
-offset_right = 7.0
-offset_bottom = 8.0
+offset_left = 2.2
+offset_top = 3.69
+offset_right = 6.2
+offset_bottom = 7.69
 scale = Vector2(1, 0.990373)
 color = Color(0.764706, 0.768627, 0.792157, 1)
 

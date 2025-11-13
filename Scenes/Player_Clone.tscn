@@ -1,0 +1,221 @@
+[gd_scene load_steps=17 format=3 uid="uid://dhvkc2n7ivgok"]
+
+[ext_resource type="Script" uid="uid://dxv45o1y3qir7" path="res://Scripts/Control_Player_Clone.gd" id="1_go6ux"]
+[ext_resource type="Texture2D" uid="uid://d08uue5jnbnd8" path="res://Sprites/Player_Sprites/Fresh Clone/Clone_Idle.png" id="2_moe2x"]
+[ext_resource type="Texture2D" uid="uid://bn3xtnx4nka66" path="res://Sprites/Player_Sprites/Fresh Clone/Clone_Crawl.png" id="3_ahtsr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8p5o8"]
+load_path = "res://.godot/imported/pixil-frame-0.png-da221accf9fa3d4c62f6805c7616c0f6.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yl37s"]
+size = Vector2(21, 15)
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jmsub"]
+animation = &"1a- Female Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_biwqg"]
+animation = &"1b- Female Run"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v2a5k"]
+animation = &"2c- Female Crawl"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_anvd5"]
+animation = &"3d- Female Land"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_uhnr4"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_jmsub")
+blend_point_0/pos = Vector2(0, 0)
+blend_point_1/node = SubResource("AnimationNodeAnimation_biwqg")
+blend_point_1/pos = Vector2(1, 0)
+blend_point_2/node = SubResource("AnimationNodeAnimation_v2a5k")
+blend_point_2/pos = Vector2(0.5, -1)
+blend_point_3/node = SubResource("AnimationNodeAnimation_anvd5")
+blend_point_3/pos = Vector2(0, -0.2)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_utggc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_gd1b5"]
+states/End/position = Vector2(1161, 222.784)
+states/Grounded/node = SubResource("AnimationNodeBlendSpace2D_uhnr4")
+states/Grounded/position = Vector2(131, 120.414)
+states/Start/position = Vector2(131, 240.923)
+transitions = ["Start", "Grounded", SubResource("AnimationNodeStateMachineTransition_utggc")]
+graph_offset = Vector2(-379.905, 17.1124)
+
+[sub_resource type="Animation" id="Animation_b5317"]
+resource_name = "1a- Female Idle"
+length = 1.8
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_moe2x")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.41667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_a76va"]
+resource_name = "1b- Female Run"
+loop_mode = 1
+step = 0.0833333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [ExtResource("3_ahtsr")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:frame")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.333333, 0.5, 0.666667, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_o5tfk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Appearance/Body:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("CompressedTexture2D_8p5o8")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Appearance/Body:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Appearance/Body:vframes")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Appearance/Body:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pvyqu"]
+_data = {
+&"1a- Female Idle": SubResource("Animation_b5317"),
+&"1b- Female Run": SubResource("Animation_a76va"),
+&"RESET": SubResource("Animation_o5tfk")
+}
+
+[node name="Clone" type="CharacterBody2D"]
+collision_layer = 2
+script = ExtResource("1_go6ux")
+
+[node name="Appearance" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Appearance"]
+position = Vector2(0, -1)
+scale = Vector2(-1, 1)
+texture = SubResource("CompressedTexture2D_8p5o8")
+
+[node name="Body_Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 9.5)
+shape = SubResource("RectangleShape2D_yl37s")
+
+[node name="Left_Ray" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(-5, 0)
+target_position = Vector2(0, -17)
+
+[node name="Right_Ray" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(5, 0)
+target_position = Vector2(0, -17)
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_gd1b5")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Grounded/blend_position = Vector2(-0.00268579, -0.21978)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_pvyqu")
+}

@@ -24,7 +24,7 @@ func _process(_float) -> void:
 	if player != null:
 		player.position = Vector2(520, 180)
 		player.get_child(2).scale.x = 1
-		player.get_child(10).visible = false
+		player.get_child(11).visible = false
 
 #HAIR
 func _on_head_pressed() -> void:

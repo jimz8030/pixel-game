@@ -163,7 +163,7 @@ func _input(event: InputEvent) -> void:
 					get_parent().get_node("Appearance/Top_Clothing").get_child(0).rotation = 45
 				#EAT ITEM
 				elif inv_selected_item.eat_heal_amount > 0:
-					get_parent().current_health += inv_selected_item.eat_heal_amount
+					get_parent().get_child(0).value += inv_selected_item.eat_heal_amount
 					lift_line.curve.set_point_position(1, Vector2(0, 41))
 					inv_selected_item.queue_free()
 				inv_selected_item = null
