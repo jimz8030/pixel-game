@@ -2,8 +2,16 @@ extends Node
 
 @onready var player = $PlayerBody
 var skin_color : Color
+@export var top_clothing : Array[CompressedTexture2D]
+@export var bottoms_unlocked : Array[CompressedTexture2D]
 
 func _ready() -> void:
+	CosmeticManager.top_clothing = top_clothing
+	#for item in top_clothing:
+		#print (item)
+		#CosmeticManager.append(item)
+	#print (CosmeticManager.top_clothing)
+	
 	#provides initial customization when there are no options selected
 	if CosmeticManager.skin == Color(0, 0, 0, 1):
 		#Set Hair, skin color, etc
@@ -16,7 +24,7 @@ func _ready() -> void:
 	else:
 		player.get_child(3).get_child(1).frame = CosmeticManager.hair_type
 		player.get_child(3).get_child(2).visible = CosmeticManager.bottom_clothing
-		player.get_child(3).get_child(3).visible = CosmeticManager.top_clothing
+		$"PlayerBody/Appearance/Top_Clothing".texture = load(CosmeticManager.top_clothing[CosmeticManager.selected_top].load_path)
 		$SKIN.value = CosmeticManager.skin.g * 100
 
 func _process(_float) -> void:
@@ -35,10 +43,11 @@ func _on_head_pressed() -> void:
 
 #TOP CLOTHING
 func _on_top_pressed() -> void:
-	if player.get_child(3).get_child(3).visible == true:
-		player.get_child(3).get_child(3).visible = false
+	if (CosmeticManager.selected_top + 2) > CosmeticManager.top_clothing.size():
+		CosmeticManager.selected_top = 0
 	else:
-		player.get_child(3).get_child(3).visible = true
+		CosmeticManager.selected_top += 1
+	$"PlayerBody/Appearance/Top_Clothing".texture = load(CosmeticManager.top_clothing[CosmeticManager.selected_top].load_path)
 
 #BOTTOM CLOTHING
 func _on_bottom_pressed() -> void:
@@ -56,7 +65,6 @@ func _on_skin_value_changed(value: float) -> void:
 func _on_apply_pressed() -> void:
 	CosmeticManager.hair_type = player.get_child(3).get_child(1).frame
 	CosmeticManager.bottom_clothing = player.get_child(3).get_child(2).visible
-	CosmeticManager.top_clothing = player.get_child(3).get_child(3).visible
 	CosmeticManager.skin = skin_color
 	get_tree().change_scene_to_file("res://Scenes/Control_Tutorial.tscn")
 

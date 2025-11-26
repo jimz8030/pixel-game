@@ -21,10 +21,12 @@ var can_coyote_jump = false
 @onready var prev_pos = position.x
 
 func _ready() -> void:
-	
 	#Set Player Customization
 	$Appearance/Hair.frame = CosmeticManager.hair_type
-	$Appearance/Top_Clothing.visible = CosmeticManager.top_clothing
+	if CosmeticManager.top_clothing.is_empty():
+		$"Appearance/Top_Clothing".texture = load("res://Sprites/Player_Sprites/Clothing/T0_Pack.png")
+	else:
+		$"Appearance/Top_Clothing".texture = load(CosmeticManager.top_clothing[CosmeticManager.selected_top].load_path)
 	$Appearance/Bottom_Clothing.visible = CosmeticManager.bottom_clothing
 	$Appearance/Body.set_modulate(CosmeticManager.skin)
 
@@ -56,7 +58,7 @@ func _physics_process(delta: float) -> void:
 		landed = false
 
 		#TUCKING
-		if can_tuck and Input.is_action_just_pressed("Crouch"):
+		if can_tuck and Input.is_action_just_pressed("Crouch") and velocity.y > -200:
 			velocity.y = -200
 			can_tuck = false
 		if Input.is_action_pressed("Crouch"):
@@ -138,7 +140,7 @@ func _physics_process(delta: float) -> void:
 				$AnimationTree["parameters/Airborne/blend_position"] = 1
 				velocity.y = -300
 				$Body_Collision.scale.y = 1
-				$Body_Collision.position.y = 1.5
+				$Body_Collision.position.y = 1
 
 			#RUNNING
 			elif Input.get_axis("Left", "Right"):
@@ -146,13 +148,13 @@ func _physics_process(delta: float) -> void:
 				friction = 0.08
 				$"AnimationTree"["parameters/Grounded/blend_position"] = Vector2(1,0)
 				$Body_Collision.scale.y = 1
-				$Body_Collision.position.y = 1.5
+				$Body_Collision.position.y = 1
 
 			#IDLE
 			else:
 				$"AnimationTree"["parameters/Grounded/blend_position"] = Vector2(0,0)
 				$Body_Collision.scale.y = 1
-				$Body_Collision.position.y = 1.5
+				$Body_Collision.position.y = 1
 
 		move_and_slide()
 

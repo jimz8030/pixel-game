@@ -10,17 +10,9 @@ collision_layer = 2
 
 [node name="Appearance" type="Node2D" parent="."]
 
-[node name="Base" type="Sprite2D" parent="Appearance"]
+[node name="Appearance" type="Sprite2D" parent="Appearance"]
 position = Vector2(0, -1)
 texture = ExtResource("2_h5v31")
-hframes = 2
-
-[node name="Coating" type="Sprite2D" parent="Appearance"]
-modulate = Color(0.905969, 0.222775, 0.33319, 1)
-position = Vector2(0, -1)
-texture = ExtResource("2_h5v31")
-hframes = 2
-frame = 1
 
 [node name="Body_Collision" type="CollisionShape2D" parent="."]
 visible = false

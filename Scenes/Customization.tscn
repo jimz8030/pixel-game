@@ -1,18 +1,23 @@
-[gd_scene load_steps=9 format=3 uid="uid://einchx0n761s"]
+[gd_scene load_steps=11 format=3 uid="uid://einchx0n761s"]
 
 [ext_resource type="Script" uid="uid://du8n6qjtpwpi1" path="res://Scripts/customization.gd" id="1_lbk0v"]
+[ext_resource type="Texture2D" uid="uid://djn8israt1j0k" path="res://Sprites/Player_Sprites/Clothing/T0_Pack.png" id="2_811te"]
 [ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="2_c5ooh"]
 [ext_resource type="PackedScene" uid="uid://q5ml3bc64y51" path="res://Scenes/PlayerBody_4.tscn" id="2_jingq"]
+[ext_resource type="Texture2D" uid="uid://dde5x3v7c56c7" path="res://Sprites/Player_Sprites/Player_Body_Pack.png" id="3_xi38b"]
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="4_chu7y"]
-[ext_resource type="Texture2D" uid="uid://d5qokawpvi0t" path="res://Sprites/Player_Sprites/Clothing/Top/T0_Idle.png" id="6_kdxhr"]
 [ext_resource type="Texture2D" uid="uid://ckc53lsttv5tg" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Idle.png" id="7_811te"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="7_kdxhr"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jingq"]
 load_path = "res://.godot/imported/Hair_0.png-36d9e36bfa43ecdd6390d58cec9e97a9.ctex"
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ibys"]
+load_path = "res://.godot/imported/T0_Idle.png-090a5c06e99b884bd0eaf4c351a127b2.ctex"
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lbk0v")
+top_clothing = Array[CompressedTexture2D]([ExtResource("2_811te"), ExtResource("3_xi38b")])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 642.0
@@ -147,8 +152,8 @@ expand_icon = true
 [node name="Visual" type="Sprite2D" parent="CanvasLayer/TOP"]
 position = Vector2(35, 40.71)
 scale = Vector2(3.91667, 3.91667)
-texture = ExtResource("6_kdxhr")
-hframes = 3
+texture = SubResource("CompressedTexture2D_2ibys")
+hframes = 4
 
 [node name="BOTTOM" type="Button" parent="CanvasLayer"]
 anchors_preset = 8

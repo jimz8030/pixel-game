@@ -65,8 +65,8 @@ func _input(event: InputEvent) -> void:
 		#get cursor position and make a "feeler" (or the pointer) follow it
 		$Pointer.set_position(get_local_mouse_position())
 		#lines are drawn near the cursor and used to determine if there's anything in the way
-		line_of_sight_1.set_target_position((get_local_mouse_position() + Vector2(-22,-32)) * 1.1)
-		line_of_sight_2.set_target_position((get_local_mouse_position() + Vector2(-22,-38)) * 1.1)
+		line_of_sight_1.set_target_position((get_local_mouse_position() + Vector2(-22,-33)) * 1.1)
+		line_of_sight_2.set_target_position((get_local_mouse_position() + Vector2(-22,-37)) * 1.1)
 
 		#declares that there is an item to select
 		if selected_item != null:
