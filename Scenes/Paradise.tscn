@@ -1,20 +1,134 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7dieiyw60f3i"]
+[gd_scene load_steps=28 format=3 uid="uid://b7dieiyw60f3i"]
 
+[ext_resource type="Script" uid="uid://cp00mw7pi01h2" path="res://Scenes/Planetoid.gd" id="1_abwgp"]
 [ext_resource type="PackedScene" uid="uid://c7dssqcjksae1" path="res://Scenes/Resources/Jump_Pad.tscn" id="4_2jut1"]
 [ext_resource type="PackedScene" uid="uid://burda1hjuhxrg" path="res://Scenes/Resources/NPCs/Ottle.tscn" id="6_wjyym"]
 [ext_resource type="PackedScene" uid="uid://c0mxfvlpw4xh1" path="res://Scenes/Resources/Fruit_Bearing_Plants/Cotton_Bush.tscn" id="7_iv5cg"]
-[ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="9_6yukn"]
+[ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory_Items/Mango.tscn" id="9_6yukn"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="9_kghhe"]
-[ext_resource type="PackedScene" uid="uid://bj8nhvy7xdlvk" path="res://Scenes/Resources/Machines/Weapon_Chest.tscn" id="9_t17do"]
-[ext_resource type="PackedScene" uid="uid://c5nsb75b3pcqx" path="res://Inventory/Inventory_Items/Dagger.tscn" id="10_iqggt"]
-[ext_resource type="PackedScene" uid="uid://nvyd8v04kk00" path="res://Scenes/Resources/Machines/Dispenser.tscn" id="11_ojm4g"]
-[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="11_r235b"]
 [ext_resource type="Script" uid="uid://cq5tqqth8v446" path="res://Scripts/scene_manager.gd" id="13_r235b"]
 [ext_resource type="PackedScene" uid="uid://q5ml3bc64y51" path="res://Scenes/PlayerBody_4.tscn" id="13_wjyym"]
-[ext_resource type="PackedScene" uid="uid://3vxm3ljsuolg" path="res://Scenes/Resources/Machines/Fancy_Chest.tscn" id="14_wjyym"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="14_4txwh"]
 [ext_resource type="PackedScene" uid="uid://d1ibkb5dr5oiq" path="res://Scenes/Resources/NPCs/Crab.tscn" id="15_4txwh"]
+[ext_resource type="Texture2D" uid="uid://dimcwvroo8u3l" path="res://Sprites/UI/Mission Station/Time Symbol.png" id="15_abwgp"]
+[ext_resource type="Texture2D" uid="uid://bj1y40fcgujck" path="res://Sprites/UI/Mission Station/Guiding_Arrow.png" id="15_wvfsv"]
+[ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="18_ke5je"]
+[ext_resource type="PackedScene" uid="uid://cqxm3wp1pdtra" path="res://Inventory_Items/Crate_1.tscn" id="19_h4pk5"]
+[ext_resource type="PackedScene" uid="uid://ct0jtrg4mgr60" path="res://Inventory_Items/Crate_2.tscn" id="20_v1rux"]
+[ext_resource type="PackedScene" uid="uid://d0dc62p137e3w" path="res://Inventory_Items/Crate_3.tscn" id="21_g1nmo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke5je"]
+bg_color = Color(0.466667, 0.686275, 0.392157, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h4pk5"]
+bg_color = Color(0.129412, 0.0431373, 0.184314, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v1rux"]
+bg_color = Color(0.231373, 0.396078, 0.356863, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_abwgp"]
+size = Vector2(178, 30)
+
+[sub_resource type="Animation" id="Animation_ke5je"]
+resource_name = "Step 1"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"taming_initial_pull"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_h4pk5"]
+resource_name = "Step 2"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"taming_initial_pull"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h4pk5"]
+_data = {
+&"Step 1": SubResource("Animation_ke5je"),
+&"Step 2": SubResource("Animation_h4pk5")
+}
+
+[sub_resource type="Animation" id="Animation_wgbba"]
+resource_name = "Step 1"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"taming_initial_pull"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_5tpqo"]
+resource_name = "Step 2"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"taming_apply"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vaf4h"]
+resource_name = "Step 3"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"taming_results"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5tpqo"]
+_data = {
+&"Step 1": SubResource("Animation_wgbba"),
+&"Step 2": SubResource("Animation_5tpqo"),
+&"Step 3": SubResource("Animation_vaf4h")
+}
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_abwgp")
 
 [node name="Mango3" parent="." instance=ExtResource("9_6yukn")]
 position = Vector2(389, 612)
@@ -148,33 +262,8 @@ position = Vector2(-50, 206)
 [node name="Cotton_Bush3" parent="Map" instance=ExtResource("7_iv5cg")]
 position = Vector2(629, -40)
 
-[node name="Weapon_Chest1" parent="." instance=ExtResource("9_t17do")]
-position = Vector2(567, -3)
-rotation = 1.13795
-held_items = Array[PackedScene]([ExtResource("9_6yukn"), null, null, null])
-
-[node name="Weapon_Chest2" parent="." instance=ExtResource("9_t17do")]
-position = Vector2(32, 53)
-rotation = 1.13795
-held_items = Array[PackedScene]([ExtResource("11_r235b"), ExtResource("9_6yukn"), null, null])
-
-[node name="Dispenser" parent="." instance=ExtResource("11_ojm4g")]
-position = Vector2(171, -43)
-
-[node name="Dispenser2" parent="." instance=ExtResource("11_ojm4g")]
-position = Vector2(67, 69)
-
-[node name="Dispenser3" parent="." instance=ExtResource("11_ojm4g")]
-position = Vector2(99, -43)
-
 [node name="Scene_Manager" type="Node2D" parent="."]
 script = ExtResource("13_r235b")
-
-[node name="Weapon_Chest3" parent="." instance=ExtResource("14_wjyym")]
-position = Vector2(-267, 473)
-scale = Vector2(0.996849, 1.00411)
-mass = 12.0
-held_items = Array[PackedScene]([ExtResource("10_iqggt"), null, null, null])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -191,7 +280,7 @@ position = Vector2(195, 247)
 position = Vector2(0, 81)
 
 [node name="Camera" type="Camera2D" parent="PlayerBody"]
-zoom = Vector2(1.2, 1.2)
+zoom = Vector2(1.3, 1.3)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 drag_horizontal_enabled = true
@@ -200,3 +289,189 @@ drag_left_margin = 0.1
 drag_top_margin = 0.1
 drag_right_margin = 0.1
 drag_bottom_margin = 0.0
+
+[node name="Extraction_Arrow" type="Node2D" parent="PlayerBody"]
+visible = false
+
+[node name="Appearance" type="Sprite2D" parent="PlayerBody/Extraction_Arrow"]
+position = Vector2(26.735, 0)
+texture = ExtResource("15_wvfsv")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Time_Report" type="ColorRect" parent="CanvasLayer2"]
+offset_left = 269.0
+offset_right = 349.0
+offset_bottom = 69.0
+color = Color(0.129412, 0.0431373, 0.184314, 1)
+
+[node name="Time Amount" type="Label" parent="CanvasLayer2/Time_Report"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 47.0
+offset_right = 64.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.85098, 0.992157, 0.803922, 1)
+theme_override_fonts/font = ExtResource("14_4txwh")
+text = "4 MIN"
+horizontal_alignment = 1
+
+[node name="TimeSymbol" type="Sprite2D" parent="CanvasLayer2/Time_Report"]
+position = Vector2(36, 26)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("15_abwgp")
+
+[node name="Tame" type="Button" parent="CanvasLayer2"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.33
+anchor_top = 0.922
+anchor_right = 0.595
+anchor_bottom = 0.997
+offset_left = 0.299957
+offset_top = -4.92004
+offset_right = -0.300049
+offset_bottom = -4.92001
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.85098, 0.992157, 0.803922, 1)
+theme_override_fonts/font = ExtResource("14_4txwh")
+action_mode = 0
+text = "ATTEMPT TO TAME"
+
+[node name="Tame Menu" type="Node2D" parent="CanvasLayer2"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2/Tame Menu"]
+offset_left = 151.0
+offset_right = 501.0
+offset_bottom = 362.0
+color = Color(0.631821, 0.707845, 0.908955, 1)
+
+[node name="Taming Bar" type="TextureProgressBar" parent="CanvasLayer2/Tame Menu"]
+offset_left = 208.0
+offset_top = 316.0
+offset_right = 213.0
+offset_bottom = 321.0
+scale = Vector2(48, 2)
+max_value = 10.0
+value = 2.0
+allow_greater = true
+texture_under = ExtResource("18_ke5je")
+texture_progress = ExtResource("18_ke5je")
+tint_under = Color(0.592157, 0.592157, 0.592157, 0)
+tint_progress = Color(0.541583, 0.00378423, 0.957672, 0.815686)
+
+[node name="Tug_Rope" type="TextureProgressBar" parent="CanvasLayer2/Tame Menu"]
+offset_left = 208.0
+offset_top = 185.0
+offset_right = 213.0
+offset_bottom = 190.0
+scale = Vector2(48, 2)
+max_value = 10.0
+value = 5.0
+allow_greater = true
+texture_under = ExtResource("18_ke5je")
+texture_progress = ExtResource("18_ke5je")
+tint_progress = Color(0, 0, 0, 0.815686)
+
+[node name="Animal" type="Sprite2D" parent="CanvasLayer2/Tame Menu"]
+position = Vector2(319, 63)
+scale = Vector2(3, 3)
+hframes = 4
+
+[node name="Mid_Marker" type="Sprite2D" parent="CanvasLayer2/Tame Menu"]
+position = Vector2(328.125, 179)
+scale = Vector2(0.349989, 2.4)
+texture = ExtResource("18_ke5je")
+
+[node name="RESULTS" type="Label" parent="CanvasLayer2/Tame Menu"]
+offset_left = 115.0
+offset_top = 63.0
+offset_right = 250.0
+offset_bottom = 86.0
+rotation = -0.194195
+scale = Vector2(3, 3)
+theme_override_colors/font_color = Color(0.576471, 0, 0, 1)
+theme_override_fonts/font = ExtResource("14_4txwh")
+horizontal_alignment = 1
+
+[node name="Exit" type="Button" parent="CanvasLayer2/Tame Menu"]
+visible = false
+anchors_preset = -1
+anchor_left = 0.762
+anchor_top = 0.922
+anchor_right = 0.892
+anchor_bottom = 0.997
+offset_left = 275.0
+offset_top = 207.0
+offset_right = 383.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(0.85098, 0.992157, 0.803922, 1)
+theme_override_fonts/font = ExtResource("14_4txwh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ke5je")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h4pk5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_v1rux")
+action_mode = 0
+text = "CONTINUE"
+
+[node name="Death_Timer" type="Timer" parent="."]
+
+[node name="Area Pickup" type="Area2D" parent="."]
+z_index = -1
+position = Vector2(946, 624)
+collision_layer = 0
+collision_mask = 6
+
+[node name="ColorRect4" type="ColorRect" parent="Area Pickup"]
+z_index = -1
+offset_left = -88.0
+offset_top = -15.0
+offset_right = 88.0
+offset_bottom = 15.0
+color = Color(0.765864, 0.236675, 0.757733, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area Pickup"]
+light_mask = 0
+visibility_layer = 2
+shape = SubResource("RectangleShape2D_abwgp")
+
+[node name="Label2" type="Label" parent="Area Pickup"]
+visible = false
+offset_left = -72.0001
+offset_top = -29.0
+offset_right = 178.0
+offset_bottom = -6.0
+scale = Vector2(0.58, 0.58)
+theme_override_fonts/font = ExtResource("14_4txwh")
+horizontal_alignment = 1
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+&"": SubResource("AnimationLibrary_h4pk5")
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5tpqo")
+}
+
+[node name="Crate_1" parent="." instance=ExtResource("19_h4pk5")]
+position = Vector2(-104, 120)
+
+[node name="Crate_2" parent="." instance=ExtResource("20_v1rux")]
+position = Vector2(-113, 82)
+
+[node name="Crate_3" parent="." instance=ExtResource("21_g1nmo")]
+position = Vector2(-104, 36)
+
+[connection signal="pressed" from="CanvasLayer2/Tame" to="." method="_on_tame_pressed"]
+[connection signal="pressed" from="CanvasLayer2/Tame Menu/Exit" to="." method="_on_exit_pressed"]
+[connection signal="timeout" from="Death_Timer" to="." method="_on_death_timer_timeout"]
+[connection signal="body_entered" from="Area Pickup" to="." method="_on_drop_pod_body_entered"]
+[connection signal="body_exited" from="Area Pickup" to="." method="_on_drop_pod_body_exited"]

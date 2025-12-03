@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://fn2rs8nwe3jd" path="res://Scripts/Plant-Fruit.gd" id="1_k3cnv"]
 [ext_resource type="Texture2D" uid="uid://c4yj8eya7ued7" path="res://Sprites/Environment/Flora/CottonBush.png" id="2_n3p8k"]
-[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory/Inventory_Items/Cotton.tscn" id="3_frf0y"]
+[ext_resource type="PackedScene" uid="uid://cwru5830kqe6k" path="res://Inventory_Items/Cotton.tscn" id="3_frf0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfah0"]
 size = Vector2(30, 34)
@@ -11,7 +11,7 @@ size = Vector2(30, 34)
 collision_layer = 0
 collision_mask = 32
 script = ExtResource("1_k3cnv")
-fruit_file_path = "res://Inventory/Inventory_Items/Cotton.tscn"
+fruit_file_path = "res://Inventory_Items/Cotton.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -17)

@@ -1,0 +1,240 @@
+[gd_scene load_steps=12 format=3 uid="uid://einchx0n761s"]
+
+[ext_resource type="Script" uid="uid://du8n6qjtpwpi1" path="res://Scripts/customization.gd" id="1_lbk0v"]
+[ext_resource type="Texture2D" uid="uid://djn8israt1j0k" path="res://Sprites/Player_Sprites/Clothing/T0_Pack.png" id="2_811te"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="2_c5ooh"]
+[ext_resource type="PackedScene" uid="uid://q5ml3bc64y51" path="res://Scenes/PlayerBody_4.tscn" id="2_jingq"]
+[ext_resource type="Texture2D" uid="uid://5ajkqr0mnfq4" path="res://Sprites/Player_Sprites/Clothing/T1_Pack.png" id="3_811te"]
+[ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="4_chu7y"]
+[ext_resource type="Texture2D" uid="uid://b8e5f4n0h6ek0" path="res://Sprites/Player_Sprites/Clothing/T2_Pack.png" id="4_xi38b"]
+[ext_resource type="Texture2D" uid="uid://ckc53lsttv5tg" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Idle.png" id="7_811te"]
+[ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="7_kdxhr"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jingq"]
+load_path = "res://.godot/imported/Hair_0.png-36d9e36bfa43ecdd6390d58cec9e97a9.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ibys"]
+load_path = "res://.godot/imported/T0_Idle.png-090a5c06e99b884bd0eaf4c351a127b2.ctex"
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lbk0v")
+top_clothing = Array[CompressedTexture2D]([ExtResource("2_811te"), ExtResource("3_811te"), ExtResource("4_xi38b")])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 642.0
+offset_bottom = 362.0
+color = Color(0.77887, 0.927816, 0.90422, 1)
+
+[node name="PlayerBody" parent="." instance=ExtResource("2_jingq")]
+position = Vector2(520, 180)
+scale = Vector2(3, 3)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TEXT" type="Label" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.185937
+anchor_right = 0.185937
+anchor_bottom = 0.122222
+offset_left = -347.0
+offset_top = 33.0
+offset_right = -53.0
+offset_bottom = 140.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("2_c5ooh")
+text = "SKIN
+
+HEAD
+
+TOP
+
+BOTTOM"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="APPLY" type="Button" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -56.0
+offset_right = 102.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_c5ooh")
+action_mode = 0
+text = "APPLY"
+metadata/_edit_use_anchors_ = true
+
+[node name="head visual" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(273.91, 112.46)
+scale = Vector2(3.91667, 3.91667)
+texture = SubResource("CompressedTexture2D_jingq")
+hframes = 7
+vframes = 3
+
+[node name="Top Visual" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(273.91, 184.71)
+scale = Vector2(3.91667, 3.91667)
+texture = SubResource("CompressedTexture2D_2ibys")
+hframes = 4
+
+[node name="HEAD BACK" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -103.0
+offset_right = -70.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
+theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+icon = ExtResource("4_chu7y")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Visual" type="Sprite2D" parent="CanvasLayer/HEAD BACK"]
+position = Vector2(17, 35.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_chu7y")
+
+[node name="HEAD NEXT" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -103.0
+offset_right = 13.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
+theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+icon = ExtResource("4_chu7y")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Visual" type="Sprite2D" parent="CanvasLayer/HEAD NEXT"]
+position = Vector2(18, 35.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_chu7y")
+
+[node name="TOP_BACK" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -37.0
+offset_right = -70.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
+theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+icon = ExtResource("4_chu7y")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Visual" type="Sprite2D" parent="CanvasLayer/TOP_BACK"]
+position = Vector2(17, 35.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_chu7y")
+
+[node name="TOP_NEXT" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_top = -37.0
+offset_right = 13.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
+theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+icon = ExtResource("4_chu7y")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Visual" type="Sprite2D" parent="CanvasLayer/TOP_NEXT"]
+position = Vector2(18, 35.5)
+scale = Vector2(3, 3)
+texture = ExtResource("4_chu7y")
+
+[node name="BOTTOM" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.09
+offset_top = 30.0
+offset_right = -10.09
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
+theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+icon = ExtResource("4_chu7y")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Visual" type="Sprite2D" parent="CanvasLayer/BOTTOM"]
+position = Vector2(35, -5.64)
+scale = Vector2(3.91667, 3.91667)
+texture = ExtResource("7_811te")
+
+[node name="SKIN" type="HSlider" parent="."]
+offset_left = 246.0
+offset_top = 38.0
+offset_right = 400.0
+offset_bottom = 54.0
+theme_override_icons/grabber = ExtResource("4_chu7y")
+min_value = 20.0
+max_value = 80.0
+value = 20.0
+scrollable = false
+
+[node name="Platform" parent="." instance=ExtResource("7_kdxhr")]
+visible = false
+position = Vector2(555, 332)
+scale = Vector2(12, 10)
+collision_mask = 6
+
+[connection signal="pressed" from="CanvasLayer/APPLY" to="." method="_on_apply_pressed"]
+[connection signal="pressed" from="CanvasLayer/HEAD BACK" to="." method="_on_head_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/HEAD NEXT" to="." method="_on_head_next_pressed"]
+[connection signal="pressed" from="CanvasLayer/TOP_BACK" to="." method="_on_top_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/TOP_NEXT" to="." method="_on_top_next_pressed"]
+[connection signal="pressed" from="CanvasLayer/BOTTOM" to="." method="_on_bottom_pressed"]
+[connection signal="drag_ended" from="SKIN" to="." method="_on_skin_drag_ended"]
+[connection signal="value_changed" from="SKIN" to="." method="_on_skin_value_changed"]

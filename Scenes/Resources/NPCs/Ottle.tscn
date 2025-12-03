@@ -307,6 +307,8 @@ size = Vector2(21, 13)
 [node name="Ottle" type="CharacterBody2D"]
 collision_layer = 32
 script = ExtResource("1_vyqst")
+animal_name = "Ottle"
+taming_level = 3
 
 [node name="Stats" type="ColorRect" parent="."]
 visible = false

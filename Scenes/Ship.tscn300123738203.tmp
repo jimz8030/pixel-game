@@ -1,0 +1,140 @@
+[gd_scene load_steps=6 format=3 uid="uid://dibmc4uty2fmy"]
+
+[ext_resource type="Script" uid="uid://dr6thbkt4kl0q" path="res://Scenes/ship.gd" id="1_sjai3"]
+[ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="2_m2wm3"]
+[ext_resource type="PackedScene" uid="uid://c8jauvbp5icbd" path="res://Scenes/Bike.tscn" id="4_csonu"]
+[ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="5_11qs7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_75w15"]
+size = Vector2(20, 30)
+
+[node name="Ship" type="Node2D"]
+script = ExtResource("1_sjai3")
+
+[node name="Platform" parent="." instance=ExtResource("2_m2wm3")]
+z_index = 1
+position = Vector2(377, 124)
+scale = Vector2(12, 10)
+collision_mask = 6
+
+[node name="Platform2" parent="." instance=ExtResource("2_m2wm3")]
+position = Vector2(58, 101)
+scale = Vector2(20, 10)
+collision_mask = 6
+
+[node name="Platform6" parent="." instance=ExtResource("2_m2wm3")]
+position = Vector2(-95, -355)
+scale = Vector2(12, 10)
+collision_mask = 6
+
+[node name="Platform7" parent="." instance=ExtResource("2_m2wm3")]
+position = Vector2(-257, -137)
+scale = Vector2(12, 14.665)
+collision_mask = 6
+
+[node name="Platform5" parent="." instance=ExtResource("2_m2wm3")]
+z_index = 1
+position = Vector2(-91, -10)
+scale = Vector2(5, 2)
+collision_mask = 6
+
+[node name="Bike" parent="." instance=ExtResource("4_csonu")]
+position = Vector2(460, 10)
+
+[node name="Customization Console" type="Area2D" parent="."]
+z_index = -1
+position = Vector2(-77, -22)
+collision_layer = 0
+collision_mask = 2
+
+[node name="ColorRect4" type="ColorRect" parent="Customization Console"]
+z_index = 1
+offset_left = 70.0
+offset_top = -7.0
+offset_right = 90.0
+offset_bottom = 23.0
+color = Color(0.298061, 0.507897, 0.802006, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Customization Console"]
+position = Vector2(80, 8)
+shape = SubResource("RectangleShape2D_75w15")
+
+[node name="Label2" type="Label" parent="Customization Console"]
+visible = false
+offset_left = 8.00001
+offset_top = -24.0
+offset_right = 258.0
+offset_bottom = -1.0
+scale = Vector2(0.58, 0.58)
+theme_override_fonts/font = ExtResource("5_11qs7")
+text = "PRESS F TO CUSTOMIZE"
+horizontal_alignment = 1
+
+[node name="Mission Station" type="Area2D" parent="."]
+z_index = -1
+position = Vector2(240, 1)
+collision_layer = 0
+collision_mask = 6
+
+[node name="ColorRect4" type="ColorRect" parent="Mission Station"]
+z_index = 1
+offset_left = 70.0
+offset_top = -7.0
+offset_right = 90.0
+offset_bottom = 23.0
+color = Color(0.231373, 0.396078, 0.356863, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Mission Station"]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(80, 8)
+shape = SubResource("RectangleShape2D_75w15")
+
+[node name="Label2" type="Label" parent="Mission Station"]
+visible = false
+offset_left = 8.00001
+offset_top = -24.0
+offset_right = 258.0
+offset_bottom = -1.0
+scale = Vector2(0.58, 0.58)
+theme_override_fonts/font = ExtResource("5_11qs7")
+text = "PRESS F TO INTERACT"
+horizontal_alignment = 1
+
+[node name="Drop Pod" type="Area2D" parent="."]
+z_index = -1
+position = Vector2(114, -22)
+collision_layer = 0
+collision_mask = 6
+
+[node name="ColorRect4" type="ColorRect" parent="Drop Pod"]
+z_index = 1
+offset_left = 70.0
+offset_top = -7.0
+offset_right = 90.0
+offset_bottom = 23.0
+color = Color(0.765864, 0.236675, 0.757733, 1)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Drop Pod"]
+light_mask = 0
+visibility_layer = 2
+position = Vector2(80, 8)
+shape = SubResource("RectangleShape2D_75w15")
+
+[node name="Label2" type="Label" parent="Drop Pod"]
+visible = false
+offset_left = 8.00001
+offset_top = -24.0
+offset_right = 258.0
+offset_bottom = -1.0
+scale = Vector2(0.58, 0.58)
+theme_override_fonts/font = ExtResource("5_11qs7")
+text = "PRESS F TO DROP"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="Customization Console" to="." method="_on_customization_console_body_entered"]
+[connection signal="body_exited" from="Customization Console" to="." method="_on_customization_console_body_exited"]
+[connection signal="body_entered" from="Mission Station" to="." method="_on_mission_station_body_entered"]
+[connection signal="body_exited" from="Mission Station" to="." method="_on_mission_station_body_exited"]
+[connection signal="body_entered" from="Drop Pod" to="." method="_on_drop_pod_body_entered"]
+[connection signal="body_exited" from="Drop Pod" to="." method="_on_drop_pod_body_exited"]

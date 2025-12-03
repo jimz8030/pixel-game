@@ -22,15 +22,16 @@ var can_coyote_jump = false
 
 func _ready() -> void:
 	#Set Player Customization
-	$Appearance/Hair.frame = CosmeticManager.hair_type
-	if CosmeticManager.top_clothing.is_empty():
+	$Appearance/Hair.frame = Global_Variables.hair_type
+	if Global_Variables.top_clothing.is_empty():
 		$"Appearance/Top_Clothing".texture = load("res://Sprites/Player_Sprites/Clothing/T0_Pack.png")
 	else:
-		$"Appearance/Top_Clothing".texture = load(CosmeticManager.top_clothing[CosmeticManager.selected_top].load_path)
-	$Appearance/Bottom_Clothing.visible = CosmeticManager.bottom_clothing
-	$Appearance/Body.set_modulate(CosmeticManager.skin)
+		$"Appearance/Top_Clothing".texture = load(Global_Variables.top_clothing[Global_Variables.selected_top].load_path)
+	$Appearance/Bottom_Clothing.visible = Global_Variables.bottom_clothing
+	$Appearance/Body.set_modulate(Global_Variables.skin)
 
 func _physics_process(delta: float) -> void:
+	$"Taming Bar".value = Global_Variables.taming_strength
 	#HANDLE HEALTH
 	$"Health Overshoot".value = $"Health Bar".value - $"Health Bar".max_value
 	if $"Health Bar".value == $"Health Bar".max_value:
@@ -183,7 +184,6 @@ func deal_damage():
 			if thing.get_class() == "RigidBody2D":
 				thing.apply_central_impulse(Vector2(50, -1000))
 			if thing.get_class() == "CharacterBody2D":
-				print ($AnimationTree.get("parameters/playback"))
 				thing.take_damage(5, Vector2(-50 * $Appearance.scale.x, -30), true)
 		damage_signal = false
 

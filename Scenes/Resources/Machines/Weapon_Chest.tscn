@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://bj8nhvy7xdlvk"]
 
 [ext_resource type="Script" uid="uid://cjxgpsyyyq8ln" path="res://Scripts/Chest.gd" id="1_v77ja"]
-[ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory/Inventory_Items/Mango.tscn" id="2_0kam6"]
+[ext_resource type="PackedScene" uid="uid://xju17vy5w0wl" path="res://Inventory_Items/Mango.tscn" id="2_0kam6"]
 [ext_resource type="Texture2D" uid="uid://bwp1kl5fqbaw6" path="res://Chest.png" id="2_1sf4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ffuge"]

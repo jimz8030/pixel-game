@@ -46,6 +46,7 @@ func _input(event: InputEvent) -> void:
 		if !$Pointer.get_colliding_bodies().is_empty():
 			if get_node($Pointer.get_colliding_bodies()[0].get_path()).get_class() == "CharacterBody2D":
 				animal_stats = get_node($Pointer.get_colliding_bodies()[0].get_path()).get_child(0)
+				$"../..".animal_being_tamed = $Pointer.get_colliding_bodies()[0]
 				if animal_stats.visible == true:
 					animal_stats.visible = false
 				else:

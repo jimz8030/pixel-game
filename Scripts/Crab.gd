@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+@export var animal_name : String
+@export var taming_level : int
+
 var player_opinion = 0
 var speed : int
 var safe : bool = true
@@ -130,9 +133,11 @@ func take_damage(dmg_amount : int, knockback_amount : Vector2, player_attacking 
 	if player_attacking:
 		player_opinion -= dmg_amount
 	if $"Stats/Health Bar".value == 0:
-		var item_in_file : PackedScene = preload("res://Inventory/Inventory_Items/Meat.tscn")
+		var item_in_file : PackedScene = preload("res://Inventory_Items/Meat.tscn")
 		var item_to_drop : RigidBody2D = item_in_file.instantiate()
 		$"..".add_child(item_to_drop)
 		item_to_drop.position = self.position
 		item_to_drop.apply_impulse(Vector2(knockback_amount.x, knockback_amount.y))
+		Global_Variables.food_chain_xp += 7
+		Global_Variables.crab_killed += 1
 		self.queue_free()

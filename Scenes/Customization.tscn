@@ -1,106 +1,163 @@
-[gd_scene load_steps=11 format=3 uid="uid://einchx0n761s"]
+[gd_scene load_steps=20 format=3 uid="uid://einchx0n761s"]
 
 [ext_resource type="Script" uid="uid://du8n6qjtpwpi1" path="res://Scripts/customization.gd" id="1_lbk0v"]
 [ext_resource type="Texture2D" uid="uid://djn8israt1j0k" path="res://Sprites/Player_Sprites/Clothing/T0_Pack.png" id="2_811te"]
 [ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="2_c5ooh"]
 [ext_resource type="PackedScene" uid="uid://q5ml3bc64y51" path="res://Scenes/PlayerBody_4.tscn" id="2_jingq"]
-[ext_resource type="Texture2D" uid="uid://dde5x3v7c56c7" path="res://Sprites/Player_Sprites/Player_Body_Pack.png" id="3_xi38b"]
+[ext_resource type="Texture2D" uid="uid://5ajkqr0mnfq4" path="res://Sprites/Player_Sprites/Clothing/T1_Pack.png" id="3_811te"]
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="4_chu7y"]
-[ext_resource type="Texture2D" uid="uid://ckc53lsttv5tg" path="res://Sprites/Player_Sprites/Clothing/Bottom/B0_Idle.png" id="7_811te"]
+[ext_resource type="Texture2D" uid="uid://b8e5f4n0h6ek0" path="res://Sprites/Player_Sprites/Clothing/T2_Pack.png" id="4_xi38b"]
+[ext_resource type="Texture2D" uid="uid://ce7ryxvvph0a8" path="res://Sprites/UI/Character Creator/Customize.png" id="6_7hr6d"]
 [ext_resource type="PackedScene" uid="uid://8r277bmhuyuh" path="res://Scenes/Platform.tscn" id="7_kdxhr"]
+[ext_resource type="Texture2D" uid="uid://he6retapkcs5" path="res://Sprites/UI/Character Creator/Grabber.png" id="8_btgel"]
+[ext_resource type="Texture2D" uid="uid://dwwvdsx8quqgf" path="res://Sprites/UI/Character Creator/Background.png" id="10_btgel"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jingq"]
-load_path = "res://.godot/imported/Hair_0.png-36d9e36bfa43ecdd6390d58cec9e97a9.ctex"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v3ib1"]
+bg_color = Color(0.733333, 0.494118, 0.270588, 1)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2ibys"]
-load_path = "res://.godot/imported/T0_Idle.png-090a5c06e99b884bd0eaf4c351a127b2.ctex"
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7bb3"]
+bg_color = Color(0.184314, 0.101961, 0.0666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsq0e"]
+bg_color = Color(0.313726, 0.211765, 0.164706, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hr6d"]
+bg_color = Color(0.184314, 0.101961, 0.0666667, 1)
+border_width_top = 5
+border_width_bottom = 5
+border_color = Color(0.184314, 0.101961, 0.0666667, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btgel"]
+bg_color = Color(0.733333, 0.494118, 0.270588, 1)
+
+[sub_resource type="Animation" id="Animation_xi38b"]
+resource_name = "Face"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_btgel"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Face:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7hr6d"]
+_data = {
+&"Face": SubResource("Animation_xi38b"),
+&"RESET": SubResource("Animation_btgel")
+}
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_lbk0v")
-top_clothing = Array[CompressedTexture2D]([ExtResource("2_811te"), ExtResource("3_xi38b")])
+top_clothing = Array[CompressedTexture2D]([ExtResource("2_811te"), ExtResource("3_811te"), ExtResource("4_xi38b")])
+
+[node name="Face" type="Sprite2D" parent="."]
+position = Vector2(455, 179)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("10_btgel")
+hframes = 3
+
+[node name="Customize" type="Sprite2D" parent="."]
+position = Vector2(364, 190)
+scale = Vector2(3.75, 3.75)
+texture = ExtResource("6_7hr6d")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 642.0
+offset_top = -5.0
+offset_right = 268.0
 offset_bottom = 362.0
-color = Color(0.77887, 0.927816, 0.90422, 1)
+color = Color(0.984314, 0.92549, 0.866667, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = -1.0
+offset_top = 75.0
+offset_right = 76.0
+offset_bottom = 342.0
+color = Color(0.313726, 0.211765, 0.164706, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="."]
+offset_left = 199.0
+offset_top = 75.0
+offset_right = 268.0
+offset_bottom = 342.0
+color = Color(0.313726, 0.211765, 0.164706, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 8.0
+offset_top = 280.0
+offset_right = 259.0
+offset_bottom = 327.0
+color = Color(0.184314, 0.101961, 0.0666667, 1)
 
 [node name="PlayerBody" parent="." instance=ExtResource("2_jingq")]
-position = Vector2(520, 180)
-scale = Vector2(3, 3)
+position = Vector2(129, 144)
+scale = Vector2(4, 4)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="TEXT" type="Label" parent="CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.185937
-anchor_right = 0.185937
-anchor_bottom = 0.122222
-offset_left = -347.0
-offset_top = 33.0
-offset_right = -53.0
-offset_bottom = 140.0
-grow_horizontal = 2
-scale = Vector2(1.5, 1.5)
-theme_override_fonts/font = ExtResource("2_c5ooh")
-text = "SKIN
-
-HEAD
-
-TOP
-
-BOTTOM"
-horizontal_alignment = 2
-metadata/_edit_use_anchors_ = true
-
 [node name="APPLY" type="Button" parent="CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -56.0
-offset_right = 102.0
-offset_bottom = -25.0
+anchors_preset = -1
+anchor_left = 0.137
+anchor_top = 0.808
+anchor_right = 0.277
+anchor_bottom = 0.883
+offset_left = 71.32
+offset_top = -0.880005
+offset_right = 70.72
+offset_bottom = -0.880005
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_colors/font_color = Color(0.984314, 0.92549, 0.866667, 1)
 theme_override_fonts/font = ExtResource("2_c5ooh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_v3ib1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u7bb3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_tsq0e")
 action_mode = 0
 text = "APPLY"
-metadata/_edit_use_anchors_ = true
-
-[node name="head visual" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(273.91, 112.46)
-scale = Vector2(3.91667, 3.91667)
-texture = SubResource("CompressedTexture2D_jingq")
-hframes = 7
-vframes = 3
 
 [node name="HEAD BACK" type="Button" parent="CanvasLayer"]
-anchors_preset = 8
+anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.515625
 anchor_bottom = 0.5
-offset_left = -104.0
-offset_top = -103.0
-offset_right = -70.0
-offset_bottom = -32.0
+offset_left = -284.0
+offset_top = -75.0
+offset_right = -250.0
+offset_bottom = -3.99998
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.4)
 focus_mode = 0
-theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
-theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0.984314, 0.92549, 0.866667, 1)
+theme_override_colors/icon_pressed_color = Color(0.733333, 0.494118, 0.270588, 1)
+theme_override_colors/icon_normal_color = Color(0.184314, 0.101961, 0.0666667, 1)
 icon = ExtResource("4_chu7y")
 flat = true
 icon_alignment = 1
 expand_icon = true
-
-[node name="Visual" type="Sprite2D" parent="CanvasLayer/HEAD BACK"]
-position = Vector2(17, 35.5)
-scale = Vector2(3, 3)
-texture = ExtResource("4_chu7y")
+metadata/_edit_use_anchors_ = true
 
 [node name="HEAD NEXT" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
@@ -108,101 +165,106 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -23.0
-offset_top = -103.0
-offset_right = 13.0
-offset_bottom = -32.0
+offset_left = -125.0
+offset_top = -66.0
+offset_right = -81.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.4)
 focus_mode = 0
-theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
-theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0.984314, 0.92549, 0.866667, 1)
+theme_override_colors/icon_pressed_color = Color(0.733333, 0.494118, 0.270588, 1)
+theme_override_colors/icon_normal_color = Color(0.184314, 0.101961, 0.0666667, 1)
 icon = ExtResource("4_chu7y")
 flat = true
 icon_alignment = 1
 expand_icon = true
+metadata/_edit_use_anchors_ = true
 
-[node name="Visual" type="Sprite2D" parent="CanvasLayer/HEAD NEXT"]
-position = Vector2(18, 35.5)
-scale = Vector2(3, 3)
-texture = ExtResource("4_chu7y")
-
-[node name="TOP" type="Button" parent="CanvasLayer"]
+[node name="TOP_BACK" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.09
-offset_top = -36.0
-offset_right = -10.09
-offset_bottom = 35.0
+offset_left = -284.0
+offset_top = -19.0
+offset_right = -240.0
+offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.4)
 focus_mode = 0
-theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
-theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0.984314, 0.92549, 0.866667, 1)
+theme_override_colors/icon_pressed_color = Color(0.733333, 0.494118, 0.270588, 1)
+theme_override_colors/icon_normal_color = Color(0.184314, 0.101961, 0.0666667, 1)
 icon = ExtResource("4_chu7y")
 flat = true
 icon_alignment = 1
 expand_icon = true
+metadata/_edit_use_anchors_ = true
 
-[node name="Visual" type="Sprite2D" parent="CanvasLayer/TOP"]
-position = Vector2(35, 40.71)
-scale = Vector2(3.91667, 3.91667)
-texture = SubResource("CompressedTexture2D_2ibys")
-hframes = 4
-
-[node name="BOTTOM" type="Button" parent="CanvasLayer"]
+[node name="TOP_NEXT" type="Button" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -81.09
-offset_top = 30.0
-offset_right = -10.09
-offset_bottom = 101.0
+offset_left = -125.0
+offset_top = -19.0
+offset_right = -81.0
+offset_bottom = 43.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1, 0.4)
 focus_mode = 0
-theme_override_colors/icon_hover_color = Color(0.417763, 0.533062, 0.594745, 1)
-theme_override_colors/icon_pressed_color = Color(0.179153, 0.383075, 0.446773, 1)
-theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0.984314, 0.92549, 0.866667, 1)
+theme_override_colors/icon_pressed_color = Color(0.733333, 0.494118, 0.270588, 1)
+theme_override_colors/icon_normal_color = Color(0.184314, 0.101961, 0.0666667, 1)
 icon = ExtResource("4_chu7y")
 flat = true
 icon_alignment = 1
 expand_icon = true
-
-[node name="Visual" type="Sprite2D" parent="CanvasLayer/BOTTOM"]
-position = Vector2(35, -5.64)
-scale = Vector2(3.91667, 3.91667)
-texture = ExtResource("7_811te")
+metadata/_edit_use_anchors_ = true
 
 [node name="SKIN" type="HSlider" parent="."]
-offset_left = 246.0
-offset_top = 38.0
-offset_right = 400.0
-offset_bottom = 54.0
-theme_override_icons/grabber = ExtResource("4_chu7y")
+offset_left = 57.0
+offset_top = 37.0
+offset_right = 211.0
+offset_bottom = 53.0
+theme_override_icons/grabber = ExtResource("8_btgel")
+theme_override_icons/grabber_highlight = ExtResource("8_btgel")
+theme_override_styles/slider = SubResource("StyleBoxFlat_7hr6d")
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_7hr6d")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxFlat_btgel")
 min_value = 20.0
 max_value = 80.0
 value = 20.0
 scrollable = false
-ticks_on_borders = true
+metadata/_edit_use_anchors_ = true
 
 [node name="Platform" parent="." instance=ExtResource("7_kdxhr")]
 visible = false
-position = Vector2(555, 332)
+position = Vector2(139, 352)
 scale = Vector2(12, 10)
 collision_mask = 6
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_top = 336.0
+offset_right = 642.0
+offset_bottom = 362.0
+color = Color(0.184314, 0.101961, 0.0666667, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_7hr6d")
+}
 
 [connection signal="pressed" from="CanvasLayer/APPLY" to="." method="_on_apply_pressed"]
 [connection signal="pressed" from="CanvasLayer/HEAD BACK" to="." method="_on_head_back_pressed"]
 [connection signal="pressed" from="CanvasLayer/HEAD NEXT" to="." method="_on_head_next_pressed"]
-[connection signal="pressed" from="CanvasLayer/TOP" to="." method="_on_top_pressed"]
-[connection signal="pressed" from="CanvasLayer/BOTTOM" to="." method="_on_bottom_pressed"]
+[connection signal="pressed" from="CanvasLayer/TOP_BACK" to="." method="_on_top_back_pressed"]
+[connection signal="pressed" from="CanvasLayer/TOP_NEXT" to="." method="_on_top_next_pressed"]
 [connection signal="drag_ended" from="SKIN" to="." method="_on_skin_drag_ended"]
 [connection signal="value_changed" from="SKIN" to="." method="_on_skin_value_changed"]

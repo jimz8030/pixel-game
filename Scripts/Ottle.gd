@@ -2,10 +2,10 @@ extends CharacterBody2D
 
 var player_opinion = 0
 
+@export var animal_name : String
+@export var taming_level : int
+
 var speed : int = 120
-@export var drowsy_at_start : float = 15
-@export var hunger_at_start : float = 15
-@export var health_at_start : float = 15
 
 var safe : bool = true
 var stat_focus : String
@@ -31,9 +31,8 @@ var is_sleeping : bool
 
 #START OF SCENE
 func _ready() -> void:
-	$"Stats/Drowsy Bar".value = drowsy_at_start
-	$"Stats/Hunger Bar".value = hunger_at_start
-	$"Stats/Health Bar".value = health_at_start
+	$"Stats/Drowsy Bar".value = randi_range(2,15)
+	$"Stats/Hunger Bar".value = randi_range(5,15)
 
 #Code that needs to be ran every frame
 func _physics_process(delta: float) -> void:
@@ -343,6 +342,8 @@ func _on_consume_area_body_entered(body: Node2D) -> void:
 	if body != $"../PlayerBody":
 		if body.eat_heal_amount > 0 and $"Stats/Hunger Bar".value < 12:
 			$"Stats/Hunger Bar".value += body.eat_heal_amount * 1.5
+			if body.get_child(0).node_b == $"../PlayerBody/ItemFrame/Pointer".get_path():
+				Global_Variables.taming_strength += body.eat_heal_amount / 3
 			body.queue_free()
 			wander_time([0], [1])
 #DETECT JUMPPAD
@@ -371,9 +372,12 @@ func take_damage(dmg_amount : int, knockback_amount : Vector2, player_attacking 
 	if player_attacking:
 		player_opinion -= dmg_amount
 	if $"Stats/Health Bar".value == 0:
-		var item_in_file : PackedScene = preload("res://Inventory/Inventory_Items/Meat.tscn")
+		var item_in_file : PackedScene = preload("res://Inventory_Items/Meat.tscn")
 		var item_to_drop : RigidBody2D = item_in_file.instantiate()
 		$"..".add_child(item_to_drop)
 		item_to_drop.position = self.position
 		item_to_drop.apply_impulse(Vector2(knockback_amount.x / 4, knockback_amount.y / 2))
+		Global_Variables.food_chain_xp += 15
+		Global_Variables.ottle_killed += 1
+		Global_Variables.taming_strength -= 1
 		self.queue_free()

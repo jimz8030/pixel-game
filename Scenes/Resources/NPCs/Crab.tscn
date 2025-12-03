@@ -216,6 +216,8 @@ size = Vector2(21, 13)
 [node name="Crab" type="CharacterBody2D"]
 collision_layer = 32
 script = ExtResource("6_lrdra")
+animal_name = "Crab"
+taming_level = 1
 
 [node name="Stats" type="ColorRect" parent="."]
 visible = false
