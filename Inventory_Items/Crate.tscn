@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://drcr52622llbi"]
+
+[ext_resource type="Script" uid="uid://scp4b8apud7n" path="res://Scripts/Crate.gd" id="1_gmy4e"]
+[ext_resource type="Texture2D" uid="uid://dkdpibkhit4k3" path="res://Sprites/Environment/Crates.png" id="2_fm075"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kni7u"]
+size = Vector2(14, 9)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fm075"]
+size = Vector2(26, 22.3858)
+
+[node name="Crate" type="RigidBody2D"]
+collision_layer = 4
+collision_mask = 5
+input_pickable = true
+mass = 13.0
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_gmy4e")
+item_name = "Crate"
+
+[node name="Grip" type="PinJoint2D" parent="."]
+position = Vector2(0, -4)
+node_a = NodePath("..")
+node_b = NodePath("..")
+softness = 5.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("2_fm075")
+hframes = 3
+vframes = 2
+frame = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -4.5)
+shape = SubResource("RectangleShape2D_kni7u")
+
+[node name="Condense_Break_Signal" type="Timer" parent="."]
+wait_time = 0.05
+
+[node name="Player_Detection" type="Area2D" parent="."]
+scale = Vector2(1, 0.996522)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Player_Detection"]
+position = Vector2(-7.15255e-07, -4.5157)
+scale = Vector2(0.999999, 0.941369)
+shape = SubResource("RectangleShape2D_fm075")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Condense_Break_Signal" to="." method="_on_condense_break_signal_timeout"]
+[connection signal="body_entered" from="Player_Detection" to="." method="_on_player_detection_body_entered"]

@@ -84,7 +84,8 @@ func _physics_process(delta: float) -> void:
 		if !in_attack_state:
 			$AnimationTree.get("parameters/playback").travel("Grounded")
 		else:
-			velocity.x /= 2
+			pass
+			#velocity.x /= 2
 
 		#HANDLE LANDING
 		if !landed:
@@ -182,9 +183,11 @@ func deal_damage():
 	if damage_signal:
 		for thing in $"Hurt Box".get_overlapping_bodies():
 			if thing.get_class() == "RigidBody2D":
-				thing.apply_central_impulse(Vector2(50, -1000))
+				thing.apply_central_impulse(Vector2(0, -1000))
+				if thing.name.erase(4,5) == "Crat":
+					thing.break_open()
 			if thing.get_class() == "CharacterBody2D":
-				thing.take_damage(5, Vector2(-50 * $Appearance.scale.x, -30), true)
+				thing.take_damage(5, Vector2(-100 * $Appearance.scale.x, -200), true)
 		damage_signal = false
 
 func _on_timer_timeout() -> void:

@@ -22,8 +22,6 @@ var bookmarks : Array
 var one_o_two : int
 #TURN AROUND AT WALL
 var jumped = false
-#DETECT JUMPPADS
-var jumppad : Area2D
 #Store nearby Ottle to sleep next to later
 var recent_friend : CharacterBody2D
 #Signal when sleeping
@@ -114,9 +112,6 @@ func _on_action_timer_timeout() -> void:
 				#friend is to the left
 				elif recent_friend.position.x < self.position.x + 50:
 					wander_time([-1],[])
-				#Use jumppad when friend is up
-				if jumppad != null and recent_friend.position.y < self.position.y + 20:
-					velocity.y -= jumppad.jump_boost
 
 		#SET STAT FOCUS
 		var hunger_emphasis = pow(1.5, 0.3 * ($"Stats/Hunger Bar".max_value - $"Stats/Hunger Bar".value)) - 1
@@ -204,11 +199,6 @@ func _on_action_timer_timeout() -> void:
 				#friend is to the left
 				elif recent_friend.position.x < self.position.x + 50:
 					wander_time([-1],[])
-				#Use jumppad when friend is up
-				if jumppad != null and recent_friend.position.y < self.position.y + 20:
-					velocity.y -= jumppad.jump_boost
-					jumppad == null
-					
 			#Can't find Ottle, so sleep slowly
 			else:
 				is_sleeping = true
@@ -250,12 +240,6 @@ func _on_action_timer_timeout() -> void:
 			#chose to go left
 			if one_o_two == 2:
 				wander_time([-1,-1,-1, -1, 0, -1], [3.0, 4.0, 7.5])
-			#Use Jumppads sometimes
-			if jumppad != null:
-				var jump_maybe = randi_range(0,1)
-				if jump_maybe == 1:
-					velocity.y -= jumppad.jump_boost
-				jumppad = null
 			#Ottle wall stuck fix
 			if velocity.x == 0 and ($Tether_Line/Jump_Cast_Left.is_colliding() or $Tether_Line/Jump_Cast_Right.is_colliding()):
 				if one_o_two == 2:
@@ -340,15 +324,20 @@ func wander_time(directions : Array, travel_times : Array) -> void:
 #EAT FOOD
 func _on_consume_area_body_entered(body: Node2D) -> void:
 	if body != $"../PlayerBody":
-		if body.eat_heal_amount > 0 and $"Stats/Hunger Bar".value < 12:
-			$"Stats/Hunger Bar".value += body.eat_heal_amount * 1.5
-			if body.get_child(0).node_b == $"../PlayerBody/ItemFrame/Pointer".get_path():
+		if body.eat_heal_amount > 0: 
+			if $"Stats/Hunger Bar".value < 12:
+				$"Stats/Hunger Bar".value += body.eat_heal_amount * 1.5
+				body.queue_free()
+				wander_time([0], [1])
+			elif body.get_child(0).node_b == $"../PlayerBody/ItemFrame/Pointer".get_path() and $"Stats/Hunger Bar".value < 14:
+				$"Stats/Hunger Bar".value += body.eat_heal_amount * 1.5
+				body.queue_free()
 				Global_Variables.taming_strength += body.eat_heal_amount / 3
-			body.queue_free()
-			wander_time([0], [1])
-#DETECT JUMPPAD
-func _on_consume_area_area_entered(area: Area2D) -> void:
-	jumppad = area
+	elif self.velocity.x != 0:
+		body.velocity.y -= 200
+		body.velocity.x -= 200 * $Appearance.scale.x
+		$"Stats/Hunger Bar".value -= 1
+		body.get_child(0).value -= 5
 
 #Ottle woke up from a nap
 func _on_wake_up() -> void:

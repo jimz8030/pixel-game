@@ -121,6 +121,10 @@ func _on_consume_area_body_entered(body: Node2D) -> void:
 			$"Stats/Health Bar".value += body.eat_heal_amount
 			body.queue_free()
 			wander_time([0], [1])
+	else:
+		body.velocity.y -= 150
+		body.velocity.x -= 150 * $Appearance.scale.x
+		body.get_child(0).value -= 0.5
 
 #Crab is healing
 func _on_heal() -> void:

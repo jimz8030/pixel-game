@@ -53,9 +53,9 @@ func _on_mission_station_body_exited(_body: Node2D) -> void:
 	$"Mission Station/Label2".visible = false
 
 #Drop Pod
-func _on_drop_pod_body_entered(body: Node2D) -> void:
+func _on_drop_pod_body_entered(_body: Node2D) -> void:
 	next_to_drop = true
 	$"Drop Pod/Label2".visible = true
-func _on_drop_pod_body_exited(body: Node2D) -> void:
+func _on_drop_pod_body_exited(_body: Node2D) -> void:
 	next_to_drop = false
 	$"Drop Pod/Label2".visible = false

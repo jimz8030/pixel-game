@@ -48,6 +48,7 @@ func _on_explore_pressed() -> void:
 	Global_Variables.time_limit = 30
 
 func _on_mission_pressed() -> void:
+	$"CanvasLayer/Time_Report/Time Amount".text = "-- MIN"
 	$CanvasLayer/Time_Report.visible = true
 	$CanvasLayer/MissionMenu.visible = true
 	$CanvasLayer/Mission_Explore.texture = load("res://Sprites/UI/Mission Station/Mission.png")
@@ -58,7 +59,7 @@ func _on_input_time_text_submitted(_new_text: String) -> void:
 	is_letter.compile("[a-zA-Z]+")
 	if is_letter.search($CanvasLayer/MissionMenu/Input_Time.text):
 		$CanvasLayer/MissionMenu/Input_Time.text = ""
-	elif int($CanvasLayer/MissionMenu/Input_Time.text) > 20:
+	elif int($CanvasLayer/MissionMenu/Input_Time.text) >= 20 or float($CanvasLayer/MissionMenu/Input_Time.text) <= 0.1:
 		$CanvasLayer/MissionMenu/Input_Time.text = ""
 
 	#Submit the time amount
@@ -68,7 +69,7 @@ func _on_input_time_text_submitted(_new_text: String) -> void:
 		$CanvasLayer/MissionMenu/Input_Time.text = ""
 		$CanvasLayer/MissionMenu.visible = false
 
-	$"CanvasLayer/Reward Estimate".value = $"CanvasLayer/Reward Progression".value + (32 + (5 / Global_Variables.time_limit))
+	$"CanvasLayer/Reward Estimate".value = $"CanvasLayer/Reward Progression".value + (16 + (10 / Global_Variables.time_limit))
 
 func _on_raise_stats_timeout() -> void:
 	if $"CanvasLayer/You Box/Food Chain Progression".value != Global_Variables.food_chain_xp or $"CanvasLayer/Reward Progression".value != Global_Variables.reward_xp:

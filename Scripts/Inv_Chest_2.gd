@@ -62,12 +62,11 @@ func _input(event: InputEvent) -> void:
 				break
 
 	if event is InputEventMouseMotion:
-		
 		#get cursor position and make a "feeler" (or the pointer) follow it
 		$Pointer.set_position(get_local_mouse_position())
 		#lines are drawn near the cursor and used to determine if there's anything in the way
-		line_of_sight_1.set_target_position((get_local_mouse_position() + Vector2(-22,-33)) * 1.1)
-		line_of_sight_2.set_target_position((get_local_mouse_position() + Vector2(-22,-37)) * 1.1)
+		line_of_sight_1.set_target_position(Vector2(0,0))
+		line_of_sight_2.set_target_position((get_local_mouse_position()+ Vector2(0, 100)) * 1.1)
 
 		#declares that there is an item to select
 		if selected_item != null:
@@ -171,7 +170,7 @@ func _input(event: InputEvent) -> void:
 	queue_redraw()
 
 #DRAW LIFT LINE
-func _draw() -> void:
+func _draw() -> void: 
 	#Grabbing item
 	if selected_item != null:
 		draw_polyline($Lift_Line.curve.get_baked_points(), Color(0.27,0.83,0.9,0.5), 1.5)

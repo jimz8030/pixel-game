@@ -111,7 +111,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_du4cj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3n40d")
 theme_override_styles/normal = SubResource("StyleBoxFlat_s4vtn")
 action_mode = 0
-text = "DONE"
+text = "SUBMIT"
 
 [node name="Explore" type="Button" parent="CanvasLayer"]
 anchors_preset = -1

@@ -134,7 +134,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_v3ib1")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_u7bb3")
 theme_override_styles/normal = SubResource("StyleBoxFlat_tsq0e")
 action_mode = 0
-text = "APPLY"
+text = "DONE"
 
 [node name="HEAD BACK" type="Button" parent="CanvasLayer"]
 anchors_preset = -1

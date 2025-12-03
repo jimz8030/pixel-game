@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cds386o1s71ur"]
 
-[ext_resource type="Script" uid="uid://bag8pnhnrhdk7" path="res://Scripts/Inv_Chest_2.gd" id="2_gfd33"]
+[ext_resource type="Script" uid="uid://cgx4ij3lud6u6" path="res://Scripts/Inv_Chest_2.gd" id="2_gfd33"]
 [ext_resource type="Texture2D" uid="uid://ypv14vmdjgrl" path="res://White Square.png" id="3_uxns7"]
 [ext_resource type="FontFile" uid="uid://dm8eu1yy1xyrx" path="res://Resources/PixelIntv-OPxd.ttf" id="4_8rvat"]
 
@@ -33,11 +33,11 @@ shape = SubResource("CircleShape2D_paxux")
 curve = SubResource("Curve2D_45rtp")
 
 [node name="Line_of_Sight_1" type="RayCast2D" parent="."]
-position = Vector2(23, 35)
+position = Vector2(18, 49)
 collision_mask = 13
 
 [node name="Line_of_Sight_2" type="RayCast2D" parent="."]
-position = Vector2(23, 35)
+position = Vector2(18, 49)
 collision_mask = 77
 
 [node name="Slots" type="GridContainer" parent="."]

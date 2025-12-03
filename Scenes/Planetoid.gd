@@ -55,15 +55,16 @@ func _on_death_timer_timeout() -> void:
 		get_tree().change_scene_to_file("res://Scenes/Death_Screen.tscn")
 
 #Pickup Area
-func _on_drop_pod_body_entered(body: Node2D) -> void:
+func _on_drop_pod_body_entered(_body: Node2D) -> void:
 	next_to_pickup = true
 	$"Area Pickup/Label2".visible = true
-func _on_drop_pod_body_exited(body: Node2D) -> void:
+func _on_drop_pod_body_exited(_body: Node2D) -> void:
 	next_to_pickup = false
 	$"Area Pickup/Label2".visible = false
 
 #TAMING
 func _on_tame_pressed() -> void:
+	$"CanvasLayer2/Tame Menu/Taming Bar".value = $"PlayerBody/Taming Bar".value
 	$"CanvasLayer2/Tame Menu".visible = true
 	$"CanvasLayer2/Tame Menu/Exit".visible = false
 	$CanvasLayer2/Tame.visible = false
@@ -74,7 +75,7 @@ func _on_exit_pressed() -> void:
 	$"CanvasLayer2/Tame Menu".visible = false
 	if $"CanvasLayer2/Tame Menu/RESULTS".text == "TAMED":
 		animal_being_tamed.queue_free()
-	Global_Variables.taming_strength = 0
+	$"PlayerBody/Taming Bar".value = 0
 	$"CanvasLayer2/Tame Menu/Tug_Rope".value = 5
 	$"CanvasLayer2/Tame Menu/RESULTS".text = ""
 func taming_initial_pull():
